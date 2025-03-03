@@ -8,6 +8,7 @@ tasks:
     silent: true
 
   pre-commit:
+    desc: "Install pre-commit hooks"
     cmds:
       - pre-commit install
     sources:
@@ -23,6 +24,7 @@ tasks:
       - pre-commit run -a
 
   lint:
+    desc: "Run pre-commit hooks"
     cmds:
       - yamllint .
       - ansible-lint
