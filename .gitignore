@@ -1,2 +1,9 @@
 .task
 __pycache__
+
+# Devenv
+.devenv*
+devenv.local.nix
+
+# direnv
+.direnv

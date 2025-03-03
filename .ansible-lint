@@ -3,3 +3,6 @@ skip_list:
   - yaml
 
 offline: true
+
+exclude_paths:
+  - ".devenv/"

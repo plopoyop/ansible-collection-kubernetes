@@ -1,6 +1,9 @@
 ---
 extends: default
 
+ignore:
+  - ".devenv/"
+
 rules:
   line-length:
     max: 200
