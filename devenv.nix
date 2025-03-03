@@ -7,17 +7,17 @@
   env.LANG="en_US.UTF8";
 
   packages = [
+    pkgs.ansible
+    pkgs.ansible-lint
     pkgs.git
+    pkgs.glibcLocales
+    pkgs.go-task
+    pkgs.pre-commit
     pkgs.python312Packages.kubernetes
     pkgs.python312Packages.boto3
     pkgs.python312Packages.molecule
     pkgs.python312Packages.molecule-plugins
-    pkgs.ansible
-    pkgs.ansible-lint
     pkgs.yamllint
-    pkgs.pre-commit
-    pkgs.glibcLocales
-    pkgs.go-task
   ];
 
   languages.ansible.enable = true;
