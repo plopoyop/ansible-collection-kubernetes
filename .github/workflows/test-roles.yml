@@ -1,0 +1,20 @@
+---
+name: Test roles
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'roles/**'
+      - '.github/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'roles/**'
+      - '.github/**'
+
+jobs:
+  metallb:
+    uses: ./.github/workflows/test-role.yaml
+    with:
+      role_name: "metallb"
