@@ -45,3 +45,17 @@ tasks:
     cmds:
       - for: { var: ROLES_LIST }
         task: test:role:{{.ITEM}}
+
+  gen-doc:role:*:
+    desc: "Run tests on a specific role"
+    dir: 'roles/{{.ROLE_NAME}}'
+    cmds:
+      - ansible-doctor -f
+    vars:
+      ROLE_NAME: '{{index .MATCH 0}}'
+
+  gen-doc:roles:all:
+    desc: "Generate doc"
+    cmds:
+      - for: { var: ROLES_LIST }
+        task: gen-doc:role:{{.ITEM}}

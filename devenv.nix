@@ -8,6 +8,7 @@
 
   packages = [
     pkgs.ansible
+    pkgs.ansible-doctor
     pkgs.ansible-lint
     pkgs.git
     pkgs.glibcLocales
