@@ -1,0 +1,6 @@
+rbac:
+  create: {{ metallb_create_rbac | default("true") }}
+
+{% if not metallb_create_additionnal_values == {} %}
+{{ metallb_create_additionnal_values }}
+{% endif %}

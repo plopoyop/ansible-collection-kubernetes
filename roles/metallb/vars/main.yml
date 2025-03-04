@@ -1,0 +1,5 @@
+---
+metallb_helm_repository: "metallb"
+metallb_helm_repository_address: "https://metallb.github.io/metallb"
+metallb_helm_package_name: "metallb"
+metallb_helm_package_ref: "metallb/metallb"

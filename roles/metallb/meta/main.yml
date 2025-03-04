@@ -1,0 +1,16 @@
+---
+galaxy_info:
+  description: Install Metal LB controller on kubernetes
+  # namespace: kubernetes
+  role_name: metallb
+  author: Clément Hubert
+
+  license: MLP2
+
+  min_ansible_version: "2.1"
+
+  galaxy_tags:
+    - kubernetes
+    - metallb
+
+dependencies: []

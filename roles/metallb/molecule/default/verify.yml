@@ -1,0 +1,49 @@
+---
+- name: Verify
+  hosts: localhost
+  connection: local
+  gather_facts: true
+  vars_files:
+    - "../vars.yml"
+  tasks:
+    - name: Add echo server helm repo
+      kubernetes.core.helm_repository:
+        name: "ealenn"
+        repo_url: "https://ealenn.github.io/charts"
+
+    - name: Install echo helm package
+      kubernetes.core.helm:
+        name: "echo-server"
+        namespace: "echo-server"
+        chart_ref: "ealenn/echo-server"
+        create_namespace: true
+        update_repo_cache: true
+        wait: true
+        values:
+          service:
+            type: "LoadBalancer"
+
+    - name: Pause for job to complete.
+      ansible.builtin.pause:
+        seconds: 5
+
+    - name: Get 'metallb' namespace info.
+      kubernetes.core.k8s_info:
+        kind: Namespace
+        name: "{{ metallb_namespace }}"
+      register: namespace
+
+    - name: Assert that 'metallb' namespace is active
+      ansible.builtin.assert:
+        that: namespace['resources'][0]['status']['phase'] == "Active"
+
+    - name: Get 'echo-server' service info.
+      kubernetes.core.k8s_info:
+        kind: Service
+        name: "echo-server"
+        namespace: "echo-server"
+      register: service
+
+    - name: Assert that 'echo-server' service has an ip address
+      ansible.builtin.assert:
+        that: service['resources'][0]['status']['loadBalancer']['ingress'][0]['ip'] is defined

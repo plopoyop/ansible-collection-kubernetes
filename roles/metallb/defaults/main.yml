@@ -1,0 +1,68 @@
+---
+# @var metallb_enabled
+# @var metallb_enabled:type: boolean
+# @var metallb_enabled:description: >
+# Should metallb helm chart be installed
+metallb_enabled: true
+
+# @var metallb_namespace
+# @var metallb_namespace:type: string
+# @var metallb_namespace:description: >
+# K8s namespace to install the metallb chart
+metallb_namespace: "metallb-system"
+
+# @var metallb_helm_version
+# @var metallb_helm_version:type: string
+# @var metallb_helm_version:description: >
+# Helm chart version to install
+metallb_helm_version: "0.14.9"
+
+# @var metallb_ip_pools:description: >
+# IP pool to create
+# @end
+# @var metallb_ip_pools:example: >
+#  metallb_ip_pools:
+#  - name: "default-ip-pool"
+#    protocol: "layer2"
+#    addresses: "192.168.50.8-192.168.50.12"
+#    state: "present"
+#    pool_options:
+#      avoidBuggyIPs: true
+#      serviceAllocation:
+#      priority: 50
+#    interfaces: ["eth0", "eth1"]
+#  - name: "bgp-ip-pool"
+#    protocol: "bgp"
+#    addresses: "198.51.100.10/24"
+#    bgp_peer_options:
+#      myASN: 64500
+#      peerASN: 64501
+#      peerAddress: "10.0.0.1"
+#      peerPort: 180
+#    bfd_profile_options:
+#      receiveInterval: 380
+#      transmitInterval: 270
+#    frr_configuration_options:
+#        bgp:
+#          routers:
+#          - asn: 64512
+#            neighbors:
+#              - address: 172.30.0.3
+#                asn: 64512
+#                toReceive:
+#                  allowed:
+#                  mode: all
+#    community_configuration_options:
+#      communities:
+#        - name: "vpn-only"
+#          value: 74041
+#        - name: "NO_ADVERTISE"
+#          value: "65535:65282"
+#
+metallb_ip_pools: {}
+
+# @var metallb_create_additionnal_values:description: >
+# additionnal values to pass to helm chart. Will be rendered as is
+# @end
+# @var metallb_create_additionnal_values:example: $ {"prometheus": {"scrapeAnnotations": true}}
+metallb_create_additionnal_values: {}

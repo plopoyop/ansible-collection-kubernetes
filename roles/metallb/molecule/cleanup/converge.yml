@@ -1,0 +1,13 @@
+---
+- name: Converge
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars_files:
+    - "../vars.yml"
+  vars:
+    metallb_enabled: false
+  tasks:
+    - name: Install metallb
+      ansible.builtin.import_role:
+        name: "plopoyop.kubernetes.metallb"

@@ -1,0 +1,91 @@
+---
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: "{{ current_ip_pool.name }}"
+  namespace: "{{ metallb_namespace }}"
+  protocol: "{{ current_ip_pool.protocol }}"
+spec:
+  addresses:
+    - "{{ current_ip_pool.addresses }}"
+{% if current_ip_pool.pool_options | default({}) != {} %}
+  {{ current_ip_pool.pool_options | ansible.builtin.to_nice_yaml | indent(2) }}
+{% endif %}
+
+{% if current_ip_pool.protocol == "layer2" %}
+---
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: "{{ current_ip_pool.name }}-advertisement"
+  namespace: "{{ metallb_namespace }}"
+spec:
+  ipAddressPools:
+    - "{{ current_ip_pool.name }}"
+{% if current_ip_pool.advertisement_options | default({}) != {} %}
+  {{ current_ip_pool.advertisement_options | ansible.builtin.to_nice_yaml | indent(2) }}
+{% endif %}
+
+{% elif current_ip_pool.protocol == "bgp" %}
+---
+apiVersion: metallb.io/v1beta2
+kind: BGPPeer
+metadata:
+  name: "{{ current_ip_pool.name }}-bgp-peer"
+  namespace: "{{ metallb_namespace }}"
+spec:
+{% if current_ip_pool.bgp_peer_options | default({}) != {} %}
+  {{ current_ip_pool.bgp_peer_options | ansible.builtin.to_nice_yaml | indent(2) }}
+{% endif %}
+{% if current_ip_pool.bfd_profile_options | default({}) != {} %}
+  bfdProfile: "{{ current_ip_pool.name }}-bfd-profile"
+
+---
+apiVersion: metallb.io/v1beta1
+kind: BFDProfile
+metadata:
+  name: "{{ current_ip_pool.name }}-bfd-profile"
+  namespace: "{{ metallb_namespace }}"
+spec:
+  {{ current_ip_pool.bfd_profile_options | ansible.builtin.to_nice_yaml | indent(2) }}
+{% endif %}
+
+---
+apiVersion: metallb.io/v1beta1
+kind: BGPAdvertisement
+metadata:
+  name: "{{ current_ip_pool.name }}-advertisement"
+  namespace: "{{ metallb_namespace }}"
+spec:
+  ipAddressPools:
+    - "{{ current_ip_pool.name }}"
+{% if current_ip_pool.advertisement_options | default({}) != {} %}
+  {{ current_ip_pool.advertisement_options | ansible.builtin.to_nice_yaml | indent(2) }}
+{% endif %}
+{% endif %}
+
+{% if frr_configuration_options | default({}) != {} %}
+---
+apiVersion: frrk8s.metallb.io/v1beta1
+kind: FRRConfiguration
+metadata:
+  name: "{{ current_ip_pool.name }}-frr"
+  namespace: "{{ metallb_namespace }}"
+spec:
+{% if current_ip_pool.frr_configuration_options | default({}) != {} %}
+  {{ current_ip_pool.frr_configuration_options | ansible.builtin.to_nice_yaml | indent(2) }}
+{% endif %}
+{% endif %}
+
+{% if community_configuration_options | default({}) != {} %}
+---
+apiVersion: frrk8s.metallb.io/v1beta1
+kind: Community
+metadata:
+  name: "{{ current_ip_pool.name }}-community"
+  namespace: "{{ metallb_namespace }}"
+spec:
+{% if current_ip_pool.community_configuration_options | default({}) != {} %}
+  {{ current_ip_pool.community_configuration_options | ansible.builtin.to_nice_yaml | indent(2) }}
+{% endif %}
+{% endif %}

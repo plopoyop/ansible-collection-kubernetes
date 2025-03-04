@@ -1,0 +1,35 @@
+---
+- name: "Remove known IP Pools"
+  kubernetes.core.k8s:
+    state: "absent"
+    namespace: "{{ metallb_namespace }}"
+    template: 'config.yml.j2'
+  register: result
+  until: result is defined
+  retries: 60
+  delay: 5
+  loop: "{{ metallb_ip_pools }}"
+  loop_control:
+    loop_var: current_ip_pool
+
+- name: "Remove metal lb helm package"
+  kubernetes.core.helm:
+    name: "{{ metallb_helm_package_name }}"
+    namespace: "{{ metallb_namespace }}"
+    chart_ref: "{{ metallb_helm_package_ref }}"
+    chart_version: "{{ metallb_helm_version }}"
+    wait: true
+    state: "absent"
+
+- name: Remove metallb namespace
+  kubernetes.core.k8s:
+    name: "{{ metallb_namespace }}"
+    api_version: "v1"
+    kind: "Namespace"
+    state: "absent"
+
+- name: "Remove helm repo"
+  kubernetes.core.helm_repository:
+    name: "{{ metallb_helm_repository }}"
+    repo_url: "{{ metallb_helm_repository_address }}"
+    repo_state: absent

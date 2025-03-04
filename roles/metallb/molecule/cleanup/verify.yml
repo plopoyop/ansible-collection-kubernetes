@@ -1,0 +1,21 @@
+---
+- name: Verify
+  hosts: localhost
+  connection: local
+  gather_facts: true
+  vars_files:
+    - "../vars.yml"
+  tasks:
+    - name: Pause for job to complete.
+      ansible.builtin.pause:
+        seconds: 5
+
+    - name: Get 'metallb' namespace info.
+      kubernetes.core.k8s_info:
+        kind: Namespace
+        name: "{{ metallb_namespace }}"
+      register: namespace
+
+    - name: Assert that 'metallb' namespace does not exist
+      ansible.builtin.assert:
+        that: namespace['resources'] == []
