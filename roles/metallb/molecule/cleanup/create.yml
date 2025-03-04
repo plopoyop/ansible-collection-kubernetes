@@ -16,4 +16,4 @@
 
     - name: Install metallb
       ansible.builtin.import_role:
-        name: "plopoyop.kubernetes.metallb"
+        name: "metallb"

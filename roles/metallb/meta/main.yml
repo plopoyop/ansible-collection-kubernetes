@@ -1,7 +1,6 @@
 ---
 galaxy_info:
   description: Install Metal LB controller on kubernetes
-  # namespace: kubernetes
   role_name: metallb
   author: Clément Hubert
 
