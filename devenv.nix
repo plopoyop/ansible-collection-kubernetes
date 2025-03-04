@@ -12,6 +12,7 @@
     pkgs.git
     pkgs.glibcLocales
     pkgs.go-task
+    pkgs.kind
     pkgs.pre-commit
     pkgs.python312Packages.kubernetes
     pkgs.python312Packages.boto3
