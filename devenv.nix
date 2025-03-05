@@ -1,8 +1,6 @@
 { pkgs, lib, config, inputs, ... }:
 
 {
-  env.ANSIBLE_ROLES_PATH=".devenv/ansible/roles";
-  env.ANSIBLE_COLLECTIONS_PATH=".devenv/ansible/collections";
   env.LOCALE_ARCHIVE="${pkgs.glibcLocales}/lib/locale/locale-archive";
   env.LANG="en_US.UTF8";
 
@@ -25,6 +23,9 @@
   languages.ansible.enable = true;
 
   enterShell = ''
+    export ANSIBLE_ROLES_PATH=$PWD/.devenv/ansible/roles;
+    export ANSIBLE_COLLECTIONS_PATH=$PWD/.devenv/ansible/collections;
+
     mkdir -p $ANSIBLE_ROLES_PATH
     mkdir -p $ANSIBLE_COLLECTIONS_PATH
   '';
