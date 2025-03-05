@@ -1,0 +1,62 @@
+deployment:
+  kind: "{{ deployment_kind }}"
+service:
+  type: "{{ service_type }}"
+ports:
+{% if traefik_entrypoint_port is defined %}
+  traefik:
+    port: {{ traefik_entrypoint_port }}
+    expose:
+      default: {{ traefik_entrypoint_expose }}
+{% endif %}
+{% if websecure_entrypoint_port is defined %}
+  websecure:
+    port: {{ websecure_entrypoint_port }}
+    exposedPort: {{ websecure_entrypoint_exposed_port }}
+    expose:
+      default: {{ websecure_entrypoint_expose }}
+{% endif %}
+{% if websecure_entrypoint_port is defined %}
+  web:
+    expose:
+      default: {{ web_entrypoint_expose }}
+{% endif %}
+{% for entrypoint in additionnal_entrypoint | default([]) %}
+  {{ entrypoint.name }}:
+    port: {{ entrypoint.port }}
+    exposedPort: {{ entrypoint.exposed_port }}
+    expose:
+      default: {{ entrypoint.expose }}
+{% endfor %}
+{% if dashboard_enabled | default(false) %}
+ingressRoute:
+  dashboard:
+      enabled: true
+{% endif %}
+
+
+{% if traefik_ingress_enabled  | default(true) %}
+ingressClass:
+  enabled: {{ traefik_ingress_enabled }}
+{% endif %}
+
+providers:
+  # Disable the Ingress provider (optional)
+  kubernetesIngress:
+    enabled: {{ traefik_ingress_enabled }}
+  # Enable the GatewayAPI provider
+  kubernetesGateway:
+    enabled: {{ traefik_gateway_enabled }}
+
+# Allow the Gateway to expose HTTPRoute from all namespaces
+{% if traefik_gateway_enabled %}
+gateway:
+  namespacePolicy: All
+  listeners:
+    web:
+      namespacePolicy: All
+{% endif %}
+
+{% if additionnal_values | default({}) != {} %}
+{{ additionnal_values }}
+{% endif %}

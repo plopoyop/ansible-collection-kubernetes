@@ -1,0 +1,4 @@
+---
+traefik_helm_repo_name: "traefik"
+traefik_helm_chart_ref: "traefik/traefik"
+traefik_helm_repo_url: "https://traefik.github.io/charts"

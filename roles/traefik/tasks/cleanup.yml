@@ -1,0 +1,26 @@
+---
+- name: "Remove all traefik helm package instances"
+  kubernetes.core.helm:
+    name: "{{ traefik_instance_to_remove.name }}"
+    namespace: "{{ traefik_namespace }}"
+    state: "absent"
+    chart_ref: "{{ traefik_helm_chart_ref }}"
+    chart_version: "{{ traefik_helm_version }}"
+    values: "{{ lookup('ansible.builtin.template', 'traefik_helm_values.yml.j2', template_vars=traefik_instance_to_remove.helm_values) | from_yaml }}"
+    wait: true
+  loop: "{{ traefik_deployments }}"
+  loop_control:
+    loop_var: traefik_instance_to_remove
+
+- name: "Remove ingress traefik helm repo"
+  kubernetes.core.helm_repository:
+    name: "{{ traefik_helm_repo_name }}"
+    repo_url: "{{ traefik_helm_repo_url }}"
+    state: "absent"
+
+- name: "Remove ingress-controller namespace"
+  kubernetes.core.k8s:
+    name: "{{ traefik_namespace }}"
+    api_version: "v1"
+    kind: "Namespace"
+    state: "absent"

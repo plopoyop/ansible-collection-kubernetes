@@ -1,0 +1,68 @@
+---
+- name: "Install traefik helm package"
+  kubernetes.core.helm:
+    name: "{{ traefik_current_instance.name }}"
+    namespace: "{{ traefik_namespace }}"
+    state: "{{ traefik_current_instance.state }}"
+    chart_ref: "{{ traefik_helm_chart_ref }}"
+    chart_version: "{{ traefik_helm_version }}"
+    update_repo_cache: true
+    values: "{{ lookup('ansible.builtin.template', 'traefik_helm_values.yml.j2', template_vars=traefik_current_instance.helm_values) | from_yaml }}"
+    wait: true
+
+- name: "Wait for ingress pods to become ready"
+  kubernetes.core.k8s:
+    namespace: "{{ traefik_namespace }}"
+    kind: "Pod"
+    label_selectors:
+      - "name = ingress-traefik"
+    wait: true
+    wait_condition:
+      type: "Ready"
+      status: true
+    wait_timeout: 600
+
+- name: "Wait for admission endpoint to become ready"
+  kubernetes.core.k8s:
+    namespace: "{{ traefik_namespace }}"
+    name: "traefik -admission"
+    kind: "Endpoints"
+    label_selectors:
+      - "name = ingress-traefik"
+    wait: true
+    wait_sleep: 5
+    wait_timeout: 600
+
+- name: "Wait for endpoint to become ready"
+  kubernetes.core.k8s:
+    namespace: "{{ traefik_namespace }}"
+    name: "traefik"
+    kind: "Endpoints"
+    label_selectors:
+      - "name = ingress-traefik"
+    wait: true
+    wait_sleep: 5
+    wait_timeout: 600
+
+- name: "Get Ingress-Controller Service"
+  kubernetes.core.k8s_info:
+    api_version: "v1"
+    kind: "Service"
+    name: "{{ traefik_current_instance.name }}"
+    namespace: "{{ traefik_namespace }}"
+  register: ingress_controller_service
+  until: ingress_controller_service is defined and ((ingress_controller_service.resources | length) > 0)
+  retries: 60
+  delay: 5
+
+- name: "Create updated IP addresses list"
+  ansible.utils.update_fact:
+    updates:
+      - path: traefik_ingress_ip_addresses_list[{{ traefik_current_instance.name }}]
+        value: "{{ ingress_controller_service.resources[0].status.loadBalancer.ingress[0].ip }}"
+  register: updated
+  changed_when: false
+
+- name: "Updated IP addresses list"
+  ansible.builtin.set_fact:
+    traefik_ingress_ip_addresses_list: "{{ updated.traefik_ingress_ip_addresses_list }}"

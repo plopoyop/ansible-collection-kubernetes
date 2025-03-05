@@ -1,0 +1,16 @@
+---
+galaxy_info:
+  description: Install traefik ingress controller on kubernetes
+  role_name: traefik
+  author: Clément Hubert
+
+  license: MLP2
+
+  min_ansible_version: "2.1"
+
+  galaxy_tags:
+    - kubernetes
+    - traefik
+    - ingress
+
+dependencies: []

@@ -1,0 +1,22 @@
+---
+- name: "Create ingress-controller namespace"
+  kubernetes.core.k8s:
+    name: "{{ traefik_namespace }}"
+    api_version: "v1"
+    kind: "Namespace"
+    state: "present"
+
+- name: "Add ingress traefik helm repo"
+  kubernetes.core.helm_repository:
+    name: "{{ traefik_helm_repo_name }}"
+    repo_url: "{{ traefik_helm_repo_url }}"
+
+- name: "Instanciate ip addresses list"
+  ansible.builtin.set_fact:
+    traefik_ingress_ip_addresses_list: {}
+
+- name: "Deploy instances"
+  ansible.builtin.include_tasks: "deploy_instance.yml"
+  loop: "{{ traefik_deployments }}"
+  loop_control:
+    loop_var: traefik_current_instance
