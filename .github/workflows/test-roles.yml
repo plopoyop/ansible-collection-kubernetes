@@ -18,3 +18,7 @@ jobs:
     uses: ./.github/workflows/test-role.yaml
     with:
       role_name: "metallb"
+  traefik:
+    uses: ./.github/workflows/test-role.yaml
+    with:
+      role_name: "traefik"

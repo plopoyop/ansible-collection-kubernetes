@@ -1,0 +1,41 @@
+---
+- name: Verify
+  hosts: localhost
+  connection: local
+  gather_facts: true
+
+  tasks:
+    - name: "Pause for job to complete."
+      ansible.builtin.pause:
+        seconds: 5
+
+    - name: "Get 'traefik' namespace info."
+      kubernetes.core.k8s_info:
+        kind: "Namespace"
+        name: "ingress-traefik-controller"
+      register: namespace
+
+    - name: "Assert that 'traefik' namespace is active"
+      ansible.builtin.assert:
+        that: namespace['resources'] == []
+
+    - name: "Get 'traefik' namespace info."
+      kubernetes.core.k8s_info:
+        kind: "IngressClass"
+        name: "traefik"
+      register: ingressclass
+
+    - name: "Assert that 'traefik' ingress class is defined"
+      ansible.builtin.assert:
+        that: ingressclass['resources'][0] is not defined
+
+    - name: "Get 'traefik' service info."
+      kubernetes.core.k8s_info:
+        kind: "Service"
+        name: "traefik"
+        namespace: "ingress-traefik-controller"
+      register: service
+
+    - name: "Assert that 'traefik' service is removed"
+      ansible.builtin.assert:
+        that: service['resources'][0]['status']['loadBalancer']['ingress'] is not defined

@@ -1,0 +1,28 @@
+---
+- name: Verify
+  hosts: localhost
+  connection: local
+  gather_facts: true
+
+  tasks:
+    - name: Pause for job to complete.
+      ansible.builtin.pause:
+        seconds: 5
+
+    - name: Get 'traefik' namespace info.
+      kubernetes.core.k8s_info:
+        kind: Namespace
+        name: "ingress-traefik-controller"
+      register: namespace
+
+    - name: Assert that 'traefik' namespace is active
+      ansible.builtin.assert:
+        that: namespace['resources'][0]['status']['phase'] == "Active"
+
+    - name: Multiple checks on instances
+      ansible.builtin.include_tasks: ./tasks/check_instances.yml
+      loop:
+        - "traefik-public"
+        - "traefik-private"
+      loop_control:
+        loop_var: instance_to_check

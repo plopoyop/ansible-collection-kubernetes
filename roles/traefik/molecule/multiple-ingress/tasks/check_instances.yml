@@ -1,0 +1,21 @@
+---
+- name: "Get ingress class info for {{ instance_to_check }}"
+  kubernetes.core.k8s_info:
+    kind: IngressClass
+    name: "{{ instance_to_check }}"
+  register: ingressclass
+
+- name: "Assert that ingress class is defined for {{ instance_to_check }}"
+  ansible.builtin.assert:
+    that: ingressclass['resources'][0] is defined
+
+- name: "Get service info for {{ instance_to_check }}"
+  kubernetes.core.k8s_info:
+    kind: Service
+    name: "{{ instance_to_check }}"
+    namespace: "ingress-traefik-controller"
+  register: service
+
+- name: "Assert that service is defined {{ instance_to_check }}"
+  ansible.builtin.assert:
+    that: service['resources'][0]['status']['loadBalancer']['ingress'] is defined
