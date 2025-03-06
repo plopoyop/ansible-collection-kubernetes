@@ -19,7 +19,7 @@
       ansible.builtin.assert:
         that: namespace['resources'][0]['status']['phase'] == "Active"
 
-    - name: Get 'traefik' namespace info.
+    - name: Get 'traefik' ingress class info.
       kubernetes.core.k8s_info:
         kind: IngressClass
         name: "traefik"
