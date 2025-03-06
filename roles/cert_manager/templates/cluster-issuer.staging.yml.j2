@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-staging
+spec:
+  acme:
+    server: "{{ cert_manager_acme_staging_url }}"
+{% if cert_manager_acme_staging_contact_email != "" %}
+    email: "{{ cert_manager_acme_staging_contact_email }}"
+{% endif %}
+    privateKeySecretRef:
+      name: "{{ cert_manager_acme_staging_private_key_ref }}"
+    solvers: {{ cert_manager_acme_staging_solver }}

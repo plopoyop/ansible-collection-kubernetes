@@ -1,0 +1,56 @@
+---
+# @todo improvement: Allow multiple times deployment of the same ClusterIssuer with differents names and solvers
+- name: "Create cert-manager namespace"
+  kubernetes.core.k8s:
+    name: "{{ cert_manager_namespace }}"
+    api_version: "v1"
+    kind: "Namespace"
+    state: "present"
+
+- name: "Add jetstack helm repo"
+  kubernetes.core.helm_repository:
+    name: "{{ cert_manager_helm_repo_name }}"
+    repo_url: "{{ cert_manager_helm_repo_url }}"
+
+- name: "Install cert-manager helm package in namespace cert-manager"
+  kubernetes.core.helm:
+    name: "{{ cert_manager_deployment_name }}"
+    namespace: "{{ cert_manager_namespace }}"
+    chart_ref: "{{ cert_manager_helm_chart_ref }}"
+    chart_version: "{{ cert_manager_helm_chart_version }}"
+    create_namespace: true
+    update_repo_cache: true
+    values:
+      installCRDs: true
+    wait: true
+
+- name: "Install trust manager helm package in namespace cert-manager"
+  kubernetes.core.helm:
+    name: "{{ cert_manager_trust_manager_deployment_name }}"
+    namespace: "{{ cert_manager_namespace }}"
+    chart_ref: "{{ cert_manager_trust_manager_helm_chart_ref }}"
+    chart_version: "{{ cert_manager_trust_manager_helm_chart_ref }}"
+    create_namespace: true
+    update_repo_cache: true
+    values:
+      installCRDs: true
+    wait: true
+  when: cert_manager_trust_manager_enabled
+
+- name: "Create staging cluster-issuer for lets encrypt"
+  kubernetes.core.k8s:
+    namespace: "{{ cert_manager_namespace }}"
+    state: "{{ cert_manager_acme_staging_enabled | ansible.builtin.ternary('present', 'absent') }}"
+    template: cluster-issuer.staging.yml.j2
+
+- name: "Create prod cluster-issuer for lets encrypt"
+  kubernetes.core.k8s:
+    namespace: "{{ cert_manager_namespace }}"
+    state: "{{ cert_manager_acme_production_enabled | ansible.builtin.ternary('present', 'absent') }}"
+    template: cluster-issuer.prod.yml.j2
+
+- name: "Create SelfSigned cluster-issuer"
+  kubernetes.core.k8s:
+    namespace: "{{ cert_manager_namespace }}"
+    state: "{{ cert_manager_self_signed_enabled | ansible.builtin.ternary('present', 'absent') }}"
+    template: cluster-issuer.selfsigned.yml.j2

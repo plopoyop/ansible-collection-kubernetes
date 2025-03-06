@@ -1,0 +1,11 @@
+---
+- name: Converge
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: "Install cert-manager"
+      ansible.builtin.import_role:
+        name: "cert_manager"
+  vars:
+    cert_manager_enabled: false

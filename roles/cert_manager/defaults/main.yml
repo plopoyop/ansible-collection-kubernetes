@@ -1,0 +1,128 @@
+---
+# @var cert_manager_enabled
+# @var cert_manager_enabled:type: boolean
+# @var cert_manager_enabled:description: >
+# Should cert-manager helm chart be installed
+cert_manager_enabled: true
+
+# @var cert_manager_namespace
+# @var cert_manager_namespace:type: string
+# @var cert_manager_namespace:description: >
+# K8s namespace to install the cert-manager chart
+cert_manager_namespace: "cert-manager"
+
+# @var cert_manager_helm_chart_version
+# @var cert_manager_helm_chart_version:type: string
+# @var cert_manager_helm_chart_version:description: >
+# Helm chart version to install
+cert_manager_helm_chart_version: "1.17.1"
+
+# @var cert_manager_deployment_name
+# @var cert_manager_deployment_name:type: string
+# @var cert_manager_deployment_name:description: >
+# Deployment name for cert-manager helm chart
+cert_manager_deployment_name: "cert-manager"
+
+# @var cert_manager_trust_manager_enabled
+# @var cert_manager_trust_manager_enabled:type: boolean
+# @var cert_manager_trust_manager_enabled:description: >
+# Should cert-manager trust manager helm chart be installed
+cert_manager_trust_manager_enabled: false
+
+# @var cert_manager_trust_manager_helm_chart_ref
+# @var cert_manager_trust_manager_helm_chart_ref:type: string
+# @var cert_manager_trust_manager_helm_chart_ref:description: >
+# Trust manager Helm chart version to install
+cert_manager_trust_manager_helm_chart_ref: "0.16.0"
+
+# @var cert_manager_trust_manager_deployment_name
+# @var cert_manager_trust_manager_deployment_name:type: string
+# @var cert_manager_trust_manager_deployment_name:description: >
+# Deployment name for cert-manager trust manager helm chart
+cert_manager_trust_manager_deployment_name: "cert-manager-trust"
+
+# @var cert_manager_self_signed_enabled
+# @var cert_manager_self_signed_enabled:type: boolean
+# @var cert_manager_self_signed_enabled:description: >
+# Should SelfSigned ClusterIssuer be enabled
+cert_manager_self_signed_enabled: true
+
+# @var cert_manager_self_signed_enabled
+# @var cert_manager_self_signed_enabled:type: boolean
+# @var cert_manager_self_signed_enabled:description: >
+# Should ACME production ClusterIssuer be enabled
+cert_manager_acme_production_enabled: true
+
+# @var cert_manager_acme_production_ingress_class
+# @var cert_manager_acme_production_ingress_class:type: string
+# @var cert_manager_acme_production_ingress_class:description: >
+# Ingress Class for ACME Production HTTP solver
+cert_manager_acme_production_ingress_class: "traefik"
+
+# @var cert_manager_acme_production_url
+# @var cert_manager_acme_production_url:type: string
+# @var cert_manager_acme_production_url:description: >
+# ACME Production url
+cert_manager_acme_production_url: "https://acme-v02.api.letsencrypt.org/directory"
+
+# @var cert_manager_acme_production_contact_email
+# @var cert_manager_acme_production_contact_email:type: string
+# @var cert_manager_acme_production_contact_email:description: >
+# Contact Email for ACME production account
+cert_manager_acme_production_contact_email: ""
+
+# @var cert_manager_acme_production_private_key_ref
+# @var cert_manager_acme_production_private_key_ref:type: string
+# @var cert_manager_acme_production_private_key_ref:description: >
+# Private key secret ref for ACME Production
+cert_manager_acme_production_private_key_ref: "letsencrypt-prod"
+
+# @var cert_manager_acme_production_solver
+# @var cert_manager_acme_production_solver:type: list
+# @var cert_manager_acme_production_solver:description: >
+# Solver for ACME Production
+cert_manager_acme_production_solver:
+  - selector: {}
+    http01:
+      ingress:
+        ingressClassName: "{{ cert_manager_acme_production_ingress_class }}"
+
+# @var cert_manager_acme_staging_enabled
+# @var cert_manager_acme_staging_enabled:type: boolean
+# @var cert_manager_acme_staging_enabled:description: >
+# Should ACME staging ClusterIssuer be enabled
+cert_manager_acme_staging_enabled: true
+
+# @var cert_manager_acme_staging_ingress_class
+# @var cert_manager_acme_staging_ingress_class:type: string
+# @var cert_manager_acme_staging_ingress_class:description: >
+# Ingress Class for ACME Staging HTTP solver
+cert_manager_acme_staging_ingress_class: "traefik"
+
+# @var cert_manager_acme_staging_url
+# @var cert_manager_acme_staging_url:type: string
+# @var cert_manager_acme_production_url:description: >
+# ACME Staging url
+cert_manager_acme_staging_url: "https://acme-staging-v02.api.letsencrypt.org/directory"
+
+# @var cert_manager_acme_production_contact_email
+# @var cert_manager_acme_production_contact_email:type: string
+# @var cert_manager_acme_production_contact_email:description: >
+# Contact Email for ACME production account
+cert_manager_acme_staging_contact_email: ""
+
+# @var cert_manager_acme_staging_private_key_ref
+# @var cert_manager_acme_staging_private_key_ref:type: string
+# @var cert_manager_acme_staging_private_key_ref:description: >
+# Private key secret ref for ACME Staging
+cert_manager_acme_staging_private_key_ref: "letsencrypt-staging"
+
+# @var cert_manager_acme_staging_solver
+# @var cert_manager_acme_staging_solver:type: list
+# @var cert_manager_acme_staging_solver:description: >
+# Solver for ACME Staging
+cert_manager_acme_staging_solver:
+  - selector: {}
+    http01:
+      ingress:
+        ingressClassName: "{{ cert_manager_acme_staging_ingress_class }}"

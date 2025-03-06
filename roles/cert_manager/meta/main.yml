@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  description: Install cert-manager
+  role_name: cert_manager
+  author: Clément Hubert
+
+  license: MLP2
+
+  min_ansible_version: "2.1"
+
+  galaxy_tags:
+    - kubernetes
+    - certmanager
+    - certificate
+    - acme
+
+dependencies: []

@@ -2,7 +2,7 @@
 version: '3'
 
 vars:
-  ROLES_LIST: ["metallb", "traefik"]
+  ROLES_LIST: ["metallb", "traefik", "cert_manager"]
 
 tasks:
   default:

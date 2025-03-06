@@ -1,0 +1,41 @@
+---
+- name: "Remove staging cluster-issuer for lets encrypt"
+  kubernetes.core.k8s:
+    namespace: "{{ cert_manager_namespace }}"
+    state: "absent"
+    template: cluster-issuer.staging.yml.j2
+
+- name: "Remove prod cluster-issuer for lets encrypt"
+  kubernetes.core.k8s:
+    namespace: "{{ cert_manager_namespace }}"
+    state: "absent"
+    template: cluster-issuer.prod.yml.j2
+
+- name: "Remove SelfSigned cluster-issuer for tests"
+  kubernetes.core.k8s:
+    namespace: "{{ cert_manager_namespace }}"
+    state: "absent"
+    template: cluster-issuer.selfsigned.yml.j2
+
+- name: "Remove trust manager helm package from namespace"
+  kubernetes.core.helm:
+    name: "{{ cert_manager_trust_manager_deployment_name }}"
+    namespace: "{{ cert_manager_namespace }}"
+    chart_ref: "{{ cert_manager_trust_manager_helm_chart_ref }}"
+    state: "absent"
+    wait: true
+
+- name: "Remove cert-manager helm package from namespace"
+  kubernetes.core.helm:
+    name: "{{ cert_manager_deployment_name }}"
+    namespace: "{{ cert_manager_namespace }}"
+    chart_ref: "{{ cert_manager_helm_chart_ref }}"
+    state: "absent"
+    wait: true
+
+- name: "Remove cert-manager namespace"
+  kubernetes.core.k8s:
+    name: "{{ cert_manager_namespace }}"
+    api_version: "v1"
+    kind: "Namespace"
+    state: "absent"
