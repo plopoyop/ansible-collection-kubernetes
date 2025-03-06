@@ -17,5 +17,7 @@ jobs:
           name: devenv
       - name: Install devenv.sh
         run: nix profile install nixpkgs#devenv
+      - name: Prepare env
+        run: devenv shell task prepare
       - name: Run molecule test
         run: devenv shell task test:role:${{inputs.role_name}}

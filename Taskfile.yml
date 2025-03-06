@@ -10,6 +10,14 @@ tasks:
       - task -l
     silent: true
 
+  prepare:
+    desc: "Prepare development environment"
+    cmds:
+      - task: pre-commit
+      - install-kind-cloud
+    generates:
+      - .devenv/bin/cloud-provider-kind
+
   pre-commit:
     desc: "Install pre-commit hooks"
     cmds:
@@ -35,6 +43,8 @@ tasks:
   test:role:*:
     desc: "Run tests on a specific role"
     dir: 'roles/{{.ROLE_NAME}}'
+    deps:
+      - prepare
     cmds:
       - molecule test --all
     vars:
