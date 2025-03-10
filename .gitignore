@@ -1,5 +1,6 @@
 .task
 __pycache__
+.pytest_cache/
 
 # Devenv
 .devenv*
