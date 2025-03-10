@@ -1,28 +1,21 @@
 ---
-name: Lint
-
+name: test modules
 on:
   push:
     branches: [main]
     paths:
-      - 'roles/**'
       - 'plugins/**'
       - 'tests/**'
-      - '.github/workflows/lint.yml'
-      - '.ansible-lint.yml'
-      - '.yamllint.yml'
+      - '.github/workflows/test-modules.yml'
   pull_request:
     branches: [main]
     paths:
-      - 'roles/**'
       - 'plugins/**'
       - 'tests/**'
-      - '.github/workflows/lint.yml'
-      - '.ansible-lint.yml'
-      - '.yamllint.yml'
+      - '.github/workflows/test-modules.yml'
 
 jobs:
-  lint:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -32,5 +25,7 @@ jobs:
           name: devenv
       - name: Install devenv.sh
         run: nix profile install nixpkgs#devenv
-      - name: Run Linter
-        run: devenv shell task lint
+      - name: Prepare env
+        run: devenv shell task prepare
+      - name: Run pytest
+        run: devenv shell task test:modules
