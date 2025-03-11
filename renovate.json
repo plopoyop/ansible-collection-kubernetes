@@ -1,3 +1,56 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json"
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":dependencyDashboard"
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": ["helm"],
+      "matchPackageNames": ["traefik"],
+      "registryUrls": ["https://traefik.github.io/charts"]
+    },
+    {
+      "matchDatasources": ["helm"],
+      "matchPackageNames": ["metallb"],
+      "registryUrls": ["https://metallb.github.io/metallb"]
+    },
+    {
+      "matchDatasources": ["helm"],
+      "matchPackageNames": ["cert-manager"],
+      "registryUrls": ["https://charts.jetstack.io"]
+    }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["roles/traefik/defaults/main.yml$"],
+      "matchStrings": [
+        "traefik_helm_version:\\s*\"?(?<currentValue>v[0-9\\.]+)\"?"
+      ],
+      "depNameTemplate": "traefik",
+      "autoReplaceStringTemplate": "traefik_helm_version: {{{newValue}}}",
+      "datasourceTemplate": "helm"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": ["roles/metallb/defaults/main.yml$"],
+      "matchStrings": [
+        "metallb_helm_version:\\s*\"?(?<currentValue>[0-9\\.]+)\"?"
+      ],
+      "depNameTemplate": "metallb",
+      "autoReplaceStringTemplate": "metallb_helm_version: {{{newValue}}}",
+      "datasourceTemplate": "helm"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": ["roles/cert_manager/defaults/main.yml$"],
+      "matchStrings": [
+        "cert_manager_helm_chart_version:\\s*\"?(?<currentValue>[0-9\\.]+)\"?"
+      ],
+      "depNameTemplate": "cert-manager",
+      "autoReplaceStringTemplate": "cert_manager_helm_chart_version: {{{newValue}}}",
+      "datasourceTemplate": "helm"
+    }
+  ]
 }
