@@ -26,20 +26,10 @@
       "customType": "regex",
       "fileMatch": ["roles/traefik/defaults/main.yml$"],
       "matchStrings": [
-        "traefik_helm_version:\\s*\"?(?<currentValue>v[0-9\\.]+)\"?"
+        "traefik_helm_version:\\s*\"?v(?<currentValue>[0-9\\.]+)\"?"
       ],
       "depNameTemplate": "traefik",
-      "autoReplaceStringTemplate": "traefik_helm_version: {{{newValue}}}",
-      "datasourceTemplate": "helm"
-    },
-    {
-      "customType": "regex",
-      "fileMatch": ["roles/metallb/defaults/main.yml$"],
-      "matchStrings": [
-        "metallb_helm_version:\\s*\"?(?<currentValue>[0-9\\.]+)\"?"
-      ],
-      "depNameTemplate": "metallb",
-      "autoReplaceStringTemplate": "metallb_helm_version: {{{newValue}}}",
+      "autoReplaceStringTemplate": "traefik_helm_version: \"v{{newValue}}\"",
       "datasourceTemplate": "helm"
     },
     {
