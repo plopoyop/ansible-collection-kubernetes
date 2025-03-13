@@ -46,7 +46,6 @@
       ],
       "depNameTemplate": "metallb",
       "autoReplaceStringTemplate": "metallb_helm_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
-      "datasourceTemplate": "helm"
     },
     {
       "customType": "regex",
