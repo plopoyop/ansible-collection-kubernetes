@@ -24,22 +24,40 @@
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": ["roles/traefik/defaults/main.yml$"],
+      "fileMatch": [
+        "roles/traefik/defaults/main.yml$",
+        "roles/traefik/README.md$"
+      ],
       "matchStrings": [
-        "traefik_helm_version:\\s*\"?v(?<currentValue>[0-9\\.]+)\"?"
+        "traefik_helm_version:\\s*(?<quote>\")?v(?<currentValue>[0-9\\.]+)\"?"
       ],
       "depNameTemplate": "traefik",
-      "autoReplaceStringTemplate": "traefik_helm_version: \"v{{newValue}}\"",
+      "autoReplaceStringTemplate": "traefik_helm_version: {{#if quote}}\"v{{newValue}}\"{{else}}v{{newValue}}{{/if}}",
       "datasourceTemplate": "helm"
     },
     {
       "customType": "regex",
-      "fileMatch": ["roles/cert_manager/defaults/main.yml$"],
+      "fileMatch": [
+        "roles/metallb/defaults/main.yml$",
+        "roles/metallb/README.md$"
+      ],
       "matchStrings": [
-        "cert_manager_helm_chart_version:\\s*\"?(?<currentValue>[0-9\\.]+)\"?"
+        "metallb_helm_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?"
+      ],
+      "depNameTemplate": "metallb",
+      "autoReplaceStringTemplate": "metallb_helm_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
+    },
+    {
+      "customType": "regex",
+      "fileMatch": [
+        "roles/cert_manager/defaults/main.yml$",
+        "roles/cert_manager/README.md$"
+      ],
+      "matchStrings": [
+        "cert_manager_helm_chart_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?"
       ],
       "depNameTemplate": "cert-manager",
-      "autoReplaceStringTemplate": "cert_manager_helm_chart_version: {{{newValue}}}",
+      "autoReplaceStringTemplate": "cert_manager_helm_chart_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
       "datasourceTemplate": "helm"
     }
   ]
