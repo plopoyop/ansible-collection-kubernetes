@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/1.0.1) (2025-03-30)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/v1.0.0...1.0.1)
+
 ## [v1.0.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/v1.0.0) (2025-03-30)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/v0.0.0...v1.0.0)
