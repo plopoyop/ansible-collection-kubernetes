@@ -26,39 +26,45 @@
       "customType": "regex",
       "fileMatch": [
         "roles/traefik/defaults/main.yml$",
-        "roles/traefik/README.md$"
+        "roles/traefik/README.md$",
+        "^README.md$"
       ],
       "matchStrings": [
-        "traefik_helm_version:\\s*(?<quote>\")?v(?<currentValue>[0-9\\.]+)\"?"
+        "traefik_helm_version:\\s*(?<quote>\")?v(?<currentValue>[0-9\\.]+)\"?",
+        "traefik\\s*(?<pipe>\\|)\\s?v(?<currentValue>[0-9\\.]+)"
       ],
       "depNameTemplate": "traefik",
-      "autoReplaceStringTemplate": "traefik_helm_version: {{#if quote}}\"v{{newValue}}\"{{else}}v{{newValue}}{{/if}}",
+      "autoReplaceStringTemplate": "{{#if pipe}}traefik         | v{{newValue}}{{else}}traefik_helm_version: {{#if quote}}\"v{{newValue}}\"{{else}}v{{newValue}}{{/if}}{{/if}}",
       "datasourceTemplate": "helm"
     },
     {
       "customType": "regex",
       "fileMatch": [
         "roles/metallb/defaults/main.yml$",
-        "roles/metallb/README.md$"
+        "roles/metallb/README.md$",
+        "^README.md$"
       ],
       "matchStrings": [
-        "metallb_helm_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?"
+        "metallb_helm_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?",
+        "metallb\\s*(?<pipe>\\|)\\s?v(?<currentValue>[0-9\\.]+)"
       ],
       "depNameTemplate": "metallb",
-      "autoReplaceStringTemplate": "metallb_helm_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
+      "autoReplaceStringTemplate": "{{#if pipe}}metallb         | v{{newValue}}{{else}}metallb_helm_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}{{/if}}",
       "datasourceTemplate": "helm"
     },
     {
       "customType": "regex",
       "fileMatch": [
         "roles/cert_manager/defaults/main.yml$",
-        "roles/cert_manager/README.md$"
+        "roles/cert_manager/README.md$",
+        "^README.md$"
       ],
       "matchStrings": [
-        "cert_manager_helm_chart_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?"
+        "cert_manager_helm_chart_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?",
+        "cert\\\\_manager\\s*(?<pipe>\\|)\\s?v(?<currentValue>[0-9\\.]+)"
       ],
       "depNameTemplate": "cert-manager",
-      "autoReplaceStringTemplate": "cert_manager_helm_chart_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
+      "autoReplaceStringTemplate": "{{#if pipe}}cert\\_manager   | v{{newValue}}{{else}}cert_manager_helm_chart_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}{{/if}}",
       "datasourceTemplate": "helm"
     }
   ]
