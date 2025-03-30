@@ -1,8 +1,14 @@
 # Changelog
 
-## [0.1.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/0.1.0) (2025-03-30)
+## [v1.0.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/v1.0.0) (2025-03-30)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/v0.0.0...0.1.0)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/v0.0.0...v1.0.0)
+
+**Implemented enhancements:**
+
+- Feature/galaxy release [\#20](https://github.com/plopoyop/ansible-collection-kubernetes/pull/20) ([plopoyop](https://github.com/plopoyop))
+- Configure Renovate [\#2](https://github.com/plopoyop/ansible-collection-kubernetes/pull/2) ([plopoyop](https://github.com/plopoyop))
+- add ansible vars tfstate plugins [\#1](https://github.com/plopoyop/ansible-collection-kubernetes/pull/1) ([plopoyop](https://github.com/plopoyop))
 
 **Fixed bugs:**
 
@@ -17,6 +23,15 @@
 - Dependency Dashboard [\#10](https://github.com/plopoyop/ansible-collection-kubernetes/issues/10)
 - Dependency Dashboard [\#8](https://github.com/plopoyop/ansible-collection-kubernetes/issues/8)
 - Dependency Dashboard [\#5](https://github.com/plopoyop/ansible-collection-kubernetes/issues/5)
+
+**Merged pull requests:**
+
+- Update renovatebot/github-action action to v41.0.17 [\#21](https://github.com/plopoyop/ansible-collection-kubernetes/pull/21) ([plopoyop](https://github.com/plopoyop))
+- Feature/renovate [\#17](https://github.com/plopoyop/ansible-collection-kubernetes/pull/17) ([plopoyop](https://github.com/plopoyop))
+- Update renovatebot/github-action action to v41 [\#7](https://github.com/plopoyop/ansible-collection-kubernetes/pull/7) ([plopoyop](https://github.com/plopoyop))
+- Update cachix/install-nix-action action to v31 [\#6](https://github.com/plopoyop/ansible-collection-kubernetes/pull/6) ([plopoyop](https://github.com/plopoyop))
+- Update cachix/cachix-action action to v16 [\#4](https://github.com/plopoyop/ansible-collection-kubernetes/pull/4) ([plopoyop](https://github.com/plopoyop))
+- Update renovatebot/github-action action to v39.2.4 [\#3](https://github.com/plopoyop/ansible-collection-kubernetes/pull/3) ([plopoyop](https://github.com/plopoyop))
 
 ## [v0.0.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/v0.0.0) (2025-03-03)
 
