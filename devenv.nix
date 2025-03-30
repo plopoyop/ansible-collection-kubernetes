@@ -16,11 +16,11 @@
     pkgs.pre-commit
     pkgs.python312Packages.kubernetes
     pkgs.python312Packages.boto3
-    pkgs.python312Packages.flake8
     pkgs.python312Packages.molecule
     pkgs.python312Packages.molecule-plugins
     pkgs.python312Packages.moto
     pkgs.python312Packages.pytest-ansible
+    pkgs.python312Packages.ruff
     pkgs.yamllint
   ];
 
