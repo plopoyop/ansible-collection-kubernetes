@@ -60,8 +60,7 @@ class VarsModule(BaseVarsPlugin):
             err.append("AWS_REGION")
 
         if len(err) > 0:
-            raise AnsibleUndefinedVariable("Env variables missing: "
-                                           + (",".join(err)))
+            raise AnsibleUndefinedVariable("Env variables missing: " + (",".join(err)))
 
     def get_vars(self, loader, path, entities):
         if not HAS_BOTO3:
@@ -85,8 +84,7 @@ class VarsModule(BaseVarsPlugin):
 
                 content_object = s3.Object(self.bucket_name, target)
 
-                tfstate_content = content_object.get()["Body"]\
-                    .read().decode("utf-8")
+                tfstate_content = content_object.get()["Body"].read().decode("utf-8")
 
                 tfstate = loader.load(tfstate_content)
 

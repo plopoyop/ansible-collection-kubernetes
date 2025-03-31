@@ -33,8 +33,7 @@ class VarsModule(BaseVarsPlugin):
             err.append("TF_STATES_PATHS")
 
         if len(err) > 0:
-            raise AnsibleUndefinedVariable("Env variables missing: "
-                                           + (",".join(err)))
+            raise AnsibleUndefinedVariable("Env variables missing: " + (",".join(err)))
 
     def get_vars(self, loader, path, entities):
         if "result" in self.CACHE:

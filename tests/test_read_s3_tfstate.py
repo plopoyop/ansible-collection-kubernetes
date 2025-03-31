@@ -9,11 +9,13 @@ from plugins.vars.read_s3_tfstate import VarsModule
 LOCAL_FILES_PATH = os.path.join(os.path.dirname(__file__), "resources/")
 BUCKET_NAME = "tfstates"
 REGION = "us-east-1"
-FILES_LIST = ["empty_output.tfstate",
-              "missing_ansible_vars.tfstate",
-              "missing_ansible_vars.tfstate",
-              "state_with_vars.tfstate",
-              "state_with_vars2.tfstate"]
+FILES_LIST = [
+    "empty_output.tfstate",
+    "missing_ansible_vars.tfstate",
+    "missing_ansible_vars.tfstate",
+    "state_with_vars.tfstate",
+    "state_with_vars2.tfstate",
+]
 
 
 @pytest.fixture
@@ -32,10 +34,10 @@ def mock_s3_bucket(autouse=True):
 
 @pytest.fixture
 def set_env_vars():
-    os.environ['TF_BACKEND_BUCKET_NAME'] = BUCKET_NAME
-    os.environ['AWS_REGION'] = REGION
-    os.environ['AWS_ACCESS_KEY_ID'] = "testing"
-    os.environ['AWS_SECRET_ACCESS_KEY'] = "testing"
+    os.environ["TF_BACKEND_BUCKET_NAME"] = BUCKET_NAME
+    os.environ["AWS_REGION"] = REGION
+    os.environ["AWS_ACCESS_KEY_ID"] = "testing"
+    os.environ["AWS_SECRET_ACCESS_KEY"] = "testing"
 
 
 @pytest.fixture(autouse=True)
@@ -52,14 +54,14 @@ def test_fail_when_conf_is_missing():
 
 def test_fail_when_tf_state_does_not_exists(set_env_vars):
     with pytest.raises(AnsibleConnectionFailure):
-        os.environ['TF_TARGET'] = "missing.tf"
+        os.environ["TF_TARGET"] = "missing.tf"
 
         plugin = VarsModule()
         plugin.get_vars({}, {}, "localhost")
 
 
 def test_return_empty_when_no_outputs(mock_s3_bucket, set_env_vars):
-    os.environ['TF_TARGET'] = "empty_output.tfstate"
+    os.environ["TF_TARGET"] = "empty_output.tfstate"
 
     plugin = VarsModule()
     variables = plugin.get_vars(DataLoader(), {}, "localhost")
@@ -68,7 +70,7 @@ def test_return_empty_when_no_outputs(mock_s3_bucket, set_env_vars):
 
 
 def test_return_empty_if_missing_state(mock_s3_bucket, set_env_vars):
-    os.environ['TF_TARGET'] = "missing_ansible_vars.tfstate"
+    os.environ["TF_TARGET"] = "missing_ansible_vars.tfstate"
 
     plugin = VarsModule()
     variables = plugin.get_vars(DataLoader(), {}, "localhost")
@@ -77,7 +79,7 @@ def test_return_empty_if_missing_state(mock_s3_bucket, set_env_vars):
 
 
 def test_return_variables_from_single_tf_state(mock_s3_bucket, set_env_vars):
-    os.environ['TF_TARGET'] = "state_with_vars.tfstate"
+    os.environ["TF_TARGET"] = "state_with_vars.tfstate"
 
     plugin = VarsModule()
     variables = plugin.get_vars(DataLoader(), {}, "localhost")
@@ -85,8 +87,7 @@ def test_return_variables_from_single_tf_state(mock_s3_bucket, set_env_vars):
 
 
 def test_return_variables_from_multiple_tf_state(mock_s3_bucket, set_env_vars):
-    os.environ[
-        'TF_TARGET'] = "state_with_vars.tfstate,state_with_vars2.tfstate"
+    os.environ["TF_TARGET"] = "state_with_vars.tfstate,state_with_vars2.tfstate"
 
     plugin = VarsModule()
     variables = plugin.get_vars(DataLoader(), {}, "localhost")
