@@ -35,11 +35,11 @@ tasks:
       - pre-commit run -a
 
   lint:
-    desc: "Run pre-commit hooks"
+    desc: "Run lint"
     cmds:
       - yamllint .
       - ansible-lint
-      - flake8 plugins/ tests/
+      - ruff check plugins/ tests/
 
   test:modules:
     desc: "Run pytest for ansible modules"

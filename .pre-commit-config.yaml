@@ -31,7 +31,10 @@ repos:
           - ansible
         verbose: false
 
-  - repo: https://github.com/pycqa/flake8
-    rev: '7.1.2'
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.11.2
     hooks:
-      - id: flake8
+      - id: ruff
+        args: ["--fix", "./plugins/", "./tests/"]
+      - id: ruff-format
+        args: ["./plugins/", "./tests/"]
