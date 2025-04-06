@@ -1,0 +1,74 @@
+---
+- name: Verify
+  hosts: localhost
+  connection: local
+  gather_facts: true
+
+  tasks:
+    - name: "Pause for job to complete."
+      ansible.builtin.pause:
+        seconds: 60
+
+    - name: "Get 'mongodb' namespace info."
+      kubernetes.core.k8s_info:
+        kind: Namespace
+        name: "mongodb"
+      register: namespace
+
+    - name: "Assert that 'mongodb' namespace is active"
+      ansible.builtin.assert:
+        that: namespace['resources'][0]['status']['phase'] == "Active"
+
+    - name: "Get 'mongodb-kubernetes-operator' info."
+      kubernetes.core.k8s_info:
+        kind: "Deployment"
+        name: "mongodb-kubernetes-operator"
+        namespace: "mongodb"
+      register: operator_deployment
+
+    - name: "Assert that 'mongodb operator' is deployed"
+      ansible.builtin.assert:
+        that: operator_deployment['resources'][0]['status']['availableReplicas'] == 1
+
+    - name: "Get 'db' namespace info."
+      kubernetes.core.k8s_info:
+        kind: Namespace
+        name: "mongodb-instance"
+      register: db_namespace
+
+    - name: "Assert that 'mongodb' namespace is active"
+      ansible.builtin.assert:
+        that: db_namespace['resources'][0]['status']['phase'] == "Active"
+
+    - name: "Get 'mymongodb StatefullSet' service info."
+      kubernetes.core.k8s_info:
+        kind: "StatefulSet"
+        name: "mymongodb"
+        namespace: "mongodb-instance"
+      register: stateful_set
+
+    - name: "Assert that 'mymongodb' statefullset is deployed"
+      ansible.builtin.assert:
+        that: stateful_set['resources'][0]['status']['availableReplicas'] == 1
+
+    - name: "Get 'mymongodb' connection string secret."
+      kubernetes.core.k8s_info:
+        kind: "Secret"
+        name: "mymongodb-connection-string"
+        namespace: "mongodb-instance"
+      register: connection_secret
+
+    - name: "Assert that 'mymongodb' statefullset is deployed"
+      ansible.builtin.assert:
+        that: connection_secret['resources'][0]['data'] is defined
+
+    - name: "Get 'mymongodb' metrics password secret."
+      kubernetes.core.k8s_info:
+        kind: "Secret"
+        name: "mymongodb-metrics-endpoint-password"
+        namespace: "mongodb-instance"
+      register: metrics_password_secret
+
+    - name: "Assert that 'mymongodb' statefullset is deployed"
+      ansible.builtin.assert:
+        that: metrics_password_secret['resources'][0]['data'] is defined

@@ -1,0 +1,8 @@
+---
+mongodb_operator_helm_repo_name: "mongodb"
+mongodb_operator_helm_repo_url: "https://mongodb.github.io/helm-charts"
+mongodb_operator_helm_chart_ref: "{{ mongodb_operator_helm_repo_name }}/community-operator"
+
+mongodb_crd_helm_repo_name: "plopoyop"
+mongodb_crd_helm_repo_url: "https://plopoyop.github.io/charts"
+mongodb_crd_helm_chart_ref: "{{ mongodb_crd_helm_repo_name }}/mongodb"

@@ -1,0 +1,24 @@
+---
+operator:
+  watchNamespace: "{{ mongodb_operator_watch_namespace }}"
+
+  resources:
+    limits:
+      cpu: "{{ mongodb_operator_cpu_limit }}"
+      memory: "{{ mongodb_operator_memory_limit }}"
+    requests:
+      cpu: "{{ mongodb_operator_cpu_request }}"
+      memory: "{{ mongodb_operator_memory_request }}"
+
+  priorityClassName: "{{ mongodb_operator_priority_class }}"
+
+  replicas: {{ mongodb_operator_replicas }}
+
+  extraEnvs: {{ mongodb_operator_extra_envs }}
+
+  podSecurityContext: {{ mongodb_operator_pod_security_context }}
+
+  securityContext: {{ mongodb_operator_security_context }}
+
+community-operator-crds:
+  enabled: true

@@ -1,0 +1,19 @@
+---
+# @meta description: >
+# Role to install mongodb on kubernetes cluster.
+# It install community operator via its helm chart and deploy mongodb replicatset.
+# @end
+galaxy_info:
+  description: Install mongodb
+  role_name: mongodb
+  author: Clément Hubert
+
+  license: MLP2
+
+  min_ansible_version: "2.1"
+
+  galaxy_tags:
+    - kubernetes
+    - mongodb
+
+dependencies: []
