@@ -7,7 +7,7 @@
   tasks:
     - name: "Pause for job to complete."
       ansible.builtin.pause:
-        seconds: 60
+        seconds: 120
 
     - name: "Get 'mongodb' namespace info."
       kubernetes.core.k8s_info:
