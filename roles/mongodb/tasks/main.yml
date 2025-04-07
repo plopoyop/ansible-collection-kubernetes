@@ -1,0 +1,57 @@
+---
+- name: "Create MongoDB operator namespace"
+  kubernetes.core.k8s:
+    name: "{{ mongodb_operator_namespace }}"
+    api_version: "v1"
+    kind: "Namespace"
+    state: "present"
+
+- name: "Add MongoDB Helm repository"
+  kubernetes.core.helm_repository:
+    name: "{{ mongodb_operator_helm_repo_name }}"
+    repo_url: "{{ mongodb_operator_helm_repo_url }}"
+    state: "present"
+
+- name: "Install MongoDB Operator"
+  kubernetes.core.helm:
+    name: "{{ mongodb_operator_deployment_name }}"
+    chart_ref: "{{ mongodb_operator_helm_chart_ref }}"
+    chart_version: "{{ mongodb_operator_helm_version }}"
+    namespace: "{{ mongodb_operator_namespace }}"
+    values: "{{ lookup('ansible.builtin.template', 'mongodb_operator_helm_values.yml.j2') | from_yaml }}"
+    state: "present"
+
+- name: "Install mongodb resources Helm Chart"
+  kubernetes.core.helm_repository:
+    name: "{{ mongodb_crd_helm_repo_name }}"
+    repo_url: "{{ mongodb_crd_helm_repo_url }}"
+    state: "present"
+
+- name: "Init mongodb_instance"
+  ansible.builtin.set_fact:
+    mongodb_instance: "{{ mongodb_default_instance }}"
+  when: not mongodb_instance is defined or mongodb_instance.updated
+
+- name: "Call updating mongodb instance task"
+  ansible.builtin.include_tasks: update_instance_values.yml
+  loop: "{{ mongodb_instance_values_override | dict2items }}"
+  loop_control:
+    loop_var: value_to_update
+
+- name: "Create MongoDB instance namespace"
+  kubernetes.core.k8s:
+    name: "{{ mongodb_instance_namespace }}"
+    api_version: "v1"
+    kind: "Namespace"
+    state: "present"
+
+- name: "Create mongodb instance from helm chart"
+  kubernetes.core.helm:
+    name: "{{ mongodb_instance_name }}"
+    update_repo_cache: true
+    chart_ref: "{{ mongodb_crd_helm_chart_ref }}"
+    chart_version: "{{  mongodb_crd_helm_version }}"
+    namespace: "{{ mongodb_instance_namespace }}"
+    values: "{{ lookup('ansible.builtin.template', 'mongodb_instance_helm_values.yml.j2') | from_yaml }}"
+    state: "{{ mongodb_instance_state | default('present') }}"
+    force: "{{ mongodb_instance_force_install | default(false) }}"

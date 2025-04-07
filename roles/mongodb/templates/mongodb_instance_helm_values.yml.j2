@@ -1,0 +1,70 @@
+---
+name: "{{ mongodb_instance.name }}"
+
+type: ReplicaSet
+
+version: "{{ mongodb_instance.version }}"
+
+{% if mongodb_instance.feature_compatibility_version is defined %}
+featureCompatibilityVersion: "{{ mongodb_instance.feature_compatibility_version }}"
+{% endif %}
+
+members: {{ mongodb_instance.members }}
+
+persistent: {{ mongodb_instance.persistent }}
+
+{% if not mongodb_instance.create_service_account %}
+serviceAccount:
+    create: false
+{% endif %}
+
+connectionStringSecretName: "{{ mongodb_instance.name }}-connection-string"
+
+adminPassword: "{{ mongodb_instance.admin_password }}"
+
+scramCredentialsSecretName: "{{ mongodb_instance.name }}-scram"
+
+{% if mongodb_instance.additional_connection_string_config != {} %}
+additionalConnectionStringConfig: {{ mongodb_instance.additional_connection_string_config }}
+{% endif %}
+
+{% if mongodb_instance.data_volume_storage is defined %}
+dataVolumeStorage: {{ mongodb_instance.data_volume_storage }}
+{% endif %}
+
+{% if mongodb_instance.log_volume_storage is defined %}
+logVolumeStorage: {{ mongodb_instance.log_volume_storage }}
+{% endif %}
+
+{% if mongodb_instance.additional_mongod_config != {} %}
+additionalMongodConfig: {{ mongodb_instance.additional_mongod_config }}
+{% endif %}
+
+{% if mongodb_instance.container_additional_config != {} %}
+containersAdditionalConfig: {{ mongodb_instance.container_additional_config }}
+{% endif %}
+
+{% if mongodb_instance.backup_enabled %}
+backup:
+  enabled: {{ mongodb_instance.backup_enabled }}
+{% if mongodb_instance.backup_additionnal_config != {} %}
+{{ mongodb_instance.backup_additionnal_config | to_nice_yaml }}
+{% endif %}
+
+  cronjob:
+    schedule: "{{ mongodb_instance.backup_cronjob_schedule }}"
+    timeZone: "{{ mongodb_instance.backup_cronjob_timezone }}"
+    command: {{ mongodb_instance.backup_cronjob_command }}
+    container_env: {{ mongodb_instance.backup_cronjob_container_env }}
+    container_secret_env: {{ mongodb_instance.backup_cronjob_container_secret_env }}
+    image: {{ mongodb_instance.backup_cronjob_image }}
+    imagePullSecrets: {{ mongodb_instance.backup_cronjob_image_pull_secret }}
+{% endif %}
+
+{% if mongodb_instance.metrics_enabled %}
+metrics:
+  enabled: {{ mongodb_instance.metrics_enabled }}
+  username: "{{ mongodb_instance.metrics_username }}"
+  password: "{{ mongodb_instance.metrics_password }}"
+  passwordSecretRef: "metrics-endpoint-password"
+{% endif %}

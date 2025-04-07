@@ -1,0 +1,22 @@
+---
+- name: Converge
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: "Install mongodb"
+      ansible.builtin.import_role:
+        name: "mongodb"
+      vars:
+        mongodb_instance_name: "mymongodb"
+        mongodb_instance_namespace: "mongodb-instance"
+        mongodb_instance_admin_password: "password"
+        mongodb_instance_members: 1
+        mongodb_instance_values_override:
+          create_service_account: true
+          additional_connection_string_config:
+            authenticationMechanism: "scram-sha256"
+            authSource: "admin"
+          metrics_enabled: true
+          metrics_username: "monitoring"
+          metrics_password: "metricspassword"

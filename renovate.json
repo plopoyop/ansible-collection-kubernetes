@@ -19,6 +19,21 @@
       "matchDatasources": ["helm"],
       "matchPackageNames": ["cert-manager"],
       "registryUrls": ["https://charts.jetstack.io"]
+    },
+    {
+      "matchDatasources": ["helm"],
+      "matchPackageNames": ["community-operator"],
+      "registryUrls": ["https://mongodb.github.io/helm-charts"]
+    },
+    {
+      "matchDatasources": ["helm"],
+      "matchPackageNames": ["mongodb"],
+      "registryUrls": ["https://plopoyop.github.io/charts"]
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["mongodb/mongodb-community-server"],
+      "versioning": "semver"
     }
   ],
   "customManagers": [
@@ -66,6 +81,47 @@
       "depNameTemplate": "cert-manager",
       "autoReplaceStringTemplate": "{{#if pipe}}cert\\_manager   | v{{newValue}}{{else}}cert_manager_helm_chart_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}{{/if}}",
       "datasourceTemplate": "helm"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": [
+        "roles/mongodb/defaults/main.yml$",
+        "roles/mongodb/README.md$",
+        "^README.md$"
+      ],
+      "matchStrings": [
+        "mongodb_operator_helm_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?",
+        "mongodb\\scommunity\\soperator\\s*(?<pipe>\\|)\\s?v(?<currentValue>[0-9\\.]+)"
+      ],
+      "depNameTemplate": "community-operator",
+      "autoReplaceStringTemplate": "{{#if pipe}}mongodb community operator | v{{newValue}}{{else}}mongodb_operator_helm_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}{{/if}}",
+      "datasourceTemplate": "helm"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": [
+        "roles/mongodb/defaults/main.yml$",
+        "roles/mongodb/README.md$"
+      ],
+      "matchStrings": [
+        "mongodb_crd_helm_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?"
+      ],
+      "depNameTemplate": "mongodb",
+      "autoReplaceStringTemplate": "mongodb_operator_helm_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
+      "datasourceTemplate": "helm"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": [
+        "roles/mongodb/defaults/main.yml$",
+        "roles/mongodb/README.md$"
+      ],
+      "matchStrings": [
+        "mongodb_instance_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?"
+      ],
+      "depNameTemplate": "mongodb/mongodb-community-server",
+      "autoReplaceStringTemplate": "mongodb_instance_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
+      "datasourceTemplate": "docker"
     }
   ]
 }

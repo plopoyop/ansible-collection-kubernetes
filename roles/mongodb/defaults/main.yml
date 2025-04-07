@@ -1,0 +1,165 @@
+---
+# @var mongodb_operator_namespace
+# @var mongodb_operator_namespace:type: string
+# @var mongodb_operator_namespace:description: >
+# K8s namespace to install the mongodb community operator chart
+mongodb_operator_namespace: "mongodb"
+
+# @var mongodb_operator_helm_version
+# @var mongodb_operator_helm_version:type: string
+# @var mongodb_operator_helm_version:description: >
+# Helm chart version to install
+mongodb_operator_helm_version: "0.12.1"
+
+# @var mongodb_operator_deployment_name
+# @var mongodb_operator_deployment_name:type: string
+# @var mongodb_operator_deployment_name:description: >
+# Deployment name for mongodb community operator chart
+mongodb_operator_deployment_name: "mongodb-operator"
+
+# @var mongodb_operator_replicas
+# @var mongodb_operator_replicas:type: int
+# @var mongodb_operator_replicas:description: >
+# Number of replicat for mongodb operator
+mongodb_operator_replicas: 1
+
+# @var mongodb_operator_extra_envs
+# @var mongodb_operator_extra_envs:type: list
+# @var mongodb_operator_extra_envs:description: >
+# Additional environment variables
+# @var mongodb_operator_extra_envs:example: >
+#  mongodb_operator_extra_envs:
+#   - name: CLUSTER_DOMAIN
+#     value: my-cluster.domain
+mongodb_operator_extra_envs: []
+
+# @var mongodb_operator_watch_namespace
+# @var mongodb_operator_watch_namespace:type: string
+# @var mongodb_operator_watch_namespace:description: >
+# To configure the Operator to watch resources in another namespace
+# @var mongodb_operator_watch_namespace:example: >
+#  mongodb_operator_watch_namespace: "*"
+mongodb_operator_watch_namespace: "{{ (mongodb_instance_namespace == mongodb_operator_namespace) | ternary(mongodb_instance_namespace, '*') }}"
+
+# @var mongodb_operator_cpu_limit
+# @var mongodb_operator_cpu_limit:type: string
+# @var mongodb_operator_cpu_limit:description: >
+# CPU limit for operator pod
+mongodb_operator_cpu_limit: "1100m"
+
+# @var mongodb_operator_memory_limit
+# @var mongodb_operator_memory_limit:type: string
+# @var mongodb_operator_memory_limit:description: >
+# Memory limit for operator pod
+mongodb_operator_memory_limit: "1Gi"
+
+# @var mongodb_operator_cpu_request
+# @var mongodb_operator_cpu_request:type: string
+# @var mongodb_operator_cpu_request:description: >
+# CPU request for operator pod
+mongodb_operator_cpu_request: "500m"
+
+# @var mongodb_operator_memory_request
+# @var mongodb_operator_memory_request:type: string
+# @var mongodb_operator_memory_request:description: >
+# Memory request for operator pod
+mongodb_operator_memory_request: "200Mi"
+
+# @var mongodb_operator_priority_class
+# @var mongodb_operator_priority_class:type: string
+# @var mongodb_operator_priority_class:description: >
+# PriorityClass configuration for operator
+# ref: https://kubernetes.io/docs/concepts/scheduling-eviction/pod-priority-preemption/#priorityclass
+mongodb_operator_priority_class: ""
+
+# @var mongodb_operator_pod_security_context
+# @var mongodb_operator_pod_security_context:type: dict
+# @var mongodb_operator_pod_security_context:description: >
+# security context for operator pod
+mongodb_operator_pod_security_context:
+  runAsNonRoot: true
+  runAsUser: 2000
+
+# @var mongodb_operator_security_context
+# @var mongodb_operator_security_context:type: dict
+# @var mongodb_operator_security_context:description: >
+# security context for operator
+mongodb_operator_security_context: {}
+
+# @var mongodb_crd_helm_version
+# @var mongodb_crd_helm_version:type: dict
+# @var mongodb_crd_helm_version:description: >
+# mongodb instance helm chart version
+mongodb_crd_helm_version: "0.1.0"
+
+# @var mongodb_instance_name
+# @var mongodb_instance_name:type: dict
+# @var mongodb_instance_name:description: >
+# mongodb instance name
+mongodb_instance_name: "mongodb-database"
+
+# @var mongodb_instance_namespace
+# @var mongodb_instance_namespace:type: dict
+# @var mongodb_instance_namespace:description: >
+# K8s namespace to install deploy mongodb instance
+mongodb_instance_namespace: "mongodb"
+
+# @var mongodb_instance_version
+# @var mongodb_instance_version:type: dict
+# @var mongodb_instance_version:description: >
+# mongodb version
+mongodb_instance_version: "8.0.6"
+
+# @var mongodb_instance_members
+# @var mongodb_instance_members:type: dict
+# @var mongodb_instance_members:description: >
+# number of replicatset members
+mongodb_instance_members: 3
+
+# @var mongodb_default_instance
+# @var mongodb_default_instance:type: dict
+# @var mongodb_default_instance:description: >
+# default values for helm chart deployement
+mongodb_default_instance:
+  name: "{{ mongodb_instance_name }}"
+  namespace: "{{ mongodb_instance_namespace }}"
+  version: "{{ mongodb_instance_version }}"
+  feature_compatibility_version: "{{ (mongodb_instance_version | ansible.builtin.split('.'))[0] }}.{{ (mongodb_instance_version | ansible.builtin.split('.'))[1] }}"
+  members: "{{ mongodb_instance_members }}"
+  persistent: true
+  create_service_account: false
+
+  admin_password: "{{ mongodb_instance_admin_password }}"
+  additional_connection_string_config: {}
+
+  additional_mongod_config: {}
+  container_additional_config: {}
+
+  backup_enabled: false
+  backup_cronjob_schedule: "*/20 * * * *"
+  backup_cronjob_timezone: "Europe/Paris"
+  backup_cronjob_command: []
+  backup_cronjob_container_env: []
+  backup_cronjob_container_secret_env: []
+  backup_cronjob_image: {}
+  backup_cronjob_image_pull_secret: {}
+  backup_additionnal_config: {}
+
+  metrics_enabled: false
+  metrics_username: "prometheus"
+  metrics_password: ""
+
+# @var mongodb_instance_values_override
+# @var mongodb_instance_values_override:type: dict
+# @var mongodb_default_instance:description: >
+# Overrides for default values
+# @var mongodb_instance_values_override:example: >
+#  mongodb_instance_values_override:
+#    create_service_account: true
+#    additional_connection_string_config:
+#      authenticationMechanism: "scram-sha256"
+#      authSource: "admin"
+#    metrics_enabled: true
+#    metrics_username: "monitoring"
+#    metrics_password: "metricspassword"
+mongodb_instance_values_override: {}
