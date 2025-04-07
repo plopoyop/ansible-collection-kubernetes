@@ -16,6 +16,7 @@
 
 **Closed issues:**
 
+- Upgrade Traefik Helm Chart [\#35](https://github.com/plopoyop/ansible-collection-kubernetes/issues/35)
 - Dependency Dashboard [\#19](https://github.com/plopoyop/ansible-collection-kubernetes/issues/19)
 - Dependency Dashboard [\#18](https://github.com/plopoyop/ansible-collection-kubernetes/issues/18)
 
