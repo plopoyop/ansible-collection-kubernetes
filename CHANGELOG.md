@@ -1,8 +1,18 @@
 # Changelog
 
-## [1.1.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/1.1.0) (2025-03-31)
+## [1.1.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/1.1.0) (2025-04-07)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/1.0.2...1.1.0)
+
+**Implemented enhancements:**
+
+- Add mongodb role [\#29](https://github.com/plopoyop/ansible-collection-kubernetes/issues/29)
+- New github pull request template [\#27](https://github.com/plopoyop/ansible-collection-kubernetes/issues/27)
+- Switch to ruff linter [\#26](https://github.com/plopoyop/ansible-collection-kubernetes/issues/26)
+
+**Fixed bugs:**
+
+- Renovate config [\#28](https://github.com/plopoyop/ansible-collection-kubernetes/issues/28)
 
 **Closed issues:**
 
