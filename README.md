@@ -49,6 +49,7 @@ You can call the roles from this collection in your Ansible playbooks as follows
 | metallb         | v0.14.9            | [View README](roles/metallb/README.md)     |
 | traefik         | v34.4.1            | [View README](roles/traefik/README.md)      |
 | cert\_manager   | v0.17.1            | [View README](roles/cert_manager/README.md) |
+| mongodb community operator | v0.12.1            | [View README](roles/mongodb/README.md) |
 
 ## Customization
 
