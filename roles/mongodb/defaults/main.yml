@@ -9,7 +9,7 @@ mongodb_operator_namespace: "mongodb"
 # @var mongodb_operator_helm_version:type: string
 # @var mongodb_operator_helm_version:description: >
 # Helm chart version to install
-mongodb_operator_helm_version: "0.12.1"
+mongodb_operator_helm_version: 0.13.0
 
 # @var mongodb_operator_deployment_name
 # @var mongodb_operator_deployment_name:type: string
