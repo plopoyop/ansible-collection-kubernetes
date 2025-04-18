@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/1.1.1) (2025-04-18)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/1.1.0...1.1.1)
+
+**Closed issues:**
+
+- Update renovatebot/github-action action to v41.0.19 [\#41](https://github.com/plopoyop/ansible-collection-kubernetes/issues/41)
+
 ## [1.1.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/1.1.0) (2025-04-07)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/1.0.2...1.1.0)
@@ -9,6 +17,10 @@
 - Add mongodb role [\#29](https://github.com/plopoyop/ansible-collection-kubernetes/issues/29)
 - New github pull request template [\#27](https://github.com/plopoyop/ansible-collection-kubernetes/issues/27)
 - Switch to ruff linter [\#26](https://github.com/plopoyop/ansible-collection-kubernetes/issues/26)
+- add mongodb role [\#34](https://github.com/plopoyop/ansible-collection-kubernetes/pull/34) ([plopoyop](https://github.com/plopoyop))
+- Enhance renovate config [\#25](https://github.com/plopoyop/ansible-collection-kubernetes/pull/25) ([plopoyop](https://github.com/plopoyop))
+- Github pull request template [\#24](https://github.com/plopoyop/ansible-collection-kubernetes/pull/24) ([plopoyop](https://github.com/plopoyop))
+- Change linter [\#23](https://github.com/plopoyop/ansible-collection-kubernetes/pull/23) ([plopoyop](https://github.com/plopoyop))
 
 **Fixed bugs:**
 
@@ -19,6 +31,12 @@
 - Upgrade Traefik Helm Chart [\#35](https://github.com/plopoyop/ansible-collection-kubernetes/issues/35)
 - Dependency Dashboard [\#19](https://github.com/plopoyop/ansible-collection-kubernetes/issues/19)
 - Dependency Dashboard [\#18](https://github.com/plopoyop/ansible-collection-kubernetes/issues/18)
+
+**Merged pull requests:**
+
+- Update dependency ubuntu to v24 [\#33](https://github.com/plopoyop/ansible-collection-kubernetes/pull/33) ([plopoyop](https://github.com/plopoyop))
+- Update Helm release traefik to v34.5.0 [\#32](https://github.com/plopoyop/ansible-collection-kubernetes/pull/32) ([plopoyop](https://github.com/plopoyop))
+- Update renovatebot/github-action action to v41.0.18 [\#31](https://github.com/plopoyop/ansible-collection-kubernetes/pull/31) ([plopoyop](https://github.com/plopoyop))
 
 ## [1.0.2](https://github.com/plopoyop/ansible-collection-kubernetes/tree/1.0.2) (2025-03-30)
 
