@@ -7,6 +7,7 @@
 **Closed issues:**
 
 - Update renovatebot/github-action action to v41.0.19 [\#41](https://github.com/plopoyop/ansible-collection-kubernetes/issues/41)
+- Update Helm release community-operator to v0.13.0 [\#39](https://github.com/plopoyop/ansible-collection-kubernetes/issues/39)
 
 ## [1.1.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/1.1.0) (2025-04-07)
 
