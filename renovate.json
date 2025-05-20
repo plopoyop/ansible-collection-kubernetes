@@ -46,7 +46,7 @@
       ],
       "matchStrings": [
         "traefik_helm_version:\\s*(?<quote>\")?v(?<currentValue>[0-9\\.]+)\"?",
-        "traefik\\s*(?<pipe>\\|)\\s?v(?<currentValue>[0-9\\.]+)"
+        "traefik\\s*(?<pipe>|)\\s?v(?<currentValue>[0-9\\.]+)"
       ],
       "depNameTemplate": "traefik",
       "autoReplaceStringTemplate": "{{#if pipe}}traefik         | v{{newValue}}{{else}}traefik_helm_version: {{#if quote}}\"v{{newValue}}\"{{else}}v{{newValue}}{{/if}}{{/if}}",
@@ -61,7 +61,7 @@
       ],
       "matchStrings": [
         "metallb_helm_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?",
-        "metallb\\s*(?<pipe>\\|)\\s?v(?<currentValue>[0-9\\.]+)"
+        "metallb\\s*(?<pipe>|)\\s?v(?<currentValue>[0-9\\.]+)"
       ],
       "depNameTemplate": "metallb",
       "autoReplaceStringTemplate": "{{#if pipe}}metallb         | v{{newValue}}{{else}}metallb_helm_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}{{/if}}",
@@ -76,7 +76,7 @@
       ],
       "matchStrings": [
         "cert_manager_helm_chart_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?",
-        "cert\\\\_manager\\s*(?<pipe>\\|)\\s?v(?<currentValue>[0-9\\.]+)"
+        "cert\\\\_manager\\s*(?<pipe>|)\\s?v(?<currentValue>[0-9\\.]+)"
       ],
       "depNameTemplate": "cert-manager",
       "autoReplaceStringTemplate": "{{#if pipe}}cert\\_manager   | v{{newValue}}{{else}}cert_manager_helm_chart_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}{{/if}}",
@@ -91,7 +91,7 @@
       ],
       "matchStrings": [
         "mongodb_operator_helm_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?",
-        "mongodb\\scommunity\\soperator\\s*(?<pipe>\\|)\\s?v(?<currentValue>[0-9\\.]+)"
+        "mongodb\\scommunity\\soperator\\s*(?<pipe>|)\\s?v(?<currentValue>[0-9\\.]+)"
       ],
       "depNameTemplate": "community-operator",
       "autoReplaceStringTemplate": "{{#if pipe}}mongodb community operator | v{{newValue}}{{else}}mongodb_operator_helm_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}{{/if}}",
