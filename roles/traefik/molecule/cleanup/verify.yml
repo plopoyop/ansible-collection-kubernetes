@@ -13,11 +13,11 @@
       kubernetes.core.k8s_info:
         kind: "Namespace"
         name: "ingress-traefik-controller"
-      register: namespace
+      register: namespace_traefik
 
     - name: "Assert that 'traefik' namespace is active"
       ansible.builtin.assert:
-        that: namespace['resources'] == []
+        that: namespace_traefik['resources'] == []
 
     - name: "Get 'traefik' ingress class info."
       kubernetes.core.k8s_info:

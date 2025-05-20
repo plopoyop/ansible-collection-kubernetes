@@ -13,11 +13,11 @@
       kubernetes.core.k8s_info:
         kind: Namespace
         name: "ingress-traefik-controller"
-      register: namespace
+      register: namespace_traefik
 
     - name: Assert that 'traefik' namespace is active
       ansible.builtin.assert:
-        that: namespace['resources'][0]['status']['phase'] == "Active"
+        that: namespace_traefik['resources'][0]['status']['phase'] == "Active"
 
     - name: Multiple checks on instances
       ansible.builtin.include_tasks: ./tasks/check_instances.yml
