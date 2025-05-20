@@ -6,6 +6,7 @@
 
 **Fixed bugs:**
 
+- Renovate mess up the README [\#49](https://github.com/plopoyop/ansible-collection-kubernetes/issues/49)
 - Ansible lint fail [\#47](https://github.com/plopoyop/ansible-collection-kubernetes/issues/47)
 
 **Closed issues:**
