@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/1.1.0...1.1.1)
 
+**Fixed bugs:**
+
+- Ansible lint fail [\#47](https://github.com/plopoyop/ansible-collection-kubernetes/issues/47)
+
 **Closed issues:**
 
 - Update renovatebot/github-action action to v41.0.19 [\#41](https://github.com/plopoyop/ansible-collection-kubernetes/issues/41)
