@@ -3,6 +3,7 @@ extends: default
 
 ignore:
   - ".devenv/"
+  - "galaxy.yml"
 
 rules:
   line-length:

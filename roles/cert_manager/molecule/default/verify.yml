@@ -13,11 +13,11 @@
       kubernetes.core.k8s_info:
         kind: Namespace
         name: "cert-manager"
-      register: namespace
+      register: namespace_cert_manager
 
     - name: Assert that 'cert-manager' namespace is active
       ansible.builtin.assert:
-        that: namespace['resources'][0]['status']['phase'] == "Active"
+        that: namespace_cert_manager['resources'][0]['status']['phase'] == "Active"
 
     - name: Get 'selfsigned-issuer' ClusterIssuer.
       kubernetes.core.k8s_info:

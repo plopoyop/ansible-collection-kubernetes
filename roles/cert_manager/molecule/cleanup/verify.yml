@@ -15,7 +15,7 @@
         name: "selfsigned-issuer"
       register: issuer
 
-    - name: Assert that 'selfsigned-issuer' ClusterIssuer is defined
+    - name: Assert that 'selfsigned-issuer' ClusterIssuer is removed
       ansible.builtin.assert:
         that: issuer['resources'] == []
 
@@ -25,7 +25,7 @@
         name: "letsencrypt-staging"
       register: issuer
 
-    - name: Assert that 'letsencrypt-staging' ClusterIssuer is defined
+    - name: Assert that 'letsencrypt-staging' ClusterIssuer is removed
       ansible.builtin.assert:
         that: issuer['resources'] == []
 
@@ -33,8 +33,8 @@
       kubernetes.core.k8s_info:
         kind: Namespace
         name: "cert-manager"
-      register: namespace
+      register: namespace_cert_manager
 
-    - name: Assert that 'cert-manager' namespace is active
+    - name: Assert that 'cert-manager' namespace is removed
       ansible.builtin.assert:
-        that: namespace['resources'] == []
+        that: namespace_cert_manager['resources'] == []

@@ -13,11 +13,11 @@
       kubernetes.core.k8s_info:
         kind: Namespace
         name: "mongodb"
-      register: namespace
+      register: namespace_mongodb
 
     - name: "Assert that 'mongodb' namespace is active"
       ansible.builtin.assert:
-        that: namespace['resources'][0]['status']['phase'] == "Active"
+        that: namespace_mongodb['resources'][0]['status']['phase'] == "Active"
 
     - name: "Get 'mongodb-kubernetes-operator' info."
       kubernetes.core.k8s_info:

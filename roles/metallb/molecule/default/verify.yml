@@ -31,11 +31,11 @@
       kubernetes.core.k8s_info:
         kind: Namespace
         name: "{{ metallb_namespace }}"
-      register: namespace
+      register: namespace_metallb
 
     - name: Assert that 'metallb' namespace is active
       ansible.builtin.assert:
-        that: namespace['resources'][0]['status']['phase'] == "Active"
+        that: namespace_metallb['resources'][0]['status']['phase'] == "Active"
 
     - name: Get 'echo-server' service info.
       kubernetes.core.k8s_info:

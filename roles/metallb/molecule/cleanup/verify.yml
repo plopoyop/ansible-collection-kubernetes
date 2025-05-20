@@ -14,8 +14,8 @@
       kubernetes.core.k8s_info:
         kind: Namespace
         name: "{{ metallb_namespace }}"
-      register: namespace
+      register: namespace_metallb
 
     - name: Assert that 'metallb' namespace does not exist
       ansible.builtin.assert:
-        that: namespace['resources'] == []
+        that: namespace_metallb['resources'] == []
