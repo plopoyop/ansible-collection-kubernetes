@@ -47,9 +47,9 @@ You can call the roles from this collection in your Ansible playbooks as follows
 | Role Name       | Helm Chart Version | README Link                                 |
 | ---------       | ------------------ | ------------------------------------        |
 | metallb         | v0.14.9            | [View README](roles/metallb/README.md)     |
-| traefik_helm_version: v34.5.0            | [View README](roles/traefik/README.md)      |
+| traefik | v34.5.0            | [View README](roles/traefik/README.md)      |
 | cert\_manager   | v0.17.1            | [View README](roles/cert_manager/README.md) |
-| mongodb_operator_helm_version: 0.13.0            | [View README](roles/mongodb/README.md) |
+| mongodb community operator | v0.13.0            | [View README](roles/mongodb/README.md) |
 
 ## Customization
 
@@ -101,7 +101,9 @@ TF_TARGET="prod/terraform.tfstate,dev/terraform.tfstate"
 Contributions are welcome! Feel free to open issues or submit pull requests to improve the roles and add new features.
 
 ## Tools
-[Devenv.sh](https://devenv.sh/) is used to make
+[Devenv.sh](https://devenv.sh/) is used to make reproducible developpement environments
+[Task](https://taskfile.dev/) as a task runner
+[Renovate](https://github.com/renovatebot/renovate) to update dependencies
 
 ## License
 
