@@ -40,58 +40,101 @@
     {
       "customType": "regex",
       "fileMatch": [
-        "roles/traefik/defaults/main.yml$",
-        "roles/traefik/README.md$",
         "^README.md$"
       ],
       "matchStrings": [
-        "(traefik\\s*(?<pipe>\\|)|traefik_helm_version:)\\s*(?<quote>\")?v?(?<currentValue>[0-9\\.]+)?\"?"
+        "traefik\\s*\\|\\s*v?(?<currentValue>[0-9\\.]+)"
       ],
       "depNameTemplate": "traefik",
-      "autoReplaceStringTemplate": "{{#if pipe}}traefik         | v{{newValue}}{{else}}traefik_helm_version: {{#if quote}}\"v{{newValue}}\"{{else}}v{{newValue}}{{/if}}{{/if}}",
+      "autoReplaceStringTemplate": "traefik         | v{{newValue}}",
+      "datasourceTemplate": "helm"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": [
+        "roles/traefik/defaults/main.yml$",
+        "roles/traefik/README.md$"
+      ],
+      "matchStrings": [
+        "traefik_helm_version:\\s*(?<quote>\")?v?(?<currentValue>[0-9\\.]+)?\"?"
+      ],
+      "depNameTemplate": "traefik",
+      "autoReplaceStringTemplate": "traefik_helm_version: {{#if quote}}\"v{{newValue}}\"{{else}}v{{newValue}}{{/if}}",
+      "datasourceTemplate": "helm"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": [
+        "^README.md$"
+      ],
+      "matchStrings": [
+        "metallb\\s*\\|\\s*v?(?<currentValue>[0-9\\.]+)"
+      ],
+      "depNameTemplate": "metallb",
+      "autoReplaceStringTemplate": "metallb         | v{{newValue}}",
       "datasourceTemplate": "helm"
     },
     {
       "customType": "regex",
       "fileMatch": [
         "roles/metallb/defaults/main.yml$",
-        "roles/metallb/README.md$",
+        "roles/metallb/README.md$"
+      ],
+      "matchStrings": [
+        "metallb_helm_version:\\s*(?<quote>\")?v?(?<currentValue>[0-9\\.]+)?\"?"
+      ],
+      "depNameTemplate": "metallb",
+      "autoReplaceStringTemplate": "metallb_helm_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
+      "datasourceTemplate": "helm"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": [
         "^README.md$"
       ],
       "matchStrings": [
-        "(metallb\\s*(?<pipe>\\|)|metallb_helm_version:)\\s*(?<quote>\")?v?(?<currentValue>[0-9\\.]+)?\"?"
-
+        "cert\\\\_manager\\s*\\|\\s*v?(?<currentValue>[0-9\\.]+)"
       ],
-      "depNameTemplate": "metallb",
-      "autoReplaceStringTemplate": "{{#if pipe}}metallb         | v{{newValue}}{{else}}metallb_helm_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}{{/if}}",
+      "depNameTemplate": "cert-manager",
+      "autoReplaceStringTemplate": "cert\\_manager   | v{{newValue}}",
       "datasourceTemplate": "helm"
     },
     {
       "customType": "regex",
       "fileMatch": [
         "roles/cert_manager/defaults/main.yml$",
-        "roles/cert_manager/README.md$",
+        "roles/cert_manager/README.md$"
+      ],
+      "matchStrings": [
+        "cert_manager_helm_chart_version:\\s*(?<quote>\")?v?(?<currentValue>[0-9\\.]+)?\"?"
+      ],
+      "depNameTemplate": "cert-manager",
+      "autoReplaceStringTemplate": "cert_manager_helm_chart_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
+      "datasourceTemplate": "helm"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": [
         "^README.md$"
       ],
       "matchStrings": [
-        "(cert\\\\_manager\\s*(?<pipe>\\|)|cert_manager_helm_chart_version:)\\s*(?<quote>\")?v?(?<currentValue>[0-9\\.]+)?\"?"
+        "mongodb\\scommunity\\soperator\\s*\\|\\s*(?<quote>\")?v?(?<currentValue>[0-9\\.]+)?\"?"
       ],
-      "depNameTemplate": "cert-manager",
-      "autoReplaceStringTemplate": "{{#if pipe}}cert\\_manager   | v{{newValue}}{{else}}cert_manager_helm_chart_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}{{/if}}",
+      "depNameTemplate": "community-operator",
+      "autoReplaceStringTemplate": "mongodb community operator | v{{newValue}}",
       "datasourceTemplate": "helm"
     },
     {
       "customType": "regex",
       "fileMatch": [
         "roles/mongodb/defaults/main.yml$",
-        "roles/mongodb/README.md$",
-        "^README.md$"
+        "roles/mongodb/README.md$"
       ],
       "matchStrings": [
-        "(mongodb\\scommunity\\soperator\\s*(?<pipe>\\|)|mongodb_operator_helm_version:)\\s*(?<quote>\")?v?(?<currentValue>[0-9\\.]+)?\"?"
+        "mongodb_operator_helm_version:\\s*(?<quote>\")?v?(?<currentValue>[0-9\\.]+)?\"?"
       ],
       "depNameTemplate": "community-operator",
-      "autoReplaceStringTemplate": "{{#if pipe}}mongodb community operator | v{{newValue}}{{else}}mongodb_operator_helm_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}{{/if}}",
+      "autoReplaceStringTemplate": "mongodb_operator_helm_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
       "datasourceTemplate": "helm"
     },
     {
