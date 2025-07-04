@@ -15,7 +15,7 @@ metallb_namespace: "metallb-system"
 # @var metallb_helm_version:type: string
 # @var metallb_helm_version:description: >
 # Helm chart version to install
-metallb_helm_version: "0.14.9"
+metallb_helm_version: 0.15.2
 
 # @var metallb_ip_pools:description: >
 # IP pool to create
