@@ -11,6 +11,9 @@
 
 ## ⚙️ Dependencies
 
+- feat\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.11.2 → v0.12.2\) [\#60](https://github.com/plopoyop/ansible-collection-kubernetes/pull/60) ([plopoyop](https://github.com/plopoyop))
+- feat\(deps\): update pre-commit hook ansible/ansible-lint \(v25.1.3 → v25.6.1\) [\#59](https://github.com/plopoyop/ansible-collection-kubernetes/pull/59) ([plopoyop](https://github.com/plopoyop))
+- feat\(deps\): update pre-commit hook adrienverge/yamllint \(v1.35.1 → v1.37.1\) [\#58](https://github.com/plopoyop/ansible-collection-kubernetes/pull/58) ([plopoyop](https://github.com/plopoyop))
 - chore\(deps\): update renovatebot/github-action action to v43 [\#55](https://github.com/plopoyop/ansible-collection-kubernetes/pull/55) ([plopoyop](https://github.com/plopoyop))
 - chore\(deps\): update helm release traefik to v36 [\#54](https://github.com/plopoyop/ansible-collection-kubernetes/pull/54) ([plopoyop](https://github.com/plopoyop))
 
