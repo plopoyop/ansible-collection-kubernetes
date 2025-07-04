@@ -9,6 +9,10 @@
 - Update Renovate config [\#57](https://github.com/plopoyop/ansible-collection-kubernetes/pull/57) ([plopoyop](https://github.com/plopoyop))
 - change generate changelog action [\#56](https://github.com/plopoyop/ansible-collection-kubernetes/pull/56) ([plopoyop](https://github.com/plopoyop))
 
+## ⚙️ Dependencies
+
+- chore\(deps\): update renovatebot/github-action action to v43 [\#55](https://github.com/plopoyop/ansible-collection-kubernetes/pull/55) ([plopoyop](https://github.com/plopoyop))
+
 ## [1.1.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/1.1.1) (2025-05-23)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/1.1.0...1.1.1)
