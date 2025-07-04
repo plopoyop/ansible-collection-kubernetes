@@ -12,6 +12,7 @@
 ## ⚙️ Dependencies
 
 - chore\(deps\): update renovatebot/github-action action to v43 [\#55](https://github.com/plopoyop/ansible-collection-kubernetes/pull/55) ([plopoyop](https://github.com/plopoyop))
+- chore\(deps\): update helm release traefik to v36 [\#54](https://github.com/plopoyop/ansible-collection-kubernetes/pull/54) ([plopoyop](https://github.com/plopoyop))
 
 ## [1.1.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/1.1.1) (2025-05-23)
 
