@@ -6,6 +6,7 @@
 
 ## 🚀 New Features
 
+- update devenv lock [\#62](https://github.com/plopoyop/ansible-collection-kubernetes/pull/62) ([plopoyop](https://github.com/plopoyop))
 - Update Renovate config [\#57](https://github.com/plopoyop/ansible-collection-kubernetes/pull/57) ([plopoyop](https://github.com/plopoyop))
 - change generate changelog action [\#56](https://github.com/plopoyop/ansible-collection-kubernetes/pull/56) ([plopoyop](https://github.com/plopoyop))
 
