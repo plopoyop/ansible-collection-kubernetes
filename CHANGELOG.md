@@ -16,6 +16,7 @@
 - feat\(deps\): update pre-commit hook adrienverge/yamllint \(v1.35.1 → v1.37.1\) [\#58](https://github.com/plopoyop/ansible-collection-kubernetes/pull/58) ([plopoyop](https://github.com/plopoyop))
 - chore\(deps\): update renovatebot/github-action action to v43 [\#55](https://github.com/plopoyop/ansible-collection-kubernetes/pull/55) ([plopoyop](https://github.com/plopoyop))
 - chore\(deps\): update helm release traefik to v36 [\#54](https://github.com/plopoyop/ansible-collection-kubernetes/pull/54) ([plopoyop](https://github.com/plopoyop))
+- chore\(deps\): update helm release metallb to v0.15.0 [\#53](https://github.com/plopoyop/ansible-collection-kubernetes/pull/53) ([plopoyop](https://github.com/plopoyop))
 
 ## [1.1.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/1.1.1) (2025-05-23)
 
