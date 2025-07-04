@@ -46,7 +46,7 @@ You can call the roles from this collection in your Ansible playbooks as follows
 
 | Role Name       | Helm Chart Version | README Link                                 |
 | ---------       | ------------------ | ------------------------------------        |
-| metallb         | v0.14.9            | [View README](roles/metallb/README.md)     |
+| metallb         | v0.15.2            | [View README](roles/metallb/README.md)     |
 | traefik         | v36.3.0            | [View README](roles/traefik/README.md)      |
 | cert\_manager   | v0.17.1            | [View README](roles/cert_manager/README.md) |
 | mongodb community operator | v0.13.0            | [View README](roles/mongodb/README.md) |
