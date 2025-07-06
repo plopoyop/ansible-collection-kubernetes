@@ -6,41 +6,75 @@
   ],
   "packageRules": [
     {
-      "matchDatasources": ["helm"],
-      "matchPackageNames": ["traefik"],
-      "registryUrls": ["https://traefik.github.io/charts"]
+      "matchDatasources": [
+        "helm"
+      ],
+      "matchPackageNames": [
+        "traefik"
+      ],
+      "registryUrls": [
+        "https://traefik.github.io/charts"
+      ]
     },
     {
-      "matchDatasources": ["helm"],
-      "matchPackageNames": ["metallb"],
-      "registryUrls": ["https://metallb.github.io/metallb"]
+      "matchDatasources": [
+        "helm"
+      ],
+      "matchPackageNames": [
+        "metallb"
+      ],
+      "registryUrls": [
+        "https://metallb.github.io/metallb"
+      ]
     },
     {
-      "matchDatasources": ["helm"],
-      "matchPackageNames": ["cert-manager"],
-      "registryUrls": ["https://charts.jetstack.io"]
+      "matchDatasources": [
+        "helm"
+      ],
+      "matchPackageNames": [
+        "cert-manager"
+      ],
+      "registryUrls": [
+        "https://charts.jetstack.io"
+      ]
     },
     {
-      "matchDatasources": ["helm"],
-      "matchPackageNames": ["community-operator"],
-      "registryUrls": ["https://mongodb.github.io/helm-charts"]
+      "matchDatasources": [
+        "helm"
+      ],
+      "matchPackageNames": [
+        "community-operator"
+      ],
+      "registryUrls": [
+        "https://mongodb.github.io/helm-charts"
+      ]
     },
     {
-      "matchDatasources": ["helm"],
-      "matchPackageNames": ["mongodb"],
-      "registryUrls": ["https://plopoyop.github.io/charts"]
+      "matchDatasources": [
+        "helm"
+      ],
+      "matchPackageNames": [
+        "mongodb"
+      ],
+      "registryUrls": [
+        "https://plopoyop.github.io/charts"
+      ]
     },
     {
-      "matchDatasources": ["docker"],
-      "matchPackageNames": ["mongodb/mongodb-community-server"],
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackageNames": [
+        "mongodb/mongodb-community-server"
+      ],
       "versioning": "semver"
     }
   ],
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": [
-        "^README.md$"
+      "managerFilePatterns": [
+        "/^README.md$/"
       ],
       "matchStrings": [
         "traefik\\s*\\|\\s*v?(?<currentValue>[0-9\\.]+)"
@@ -51,9 +85,9 @@
     },
     {
       "customType": "regex",
-      "fileMatch": [
-        "roles/traefik/defaults/main.yml$",
-        "roles/traefik/README.md$"
+      "managerFilePatterns": [
+        "/roles/traefik/defaults/main.yml$/",
+        "/roles/traefik/README.md$/"
       ],
       "matchStrings": [
         "traefik_helm_version:\\s*(?<quote>\")?v?(?<currentValue>[0-9\\.]+)?\"?"
@@ -64,8 +98,8 @@
     },
     {
       "customType": "regex",
-      "fileMatch": [
-        "^README.md$"
+      "managerFilePatterns": [
+        "/^README.md$/"
       ],
       "matchStrings": [
         "metallb\\s*\\|\\s*v?(?<currentValue>[0-9\\.]+)"
@@ -76,9 +110,9 @@
     },
     {
       "customType": "regex",
-      "fileMatch": [
-        "roles/metallb/defaults/main.yml$",
-        "roles/metallb/README.md$"
+      "managerFilePatterns": [
+        "/roles/metallb/defaults/main.yml$/",
+        "/roles/metallb/README.md$/"
       ],
       "matchStrings": [
         "metallb_helm_version:\\s*(?<quote>\")?v?(?<currentValue>[0-9\\.]+)?\"?"
@@ -89,8 +123,8 @@
     },
     {
       "customType": "regex",
-      "fileMatch": [
-        "^README.md$"
+      "managerFilePatterns": [
+        "/^README.md$/"
       ],
       "matchStrings": [
         "cert\\\\_manager\\s*\\|\\s*v?(?<currentValue>[0-9\\.]+)"
@@ -101,9 +135,9 @@
     },
     {
       "customType": "regex",
-      "fileMatch": [
-        "roles/cert_manager/defaults/main.yml$",
-        "roles/cert_manager/README.md$"
+      "managerFilePatterns": [
+        "/roles/cert_manager/defaults/main.yml$/",
+        "/roles/cert_manager/README.md$/"
       ],
       "matchStrings": [
         "cert_manager_helm_chart_version:\\s*(?<quote>\")?v?(?<currentValue>[0-9\\.]+)?\"?"
@@ -114,8 +148,8 @@
     },
     {
       "customType": "regex",
-      "fileMatch": [
-        "^README.md$"
+      "managerFilePatterns": [
+        "/^README.md$/"
       ],
       "matchStrings": [
         "mongodb\\scommunity\\soperator\\s*\\|\\s*(?<quote>\")?v?(?<currentValue>[0-9\\.]+)?\"?"
@@ -126,9 +160,9 @@
     },
     {
       "customType": "regex",
-      "fileMatch": [
-        "roles/mongodb/defaults/main.yml$",
-        "roles/mongodb/README.md$"
+      "managerFilePatterns": [
+        "/roles/mongodb/defaults/main.yml$/",
+        "/roles/mongodb/README.md$/"
       ],
       "matchStrings": [
         "mongodb_operator_helm_version:\\s*(?<quote>\")?v?(?<currentValue>[0-9\\.]+)?\"?"
@@ -139,9 +173,9 @@
     },
     {
       "customType": "regex",
-      "fileMatch": [
-        "roles/mongodb/defaults/main.yml$",
-        "roles/mongodb/README.md$"
+      "managerFilePatterns": [
+        "/roles/mongodb/defaults/main.yml$/",
+        "/roles/mongodb/README.md$/"
       ],
       "matchStrings": [
         "mongodb_crd_helm_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?"
@@ -152,9 +186,9 @@
     },
     {
       "customType": "regex",
-      "fileMatch": [
-        "roles/mongodb/defaults/main.yml$",
-        "roles/mongodb/README.md$"
+      "managerFilePatterns": [
+        "/roles/mongodb/defaults/main.yml$/",
+        "/roles/mongodb/README.md$/"
       ],
       "matchStrings": [
         "mongodb_instance_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?"
