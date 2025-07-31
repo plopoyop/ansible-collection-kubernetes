@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/1.2.1) (2025-07-31)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/1.2.0...1.2.1)
+
+## 🐛 Bug Fixes
+
+- Fix molecule tests [\#67](https://github.com/plopoyop/ansible-collection-kubernetes/pull/67) ([plopoyop](https://github.com/plopoyop))
+
 ## [1.2.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/1.2.0) (2025-07-04)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/1.1.1...1.2.0)
