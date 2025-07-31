@@ -8,6 +8,10 @@
 
 - Fix molecule tests [\#67](https://github.com/plopoyop/ansible-collection-kubernetes/pull/67) ([plopoyop](https://github.com/plopoyop))
 
+## ⚙️ Dependencies
+
+- update devenv [\#68](https://github.com/plopoyop/ansible-collection-kubernetes/pull/68) ([plopoyop](https://github.com/plopoyop))
+
 ## [1.2.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/1.2.0) (2025-07-04)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/1.1.1...1.2.0)
