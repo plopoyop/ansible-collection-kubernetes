@@ -8,6 +8,7 @@
 
 - feat\(ci\)!: Update hugo19941994/delete-draft-releases action \(v1.0.1 → v2.0.0\) [\#70](https://github.com/plopoyop/ansible-collection-kubernetes/pull/70) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit hook ansible/ansible-lint \(v25.6.1 → v25.7.0\) [\#69](https://github.com/plopoyop/ansible-collection-kubernetes/pull/69) ([plopoyop](https://github.com/plopoyop))
+- fix\(ci\): update renovatebot/github-action action \(v43.0.2 → v43.0.3\) [\#65](https://github.com/plopoyop/ansible-collection-kubernetes/pull/65) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.12.2 → v0.12.3\) [\#64](https://github.com/plopoyop/ansible-collection-kubernetes/pull/64) ([plopoyop](https://github.com/plopoyop))
 
 **Merged pull requests:**
