@@ -1,7 +1,8 @@
 ---
 name: Test roles
 
-on:  # yamllint disable-line rule:truthy
+on:
+  workflow_dispatch:
   push:
     branches: [main]
     paths:
