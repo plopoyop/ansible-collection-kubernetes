@@ -1,8 +1,12 @@
 # Changelog
 
-## [2.0.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/2.0.0) (2025-07-31)
+## [2.0.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/2.0.0) (2025-08-01)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/1.2.1...2.0.0)
+
+## 🚀 New Features
+
+- Traefik middleware [\#74](https://github.com/plopoyop/ansible-collection-kubernetes/pull/74) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
 
