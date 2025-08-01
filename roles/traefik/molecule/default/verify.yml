@@ -39,3 +39,15 @@
     - name: Assert that 'traefik' service is defined
       ansible.builtin.assert:
         that: service['resources'][0]['status']['loadBalancer']['ingress'] is defined
+
+    - name: "Get 'redirect-to-https' middleware info."
+      kubernetes.core.k8s_info:
+        api_version: "traefik.io/v1alpha1"
+        kind: "Middleware"
+        name: "redirect-to-https"
+        namespace: "ingress-traefik-controller"
+      register: middleware
+
+    - name: "Assert that 'redirect-to-https' middleware is defined"
+      ansible.builtin.assert:
+        that: middleware['resources'][0] is defined

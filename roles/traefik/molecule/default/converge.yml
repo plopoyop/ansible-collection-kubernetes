@@ -3,6 +3,15 @@
   hosts: localhost
   connection: local
   gather_facts: false
+  vars:
+    traefik_middlewares:
+      - name: "redirect-to-https"
+        spec:
+          redirectRegex:
+            regex: "^http://(.*)"
+            replacement: "https://$1"
+            permanent: true
+
   tasks:
     - name: Install traefik
       ansible.builtin.import_role:
