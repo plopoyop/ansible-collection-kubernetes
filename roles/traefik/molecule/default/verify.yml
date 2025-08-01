@@ -51,3 +51,15 @@
     - name: "Assert that 'redirect-to-https' middleware is defined"
       ansible.builtin.assert:
         that: middleware['resources'][0] is defined
+
+    - name: "Get 'test-inflightconn' TCP middleware info."
+      kubernetes.core.k8s_info:
+        api_version: "traefik.io/v1alpha1"
+        kind: "MiddlewareTCP"
+        name: "test-inflightconn"
+        namespace: "ingress-traefik-controller"
+      register: middleware_tcp
+
+    - name: "Assert that 'test-inflightconn' TCP middleware is defined"
+      ansible.builtin.assert:
+        that: middleware_tcp['resources'][0] is defined

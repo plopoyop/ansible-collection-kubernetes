@@ -29,3 +29,12 @@
   loop: "{{ traefik_middlewares }}"
   loop_control:
     loop_var: current_traefik_middleware
+
+- name: "Create TCP middlewares"
+  kubernetes.core.k8s:
+    namespace: "{{ traefik_namespace }}"
+    template: "middleware_tcp.yml.j2"
+    state: "{{ current_traefik_middleware.state | default('present') }}"
+  loop: "{{ traefik_middlewares_tcp }}"
+  loop_control:
+    loop_var: current_traefik_middleware

@@ -11,6 +11,11 @@
             regex: "^http://(.*)"
             replacement: "https://$1"
             permanent: true
+    traefik_middlewares_tcp:
+      - name: test-inflightconn
+        spec:
+          inFlightConn:
+            amount: 10
 
   tasks:
     - name: Install traefik
