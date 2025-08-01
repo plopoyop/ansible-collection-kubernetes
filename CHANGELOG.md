@@ -11,6 +11,7 @@
 ## ⚙️ Dependencies
 
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.12.3 → v0.12.7\) [\#73](https://github.com/plopoyop/ansible-collection-kubernetes/pull/73) ([plopoyop](https://github.com/plopoyop))
+- feat\(helm\)!: Update chart traefik \(36.3.0 → 37.0.0\) [\#71](https://github.com/plopoyop/ansible-collection-kubernetes/pull/71) ([plopoyop](https://github.com/plopoyop))
 - feat\(ci\)!: Update hugo19941994/delete-draft-releases action \(v1.0.1 → v2.0.0\) [\#70](https://github.com/plopoyop/ansible-collection-kubernetes/pull/70) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit hook ansible/ansible-lint \(v25.6.1 → v25.7.0\) [\#69](https://github.com/plopoyop/ansible-collection-kubernetes/pull/69) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v43.0.2 → v43.0.3\) [\#65](https://github.com/plopoyop/ansible-collection-kubernetes/pull/65) ([plopoyop](https://github.com/plopoyop))
