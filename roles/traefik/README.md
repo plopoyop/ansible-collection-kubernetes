@@ -37,16 +37,16 @@ traefik_deployments:
       deployment_kind: DaemonSet
       service_type: LoadBalancer
       traefik_entrypoint_port: 9000
-      traefik_entrypoint_expose: 'false'
+      traefik_entrypoint_expose: false
       websecure_entrypoint_port: 8443
       websecure_entrypoint_exposed_port: 443
-      websecure_entrypoint_expose: 'true'
+      websecure_entrypoint_expose: true
       web_entrypoint_port: 8000
       web_entrypoint_exposed_port: 80
-      web_entrypoint_expose: 'true'
+      web_entrypoint_expose: true
       traefik_additionnal_entrypoint: []
-      traefik_ingress_enabled: 'true'
-      traefik_gateway_enabled: 'false'
+      traefik_ingress_enabled: true
+      traefik_gateway_enabled: false
       dashboard_enabled: false
       additionnal_values: {}
 ```
@@ -61,24 +61,24 @@ traefik_deployments:
        deployment_kind: "DaemonSet"
        service_type: "LoadBalancer"
        traefik_entrypoint_port: 9000
-       traefik_entrypoint_expose: "false"
+       traefik_entrypoint_expose: false
        websecure_entrypoint_port: 8443
        websecure_entrypoint_exposed_port: 443
-       websecure_entrypoint_expose: "true"
+       websecure_entrypoint_expose: true
        web_entrypoint_port: 8000
        web_entrypoint_exposed_port: 80
-       web_entrypoint_expose: "true"
+       web_entrypoint_expose: true
        traefik_additionnal_entrypoint:
          - name: "example"
            port: 8001
            exposed_port: 81
            expose: true
-       traefik_ingress_enabled: "true"
-       traefik_gateway_enabled: "false"
+       traefik_ingress_enabled: true
+       traefik_gateway_enabled: false
        dashboard_enabled: false
        additionnal_values:
          healthcheck:
-           enabled: "true"
+           enabled: true
 ```
 
 ### traefik_helm_version
