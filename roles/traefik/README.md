@@ -9,6 +9,8 @@ Install traefik ingress controller on kubernetes
   - [traefik_deployments](#traefik_deployments)
   - [traefik_helm_version](#traefik_helm_version)
   - [traefik_ingress_enabled](#traefik_ingress_enabled)
+  - [traefik_middlewares](#traefik_middlewares)
+  - [traefik_middlewares_tcp](#traefik_middlewares_tcp)
   - [traefik_namespace](#traefik_namespace)
 - [Dependencies](#dependencies)
 - [License](#license)
@@ -99,6 +101,52 @@ Should traefik helm chart be installed
 
 ```YAML
 traefik_ingress_enabled: true
+```
+
+### traefik_middlewares
+
+List of ingress controlers to deploy
+
+#### Default value
+
+```YAML
+traefik_middlewares: []
+```
+
+#### Example usage
+
+```YAML
+ traefik_middlewares:
+ - name: redirect-to-https
+   spec:
+     redirectRegex:
+       regex: "^http://(.*)"
+       replacement: "https://$1"
+       permanent: true
+ - name: older-middleware
+   state: absent
+```
+
+### traefik_middlewares_tcp
+
+List of ingress controlers to deploy
+
+#### Default value
+
+```YAML
+traefik_middlewares_tcp: []
+```
+
+#### Example usage
+
+```YAML
+ traefik_middlewares_tcp:
+ - name: test-inflightconn
+   spec:
+     inFlightConn:
+       amount: 10
+ - name: older-middleware
+   state: absent
 ```
 
 ### traefik_namespace

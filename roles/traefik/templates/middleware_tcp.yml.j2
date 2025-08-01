@@ -1,0 +1,9 @@
+---
+apiVersion: traefik.io/v1alpha1
+kind: MiddlewareTCP
+metadata:
+  name: "{{ current_traefik_middleware.name }}"
+spec:
+{% if current_traefik_middleware.spec is defined %}
+    {{ current_traefik_middleware.spec | to_yaml }}
+{% endif %}

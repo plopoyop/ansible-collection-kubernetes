@@ -55,18 +55,17 @@
 
 
   enterShell = ''
-    export ANSIBLE_ROLES_PATH=$PWD/.devenv/ansible/roles;
-    export ANSIBLE_COLLECTIONS_PATH=$PWD/.devenv/ansible/collections;
+    export ANSIBLE_ROLES_PATH=$DEVENV_ROOT/.devenv/ansible/roles;
+    export ANSIBLE_COLLECTIONS_PATH=$DEVENV_ROOT/.devenv/ansible/collections;
 
     mkdir -p $ANSIBLE_ROLES_PATH
     mkdir -p $ANSIBLE_COLLECTIONS_PATH
 
-    export ANSIBLE_ROLES_PATH=$ANSIBLE_ROLES_PATH:$PWD/.devenv/ansible/roles
+    export ANSIBLE_ROLES_PATH=$ANSIBLE_ROLES_PATH:$DEVENV_ROOT/roles/
 
     echo $GITHUB_WORKSPACE
     if [ -n "$GITHUB_WORKSPACE" ]; then
       export ANSIBLE_ROLES_PATH=$ANSIBLE_ROLES_PATH:$GITHUB_WORKSPACE/roles
     fi
-    echo $ANSIBLE_ROLES_PATH
   '';
 }

@@ -66,3 +66,33 @@ traefik_deployments:
       traefik_gateway_enabled: "false"
       dashboard_enabled: false
       additionnal_values: {}
+
+# @var traefik_middlewares
+# @var traefik_middlewares:type: list of dict
+# @var traefik_middlewares:description: >
+# List of ingress controlers to deploy
+# @var traefik_middlewares:example: >
+#  traefik_middlewares:
+#  - name: redirect-to-https
+#    spec:
+#      redirectRegex:
+#        regex: "^http://(.*)"
+#        replacement: "https://$1"
+#        permanent: true
+#  - name: older-middleware
+#    state: absent
+traefik_middlewares: []
+
+# @var traefik_middlewares_tcp
+# @var traefik_middlewares_tcp:type: list of dict
+# @var traefik_middlewares_tcp:description: >
+# List of ingress controlers to deploy
+# @var traefik_middlewares_tcp:example: >
+#  traefik_middlewares_tcp:
+#  - name: test-inflightconn
+#    spec:
+#      inFlightConn:
+#        amount: 10
+#  - name: older-middleware
+#    state: absent
+traefik_middlewares_tcp: []
