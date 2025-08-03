@@ -1,6 +1,6 @@
 # Changelog
 
-## [2.0.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/2.0.0) (2025-08-01)
+## [2.0.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/2.0.0) (2025-08-03)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/1.2.1...2.0.0)
 
@@ -10,6 +10,7 @@
 
 ## ⚙️ Dependencies
 
+- fix\(ci\): update renovatebot/github-action action \(v43.0.3 → v43.0.5\) [\#75](https://github.com/plopoyop/ansible-collection-kubernetes/pull/75) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.12.3 → v0.12.7\) [\#73](https://github.com/plopoyop/ansible-collection-kubernetes/pull/73) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\)!: Update chart traefik \(36.3.0 → 37.0.0\) [\#71](https://github.com/plopoyop/ansible-collection-kubernetes/pull/71) ([plopoyop](https://github.com/plopoyop))
 - feat\(ci\)!: Update hugo19941994/delete-draft-releases action \(v1.0.1 → v2.0.0\) [\#70](https://github.com/plopoyop/ansible-collection-kubernetes/pull/70) ([plopoyop](https://github.com/plopoyop))
