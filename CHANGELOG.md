@@ -1,6 +1,6 @@
 # Changelog
 
-## [2.0.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/2.0.0) (2025-08-03)
+## [2.0.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/2.0.0) (2025-09-12)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/1.2.1...2.0.0)
 
@@ -10,6 +10,11 @@
 
 ## ⚙️ Dependencies
 
+- feat\(ci\)!: Update actions/checkout action \(v4 → v5\) [\#80](https://github.com/plopoyop/ansible-collection-kubernetes/pull/80) ([plopoyop](https://github.com/plopoyop))
+- feat\(deps\): update pre-commit hook ansible/ansible-lint \(v25.7.0 → v25.8.1\) [\#79](https://github.com/plopoyop/ansible-collection-kubernetes/pull/79) ([plopoyop](https://github.com/plopoyop))
+- feat\(deps\)!: Update pre-commit hook pre-commit/pre-commit-hooks \(v5.0.0 → v6.0.0\) [\#78](https://github.com/plopoyop/ansible-collection-kubernetes/pull/78) ([plopoyop](https://github.com/plopoyop))
+- fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.12.7 → v0.12.8\) [\#77](https://github.com/plopoyop/ansible-collection-kubernetes/pull/77) ([plopoyop](https://github.com/plopoyop))
+- fix\(ci\): update renovatebot/github-action action \(v43.0.5 → v43.0.6\) [\#76](https://github.com/plopoyop/ansible-collection-kubernetes/pull/76) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v43.0.3 → v43.0.5\) [\#75](https://github.com/plopoyop/ansible-collection-kubernetes/pull/75) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.12.3 → v0.12.7\) [\#73](https://github.com/plopoyop/ansible-collection-kubernetes/pull/73) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\)!: Update chart traefik \(36.3.0 → 37.0.0\) [\#71](https://github.com/plopoyop/ansible-collection-kubernetes/pull/71) ([plopoyop](https://github.com/plopoyop))
