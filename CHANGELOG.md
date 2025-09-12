@@ -10,6 +10,7 @@
 
 ## ⚙️ Dependencies
 
+- feat\(helm\): update chart traefik \(37.0.0 → 37.1.0\) [\#81](https://github.com/plopoyop/ansible-collection-kubernetes/pull/81) ([plopoyop](https://github.com/plopoyop))
 - feat\(ci\)!: Update actions/checkout action \(v4 → v5\) [\#80](https://github.com/plopoyop/ansible-collection-kubernetes/pull/80) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit hook ansible/ansible-lint \(v25.7.0 → v25.8.1\) [\#79](https://github.com/plopoyop/ansible-collection-kubernetes/pull/79) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\)!: Update pre-commit hook pre-commit/pre-commit-hooks \(v5.0.0 → v6.0.0\) [\#78](https://github.com/plopoyop/ansible-collection-kubernetes/pull/78) ([plopoyop](https://github.com/plopoyop))
