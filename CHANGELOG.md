@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/2.0.1) (2025-09-14)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/2.0.0...2.0.1)
+
+## ⚙️ Dependencies
+
+- fix\(ci\): update renovatebot/github-action action \(v43.0.6 → v43.0.11\) [\#82](https://github.com/plopoyop/ansible-collection-kubernetes/pull/82) ([plopoyop](https://github.com/plopoyop))
+
 ## [2.0.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/2.0.0) (2025-09-12)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/1.2.1...2.0.0)
