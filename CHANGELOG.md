@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.2.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/2.2.0) (2025-09-21)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/2.1.0...2.2.0)
+
+## ⚙️ Dependencies
+
+- feat\(deps\): update pre-commit hook ansible/ansible-lint \(v25.8.2 → v25.9.0\) [\#88](https://github.com/plopoyop/ansible-collection-kubernetes/pull/88) ([plopoyop](https://github.com/plopoyop))
+
 ## [2.1.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/2.1.0) (2025-09-14)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/2.0.0...2.1.0)
