@@ -1,11 +1,12 @@
 # Changelog
 
-## [2.2.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/2.2.0) (2025-09-30)
+## [2.2.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/2.2.0) (2025-10-02)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/2.1.0...2.2.0)
 
 ## ⚙️ Dependencies
 
+- update devenv to 1.9.1 [\#90](https://github.com/plopoyop/ansible-collection-kubernetes/pull/90) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.13.1 → v0.13.2\) [\#89](https://github.com/plopoyop/ansible-collection-kubernetes/pull/89) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit hook ansible/ansible-lint \(v25.8.2 → v25.9.0\) [\#88](https://github.com/plopoyop/ansible-collection-kubernetes/pull/88) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.13.0 → v0.13.1\) [\#87](https://github.com/plopoyop/ansible-collection-kubernetes/pull/87) ([plopoyop](https://github.com/plopoyop))
