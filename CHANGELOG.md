@@ -1,8 +1,18 @@
 # Changelog
 
-## [2.2.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/2.2.0) (2025-11-02)
+## [2.2.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/2.2.0) (2025-11-09)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/2.1.0...2.2.0)
+
+## 🚀 New Features
+
+- migrate from devenv to devbox [\#97](https://github.com/plopoyop/ansible-collection-kubernetes/pull/97) ([plopoyop](https://github.com/plopoyop))
+
+## 🐛 Bug Fixes
+
+- Fix various cs errors [\#100](https://github.com/plopoyop/ansible-collection-kubernetes/pull/100) ([plopoyop](https://github.com/plopoyop))
+- fix Certmanager verify condition [\#99](https://github.com/plopoyop/ansible-collection-kubernetes/pull/99) ([plopoyop](https://github.com/plopoyop))
+- Error in read local state plugin [\#98](https://github.com/plopoyop/ansible-collection-kubernetes/pull/98) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
 
