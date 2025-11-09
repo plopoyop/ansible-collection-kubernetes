@@ -16,6 +16,7 @@
 
 ## ⚙️ Dependencies
 
+- fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.13.2 → v0.13.3\) [\#93](https://github.com/plopoyop/ansible-collection-kubernetes/pull/93) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook ansible/ansible-lint \(v25.9.0 → v25.9.1\) [\#92](https://github.com/plopoyop/ansible-collection-kubernetes/pull/92) ([plopoyop](https://github.com/plopoyop))
 - update devenv to 1.9.1 [\#90](https://github.com/plopoyop/ansible-collection-kubernetes/pull/90) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.13.1 → v0.13.2\) [\#89](https://github.com/plopoyop/ansible-collection-kubernetes/pull/89) ([plopoyop](https://github.com/plopoyop))
