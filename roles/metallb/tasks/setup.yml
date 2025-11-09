@@ -20,8 +20,8 @@
     state: "{{ current_ip_pool.state | default('present') }}"
     namespace: "{{ metallb_namespace }}"
     template: 'config.yml.j2'
-  register: result
-  until: result is defined
+  register: metallb_ip_pool_result
+  until: metallb_ip_pool_result is defined
   retries: 60
   delay: 5
   loop: "{{ metallb_ip_pools }}"

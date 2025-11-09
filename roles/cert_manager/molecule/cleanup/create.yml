@@ -4,7 +4,6 @@
   connection: local
   gather_facts: false
   vars:
-    cloud_provider: "{{ lookup('env', 'DEVENV_DOTFILE') }}/bin/cloud-provider-kind"
     cert_manager_acme_production_enabled: false
   tasks:
     - name: Build a kind cluster (wait for control plane).

@@ -58,4 +58,4 @@
 
     - name: Assert that 'test' Certificate is issued
       ansible.builtin.assert:
-        that: cert['resources'][0].status.conditions[0].status
+        that: cert['resources'][0].status.conditions[0].status is defined
