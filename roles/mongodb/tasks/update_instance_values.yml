@@ -6,10 +6,10 @@
         value: "{{ value_to_update.value }}"
       - path: mongodb_instance["updated"]
         value: true
-  register: updated_instance
+  register: mongodb_updated_instance
   changed_when: false
 
 - name: "Update instance"
   ansible.builtin.set_fact:
-    mongodb_instance: "{{ updated_instance.mongodb_instance }}"
+    mongodb_instance: "{{ mongodb_updated_instance.mongodb_instance }}"
   changed_when: false
