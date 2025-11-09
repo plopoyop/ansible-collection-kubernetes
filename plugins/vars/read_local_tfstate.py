@@ -46,7 +46,7 @@ class VarsModule(BaseVarsPlugin):
                     continue
 
                 with open(tf_state_path) as tf_state_file:
-                    tfstate = loader.load(tf_state_file)
+                    tfstate = loader.load(tf_state_file.read())
                     if not tfstate.get("outputs"):
                         vars = vars
                         continue
