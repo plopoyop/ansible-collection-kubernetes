@@ -4,7 +4,7 @@
   connection: local
   gather_facts: false
   vars:
-    cloud_provider: "{{ lookup('env', 'DEVENV_DOTFILE') }}/bin/cloud-provider-kind"
+    cloud_provider: "{{ lookup('env', 'DEVBOX_PROJECT_ROOT') }}/.devbox/bin/cloud-provider-kind"
   tasks:
     - name: Build a kind cluster (wait for control plane).
       ansible.builtin.command: >-
