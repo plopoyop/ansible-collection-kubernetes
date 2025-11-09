@@ -50,8 +50,8 @@
     kind: "Service"
     name: "{{ traefik_current_instance.name }}"
     namespace: "{{ traefik_namespace }}"
-  register: ingress_controller_service
-  until: ingress_controller_service is defined and ((ingress_controller_service.resources | length) > 0)
+  register: traefik_ingress_controller_service
+  until: traefik_ingress_controller_service is defined and ((traefik_ingress_controller_service.resources | length) > 0)
   retries: 60
   delay: 5
 
@@ -59,10 +59,10 @@
   ansible.utils.update_fact:
     updates:
       - path: traefik_ingress_ip_addresses_list[{{ traefik_current_instance.name }}]
-        value: "{{ ingress_controller_service.resources[0].status.loadBalancer.ingress[0].ip }}"
-  register: updated
+        value: "{{ traefik_ingress_controller_service.resources[0].status.loadBalancer.ingress[0].ip }}"
+  register: traefik_updated_instance
   changed_when: false
 
 - name: "Updated IP addresses list"
   ansible.builtin.set_fact:
-    traefik_ingress_ip_addresses_list: "{{ updated.traefik_ingress_ip_addresses_list }}"
+    traefik_ingress_ip_addresses_list: "{{ traefik_updated_instance.traefik_ingress_ip_addresses_list }}"

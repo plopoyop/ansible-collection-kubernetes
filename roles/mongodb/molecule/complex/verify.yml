@@ -15,7 +15,7 @@
         name: "mongodb"
       register: namespace_mongodb
 
-    - name: "Assert that 'mongodb' namespace is active"
+    - name: "Assert that 'mongodb operator' namespace is active"
       ansible.builtin.assert:
         that: namespace_mongodb['resources'][0]['status']['phase'] == "Active"
 
@@ -58,7 +58,7 @@
         namespace: "mongodb-instance"
       register: connection_secret
 
-    - name: "Assert that 'mymongodb' statefullset is deployed"
+    - name: "Assert that connection secret is created"
       ansible.builtin.assert:
         that: connection_secret['resources'][0]['data'] is defined
 
@@ -69,6 +69,6 @@
         namespace: "mongodb-instance"
       register: metrics_password_secret
 
-    - name: "Assert that 'mymongodb' statefullset is deployed"
+    - name: "Assert that metrics password secret is created"
       ansible.builtin.assert:
         that: metrics_password_secret['resources'][0]['data'] is defined
