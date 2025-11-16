@@ -6,6 +6,7 @@
 
 ## ⚙️ Dependencies
 
+- feat\(deps\)!: Update ansible-doctor \(7.2.1 → 8.0.0\) [\#111](https://github.com/plopoyop/ansible-collection-kubernetes/pull/111) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update python313packages.molecule \(25.9.0 → 25.11.0\) [\#109](https://github.com/plopoyop/ansible-collection-kubernetes/pull/109) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update python313packages.ansible \(12.1.0 → 12.2.0\) [\#108](https://github.com/plopoyop/ansible-collection-kubernetes/pull/108) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.13.3 → v0.14.5\) [\#107](https://github.com/plopoyop/ansible-collection-kubernetes/pull/107) ([plopoyop](https://github.com/plopoyop))
