@@ -6,6 +6,7 @@
 
 ## ⚙️ Dependencies
 
+- fix\(deps\): update git \(2.51.0 → 2.51.2\) [\#113](https://github.com/plopoyop/ansible-collection-kubernetes/pull/113) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v44.0.2 → v44.0.3\) [\#112](https://github.com/plopoyop/ansible-collection-kubernetes/pull/112) ([plopoyop](https://github.com/plopoyop))
 
 ## [3.1.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/3.1.0) (2025-11-16)
