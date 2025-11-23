@@ -4,7 +4,7 @@
       "python313Packages.ansible@12.2.0",
       "ansible-doctor@8.0.0",
       "ansible-lint@25.8.2",
-      "git@2.51.0",
+      "git@2.51.2",
       "glibcLocales@2.40-66",
       "go-task@3.45.4",
       "jq@1.8.1",
