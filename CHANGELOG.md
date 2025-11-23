@@ -1,12 +1,13 @@
 # Changelog
 
-## [3.1.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/3.1.1) (2025-11-23)
+## [3.2.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/3.2.0) (2025-11-23)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/3.1.0...3.1.1)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/3.1.0...3.2.0)
 
 ## ⚙️ Dependencies
 
 - feat\(ci\)!: Update actions/checkout action \(v5 → v6\) [\#118](https://github.com/plopoyop/ansible-collection-kubernetes/pull/118) ([plopoyop](https://github.com/plopoyop))
+- feat\(helm\): update chart traefik \(37.3.0 → 37.4.0\) [\#117](https://github.com/plopoyop/ansible-collection-kubernetes/pull/117) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update python313packages.ruff \(0.14.3 → 0.14.4\) [\#116](https://github.com/plopoyop/ansible-collection-kubernetes/pull/116) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.14.5 → v0.14.6\) [\#115](https://github.com/plopoyop/ansible-collection-kubernetes/pull/115) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update go-task \(3.45.4 → 3.45.5\) [\#114](https://github.com/plopoyop/ansible-collection-kubernetes/pull/114) ([plopoyop](https://github.com/plopoyop))
