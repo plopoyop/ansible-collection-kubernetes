@@ -1,8 +1,12 @@
 # Changelog
 
-## [3.2.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/3.2.1) (2025-11-30)
+## [3.3.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/3.3.0) (2025-12-04)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/3.2.0...3.2.1)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/3.2.0...3.3.0)
+
+## 🚀 New Features
+
+- Make possible to create traefik middleware in another namespace [\#124](https://github.com/plopoyop/ansible-collection-kubernetes/pull/124) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
 
