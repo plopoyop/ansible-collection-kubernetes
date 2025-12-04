@@ -23,7 +23,7 @@
 
 - name: "Create middlewares"
   kubernetes.core.k8s:
-    namespace: "{{ traefik_namespace }}"
+    namespace: "{{ current_traefik_middleware.namespace | default(traefik_namespace) }}"
     template: "middleware.yml.j2"
     state: "{{ current_traefik_middleware.state | default('present') }}"
   loop: "{{ traefik_middlewares }}"
@@ -32,7 +32,7 @@
 
 - name: "Create TCP middlewares"
   kubernetes.core.k8s:
-    namespace: "{{ traefik_namespace }}"
+    namespace: "{{ current_traefik_middleware.namespace | default(traefik_namespace) }}"
     template: "middleware_tcp.yml.j2"
     state: "{{ current_traefik_middleware.state | default('present') }}"
   loop: "{{ traefik_middlewares_tcp }}"
