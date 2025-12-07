@@ -1025,67 +1025,67 @@
         }
       }
     },
-    "python313Packages.pytest-ansible@25.8.0": {
-      "last_modified": "2025-10-13T09:56:54Z",
-      "resolved": "github:NixOS/nixpkgs/c12c63cd6c5eb34c7b4c3076c6a99e00fcab86ec#python313Packages.pytest-ansible",
+    "python313Packages.pytest-ansible@25.11.2": {
+      "last_modified": "2025-12-03T20:43:00Z",
+      "resolved": "github:NixOS/nixpkgs/ebc94f855ef25347c314258c10393a92794e7ab9#python313Packages.pytest-ansible",
       "source": "devbox-search",
-      "version": "25.8.0",
+      "version": "25.11.2",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/cxd1b8j3y6r99gzwv20ghgj58hndh30v-python3.13-pytest-ansible-25.8.0",
+              "path": "/nix/store/709k7hzp940wvxffx9h386092qnp4kv1-python3.13-pytest-ansible-25.11.2",
               "default": true
             },
             {
               "name": "dist",
-              "path": "/nix/store/wwgalwppa5j91da09fw73zl5nvnhdf4q-python3.13-pytest-ansible-25.8.0-dist"
+              "path": "/nix/store/ghrm58ap1nd17nmf5nv9k13gy7axq87j-python3.13-pytest-ansible-25.11.2-dist"
             }
           ],
-          "store_path": "/nix/store/cxd1b8j3y6r99gzwv20ghgj58hndh30v-python3.13-pytest-ansible-25.8.0"
+          "store_path": "/nix/store/709k7hzp940wvxffx9h386092qnp4kv1-python3.13-pytest-ansible-25.11.2"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/qkbzsjbb2cdx81lb17j7jrqkn3yzgk3i-python3.13-pytest-ansible-25.8.0",
+              "path": "/nix/store/8ikcfncaf60qkp2khgavay4nahbxa9ga-python3.13-pytest-ansible-25.11.2",
               "default": true
             },
             {
               "name": "dist",
-              "path": "/nix/store/ys4mqidk9kb4rgn3zkskphx6jnyv5jxp-python3.13-pytest-ansible-25.8.0-dist"
+              "path": "/nix/store/4fc4qhz70pkcix4110jd9qasl7yp50xs-python3.13-pytest-ansible-25.11.2-dist"
             }
           ],
-          "store_path": "/nix/store/qkbzsjbb2cdx81lb17j7jrqkn3yzgk3i-python3.13-pytest-ansible-25.8.0"
+          "store_path": "/nix/store/8ikcfncaf60qkp2khgavay4nahbxa9ga-python3.13-pytest-ansible-25.11.2"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/sv9k3zdwqagll9d48qsmynn44sgcydhi-python3.13-pytest-ansible-25.8.0",
+              "path": "/nix/store/nlhq8hnd9r8ikrpzfw14ia8hj2jkns3a-python3.13-pytest-ansible-25.11.2",
               "default": true
             },
             {
               "name": "dist",
-              "path": "/nix/store/aygd2ab30qcs6k1k7km5f3r6krxf2366-python3.13-pytest-ansible-25.8.0-dist"
+              "path": "/nix/store/wv6dgf47sfqrlk0ssbcbgcbbnaphk26w-python3.13-pytest-ansible-25.11.2-dist"
             }
           ],
-          "store_path": "/nix/store/sv9k3zdwqagll9d48qsmynn44sgcydhi-python3.13-pytest-ansible-25.8.0"
+          "store_path": "/nix/store/nlhq8hnd9r8ikrpzfw14ia8hj2jkns3a-python3.13-pytest-ansible-25.11.2"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/pgn7jx6m2a1dvh72gy7j26bppi58n1x4-python3.13-pytest-ansible-25.8.0",
+              "path": "/nix/store/jl8hprz62hayrgccjm1k1r4qvj46vnay-python3.13-pytest-ansible-25.11.2",
               "default": true
             },
             {
               "name": "dist",
-              "path": "/nix/store/9aqc2xd05a0vcpgkhjbnv552fxcr6d8g-python3.13-pytest-ansible-25.8.0-dist"
+              "path": "/nix/store/a21hz3z8lafyr1wsfcqf8yq7rs7xlif9-python3.13-pytest-ansible-25.11.2-dist"
             }
           ],
-          "store_path": "/nix/store/pgn7jx6m2a1dvh72gy7j26bppi58n1x4-python3.13-pytest-ansible-25.8.0"
+          "store_path": "/nix/store/jl8hprz62hayrgccjm1k1r4qvj46vnay-python3.13-pytest-ansible-25.11.2"
         }
       }
     },
