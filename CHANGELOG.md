@@ -8,6 +8,10 @@
 
 - Make possible to create traefik middleware in another namespace [\#124](https://github.com/plopoyop/ansible-collection-kubernetes/pull/124) ([plopoyop](https://github.com/plopoyop))
 
+## 🐛 Bug Fixes
+
+- error in variable name [\#135](https://github.com/plopoyop/ansible-collection-kubernetes/pull/135) ([plopoyop](https://github.com/plopoyop))
+
 ## ⚙️ Dependencies
 
 - feat\(deps\)!: Update python313Packages.ansible \(12.2.0 → 13.0.0\) [\#134](https://github.com/plopoyop/ansible-collection-kubernetes/pull/134) ([plopoyop](https://github.com/plopoyop))
