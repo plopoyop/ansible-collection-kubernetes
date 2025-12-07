@@ -78,7 +78,7 @@ mongodb_default_instance:
   backup_cronjob_container_secret_env: []
   backup_cronjob_image: {}
   backup_cronjob_image_pull_secret: {}
-  backup_additionnal_config: {}
+  backup_additional_config: {}
   metrics_enabled: false
   metrics_username: prometheus
   metrics_password: ''

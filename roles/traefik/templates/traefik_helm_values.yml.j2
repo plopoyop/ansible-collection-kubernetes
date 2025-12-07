@@ -21,7 +21,7 @@ ports:
     expose:
       default: {{ web_entrypoint_expose }}
 {% endif %}
-{% for entrypoint in additionnal_entrypoint | default([]) %}
+{% for entrypoint in additional_entrypoint | default([]) %}
   {{ entrypoint.name }}:
     port: {{ entrypoint.port }}
     exposedPort: {{ entrypoint.exposed_port }}
@@ -57,6 +57,6 @@ gateway:
       namespacePolicy: All
 {% endif %}
 
-{% if additionnal_values | default({}) != {} %}
-{{ additionnal_values }}
+{% if additional_values | default({}) != {} %}
+{{ additional_values }}
 {% endif %}

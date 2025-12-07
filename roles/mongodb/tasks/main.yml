@@ -50,7 +50,7 @@
     name: "{{ mongodb_instance_name }}"
     update_repo_cache: true
     chart_ref: "{{ mongodb_crd_helm_chart_ref }}"
-    chart_version: "{{  mongodb_crd_helm_version }}"
+    chart_version: "{{ mongodb_crd_helm_version }}"
     namespace: "{{ mongodb_instance_namespace }}"
     values: "{{ lookup('ansible.builtin.template', 'mongodb_instance_helm_values.yml.j2') | from_yaml }}"
     state: "{{ mongodb_instance_state | default('present') }}"

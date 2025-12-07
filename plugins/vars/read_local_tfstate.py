@@ -48,7 +48,6 @@ class VarsModule(BaseVarsPlugin):
                 with open(tf_state_path) as tf_state_file:
                     tfstate = loader.load(tf_state_file.read())
                     if not tfstate.get("outputs"):
-                        vars = vars
                         continue
 
                     ansible_vars = tfstate["outputs"]["ansible_vars"]["value"]

@@ -2,11 +2,14 @@
 
 Install traefik ingress controller on kubernetes
 
-## Table of content
+## Table of contents
 
 - [Requirements](#requirements)
 - [Default Variables](#default-variables)
   - [traefik_deployments](#traefik_deployments)
+  - [traefik_helm_chart_ref](#traefik_helm_chart_ref)
+  - [traefik_helm_repo_name](#traefik_helm_repo_name)
+  - [traefik_helm_repo_url](#traefik_helm_repo_url)
   - [traefik_helm_version](#traefik_helm_version)
   - [traefik_ingress_enabled](#traefik_ingress_enabled)
   - [traefik_middlewares](#traefik_middlewares)
@@ -22,12 +25,13 @@ Install traefik ingress controller on kubernetes
 
 - Minimum Ansible version: `2.1`
 
-
 ## Default Variables
 
 ### traefik_deployments
 
-List of ingress controlers to deploy
+List of ingress controllers to deploy
+
+**_Type:_** list of dict<br />
 
 #### Default value
 
@@ -46,11 +50,11 @@ traefik_deployments:
       web_entrypoint_port: 8000
       web_entrypoint_exposed_port: 80
       web_entrypoint_expose: true
-      traefik_additionnal_entrypoint: []
+      traefik_additional_entrypoint: []
       traefik_ingress_enabled: true
       traefik_gateway_enabled: false
       dashboard_enabled: false
-      additionnal_values: {}
+      additional_values: {}
 ```
 
 #### Example usage
@@ -70,7 +74,7 @@ traefik_deployments:
        web_entrypoint_port: 8000
        web_entrypoint_exposed_port: 80
        web_entrypoint_expose: true
-       traefik_additionnal_entrypoint:
+       traefik_additional_entrypoint:
          - name: "example"
            port: 8001
            exposed_port: 81
@@ -78,14 +82,40 @@ traefik_deployments:
        traefik_ingress_enabled: true
        traefik_gateway_enabled: false
        dashboard_enabled: false
-       additionnal_values:
+       additional_values:
          healthcheck:
            enabled: true
+```
+
+### traefik_helm_chart_ref
+
+#### Default value
+
+```YAML
+traefik_helm_chart_ref: traefik/traefik
+```
+
+### traefik_helm_repo_name
+
+#### Default value
+
+```YAML
+traefik_helm_repo_name: traefik
+```
+
+### traefik_helm_repo_url
+
+#### Default value
+
+```YAML
+traefik_helm_repo_url: https://traefik.github.io/charts
 ```
 
 ### traefik_helm_version
 
 Helm chart version to install
+
+**_Type:_** string<br />
 
 #### Default value
 
@@ -97,6 +127,8 @@ traefik_helm_version: v37.4.0
 
 Should traefik helm chart be installed
 
+**_Type:_** boolean<br />
+
 #### Default value
 
 ```YAML
@@ -105,7 +137,9 @@ traefik_ingress_enabled: true
 
 ### traefik_middlewares
 
-List of ingress controlers to deploy
+List of traefik middlewares to create
+
+**_Type:_** list of dict<br />
 
 #### Default value
 
@@ -129,7 +163,9 @@ traefik_middlewares: []
 
 ### traefik_middlewares_tcp
 
-List of ingress controlers to deploy
+List of traefik TCP middlewares to create
+
+**_Type:_** list of dict<br />
 
 #### Default value
 
@@ -153,13 +189,13 @@ traefik_middlewares_tcp: []
 
 K8s namespace to install the traefik ingress chart
 
+**_Type:_** string<br />
+
 #### Default value
 
 ```YAML
 traefik_namespace: ingress-traefik-controller
 ```
-
-
 
 ## Dependencies
 

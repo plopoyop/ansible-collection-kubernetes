@@ -47,8 +47,8 @@ containersAdditionalConfig: {{ mongodb_instance.container_additional_config }}
 {% if mongodb_instance.backup_enabled %}
 backup:
   enabled: {{ mongodb_instance.backup_enabled }}
-{% if mongodb_instance.backup_additionnal_config != {} %}
-{{ mongodb_instance.backup_additionnal_config | to_nice_yaml }}
+{% if mongodb_instance.backup_additional_config != {} %}
+{{ mongodb_instance.backup_additional_config | to_nice_yaml }}
 {% endif %}
 
   cronjob:

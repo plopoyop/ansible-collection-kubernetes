@@ -6,7 +6,7 @@ Install Metal LB controller on kubernetes
 
 - [Requirements](#requirements)
 - [Default Variables](#default-variables)
-  - [metallb_create_additionnal_values](#metallb_create_additionnal_values)
+  - [metallb_create_additional_values](#metallb_create_additional_values)
   - [metallb_enabled](#metallb_enabled)
   - [metallb_helm_version](#metallb_helm_version)
   - [metallb_ip_pools](#metallb_ip_pools)
@@ -24,20 +24,20 @@ Install Metal LB controller on kubernetes
 
 ## Default Variables
 
-### metallb_create_additionnal_values
+### metallb_create_additional_values
 
-additionnal values to pass to helm chart. Will be rendered as is
+additional values to pass to helm chart. Will be rendered as is
 
 #### Default value
 
 ```YAML
-metallb_create_additionnal_values: {}
+metallb_create_additional_values: {}
 ```
 
 #### Example usage
 
 ```YAML
-metallb_create_additionnal_values:
+metallb_create_additional_values:
   prometheus:
     scrapeAnnotations: true
 ```

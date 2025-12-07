@@ -101,7 +101,7 @@ TF_TARGET="prod/terraform.tfstate,dev/terraform.tfstate"
 Contributions are welcome! Feel free to open issues or submit pull requests to improve the roles and add new features.
 
 ## Tools
-[Devenv.sh](https://devenv.sh/) is used to make reproducible developpement environments
+[Devbox](https://www.jetify.com/docs/devbox) is used to make reproducible development environments
 [Task](https://taskfile.dev/) as a task runner
 [Renovate](https://github.com/renovatebot/renovate) to update dependencies
 
