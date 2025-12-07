@@ -25,7 +25,7 @@
 - name: "Wait for admission endpoint to become ready"
   kubernetes.core.k8s:
     namespace: "{{ traefik_namespace }}"
-    name: "traefik -admission"
+    name: "traefik-admission"
     kind: "Endpoints"
     label_selectors:
       - "name = ingress-traefik"

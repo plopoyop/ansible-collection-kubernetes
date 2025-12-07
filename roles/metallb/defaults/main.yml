@@ -61,8 +61,8 @@ metallb_helm_version: 0.15.3
 #
 metallb_ip_pools: {}
 
-# @var metallb_create_additionnal_values:description: >
-# additionnal values to pass to helm chart. Will be rendered as is
+# @var metallb_create_additional_values:description: >
+# additional values to pass to helm chart. Will be rendered as is
 # @end
-# @var metallb_create_additionnal_values:example: $ {"prometheus": {"scrapeAnnotations": true}}
-metallb_create_additionnal_values: {}
+# @var metallb_create_additional_values:example: $ {"prometheus": {"scrapeAnnotations": true}}
+metallb_create_additional_values: {}

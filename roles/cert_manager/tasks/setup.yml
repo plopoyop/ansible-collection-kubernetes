@@ -1,5 +1,5 @@
 ---
-# @todo improvement: Allow multiple times deployment of the same ClusterIssuer with differents names and solvers
+# @todo improvement: Allow multiple times deployment of the same ClusterIssuer with different names and solvers
 - name: "Create cert-manager namespace"
   kubernetes.core.k8s:
     name: "{{ cert_manager_namespace }}"

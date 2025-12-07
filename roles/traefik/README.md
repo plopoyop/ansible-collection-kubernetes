@@ -29,7 +29,7 @@ Install traefik ingress controller on kubernetes
 
 ### traefik_deployments
 
-List of ingress controlers to deploy
+List of ingress controllers to deploy
 
 **_Type:_** list of dict<br />
 
@@ -50,11 +50,11 @@ traefik_deployments:
       web_entrypoint_port: 8000
       web_entrypoint_exposed_port: 80
       web_entrypoint_expose: true
-      traefik_additionnal_entrypoint: []
+      traefik_additional_entrypoint: []
       traefik_ingress_enabled: true
       traefik_gateway_enabled: false
       dashboard_enabled: false
-      additionnal_values: {}
+      additional_values: {}
 ```
 
 #### Example usage
@@ -74,7 +74,7 @@ traefik_deployments:
        web_entrypoint_port: 8000
        web_entrypoint_exposed_port: 80
        web_entrypoint_expose: true
-       traefik_additionnal_entrypoint:
+       traefik_additional_entrypoint:
          - name: "example"
            port: 8001
            exposed_port: 81
@@ -82,7 +82,7 @@ traefik_deployments:
        traefik_ingress_enabled: true
        traefik_gateway_enabled: false
        dashboard_enabled: false
-       additionnal_values:
+       additional_values:
          healthcheck:
            enabled: true
 ```

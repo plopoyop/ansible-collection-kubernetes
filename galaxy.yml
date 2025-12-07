@@ -4,7 +4,7 @@ version: 3.2.0
 readme: README.md
 authors:
   - Clément Hubert <clement@plopoyop.me>
-description: Ansible collection to configure various role on a Kubernetes cluster
+description: Ansible collection to configure various roles on a Kubernetes cluster
 license_file: LICENSE
 tags:
   - cloud
