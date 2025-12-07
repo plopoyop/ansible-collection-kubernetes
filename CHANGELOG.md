@@ -10,6 +10,7 @@
 
 ## ⚙️ Dependencies
 
+- feat\(deps\): update pre-commit hook ansible/ansible-lint \(v25.11.1 → v25.12.0\) [\#131](https://github.com/plopoyop/ansible-collection-kubernetes/pull/131) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit \(4.3.0 → 4.5.0\) [\#130](https://github.com/plopoyop/ansible-collection-kubernetes/pull/130) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart metallb \(0.15.2 → 0.15.3\) [\#129](https://github.com/plopoyop/ansible-collection-kubernetes/pull/129) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update python313packages.ruff \(0.14.5 → 0.14.7\) [\#128](https://github.com/plopoyop/ansible-collection-kubernetes/pull/128) ([plopoyop](https://github.com/plopoyop))
