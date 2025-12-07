@@ -29,7 +29,7 @@
     name: "{{ cert_manager_trust_manager_deployment_name }}"
     namespace: "{{ cert_manager_namespace }}"
     chart_ref: "{{ cert_manager_trust_manager_helm_chart_ref }}"
-    chart_version: "{{ cert_manager_trust_manager_helm_chart_ref }}"
+    chart_version: "{{ cert_manager_trust_manager_helm_chart_version }}"
     create_namespace: true
     update_repo_cache: true
     values:
