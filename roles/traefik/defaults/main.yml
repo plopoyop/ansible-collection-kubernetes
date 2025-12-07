@@ -70,7 +70,7 @@ traefik_deployments:
 # @var traefik_middlewares
 # @var traefik_middlewares:type: list of dict
 # @var traefik_middlewares:description: >
-# List of ingress controlers to deploy
+# List of traefik middlewares to create
 # @var traefik_middlewares:example: >
 #  traefik_middlewares:
 #  - name: redirect-to-https
@@ -86,7 +86,7 @@ traefik_middlewares: []
 # @var traefik_middlewares_tcp
 # @var traefik_middlewares_tcp:type: list of dict
 # @var traefik_middlewares_tcp:description: >
-# List of ingress controlers to deploy
+# List of traefik TCP middlewares to create
 # @var traefik_middlewares_tcp:example: >
 #  traefik_middlewares_tcp:
 #  - name: test-inflightconn
