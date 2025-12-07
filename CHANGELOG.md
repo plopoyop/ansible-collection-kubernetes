@@ -10,6 +10,8 @@
 
 ## ⚙️ Dependencies
 
+- feat\(deps\): update pre-commit \(4.3.0 → 4.5.0\) [\#130](https://github.com/plopoyop/ansible-collection-kubernetes/pull/130) ([plopoyop](https://github.com/plopoyop))
+- fix\(helm\): update chart metallb \(0.15.2 → 0.15.3\) [\#129](https://github.com/plopoyop/ansible-collection-kubernetes/pull/129) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update python313packages.ruff \(0.14.5 → 0.14.7\) [\#128](https://github.com/plopoyop/ansible-collection-kubernetes/pull/128) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.14.7 → v0.14.8\) [\#127](https://github.com/plopoyop/ansible-collection-kubernetes/pull/127) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update ansible-doctor \(8.0.0 → 8.0.1\) [\#126](https://github.com/plopoyop/ansible-collection-kubernetes/pull/126) ([plopoyop](https://github.com/plopoyop))
