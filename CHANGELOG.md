@@ -10,6 +10,7 @@
 
 ## ⚙️ Dependencies
 
+- feat\(deps\): update python313packages.pytest-ansible \(25.8.0 → 25.11.2\) [\#133](https://github.com/plopoyop/ansible-collection-kubernetes/pull/133) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update python313packages.molecule \(25.11.0 → 25.12.0\) [\#132](https://github.com/plopoyop/ansible-collection-kubernetes/pull/132) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit hook ansible/ansible-lint \(v25.11.1 → v25.12.0\) [\#131](https://github.com/plopoyop/ansible-collection-kubernetes/pull/131) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit \(4.3.0 → 4.5.0\) [\#130](https://github.com/plopoyop/ansible-collection-kubernetes/pull/130) ([plopoyop](https://github.com/plopoyop))
