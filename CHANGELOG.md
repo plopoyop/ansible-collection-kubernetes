@@ -1,6 +1,6 @@
 # Changelog
 
-## [4.0.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/4.0.0) (2025-12-07)
+## [4.0.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/4.0.0) (2025-12-14)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/3.2.0...4.0.0)
 
@@ -15,6 +15,7 @@
 
 ## ⚙️ Dependencies
 
+- fix\(deps\): update pre-commit hook ansible/ansible-lint \(v25.12.0 → v25.12.1\) [\#137](https://github.com/plopoyop/ansible-collection-kubernetes/pull/137) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\)!: Update python313Packages.ansible \(12.2.0 → 13.0.0\) [\#134](https://github.com/plopoyop/ansible-collection-kubernetes/pull/134) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update python313packages.pytest-ansible \(25.8.0 → 25.11.2\) [\#133](https://github.com/plopoyop/ansible-collection-kubernetes/pull/133) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update python313packages.molecule \(25.11.0 → 25.12.0\) [\#132](https://github.com/plopoyop/ansible-collection-kubernetes/pull/132) ([plopoyop](https://github.com/plopoyop))
