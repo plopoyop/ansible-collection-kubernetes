@@ -15,6 +15,8 @@
 
 ## ⚙️ Dependencies
 
+- feat\(ci\): update renovatebot/github-action action \(v44.0.5 → v44.1.0\) [\#139](https://github.com/plopoyop/ansible-collection-kubernetes/pull/139) ([plopoyop](https://github.com/plopoyop))
+- fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.14.8 → v0.14.9\) [\#138](https://github.com/plopoyop/ansible-collection-kubernetes/pull/138) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook ansible/ansible-lint \(v25.12.0 → v25.12.1\) [\#137](https://github.com/plopoyop/ansible-collection-kubernetes/pull/137) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\)!: Update python313Packages.ansible \(12.2.0 → 13.0.0\) [\#134](https://github.com/plopoyop/ansible-collection-kubernetes/pull/134) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update python313packages.pytest-ansible \(25.8.0 → 25.11.2\) [\#133](https://github.com/plopoyop/ansible-collection-kubernetes/pull/133) ([plopoyop](https://github.com/plopoyop))
