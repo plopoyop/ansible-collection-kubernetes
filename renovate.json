@@ -2,7 +2,8 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "github>plopoyop/renovate-config",
-    "github>plopoyop/renovate-config:kubernetes-ansible-collection"
+    "github>plopoyop/renovate-config:kubernetes-ansible-collection",
+    "github>plopoyop/renovate-config:automerge-devbox"
   ],
   "packageRules": [
     {
