@@ -6,6 +6,7 @@
 
 ## 🚀 New Features
 
+- add automerge for devbox packages [\#140](https://github.com/plopoyop/ansible-collection-kubernetes/pull/140) ([plopoyop](https://github.com/plopoyop))
 - Multiple cs fixes [\#136](https://github.com/plopoyop/ansible-collection-kubernetes/pull/136) ([plopoyop](https://github.com/plopoyop))
 - Make possible to create traefik middleware in another namespace [\#124](https://github.com/plopoyop/ansible-collection-kubernetes/pull/124) ([plopoyop](https://github.com/plopoyop))
 
