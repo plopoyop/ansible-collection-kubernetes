@@ -1,0 +1,52 @@
+---
+provider:
+  name: {{ external_dns_provider_name }}
+
+env: {{ external_dns_env }}
+
+sources: {{ external_dns_sources }}
+
+{% if external_dns_domain_filters %}
+domainFilters: {{ external_dns_domain_filters }}
+{% endif %}
+
+policy: "{{ external_dns_policy }}"
+
+{% if external_dns_exclude_domains %}
+excludeDomains: {{ external_dns_exclude_domains }}
+{% endif %}
+
+registry: {{ external_dns_registry }}
+
+{% if external_dns_txt_owner_id %}
+txtOwnerId: {{ external_dns_txt_owner_id }}
+{% endif %}
+
+{% if external_dns_txt_prefix %}
+txtPrefix: {{ external_dns_txt_prefix }}
+{% endif %}
+
+{% if external_dns_txt_suffix %}
+txtSuffix: {{ external_dns_txt_suffix }}
+{% endif %}
+
+{% if external_dns_extra_args %}
+extraArgs: {{ external_dns_extra_args }}
+{% endif %}
+
+rbac:
+  create: {{ external_dns_rbac_create }}
+
+serviceAccount:
+  create: {{ external_dns_service_account_create }}
+{% if external_dns_service_account_name %}
+  name: {{ external_dns_service_account_name }}
+{% endif %}
+
+{% if external_dns_resources %}
+resources: {{ external_dns_resources }}
+{% endif %}
+
+{% if external_dns_additional_helm_values %}
+{{ external_dns_additional_helm_values | to_nice_yaml | indent(0) }}
+{% endif %}

@@ -1,0 +1,8 @@
+---
+- name: Include setup when enabled
+  ansible.builtin.include_tasks: "setup.yml"
+  when: external_dns_enabled
+
+- name: Include cleanup when disabled
+  ansible.builtin.include_tasks: "cleanup.yml"
+  when: not external_dns_enabled

@@ -1,0 +1,24 @@
+---
+driver:
+  name: default
+platforms:
+  - name: molecule-test
+provisioner:
+  name: ansible
+  inventory:
+    host_vars:
+      localhost:
+        ansible_python_interpreter: '{{ ansible_playbook_python }}'
+        kubeconfig: "{{ lookup('env', 'KUBECONFIG') }}"
+  env:
+    KUBECONFIG: ~/.kube/config-molecule-test
+    K8S_AUTH_KUBECONFIG: ~/.kube/config-molecule-test
+
+scenario:
+  name: cleanup
+  test_sequence:
+    - destroy
+    - create
+    - converge
+    - verify
+    - destroy

@@ -1,0 +1,11 @@
+---
+- name: Converge
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    external_dns_enabled: false
+  tasks:
+    - name: "Remove External-DNS"
+      ansible.builtin.import_role:
+        name: "external_dns"
