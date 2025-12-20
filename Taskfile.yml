@@ -2,7 +2,7 @@
 version: '3'
 
 vars:
-  ROLES_LIST: ["metallb", "traefik", "cert_manager", "mongodb"]
+  ROLES_LIST: ["metallb", "external_dns", "traefik", "cert_manager", "mongodb"]
 
 tasks:
   default:

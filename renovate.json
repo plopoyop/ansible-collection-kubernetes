@@ -22,6 +22,17 @@
         "helm"
       ],
       "matchPackageNames": [
+        "external-dns"
+      ],
+      "registryUrls": [
+        "https://kubernetes-sigs.github.io/external-dns"
+      ]
+    },
+    {
+      "matchDatasources": [
+        "helm"
+      ],
+      "matchPackageNames": [
         "metallb"
       ],
       "registryUrls": [
@@ -72,6 +83,31 @@
     }
   ],
   "customManagers": [
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/roles/external_dns/defaults/main.yml$/",
+        "/roles/external_dns/README.md$/"
+      ],
+      "matchStrings": [
+        "external_dns_helm_chart_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?"
+      ],
+      "depNameTemplate": "external-dns",
+      "autoReplaceStringTemplate": "external_dns_helm_chart_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
+      "datasourceTemplate": "helm"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^README.md$/"
+      ],
+      "matchStrings": [
+        "ExternalDNS\\s*\\|\\s*v?(?<currentValue>[0-9\\.]+)"
+      ],
+      "depNameTemplate": "external-dns",
+      "autoReplaceStringTemplate": "ExternalDNS         | v{{newValue}}",
+      "datasourceTemplate": "helm"
+    },
     {
       "customType": "regex",
       "managerFilePatterns": [

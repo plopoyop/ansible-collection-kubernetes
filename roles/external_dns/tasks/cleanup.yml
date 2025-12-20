@@ -1,0 +1,13 @@
+---
+- name: "Uninstall external-dns helm package"
+  kubernetes.core.helm:
+    name: "{{ external_dns_deployment_name }}"
+    namespace: "{{ external_dns_namespace }}"
+    state: "absent"
+
+- name: "Delete external-dns namespace"
+  kubernetes.core.k8s:
+    name: "{{ external_dns_namespace }}"
+    api_version: "v1"
+    kind: "Namespace"
+    state: "absent"

@@ -1,0 +1,122 @@
+---
+# @var external_dns_enabled
+# @var external_dns_enabled:type: boolean
+# @var external_dns_enabled:description: >
+# Should external-dns helm chart be installed
+external_dns_enabled: true
+
+# @var external_dns_namespace
+# @var external_dns_namespace:type: string
+# @var external_dns_namespace:description: >
+# K8s namespace to install the external-dns chart
+external_dns_namespace: "external-dns"
+
+# @var external_dns_helm_chart_version
+# @var external_dns_helm_chart_version:type: string
+# @var external_dns_helm_chart_version:description: >
+# Helm chart version to install
+external_dns_helm_chart_version: "1.19.0"
+
+# @var external_dns_deployment_name
+# @var external_dns_deployment_name:type: string
+# @var external_dns_deployment_name:description: >
+# Deployment name for external-dns helm chart
+external_dns_deployment_name: "external-dns"
+
+# @var external_dns_provider_name
+# @var external_dns_provider_name:type: string
+# @var external_dns_provider_name:description: >
+# Provider name (e.g., aws, cloudflare, azure, etc.)
+external_dns_provider_name: ""
+
+# @var external_dns_env
+# @var external_dns_env:type: list
+# @var external_dns_env:description: >
+# Environment variables for the external-dns helm chart
+external_dns_env: []
+
+# @var external_dns_sources
+# @var external_dns_sources:type: list
+# @var external_dns_sources:description: >
+# Kubernetes resources to monitor for DNS entries
+external_dns_sources:
+  - "service"
+  - "ingress"
+
+# @var external_dns_domain_filters
+# @var external_dns_domain_filters:type: list
+# @var external_dns_domain_filters:description: >
+# Limit possible target zones by domain suffixes
+external_dns_domain_filters: []
+
+# @var external_dns_exclude_domains
+# @var external_dns_exclude_domains:type: list
+# @var external_dns_exclude_domains:description: >
+# Intentionally exclude domains from being managed
+external_dns_exclude_domains: []
+
+# @var external_dns_policy
+# @var external_dns_policy:type: string
+# @var external_dns_policy:description: >
+# Policy for the external-dns helm chart
+external_dns_policy: "upsert-only"
+
+# @var external_dns_registry
+# @var external_dns_registry:type: string
+# @var external_dns_registry:description: >
+# Specify the registry for storing ownership and labels (txt, aws-sd, dynamodb, noop)
+external_dns_registry: "txt"
+
+# @var external_dns_txt_owner_id
+# @var external_dns_txt_owner_id:type: string
+# @var external_dns_txt_owner_id:description: >
+# Specify an identifier for this instance of ExternalDNS when using a registry other than noop
+external_dns_txt_owner_id: ""
+
+# @var external_dns_txt_prefix
+# @var external_dns_txt_prefix:type: string
+# @var external_dns_txt_prefix:description: >
+# Specify a prefix for the domain names of TXT records created for the txt registry
+external_dns_txt_prefix: ""
+
+# @var external_dns_txt_suffix
+# @var external_dns_txt_suffix:type: string
+# @var external_dns_txt_suffix:description: >
+# Specify a suffix for the domain names of TXT records created for the txt registry
+external_dns_txt_suffix: ""
+
+# @var external_dns_extra_args
+# @var external_dns_extra_args:type: dict
+# @var external_dns_extra_args:description: >
+# Extra arguments to provide to ExternalDNS
+external_dns_extra_args: {}
+
+# @var external_dns_rbac_create
+# @var external_dns_rbac_create:type: boolean
+# @var external_dns_rbac_create:description: >
+# If true, create a ClusterRole & ClusterRoleBinding with access to the Kubernetes API
+external_dns_rbac_create: true
+
+# @var external_dns_service_account_create
+# @var external_dns_service_account_create:type: boolean
+# @var external_dns_service_account_create:description: >
+# If true, create a new ServiceAccount
+external_dns_service_account_create: true
+
+# @var external_dns_service_account_name
+# @var external_dns_service_account_name:type: string
+# @var external_dns_service_account_name:description: >
+# ServiceAccount name
+external_dns_service_account_name: ""
+
+# @var external_dns_resources
+# @var external_dns_resources:type: dict
+# @var external_dns_resources:description: >
+# Resources for the external-dns container
+external_dns_resources: {}
+
+# @var external_dns_helm_values
+# @var external_dns_helm_values:type: dict
+# @var external_dns_helm_values:description: >
+# Additional helm values to override defaults
+external_dns_additional_helm_values: {}

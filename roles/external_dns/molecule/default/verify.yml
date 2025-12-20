@@ -1,0 +1,35 @@
+---
+- name: Verify
+  hosts: localhost
+  connection: local
+  gather_facts: true
+
+  tasks:
+    - name: "Pause for deployment to complete."
+      ansible.builtin.pause:
+        seconds: 60
+
+    - name: "Get 'external-dns' namespace info."
+      kubernetes.core.k8s_info:
+        kind: Namespace
+        name: "external-dns"
+      register: namespace_external_dns
+
+    - name: Assert that 'external-dns' namespace is active
+      ansible.builtin.assert:
+        that: namespace_external_dns['resources'][0]['status']['phase'] == "Active"
+
+    - name: "Get 'external-dns' Deployment info."
+      kubernetes.core.k8s_info:
+        kind: "Deployment"
+        name: "external-dns"
+        namespace: "external-dns"
+      register: external_dns_deployment
+
+    - name: "Assert that 'external-dns' Deployment is deployed"
+      ansible.builtin.assert:
+        that: external_dns_deployment['resources'] | length > 0
+
+    - name: "Assert that 'external-dns' Deployment has ready replicas"
+      ansible.builtin.assert:
+        that: external_dns_deployment['resources'][0]['status']['readyReplicas'] | default(0) >= 1

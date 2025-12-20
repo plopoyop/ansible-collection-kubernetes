@@ -1,0 +1,15 @@
+---
+galaxy_info:
+  description: "Install and configure External-DNS on kubernetes"
+  role_name: "external_dns"
+  author: "Clément Hubert"
+
+  license: "MPL2"
+
+  min_ansible_version: "2.1"
+
+  galaxy_tags:
+    - "kubernetes"
+    - "dns"
+
+dependencies: []

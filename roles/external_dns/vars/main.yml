@@ -1,0 +1,4 @@
+---
+external_dns_helm_repo_name: "external-dns"
+external_dns_helm_repo_url: "https://kubernetes-sigs.github.io/external-dns/"
+external_dns_helm_chart_ref: "{{ external_dns_helm_repo_name }}/external-dns"
