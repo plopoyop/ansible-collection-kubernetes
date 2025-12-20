@@ -1,5 +1,13 @@
 # Changelog
 
+## [4.1.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/4.1.0) (2025-12-20)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/4.0.0...4.1.0)
+
+## 🚀 New Features
+
+- move external dns from kubernetes\_apps collection [\#141](https://github.com/plopoyop/ansible-collection-kubernetes/pull/141) ([plopoyop](https://github.com/plopoyop))
+
 ## [4.0.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/4.0.0) (2025-12-14)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/3.2.0...4.0.0)
