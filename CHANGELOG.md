@@ -1,6 +1,6 @@
 # Changelog
 
-## [4.1.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/4.1.0) (2025-12-20)
+## [4.1.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/4.1.0) (2025-12-21)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/4.0.0...4.1.0)
 
