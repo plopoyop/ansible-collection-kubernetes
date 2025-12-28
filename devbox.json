@@ -11,7 +11,7 @@
       "kind@0.30.0",
       "kubectl@1.34.3",
       "kubernetes-helm@3.19.1",
-      "pre-commit@4.5.0",
+      "pre-commit@4.5.1",
       "python313Packages.kubernetes@33.1.0",
       "python313Packages.boto3@1.40.18",
       "python313Packages.molecule@25.12.0",
