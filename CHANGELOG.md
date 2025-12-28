@@ -10,6 +10,7 @@
 
 ## ⚙️ Dependencies
 
+- fix\(deps\): update pre-commit hook ansible/ansible-lint \(v25.12.1 → v25.12.2\) [\#143](https://github.com/plopoyop/ansible-collection-kubernetes/pull/143) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.14.9 → v0.14.10\) [\#142](https://github.com/plopoyop/ansible-collection-kubernetes/pull/142) ([plopoyop](https://github.com/plopoyop))
 
 ## [4.0.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/4.0.0) (2025-12-14)
