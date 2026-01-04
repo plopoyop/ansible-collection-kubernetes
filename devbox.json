@@ -8,7 +8,7 @@
       "glibcLocales@2.40-66",
       "go-task@3.45.5",
       "jq@1.8.1",
-      "kind@0.30.0",
+      "kind@0.31.0",
       "kubectl@1.34.3",
       "kubernetes-helm@3.19.1",
       "pre-commit@4.5.1",
