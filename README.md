@@ -48,7 +48,7 @@ You can call the roles from this collection in your Ansible playbooks as follows
 | ---------       | ------------------ | ------------------------------------        |
 | ExternalDNS         | v1.20.0            | [View README](roles/external_dns/README.md)       |
 | metallb         | v0.15.3            | [View README](roles/metallb/README.md)     |
-| traefik         | v37.4.0            | [View README](roles/traefik/README.md)      |
+| traefik         | v38.0.1            | [View README](roles/traefik/README.md)      |
 | cert\_manager   | v0.17.1            | [View README](roles/cert_manager/README.md) |
 | mongodb community operator | v0.13.0            | [View README](roles/mongodb/README.md) |
 
