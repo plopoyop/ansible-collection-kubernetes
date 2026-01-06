@@ -1,8 +1,8 @@
 # Changelog
 
-## [4.1.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/4.1.0) (2026-01-05)
+## [5.0.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/5.0.0) (2026-01-06)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/4.0.0...4.1.0)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/4.0.0...5.0.0)
 
 ## 🚀 New Features
 
@@ -10,6 +10,8 @@
 
 ## ⚙️ Dependencies
 
+- feat\(helm\)!: Update chart traefik \(37.4.0 → 38.0.1\) [\#145](https://github.com/plopoyop/ansible-collection-kubernetes/pull/145) ([plopoyop](https://github.com/plopoyop))
+- feat\(helm\): update chart external-dns \(1.19.0 → 1.20.0\) [\#144](https://github.com/plopoyop/ansible-collection-kubernetes/pull/144) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook ansible/ansible-lint \(v25.12.1 → v25.12.2\) [\#143](https://github.com/plopoyop/ansible-collection-kubernetes/pull/143) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.14.9 → v0.14.10\) [\#142](https://github.com/plopoyop/ansible-collection-kubernetes/pull/142) ([plopoyop](https://github.com/plopoyop))
 
