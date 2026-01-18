@@ -1,15 +1,17 @@
 # Changelog
 
-## [5.0.2](https://github.com/plopoyop/ansible-collection-kubernetes/tree/5.0.2) (2026-01-11)
+## [5.0.2](https://github.com/plopoyop/ansible-collection-kubernetes/tree/5.0.2) (2026-01-18)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/5.0.1...5.0.2)
 
 ## ⚙️ Dependencies
 
+- fix\(ci\): update renovatebot/github-action action \(v44.2.3 → v44.2.4\) [\#152](https://github.com/plopoyop/ansible-collection-kubernetes/pull/152) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\)!: Update pre-commit hook ansible/ansible-lint \(v25.12.2 → v26.1.0\) [\#151](https://github.com/plopoyop/ansible-collection-kubernetes/pull/151) ([plopoyop](https://github.com/plopoyop))
 
 **Merged pull requests:**
 
+- fix\(deps\): update python313packages.ruff \(0.14.9 → 0.14.11\) [\#155](https://github.com/plopoyop/ansible-collection-kubernetes/pull/155) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update git \(2.51.2 → 2.52.0\) [\#150](https://github.com/plopoyop/ansible-collection-kubernetes/pull/150) ([plopoyop](https://github.com/plopoyop))
 
 ## [5.0.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/5.0.1) (2026-01-10)
