@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/5.0.1...5.0.2)
 
+## 🐛 Bug Fixes
+
+- Pin urllib3 2.5 [\#158](https://github.com/plopoyop/ansible-collection-kubernetes/pull/158) ([plopoyop](https://github.com/plopoyop))
+
 ## ⚙️ Dependencies
 
 - fix\(ci\): update renovatebot/github-action action \(v44.2.4 → v44.2.5\) [\#156](https://github.com/plopoyop/ansible-collection-kubernetes/pull/156) ([plopoyop](https://github.com/plopoyop))
