@@ -1,5 +1,17 @@
 # Changelog
 
+## [5.0.3](https://github.com/plopoyop/ansible-collection-kubernetes/tree/5.0.3) (2026-01-31)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/5.0.2...5.0.3)
+
+## ⚙️ Dependencies
+
+- fix\(ci\): update renovatebot/github-action action \(v44.2.5 → v44.2.6\) [\#159](https://github.com/plopoyop/ansible-collection-kubernetes/pull/159) ([plopoyop](https://github.com/plopoyop))
+
+**Merged pull requests:**
+
+- fix\(deps\): update python313packages.ruff \(0.14.13 → 0.14.14\) [\#161](https://github.com/plopoyop/ansible-collection-kubernetes/pull/161) ([plopoyop](https://github.com/plopoyop))
+
 ## [5.0.2](https://github.com/plopoyop/ansible-collection-kubernetes/tree/5.0.2) (2026-01-25)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/5.0.1...5.0.2)
