@@ -1,11 +1,14 @@
 # Changelog
 
-## [5.0.3](https://github.com/plopoyop/ansible-collection-kubernetes/tree/5.0.3) (2026-02-01)
+## [6.0.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/6.0.0) (2026-02-01)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/5.0.2...5.0.3)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/5.0.2...6.0.0)
 
 ## ⚙️ Dependencies
 
+- feat\(helm\)!: Update chart traefik \(38.0.2 → 39.0.0\) [\#165](https://github.com/plopoyop/ansible-collection-kubernetes/pull/165) ([plopoyop](https://github.com/plopoyop))
+- feat\(ci\)!: Update renovatebot/github-action action \(v44.2.6 → v46.0.0\) [\#164](https://github.com/plopoyop/ansible-collection-kubernetes/pull/164) ([plopoyop](https://github.com/plopoyop))
+- feat\(deps\): update pre-commit hook adrienverge/yamllint \(v1.37.1 → v1.38.0\) [\#163](https://github.com/plopoyop/ansible-collection-kubernetes/pull/163) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.14.13 → v0.14.14\) [\#160](https://github.com/plopoyop/ansible-collection-kubernetes/pull/160) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v44.2.5 → v44.2.6\) [\#159](https://github.com/plopoyop/ansible-collection-kubernetes/pull/159) ([plopoyop](https://github.com/plopoyop))
 
