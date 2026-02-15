@@ -10,7 +10,7 @@
       "path:.#urllib3",
       "git@2.52.0",
       "glibcLocales@2.40-66",
-      "go-task@3.45.5",
+      "go-task@3.48.0",
       "jq@1.8.1",
       "kind@0.31.0",
       "kubectl@1.35.0",
