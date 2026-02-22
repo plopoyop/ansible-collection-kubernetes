@@ -15,7 +15,7 @@ traefik_namespace: "ingress-traefik-controller"
 # @var traefik_helm_version:type: string
 # @var traefik_helm_version:description: >
 # Helm chart version to install
-traefik_helm_version: v39.0.1
+traefik_helm_version: v39.0.2
 
 # @var traefik_deployments
 # @var traefik_deployments:type: list of dict
