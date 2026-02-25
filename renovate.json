@@ -55,6 +55,17 @@
         "helm"
       ],
       "matchPackageNames": [
+        "teleport-cluster"
+      ],
+      "registryUrls": [
+        "https://charts.releases.teleport.dev"
+      ]
+    },
+    {
+      "matchDatasources": [
+        "helm"
+      ],
+      "matchPackageNames": [
         "community-operator"
       ],
       "registryUrls": [
@@ -204,6 +215,30 @@
       ],
       "depNameTemplate": "community-operator",
       "autoReplaceStringTemplate": "mongodb community operator | v{{newValue}}",
+      "datasourceTemplate": "helm"
+    },{
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/roles/teleport/defaults/main.yml$/",
+        "/roles/teleport/README.md$/"
+      ],
+      "matchStrings": [
+        "teleport_helm_chart_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?"
+      ],
+      "depNameTemplate": "teleport-cluster",
+      "autoReplaceStringTemplate": "teleport_helm_chart_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
+      "datasourceTemplate": "helm"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^README.md$/"
+      ],
+      "matchStrings": [
+        "Teleport\\s*\\|\\s*v?(?<currentValue>[0-9\\.]+)"
+      ],
+      "depNameTemplate": "teleport-cluster",
+      "autoReplaceStringTemplate": "Teleport         | v{{newValue}}",
       "datasourceTemplate": "helm"
     },
     {
