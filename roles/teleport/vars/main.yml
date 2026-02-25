@@ -1,0 +1,4 @@
+---
+teleport_helm_repo_name: "teleport"
+teleport_helm_repo_url: "https://charts.releases.teleport.dev"
+teleport_helm_chart_ref: "teleport/teleport-cluster"
