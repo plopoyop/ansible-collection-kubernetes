@@ -1,0 +1,35 @@
+---
+- name: Verify
+  hosts: localhost
+  connection: local
+  gather_facts: true
+
+  tasks:
+    - name: "Pause for deployment to complete."
+      ansible.builtin.pause:
+        seconds: 5
+
+    - name: "Get 'cattle-system' namespace info."
+      kubernetes.core.k8s_info:
+        kind: Namespace
+        name: "cattle-system"
+      register: namespace_rancher
+
+    - name: Assert that 'cattle-system' namespace is active
+      ansible.builtin.assert:
+        that: namespace_rancher['resources'][0]['status']['phase'] == "Active"
+
+    - name: "Get 'rancher' Deployment info."
+      kubernetes.core.k8s_info:
+        kind: "Deployment"
+        name: "rancher"
+        namespace: "cattle-system"
+      register: rancher_deployment
+
+    - name: "Assert that 'rancher' Deployment is deployed"
+      ansible.builtin.assert:
+        that: rancher_deployment['resources'] | length > 0
+
+    - name: "Assert that 'rancher' Deployment has correct replicas spec"
+      ansible.builtin.assert:
+        that: rancher_deployment['resources'][0]['spec']['replicas'] == 1

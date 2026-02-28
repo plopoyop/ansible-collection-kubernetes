@@ -1,0 +1,23 @@
+---
+- name: "Create rancher namespace"
+  kubernetes.core.k8s:
+    name: "{{ rancher_namespace }}"
+    api_version: "v1"
+    kind: "Namespace"
+    state: "present"
+
+- name: "Add rancher-stable helm repo"
+  kubernetes.core.helm_repository:
+    name: "{{ rancher_helm_repo_name }}"
+    repo_url: "{{ rancher_helm_repo_url }}"
+
+- name: "Install rancher helm package"
+  kubernetes.core.helm:
+    name: "{{ rancher_deployment_name }}"
+    namespace: "{{ rancher_namespace }}"
+    chart_ref: "{{ rancher_helm_chart_ref }}"
+    chart_version: "{{ rancher_helm_chart_version }}"
+    create_namespace: true
+    update_repo_cache: true
+    values: "{{ lookup('ansible.builtin.template', 'rancher_helm_values.yml.j2') | from_yaml }}"
+    wait: true

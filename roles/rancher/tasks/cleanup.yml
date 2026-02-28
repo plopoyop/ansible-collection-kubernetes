@@ -1,0 +1,20 @@
+---
+- name: "Remove rancher helm package"
+  kubernetes.core.helm:
+    name: "{{ rancher_deployment_name }}"
+    namespace: "{{ rancher_namespace }}"
+    chart_ref: "{{ rancher_helm_chart_ref }}"
+    state: "absent"
+    wait: true
+
+- name: "Remove rancher namespace"
+  kubernetes.core.k8s:
+    name: "{{ rancher_namespace }}"
+    api_version: "v1"
+    kind: "Namespace"
+    state: "absent"
+
+- name: "Remove rancher-stable helm repo"
+  kubernetes.core.helm_repository:
+    name: "{{ rancher_helm_repo_name }}"
+    state: "absent"

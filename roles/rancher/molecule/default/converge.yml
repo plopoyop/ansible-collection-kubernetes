@@ -1,0 +1,15 @@
+---
+- name: Converge
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    rancher_hostname: "rancher.molecule-test.local"
+    rancher_bootstrap_password: "molecule-test-password"
+    rancher_replicas: 1
+    rancher_ingress_enabled: false
+    rancher_ingress_tls_source: "secret"
+  tasks:
+    - name: "Install rancher"
+      ansible.builtin.import_role:
+        name: "rancher"
