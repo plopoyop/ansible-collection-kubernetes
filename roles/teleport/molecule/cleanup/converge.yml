@@ -1,0 +1,11 @@
+---
+- name: Converge
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: "Remove teleport"
+      ansible.builtin.import_role:
+        name: "teleport"
+  vars:
+    teleport_enabled: false

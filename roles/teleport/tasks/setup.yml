@@ -1,0 +1,27 @@
+---
+- name: "Create teleport namespace"
+  kubernetes.core.k8s:
+    name: "{{ teleport_namespace }}"
+    api_version: "v1"
+    kind: "Namespace"
+    state: "present"
+    definition:
+      metadata:
+        labels:
+          pod-security.kubernetes.io/enforce: "baseline"
+
+- name: "Add teleport helm repo"
+  kubernetes.core.helm_repository:
+    name: "{{ teleport_helm_repo_name }}"
+    repo_url: "{{ teleport_helm_repo_url }}"
+
+- name: "Install teleport-cluster helm package"
+  kubernetes.core.helm:
+    name: "{{ teleport_deployment_name }}"
+    namespace: "{{ teleport_namespace }}"
+    chart_ref: "{{ teleport_helm_chart_ref }}"
+    chart_version: "{{ teleport_helm_chart_version }}"
+    create_namespace: true
+    update_repo_cache: true
+    values: "{{ lookup('ansible.builtin.template', 'teleport_helm_values.yml.j2') | from_yaml }}"
+    wait: true

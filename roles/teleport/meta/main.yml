@@ -1,0 +1,16 @@
+---
+galaxy_info:
+  description: Install teleport-cluster
+  role_name: teleport
+  author: Clément Hubert
+
+  license: MLP2
+
+  min_ansible_version: "2.1"
+
+  galaxy_tags:
+    - kubernetes
+    - teleport
+    - access
+
+dependencies: []

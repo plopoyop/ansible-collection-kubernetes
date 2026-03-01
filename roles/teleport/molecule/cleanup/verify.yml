@@ -1,0 +1,20 @@
+---
+- name: Verify
+  hosts: localhost
+  connection: local
+  gather_facts: true
+
+  tasks:
+    - name: "Pause for cleanup to complete."
+      ansible.builtin.pause:
+        seconds: 5
+
+    - name: "Get 'teleport' namespace info."
+      kubernetes.core.k8s_info:
+        kind: Namespace
+        name: "teleport"
+      register: namespace_teleport
+
+    - name: Assert that 'teleport' namespace is removed
+      ansible.builtin.assert:
+        that: namespace_teleport['resources'] == []
