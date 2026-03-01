@@ -1,5 +1,17 @@
 # Changelog
 
+## [6.0.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/6.0.1) (2026-03-01)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/6.0.0...6.0.1)
+
+## ⚙️ Dependencies
+
+- fix\(ci\): update renovatebot/github-action action \(v46.1.1 → v46.1.2\) [\#178](https://github.com/plopoyop/ansible-collection-kubernetes/pull/178) ([plopoyop](https://github.com/plopoyop))
+
+**Merged pull requests:**
+
+- fix\(deps\): update python313packages.moto \(5.1.11 → 5.1.20\) [\#180](https://github.com/plopoyop/ansible-collection-kubernetes/pull/180) ([plopoyop](https://github.com/plopoyop))
+
 ## [6.0.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/6.0.0) (2026-02-22)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/5.0.2...6.0.0)
