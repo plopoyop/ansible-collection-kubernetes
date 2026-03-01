@@ -1,8 +1,13 @@
 # Changelog
 
-## [6.0.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/6.0.1) (2026-03-01)
+## [7.0.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.0.0) (2026-03-01)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/6.0.0...6.0.1)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/6.0.0...7.0.0)
+
+## 🚀 New Features
+
+- ansible vars from multiple TF states are now merged [\#181](https://github.com/plopoyop/ansible-collection-kubernetes/pull/181) ([plopoyop](https://github.com/plopoyop))
+- Add Rancher role [\#177](https://github.com/plopoyop/ansible-collection-kubernetes/pull/177) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
 
