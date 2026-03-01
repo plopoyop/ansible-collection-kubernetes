@@ -80,6 +80,17 @@
         "mongodb/mongodb-community-server"
       ],
       "versioning": "semver"
+    },
+    {
+      "matchDatasources": [
+        "helm"
+      ],
+      "matchPackageNames": [
+        "rancher-stable/rancher"
+      ],
+      "registryUrls": [
+        "https://releases.rancher.com/server-charts/stable"
+      ]
     }
   ],
   "customManagers": [
@@ -233,6 +244,31 @@
       "depNameTemplate": "mongodb/mongodb-community-server",
       "autoReplaceStringTemplate": "mongodb_instance_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
       "datasourceTemplate": "docker"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/roles/rancher/defaults/main.yml$/",
+        "/roles/rancher/README.md$/"
+      ],
+      "matchStrings": [
+        "rancher_helm_chart_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?"
+      ],
+      "depNameTemplate": "rancher-stable/rancher",
+      "autoReplaceStringTemplate": "rancher_helm_chart_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
+      "datasourceTemplate": "helm"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^README.md$/"
+      ],
+      "matchStrings": [
+        "Rancher\\s*\\|\\s*v?(?<currentValue>[0-9\\.]+)"
+      ],
+      "depNameTemplate": "rancher-stable/rancher",
+      "autoReplaceStringTemplate": "Rancher         | v{{newValue}}",
+      "datasourceTemplate": "helm"
     }
   ]
 }

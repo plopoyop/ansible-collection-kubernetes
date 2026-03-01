@@ -1,0 +1,53 @@
+hostname: "{{ rancher_hostname }}"
+
+replicas: {{ rancher_replicas }}
+
+{% if rancher_bootstrap_password | length > 0 %}
+bootstrapPassword: "{{ rancher_bootstrap_password }}"
+{% endif %}
+
+ingress:
+  enabled: {{ rancher_ingress_enabled | lower }}
+{% if rancher_ingress_class_name | length > 0 %}
+  ingressClassName: "{{ rancher_ingress_class_name }}"
+{% endif %}
+  tls:
+    source: "{{ rancher_ingress_tls_source }}"
+
+{% if rancher_ingress_tls_source == "letsEncrypt" %}
+letsEncrypt:
+  email: "{{ rancher_lets_encrypt_email }}"
+{% if rancher_lets_encrypt_ingress_class | length > 0 %}
+  ingress:
+    class: "{{ rancher_lets_encrypt_ingress_class }}"
+{% endif %}
+{% endif %}
+
+{% if rancher_private_ca %}
+privateCA: true
+{% endif %}
+
+additionalTrustedCAs: {{ rancher_additional_trusted_cas | lower }}
+
+antiAffinity: "{{ rancher_anti_affinity }}"
+
+debug: {{ rancher_debug | lower }}
+
+{% if rancher_resources | length > 0 %}
+resources:
+  {{ rancher_resources | ansible.builtin.to_nice_yaml(indent=2) | indent(2) }}
+{% endif %}
+
+{% if rancher_audit_log_enabled %}
+auditLog:
+  level: {{ rancher_audit_log_level }}
+  destination: "{{ rancher_audit_log_destination }}"
+{% endif %}
+
+{% if rancher_system_default_registry | length > 0 %}
+systemDefaultRegistry: "{{ rancher_system_default_registry }}"
+{% endif %}
+
+{% if rancher_additional_helm_values | default({}) != {} %}
+{{ rancher_additional_helm_values | to_nice_yaml }}
+{% endif %}

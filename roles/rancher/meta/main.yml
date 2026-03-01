@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  description: Install rancher
+  role_name: rancher
+  author: Clément Hubert
+
+  license: MLP2
+
+  min_ansible_version: "2.1"
+
+  galaxy_tags:
+    - kubernetes
+    - rancher
+    - management
+    - cluster
+
+dependencies: []

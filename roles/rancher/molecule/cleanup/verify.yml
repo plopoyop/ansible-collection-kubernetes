@@ -1,0 +1,20 @@
+---
+- name: Verify
+  hosts: localhost
+  connection: local
+  gather_facts: true
+
+  tasks:
+    - name: "Pause for cleanup to complete."
+      ansible.builtin.pause:
+        seconds: 5
+
+    - name: "Get 'cattle-system' namespace info."
+      kubernetes.core.k8s_info:
+        kind: Namespace
+        name: "cattle-system"
+      register: namespace_rancher
+
+    - name: Assert that 'cattle-system' namespace is removed
+      ansible.builtin.assert:
+        that: namespace_rancher['resources'] == []
