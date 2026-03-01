@@ -1,0 +1,23 @@
+---
+- name: "Create paralus namespace"
+  kubernetes.core.k8s:
+    name: "{{ paralus_namespace }}"
+    api_version: "v1"
+    kind: "Namespace"
+    state: "present"
+
+- name: "Add paralus helm repo"
+  kubernetes.core.helm_repository:
+    name: "{{ paralus_helm_repo_name }}"
+    repo_url: "{{ paralus_helm_repo_url }}"
+
+- name: "Install paralus helm package"
+  kubernetes.core.helm:
+    name: "{{ paralus_deployment_name }}"
+    namespace: "{{ paralus_namespace }}"
+    chart_ref: "{{ paralus_helm_chart_ref }}"
+    chart_version: "{{ paralus_helm_chart_version }}"
+    create_namespace: true
+    update_repo_cache: true
+    values: "{{ lookup('ansible.builtin.template', 'paralus_helm_values.yml.j2') | from_yaml }}"
+    wait: true

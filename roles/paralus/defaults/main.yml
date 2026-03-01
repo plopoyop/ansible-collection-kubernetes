@@ -1,0 +1,190 @@
+---
+# @var paralus_enabled
+# @var paralus_enabled:type: boolean
+# @var paralus_enabled:description: >
+# Should paralus helm chart be installed
+paralus_enabled: true
+
+# @var paralus_namespace
+# @var paralus_namespace:type: string
+# @var paralus_namespace:description: >
+# K8s namespace to install the paralus chart
+paralus_namespace: "paralus"
+
+# @var paralus_helm_chart_version
+# @var paralus_helm_chart_version:type: string
+# @var paralus_helm_chart_version:description: >
+# Helm chart version to install
+paralus_helm_chart_version: "0.3.1"
+
+# @var paralus_deployment_name
+# @var paralus_deployment_name:type: string
+# @var paralus_deployment_name:description: >
+# Deployment name for paralus helm chart
+paralus_deployment_name: "paralus"
+
+# @var paralus_fqdn_domain
+# @var paralus_fqdn_domain:type: string
+# @var paralus_fqdn_domain:description: >
+# Domain for the Paralus console. This is required.
+# @var paralus_fqdn_domain:example: >
+#   paralus_fqdn_domain: "example.com"
+paralus_fqdn_domain: "paralus.local"
+
+# @var paralus_fqdn_hostname
+# @var paralus_fqdn_hostname:type: string
+# @var paralus_fqdn_hostname:description: >
+# Hostname prefix for the Paralus console.
+# The console will be accessible at <hostname>.<domain>
+paralus_fqdn_hostname: "console"
+
+# @var paralus_fqdn_core_connector_subdomain
+# @var paralus_fqdn_core_connector_subdomain:type: string
+# @var paralus_fqdn_core_connector_subdomain:description: >
+# Subdomain for core connector relay
+paralus_fqdn_core_connector_subdomain: "*.core-connector"
+
+# @var paralus_fqdn_user_subdomain
+# @var paralus_fqdn_user_subdomain:type: string
+# @var paralus_fqdn_user_subdomain:description: >
+# Subdomain for user-facing relay
+paralus_fqdn_user_subdomain: "*.user"
+
+# @var paralus_deploy_postgresql_enabled
+# @var paralus_deploy_postgresql_enabled:type: boolean
+# @var paralus_deploy_postgresql_enabled:description: >
+# Enable bundled PostgreSQL deployment.
+# Set to false to use an external PostgreSQL instance.
+paralus_deploy_postgresql_enabled: true
+
+# @var paralus_deploy_postgresql_address
+# @var paralus_deploy_postgresql_address:type: string
+# @var paralus_deploy_postgresql_address:description: >
+# External PostgreSQL address. Required when bundled PostgreSQL is disabled.
+paralus_deploy_postgresql_address: ""
+
+# @var paralus_deploy_postgresql_username
+# @var paralus_deploy_postgresql_username:type: string
+# @var paralus_deploy_postgresql_username:description: >
+# External PostgreSQL username. Required when bundled PostgreSQL is disabled.
+paralus_deploy_postgresql_username: ""
+
+# @var paralus_deploy_postgresql_password
+# @var paralus_deploy_postgresql_password:type: string
+# @var paralus_deploy_postgresql_password:description: >
+# External PostgreSQL password. Required when bundled PostgreSQL is disabled.
+paralus_deploy_postgresql_password: ""
+
+# @var paralus_deploy_postgresql_database
+# @var paralus_deploy_postgresql_database:type: string
+# @var paralus_deploy_postgresql_database:description: >
+# External PostgreSQL database name. Required when bundled PostgreSQL is disabled.
+paralus_deploy_postgresql_database: ""
+
+# @var paralus_deploy_elasticsearch_enabled
+# @var paralus_deploy_elasticsearch_enabled:type: boolean
+# @var paralus_deploy_elasticsearch_enabled:description: >
+# Enable Elasticsearch deployment for audit logs
+paralus_deploy_elasticsearch_enabled: false
+
+# @var paralus_deploy_elasticsearch_address
+# @var paralus_deploy_elasticsearch_address:type: string
+# @var paralus_deploy_elasticsearch_address:description: >
+# External Elasticsearch address. Used when bundled Elasticsearch is disabled.
+paralus_deploy_elasticsearch_address: ""
+
+# @var paralus_deploy_kratos_smtp_connection_uri
+# @var paralus_deploy_kratos_smtp_connection_uri:type: string
+# @var paralus_deploy_kratos_smtp_connection_uri:description: >
+# SMTP connection URI for Kratos email sending.
+# Format: smtps://user:pass@host:port/?skip_ssl_verify=true
+paralus_deploy_kratos_smtp_connection_uri: ""
+
+# @var paralus_deploy_contour_enabled
+# @var paralus_deploy_contour_enabled:type: boolean
+# @var paralus_deploy_contour_enabled:description: >
+# Enable Contour ingress controller deployment.
+# Set to false if you already have an ingress controller.
+paralus_deploy_contour_enabled: true
+
+# @var paralus_deploy_fluentbit_enabled
+# @var paralus_deploy_fluentbit_enabled:type: boolean
+# @var paralus_deploy_fluentbit_enabled:description: >
+# Enable Fluentbit for log forwarding
+paralus_deploy_fluentbit_enabled: true
+
+# @var paralus_deploy_filebeat_enabled
+# @var paralus_deploy_filebeat_enabled:type: boolean
+# @var paralus_deploy_filebeat_enabled:description: >
+# Enable Filebeat for log forwarding
+paralus_deploy_filebeat_enabled: false
+
+# @var paralus_audit_logs_storage
+# @var paralus_audit_logs_storage:type: string
+# @var paralus_audit_logs_storage:description: >
+# Audit logs storage backend. Options: database, elasticsearch
+paralus_audit_logs_storage: "database"
+
+# @var paralus_analytics_enabled
+# @var paralus_analytics_enabled:type: boolean
+# @var paralus_analytics_enabled:description: >
+# Enable analytics collection
+paralus_analytics_enabled: true
+
+# @var paralus_init_admin_email
+# @var paralus_init_admin_email:type: string
+# @var paralus_init_admin_email:description: >
+# Admin email address for initial Paralus setup. This is required.
+# @var paralus_init_admin_email:example: >
+#   paralus_init_admin_email: "admin@example.com"
+paralus_init_admin_email: "admin@paralus.local"
+
+# @var paralus_init_admin_first_name
+# @var paralus_init_admin_first_name:type: string
+# @var paralus_init_admin_first_name:description: >
+# Admin first name for initial Paralus setup
+paralus_init_admin_first_name: "Admin"
+
+# @var paralus_init_admin_last_name
+# @var paralus_init_admin_last_name:type: string
+# @var paralus_init_admin_last_name:description: >
+# Admin last name for initial Paralus setup
+paralus_init_admin_last_name: "User"
+
+# @var paralus_init_org
+# @var paralus_init_org:type: string
+# @var paralus_init_org:description: >
+# Organization name for initial Paralus setup
+paralus_init_org: "ParalusOrg"
+
+# @var paralus_init_org_desc
+# @var paralus_init_org_desc:type: string
+# @var paralus_init_org_desc:description: >
+# Organization description for initial Paralus setup
+paralus_init_org_desc: "Default Organization"
+
+# @var paralus_init_partner
+# @var paralus_init_partner:type: string
+# @var paralus_init_partner:description: >
+# Partner name for initial Paralus setup
+paralus_init_partner: "Paralus"
+
+# @var paralus_init_partner_desc
+# @var paralus_init_partner_desc:type: string
+# @var paralus_init_partner_desc:description: >
+# Partner description for initial Paralus setup
+paralus_init_partner_desc: "Default Partner"
+
+# @var paralus_init_partner_host
+# @var paralus_init_partner_host:type: string
+# @var paralus_init_partner_host:description: >
+# Partner host for initial Paralus setup.
+# Defaults to the FQDN domain if empty.
+paralus_init_partner_host: ""
+
+# @var paralus_additional_helm_values
+# @var paralus_additional_helm_values:type: dict
+# @var paralus_additional_helm_values:description: >
+# Additional helm values to be passed to the chart.
+# These values are merged with the generated values.
+paralus_additional_helm_values: {}
