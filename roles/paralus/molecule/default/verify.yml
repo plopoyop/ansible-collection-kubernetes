@@ -1,0 +1,31 @@
+---
+- name: Verify
+  hosts: localhost
+  connection: local
+  gather_facts: true
+
+  tasks:
+    - name: "Pause for deployment to complete."
+      ansible.builtin.pause:
+        seconds: 60
+
+    - name: "Get 'paralus' namespace info."
+      kubernetes.core.k8s_info:
+        kind: Namespace
+        name: "paralus"
+      register: namespace_paralus
+
+    - name: Assert that 'paralus' namespace is active
+      ansible.builtin.assert:
+        that: namespace_paralus['resources'][0]['status']['phase'] == "Active"
+
+    - name: "Get 'paralus' Deployment info."
+      kubernetes.core.k8s_info:
+        kind: "Deployment"
+        name: "paralus"
+        namespace: "paralus"
+      register: paralus_deployment
+
+    - name: "Assert that 'paralus' Deployment is deployed"
+      ansible.builtin.assert:
+        that: paralus_deployment['resources'] | length > 0

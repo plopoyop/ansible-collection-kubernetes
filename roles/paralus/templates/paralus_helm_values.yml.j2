@@ -1,0 +1,59 @@
+fqdn:
+  domain: "{{ paralus_fqdn_domain }}"
+  hostname: "{{ paralus_fqdn_hostname }}"
+  coreConnectorSubdomain: "{{ paralus_fqdn_core_connector_subdomain }}"
+  userSubdomain: "{{ paralus_fqdn_user_subdomain }}"
+
+deploy:
+  postgresql:
+    enable: {{ paralus_deploy_postgresql_enabled | lower }}
+{% if not paralus_deploy_postgresql_enabled %}
+{% if paralus_deploy_postgresql_address | length > 0 %}
+    address: "{{ paralus_deploy_postgresql_address }}"
+{% endif %}
+{% if paralus_deploy_postgresql_username | length > 0 %}
+    username: "{{ paralus_deploy_postgresql_username }}"
+{% endif %}
+{% if paralus_deploy_postgresql_password | length > 0 %}
+    password: "{{ paralus_deploy_postgresql_password }}"
+{% endif %}
+{% if paralus_deploy_postgresql_database | length > 0 %}
+    database: "{{ paralus_deploy_postgresql_database }}"
+{% endif %}
+{% endif %}
+  elasticsearch:
+    enable: {{ paralus_deploy_elasticsearch_enabled | lower }}
+{% if paralus_deploy_elasticsearch_address | length > 0 %}
+    address: "{{ paralus_deploy_elasticsearch_address }}"
+{% endif %}
+  kratos:
+{% if paralus_deploy_kratos_smtp_connection_uri | length > 0 %}
+    smtpConnectionURI: "{{ paralus_deploy_kratos_smtp_connection_uri }}"
+{% endif %}
+  contour:
+    enable: {{ paralus_deploy_contour_enabled | lower }}
+  fluentbit:
+    enable: {{ paralus_deploy_fluentbit_enabled | lower }}
+  filebeat:
+    enable: {{ paralus_deploy_filebeat_enabled | lower }}
+
+auditLogs:
+  storage: "{{ paralus_audit_logs_storage }}"
+
+analytics:
+  enable: {{ paralus_analytics_enabled | lower }}
+
+paralus:
+  initialize:
+    partner: "{{ paralus_init_partner }}"
+    partnerDesc: "{{ paralus_init_partner_desc }}"
+    partnerHost: "{{ paralus_init_partner_host | default(paralus_fqdn_domain, true) }}"
+    org: "{{ paralus_init_org }}"
+    orgDesc: "{{ paralus_init_org_desc }}"
+    adminEmail: "{{ paralus_init_admin_email }}"
+    adminFirstName: "{{ paralus_init_admin_first_name }}"
+    adminLastName: "{{ paralus_init_admin_last_name }}"
+
+{% if paralus_additional_helm_values | default({}) != {} %}
+{{ paralus_additional_helm_values | to_nice_yaml }}
+{% endif %}

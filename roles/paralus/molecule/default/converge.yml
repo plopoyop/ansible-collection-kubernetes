@@ -1,0 +1,15 @@
+---
+- name: Converge
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    paralus_fqdn_domain: "molecule-test.local"
+    paralus_fqdn_hostname: "console"
+    paralus_init_admin_email: "admin@molecule-test.local"
+    paralus_deploy_contour_enabled: false
+    paralus_analytics_enabled: false
+  tasks:
+    - name: "Install paralus"
+      ansible.builtin.import_role:
+        name: "paralus"

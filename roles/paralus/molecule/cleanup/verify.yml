@@ -1,0 +1,20 @@
+---
+- name: Verify
+  hosts: localhost
+  connection: local
+  gather_facts: true
+
+  tasks:
+    - name: "Pause for cleanup to complete."
+      ansible.builtin.pause:
+        seconds: 30
+
+    - name: "Get 'paralus' namespace info."
+      kubernetes.core.k8s_info:
+        kind: Namespace
+        name: "paralus"
+      register: namespace_paralus
+
+    - name: Assert that 'paralus' namespace is removed
+      ansible.builtin.assert:
+        that: namespace_paralus['resources'] == []
