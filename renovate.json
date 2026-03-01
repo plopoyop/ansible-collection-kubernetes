@@ -91,6 +91,17 @@
       "registryUrls": [
         "https://releases.rancher.com/server-charts/stable"
       ]
+    },
+    {
+      "matchDatasources": [
+        "helm"
+      ],
+      "matchPackageNames": [
+        "ztka"
+      ],
+      "registryUrls": [
+        "https://paralus.github.io/helm-charts"
+      ]
     }
   ],
   "customManagers": [
@@ -268,6 +279,31 @@
       ],
       "depNameTemplate": "rancher-stable/rancher",
       "autoReplaceStringTemplate": "Rancher         | v{{newValue}}",
+      "datasourceTemplate": "helm"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/roles/paralus/defaults/main.yml$/",
+        "/roles/paralus/README.md$/"
+      ],
+      "matchStrings": [
+        "paralus_helm_chart_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?"
+      ],
+      "depNameTemplate": "ztka",
+      "autoReplaceStringTemplate": "paralus_helm_chart_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
+      "datasourceTemplate": "helm"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^README.md$/"
+      ],
+      "matchStrings": [
+        "Paralus\\s*\\|\\s*v?(?<currentValue>[0-9\\.]+)"
+      ],
+      "depNameTemplate": "ztka",
+      "autoReplaceStringTemplate": "Paralus         | v{{newValue}}",
       "datasourceTemplate": "helm"
     }
   ]
