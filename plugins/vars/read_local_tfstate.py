@@ -16,6 +16,20 @@ DOCUMENTATION = """
 DIR = os.path.dirname(os.path.realpath(__file__))
 
 
+def _deep_merge(base, override):
+    result = base.copy()
+    for key, value in override.items():
+        if key in result and isinstance(result[key], dict) and isinstance(value, dict):
+            result[key] = _deep_merge(result[key], value)
+        elif (
+            key in result and isinstance(result[key], list) and isinstance(value, list)
+        ):
+            result[key] = result[key] + value
+        else:
+            result[key] = value
+    return result
+
+
 class VarsModule(BaseVarsPlugin):
     CACHE = {}
 
@@ -51,7 +65,8 @@ class VarsModule(BaseVarsPlugin):
                         continue
 
                     ansible_vars = tfstate["outputs"]["ansible_vars"]["value"]
-                    vars = vars | loader.load(ansible_vars)
+                    loaded = loader.load(ansible_vars)
+                    vars = _deep_merge(vars, loaded)
 
             self.CACHE["result"] = vars
             return self.CACHE["result"]
