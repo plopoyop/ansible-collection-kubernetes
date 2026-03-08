@@ -1,5 +1,17 @@
 # Changelog
 
+## [7.0.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.0.1) (2026-03-08)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.0.0...7.0.1)
+
+## ⚙️ Dependencies
+
+- fix\(ci\): update renovatebot/github-action action \(v46.1.2 → v46.1.3\) [\#183](https://github.com/plopoyop/ansible-collection-kubernetes/pull/183) ([plopoyop](https://github.com/plopoyop))
+
+**Merged pull requests:**
+
+- fix\(deps\): update python313packages.ruff \(0.15.0 → 0.15.4\) [\#185](https://github.com/plopoyop/ansible-collection-kubernetes/pull/185) ([plopoyop](https://github.com/plopoyop))
+
 ## [7.0.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.0.0) (2026-03-01)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/6.0.0...7.0.0)
