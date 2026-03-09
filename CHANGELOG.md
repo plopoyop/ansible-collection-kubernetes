@@ -1,6 +1,6 @@
 # Changelog
 
-## [7.0.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.0.1) (2026-03-08)
+## [7.0.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.0.1) (2026-03-09)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.0.0...7.0.1)
 
