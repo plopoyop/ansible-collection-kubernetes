@@ -513,67 +513,67 @@
         }
       }
     },
-    "python313Packages.boto3@1.40.18": {
-      "last_modified": "2025-10-07T08:41:47Z",
-      "resolved": "github:NixOS/nixpkgs/bce5fe2bb998488d8e7e7856315f90496723793c#python313Packages.boto3",
+    "python313Packages.boto3@1.42.31": {
+      "last_modified": "2026-02-23T15:40:43Z",
+      "resolved": "github:NixOS/nixpkgs/80d901ec0377e19ac3f7bb8c035201e2e098cc97#python313Packages.boto3",
       "source": "devbox-search",
-      "version": "1.40.18",
+      "version": "1.42.31",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/9xr571rra7p526w2hb1lr23snpyxc003-python3.13-boto3-1.40.18",
+              "path": "/nix/store/x6dwklv6sl31cwcwxs2djwf8vdf1l5j2-python3.13-boto3-1.42.31",
               "default": true
             },
             {
               "name": "dist",
-              "path": "/nix/store/79j721jxv0krl0v3fvh7c159k2vhkp0x-python3.13-boto3-1.40.18-dist"
+              "path": "/nix/store/hlimw2qrbyn5f15axfp6nhcn2nxbskcl-python3.13-boto3-1.42.31-dist"
             }
           ],
-          "store_path": "/nix/store/9xr571rra7p526w2hb1lr23snpyxc003-python3.13-boto3-1.40.18"
+          "store_path": "/nix/store/x6dwklv6sl31cwcwxs2djwf8vdf1l5j2-python3.13-boto3-1.42.31"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/g1l51xlwsmnp5mvq8zpj2c4z4dvr0pyn-python3.13-boto3-1.40.18",
+              "path": "/nix/store/jq7bs25kkbx4g9bfpkk5y30b0aw4xqsx-python3.13-boto3-1.42.31",
               "default": true
             },
             {
               "name": "dist",
-              "path": "/nix/store/hyx4ydxkdk11pzw78iml5sw1q8vm2pmp-python3.13-boto3-1.40.18-dist"
+              "path": "/nix/store/f7h8jg9c0pgsb60rwxfdv5sgjd563c4s-python3.13-boto3-1.42.31-dist"
             }
           ],
-          "store_path": "/nix/store/g1l51xlwsmnp5mvq8zpj2c4z4dvr0pyn-python3.13-boto3-1.40.18"
+          "store_path": "/nix/store/jq7bs25kkbx4g9bfpkk5y30b0aw4xqsx-python3.13-boto3-1.42.31"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/vs7ip2q6z7k10vk23l3b1zbw13gydk77-python3.13-boto3-1.40.18",
+              "path": "/nix/store/pxi8wna5xb9habi3hknsdz7jzfj1d3k3-python3.13-boto3-1.42.31",
               "default": true
             },
             {
               "name": "dist",
-              "path": "/nix/store/kqbyibamg4dfbg3dvqn0wgkhhqvwf77w-python3.13-boto3-1.40.18-dist"
+              "path": "/nix/store/f5l5wa4kyk0pzqfbl61jgmw1vipks0kd-python3.13-boto3-1.42.31-dist"
             }
           ],
-          "store_path": "/nix/store/vs7ip2q6z7k10vk23l3b1zbw13gydk77-python3.13-boto3-1.40.18"
+          "store_path": "/nix/store/pxi8wna5xb9habi3hknsdz7jzfj1d3k3-python3.13-boto3-1.42.31"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/zwbq39s515hwxxc9za4j0jg3xw4ra604-python3.13-boto3-1.40.18",
+              "path": "/nix/store/zwfz5wsq7a0chd2k30z4w6p9d46nv8w5-python3.13-boto3-1.42.31",
               "default": true
             },
             {
               "name": "dist",
-              "path": "/nix/store/8ksi6yi3654j4r6qd170zqkmiypr8ams-python3.13-boto3-1.40.18-dist"
+              "path": "/nix/store/2ica9mzcd500dlyrrpi4fivq8hsrcx0j-python3.13-boto3-1.42.31-dist"
             }
           ],
-          "store_path": "/nix/store/zwbq39s515hwxxc9za4j0jg3xw4ra604-python3.13-boto3-1.40.18"
+          "store_path": "/nix/store/zwfz5wsq7a0chd2k30z4w6p9d46nv8w5-python3.13-boto3-1.42.31"
         }
       }
     },
