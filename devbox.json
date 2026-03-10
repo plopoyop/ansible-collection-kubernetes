@@ -8,7 +8,7 @@
       "path:.#molecule",
       "path:.#molecule-plugins",
       "path:.#urllib3",
-      "git@2.52.0",
+      "git@2.53.0",
       "glibcLocales@2.40-66",
       "go-task@3.48.0",
       "jq@1.8.1",
