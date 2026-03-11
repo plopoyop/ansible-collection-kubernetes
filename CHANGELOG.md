@@ -8,6 +8,10 @@
 
 - feat\(ci\)!: Update artis3n/ansible\_galaxy\_collection action \(v2 → v3\) [\#190](https://github.com/plopoyop/ansible-collection-kubernetes/pull/190) ([plopoyop](https://github.com/plopoyop))
 
+**Merged pull requests:**
+
+- feat\(deps\)!: Update python313Packages.pytest-ansible \(25.12.0 → 26.2.0\) [\#191](https://github.com/plopoyop/ansible-collection-kubernetes/pull/191) ([plopoyop](https://github.com/plopoyop))
+
 ## [7.0.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.0.1) (2026-03-10)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.0.0...7.0.1)
