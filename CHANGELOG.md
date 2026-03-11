@@ -1,5 +1,13 @@
 # Changelog
 
+## [7.0.2](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.0.2) (2026-03-11)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.0.1...7.0.2)
+
+## ⚙️ Dependencies
+
+- feat\(ci\)!: Update artis3n/ansible\_galaxy\_collection action \(v2 → v3\) [\#190](https://github.com/plopoyop/ansible-collection-kubernetes/pull/190) ([plopoyop](https://github.com/plopoyop))
+
 ## [7.0.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.0.1) (2026-03-10)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.0.0...7.0.1)
