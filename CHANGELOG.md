@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.0.1...7.0.2)
 
+## 🐛 Bug Fixes
+
+- Fix/rancher renovate [\#192](https://github.com/plopoyop/ansible-collection-kubernetes/pull/192) ([plopoyop](https://github.com/plopoyop))
+
 ## ⚙️ Dependencies
 
 - feat\(ci\)!: Update artis3n/ansible\_galaxy\_collection action \(v2 → v3\) [\#190](https://github.com/plopoyop/ansible-collection-kubernetes/pull/190) ([plopoyop](https://github.com/plopoyop))
