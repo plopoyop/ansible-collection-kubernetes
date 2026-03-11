@@ -86,7 +86,7 @@
         "helm"
       ],
       "matchPackageNames": [
-        "rancher-stable/rancher"
+        "rancher"
       ],
       "registryUrls": [
         "https://releases.rancher.com/server-charts/stable"
