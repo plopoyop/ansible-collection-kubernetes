@@ -1,6 +1,6 @@
 # Changelog
 
-## [7.0.2](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.0.2) (2026-03-11)
+## [7.0.2](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.0.2) (2026-03-12)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.0.1...7.0.2)
 
@@ -10,6 +10,7 @@
 
 ## ⚙️ Dependencies
 
+- fix\(ci\): update renovatebot/github-action action \(v46.1.3 → v46.1.4\) [\#193](https://github.com/plopoyop/ansible-collection-kubernetes/pull/193) ([plopoyop](https://github.com/plopoyop))
 - feat\(ci\)!: Update artis3n/ansible\_galaxy\_collection action \(v2 → v3\) [\#190](https://github.com/plopoyop/ansible-collection-kubernetes/pull/190) ([plopoyop](https://github.com/plopoyop))
 
 **Merged pull requests:**
