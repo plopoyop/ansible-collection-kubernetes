@@ -1,0 +1,45 @@
+chartMode: "{{ teleport_chart_mode }}"
+
+clusterName: "{{ teleport_cluster_name }}"
+
+{% if teleport_enterprise %}
+enterprise: true
+{% endif %}
+
+proxyListenerMode: "{{ teleport_proxy_listener_mode }}"
+
+authentication:
+  type: "{{ teleport_authentication_type }}"
+  secondFactors: {{ teleport_authentication_second_factors | to_json }}
+
+acme: {{ teleport_acme_enabled | lower }}
+
+podSecurityPolicy:
+  enabled: {{ teleport_pod_security_policy_enabled | lower }}
+
+service:
+  type: "{{ teleport_proxy_service_type }}"
+
+persistence:
+  enabled: {{ teleport_persistence_enabled | lower }}
+  volumeSize: "{{ teleport_persistence_volume_size }}"
+
+{% if teleport_high_availability_enabled %}
+highAvailability:
+  replicaCount: {{ teleport_high_availability_replica_count }}
+{% if teleport_high_availability_cert_manager_enabled %}
+  certManager:
+    enabled: true
+    issuerName: "{{ teleport_high_availability_cert_manager_issuer_name }}"
+    issuerKind: "{{ teleport_high_availability_cert_manager_issuer_kind }}"
+{% endif %}
+{% endif %}
+
+log:
+  level: "{{ teleport_log_level }}"
+  output: "{{ teleport_log_output }}"
+  format: "{{ teleport_log_format }}"
+
+{% if teleport_additional_helm_values | default({}) != {} %}
+{{ teleport_additional_helm_values | to_nice_yaml }}
+{% endif %}
