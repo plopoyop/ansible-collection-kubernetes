@@ -1,0 +1,15 @@
+---
+galaxy_info:
+  description: Install paralus on kubernetes
+  role_name: paralus
+  author: Clément Hubert
+
+  license: MLP2
+
+  min_ansible_version: "2.1"
+
+  galaxy_tags:
+    - kubernetes
+    - paralus
+
+dependencies: []

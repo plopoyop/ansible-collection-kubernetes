@@ -43,6 +43,10 @@ jobs:
     uses: ./.github/workflows/test-role.yaml
     with:
       role_name: "mongodb"
+  paralus:
+    uses: ./.github/workflows/test-role.yaml
+    with:
+      role_name: "paralus"
   rancher:
     uses: ./.github/workflows/test-role.yaml
     with:

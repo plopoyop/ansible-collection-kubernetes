@@ -1,0 +1,4 @@
+---
+paralus_helm_repo_name: "paralus"
+paralus_helm_repo_url: "https://paralus.github.io/helm-charts"
+paralus_helm_chart_ref: "{{ paralus_helm_repo_name }}/ztka"

@@ -1,0 +1,11 @@
+---
+- name: Converge
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: "Remove paralus"
+      ansible.builtin.import_role:
+        name: "paralus"
+  vars:
+    paralus_enabled: false
