@@ -66,6 +66,12 @@ rancher_ingress_class_name: ""
 # Enable ingress for Rancher
 rancher_ingress_enabled: false
 
+# @var rancher_ingress_extra_annotations
+# @var rancher_ingress_extra_annotations:type: dict
+# @var rancher_ingress_extra_annotations:description: >
+# Additional annotions for ingress
+rancher_ingress_extra_annotations: {}
+
 # @var rancher_lets_encrypt_email
 # @var rancher_lets_encrypt_email:type: string
 # @var rancher_lets_encrypt_email:description: >
