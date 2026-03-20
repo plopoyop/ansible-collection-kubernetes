@@ -254,7 +254,7 @@
       "matchStrings": [
         "rancher_helm_chart_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?"
       ],
-      "depNameTemplate": "rancher-stable/rancher",
+      "depNameTemplate": "rancher",
       "autoReplaceStringTemplate": "rancher_helm_chart_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
       "datasourceTemplate": "helm"
     },
@@ -266,7 +266,7 @@
       "matchStrings": [
         "Rancher\\s*\\|\\s*v?(?<currentValue>[0-9\\.]+)"
       ],
-      "depNameTemplate": "rancher-stable/rancher",
+      "depNameTemplate": "rancher",
       "autoReplaceStringTemplate": "Rancher         | v{{newValue}}",
       "datasourceTemplate": "helm"
     }

@@ -11,6 +11,10 @@ ingress:
 {% if rancher_ingress_class_name | length > 0 %}
   ingressClassName: "{{ rancher_ingress_class_name }}"
 {% endif %}
+{% if rancher_ingress_extra_annotations is defined %}
+  extraAnnotations:
+{{ rancher_ingress_extra_annotations | ansible.builtin.to_nice_yaml(indent=2) | indent(width=4, first=true) }}
+{% endif %}
   tls:
     source: "{{ rancher_ingress_tls_source }}"
 
