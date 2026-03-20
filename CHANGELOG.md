@@ -1,11 +1,12 @@
 # Changelog
 
-## [7.0.2](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.0.2) (2026-03-19)
+## [7.0.2](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.0.2) (2026-03-20)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.0.1...7.0.2)
 
 ## 🐛 Bug Fixes
 
+- Add Rancher ingress annotations [\#198](https://github.com/plopoyop/ansible-collection-kubernetes/pull/198) ([plopoyop](https://github.com/plopoyop))
 - Fix/rancher renovate [\#192](https://github.com/plopoyop/ansible-collection-kubernetes/pull/192) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
