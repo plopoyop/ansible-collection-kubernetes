@@ -1,6 +1,6 @@
 # Changelog
 
-## [7.0.2](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.0.2) (2026-03-22)
+## [7.0.2](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.0.2) (2026-03-24)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.0.1...7.0.2)
 
@@ -11,6 +11,7 @@
 
 ## ⚙️ Dependencies
 
+- feat\(ci\): update jetify-com/devbox-install-action action \(v0.14.0 → v0.15.0\) [\#201](https://github.com/plopoyop/ansible-collection-kubernetes/pull/201) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart traefik \(39.0.5 → 39.0.6\) [\#200](https://github.com/plopoyop/ansible-collection-kubernetes/pull/200) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.15.6 → v0.15.7\) [\#199](https://github.com/plopoyop/ansible-collection-kubernetes/pull/199) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.1.4 → v46.1.5\) [\#197](https://github.com/plopoyop/ansible-collection-kubernetes/pull/197) ([plopoyop](https://github.com/plopoyop))
