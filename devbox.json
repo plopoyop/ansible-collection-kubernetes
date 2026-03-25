@@ -19,7 +19,7 @@
       "python313Packages.boto3@1.42.31",
       "python313Packages.moto@5.1.20",
       "python313Packages.pytest-ansible@26.2.0",
-      "python313Packages.ruff@0.15.5",
+      "python313Packages.ruff@0.15.6",
       "yamllint@1.37.1"
     ],
     "env": {
