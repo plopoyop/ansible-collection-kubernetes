@@ -1,6 +1,6 @@
 # Changelog
 
-## [7.0.2](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.0.2) (2026-03-26)
+## [7.0.2](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.0.2) (2026-03-27)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.0.1...7.0.2)
 
@@ -22,6 +22,7 @@
 
 **Merged pull requests:**
 
+- fix\(deps\): update kubectl \(1.35.2 → 1.35.3\) [\#204](https://github.com/plopoyop/ansible-collection-kubernetes/pull/204) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update python313packages.ruff \(0.15.5 → 0.15.6\) [\#202](https://github.com/plopoyop/ansible-collection-kubernetes/pull/202) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update kubectl \(1.35.0 → 1.35.2\) [\#196](https://github.com/plopoyop/ansible-collection-kubernetes/pull/196) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update python313packages.ruff \(0.15.4 → 0.15.5\) [\#195](https://github.com/plopoyop/ansible-collection-kubernetes/pull/195) ([plopoyop](https://github.com/plopoyop))
