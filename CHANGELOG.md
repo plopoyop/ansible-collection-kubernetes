@@ -11,6 +11,7 @@
 
 ## ⚙️ Dependencies
 
+- fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.15.7 → v0.15.8\) [\#205](https://github.com/plopoyop/ansible-collection-kubernetes/pull/205) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.1.5 → v46.1.6\) [\#203](https://github.com/plopoyop/ansible-collection-kubernetes/pull/203) ([plopoyop](https://github.com/plopoyop))
 - feat\(ci\): update jetify-com/devbox-install-action action \(v0.14.0 → v0.15.0\) [\#201](https://github.com/plopoyop/ansible-collection-kubernetes/pull/201) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart traefik \(39.0.5 → 39.0.6\) [\#200](https://github.com/plopoyop/ansible-collection-kubernetes/pull/200) ([plopoyop](https://github.com/plopoyop))
