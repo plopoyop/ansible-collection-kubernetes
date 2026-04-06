@@ -1,0 +1,12 @@
+---
+- name: Converge
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    teleport_cluster_name: "teleport.molecule-test.local"
+    teleport_proxy_service_type: "ClusterIP"
+  tasks:
+    - name: "Install teleport"
+      ansible.builtin.import_role:
+        name: "teleport"

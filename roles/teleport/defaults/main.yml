@@ -1,0 +1,164 @@
+---
+# @var teleport_enabled
+# @var teleport_enabled:type: boolean
+# @var teleport_enabled:description: >
+# Should teleport-cluster helm chart be installed
+teleport_enabled: true
+
+# @var teleport_namespace
+# @var teleport_namespace:type: string
+# @var teleport_namespace:description: >
+# K8s namespace to install the teleport-cluster chart
+teleport_namespace: "teleport"
+
+# @var teleport_helm_chart_version
+# @var teleport_helm_chart_version:type: string
+# @var teleport_helm_chart_version:description: >
+# Helm chart version to install
+teleport_helm_chart_version: "18.7.1"
+
+# @var teleport_deployment_name
+# @var teleport_deployment_name:type: string
+# @var teleport_deployment_name:description: >
+# Deployment name for teleport-cluster helm chart
+teleport_deployment_name: "teleport"
+
+# @var teleport_cluster_name
+# @var teleport_cluster_name:type: string
+# @var teleport_cluster_name:description: >
+# The externally-facing public domain name of the Teleport cluster.
+# This value cannot be changed after cluster deployment.
+# @var teleport_cluster_name:example: >
+#   teleport_cluster_name: "teleport.example.com"
+teleport_cluster_name: ""
+
+# @var teleport_enterprise
+# @var teleport_enterprise:type: boolean
+# @var teleport_enterprise:description: >
+# Enable Teleport Enterprise mode. Requires a license secret.
+teleport_enterprise: false
+
+# @var teleport_chart_mode
+# @var teleport_chart_mode:type: string
+# @var teleport_chart_mode:description: >
+# Deployment mode for the Teleport chart.
+# Supported values: standalone, aws, gcp, azure, scratch
+teleport_chart_mode: "standalone"
+
+# @var teleport_proxy_listener_mode
+# @var teleport_proxy_listener_mode:type: string
+# @var teleport_proxy_listener_mode:description: >
+# Proxy listener mode. Use 'multiplex' for TLS routing (single port)
+# or 'separate' for separate ports per protocol.
+teleport_proxy_listener_mode: "separate"
+
+# @var teleport_authentication_type
+# @var teleport_authentication_type:type: string
+# @var teleport_authentication_type:description: >
+# Authentication type. Options: local, github (OSS), oidc, saml (Enterprise)
+teleport_authentication_type: "local"
+
+# @var teleport_authentication_second_factors
+# @var teleport_authentication_second_factors:type: list
+# @var teleport_authentication_second_factors:description: >
+# List of second factor methods to enable.
+# Options: otp, sso, webauthn
+teleport_authentication_second_factors:
+  - webauthn
+  - otp
+
+# @var teleport_proxy_service_type
+# @var teleport_proxy_service_type:type: string
+# @var teleport_proxy_service_type:description: >
+# Kubernetes Service type for the Proxy. Options: LoadBalancer, ClusterIP, NodePort
+teleport_proxy_service_type: "LoadBalancer"
+
+# @var teleport_persistence_enabled
+# @var teleport_persistence_enabled:type: boolean
+# @var teleport_persistence_enabled:description: >
+# Enable PersistentVolumeClaim for Teleport data storage
+teleport_persistence_enabled: true
+
+# @var teleport_persistence_volume_size
+# @var teleport_persistence_volume_size:type: string
+# @var teleport_persistence_volume_size:description: >
+# Size of the PersistentVolumeClaim for Teleport data
+teleport_persistence_volume_size: "10Gi"
+
+# @var teleport_high_availability_enabled
+# @var teleport_high_availability_enabled:type: boolean
+# @var teleport_high_availability_enabled:description: >
+# Enable high availability with multiple replicas
+teleport_high_availability_enabled: false
+
+# @var teleport_high_availability_replica_count
+# @var teleport_high_availability_replica_count:type: integer
+# @var teleport_high_availability_replica_count:description: >
+# Number of replicas for high availability mode
+teleport_high_availability_replica_count: 2
+
+# @var teleport_high_availability_cert_manager_enabled
+# @var teleport_high_availability_cert_manager_enabled:type: boolean
+# @var teleport_high_availability_cert_manager_enabled:description: >
+# Use cert-manager for TLS certificates in HA mode
+teleport_high_availability_cert_manager_enabled: false
+
+# @var teleport_high_availability_cert_manager_issuer_name
+# @var teleport_high_availability_cert_manager_issuer_name:type: string
+# @var teleport_high_availability_cert_manager_issuer_name:description: >
+# Name of the cert-manager ClusterIssuer to use
+teleport_high_availability_cert_manager_issuer_name: "letsencrypt-prod"
+
+# @var teleport_high_availability_cert_manager_issuer_kind
+# @var teleport_high_availability_cert_manager_issuer_kind:type: string
+# @var teleport_high_availability_cert_manager_issuer_kind:description: >
+# Kind of the cert-manager issuer (ClusterIssuer or Issuer)
+teleport_high_availability_cert_manager_issuer_kind: "ClusterIssuer"
+
+# @var teleport_acme_enabled
+# @var teleport_acme_enabled:type: boolean
+# @var teleport_acme_enabled:description: >
+# Enable ACME (Let's Encrypt) automatic certificate provisioning.
+# Only works in single-instance (non-HA) mode.
+teleport_acme_enabled: false
+
+# @var teleport_log_level
+# @var teleport_log_level:type: string
+# @var teleport_log_level:description: >
+# Log level for Teleport. Options: DEBUG, INFO, WARNING, ERROR
+teleport_log_level: "INFO"
+
+# @var teleport_log_output
+# @var teleport_log_output:type: string
+# @var teleport_log_output:description: >
+# Log output destination. Options: stderr, stdout
+teleport_log_output: "stderr"
+
+# @var teleport_log_format
+# @var teleport_log_format:type: string
+# @var teleport_log_format:description: >
+# Log format. Options: json, text
+teleport_log_format: "json"
+
+# @var teleport_pod_security_policy_enabled
+# @var teleport_pod_security_policy_enabled:type: boolean
+# @var teleport_pod_security_policy_enabled:description: >
+# Enable PodSecurityPolicy resources. Must be set to false for Kubernetes >= 1.25
+# as PSP API has been removed.
+teleport_pod_security_policy_enabled: false
+
+# @var teleport_additional_helm_values
+# @var teleport_additional_helm_values:type: dict
+# @var teleport_additional_helm_values:description: >
+# Additional Helm values to pass to the teleport-cluster chart.
+# These values are merged with the generated values, with overrides taking precedence.
+# @var teleport_additional_helm_values:example: >
+#   teleport_additional_helm_values:
+#     resources:
+#       requests:
+#         cpu: "1"
+#         memory: "2Gi"
+#     annotations:
+#       service:
+#         external-dns.alpha.kubernetes.io/hostname: "teleport.example.com"
+teleport_additional_helm_values: {}

@@ -47,3 +47,7 @@ jobs:
     uses: ./.github/workflows/test-role.yaml
     with:
       role_name: "rancher"
+  teleport:
+    uses: ./.github/workflows/test-role.yaml
+    with:
+      role_name: "teleport"

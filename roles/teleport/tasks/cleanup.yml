@@ -1,0 +1,20 @@
+---
+- name: "Remove teleport-cluster helm package"
+  kubernetes.core.helm:
+    name: "{{ teleport_deployment_name }}"
+    namespace: "{{ teleport_namespace }}"
+    chart_ref: "{{ teleport_helm_chart_ref }}"
+    state: "absent"
+    wait: true
+
+- name: "Remove teleport namespace"
+  kubernetes.core.k8s:
+    name: "{{ teleport_namespace }}"
+    api_version: "v1"
+    kind: "Namespace"
+    state: "absent"
+
+- name: "Remove teleport helm repo"
+  kubernetes.core.helm_repository:
+    name: "{{ teleport_helm_repo_name }}"
+    state: "absent"
