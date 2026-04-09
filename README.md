@@ -98,6 +98,73 @@ AWS_SECRET_ACCESS_KEY="secretaccesskey"
 TF_TARGET="prod/terraform.tfstate,dev/terraform.tfstate"
 ```
 
+### local_tfstate_clusters
+**Type:** Inventory plugin
+
+**Description:** Generates a dynamic Ansible inventory from local Terraform state files. It reads the `compute_clusters` output and creates hosts with kubeconfig variables, grouped by tags.
+
+#### Usage
+
+Create an inventory file named `local_tfstate_clusters.yml`:
+```yaml
+plugin: plopoyop.kubernetes.local_tfstate_clusters
+tfstate_paths: "./terraform/terraform.tfstate"
+clusters_output_key: compute_clusters
+```
+
+#### Options
+| Option                | Description                                         | Default            | Env Variable      |
+|-----------------------|-----------------------------------------------------|--------------------|--------------------|
+| `tfstate_paths`       | Comma-separated list of local tfstate file paths    | -                  | `TF_STATES_PATHS`  |
+| `clusters_output_key` | Terraform output key containing cluster data        | `compute_clusters` | -                  |
+
+#### Expected Terraform Output Format
+```hcl
+output "compute_clusters" {
+  value = {
+    "cluster-name" = {
+      name       = "my-cluster"
+      kubeconfig = "..."
+      tags       = ["production", "eu-west"]
+    }
+  }
+}
+```
+
+#### Generated Inventory
+- Group `k8s_clusters`: all clusters
+- Group `{tag}_clusters`: one group per tag (e.g., `production_clusters`, `eu_west_clusters`)
+- Host variables: `ansible_connection`, `cluster_name`, `kubeconfig`
+
+### s3_tfstate_clusters
+**Type:** Inventory plugin
+
+**Description:** Generates a dynamic Ansible inventory from Terraform state files stored in an S3-compatible bucket. Supports AWS S3, MinIO, and other S3-compatible providers.
+
+#### Usage
+
+Create an inventory file named `s3_tfstate_clusters.yml`:
+```yaml
+plugin: plopoyop.kubernetes.s3_tfstate_clusters
+bucket_name: my-terraform-state
+targets: "terraform.tfstate"
+aws_region: eu-west-1
+```
+
+#### Options
+| Option                  | Description                                           | Default       | Env Variable              |
+|-------------------------|-------------------------------------------------------|---------------|----------------------------|
+| `bucket_name`           | S3 bucket containing Terraform state files            | -             | `TF_BACKEND_BUCKET_NAME`   |
+| `targets`               | Comma-separated list of state file keys in the bucket | -             | `TF_TARGET`                |
+| `aws_access_key_id`     | AWS access key ID                                     | -             | `AWS_ACCESS_KEY_ID`        |
+| `aws_secret_access_key` | AWS secret access key                                 | -             | `AWS_SECRET_ACCESS_KEY`    |
+| `aws_region`            | AWS region                                            | `us-east-1`   | `AWS_REGION`               |
+| `s3_endpoint_url`       | Custom S3 endpoint URL (MinIO, etc.)                  | -             | `AWS_S3_ENDPOINT`          |
+| `clusters_output_key`   | Terraform output key containing cluster data          | `compute_clusters` | -                      |
+
+#### Requirements
+- `boto3` Python package
+
 ## Contributions
 
 Contributions are welcome! Feel free to open issues or submit pull requests to improve the roles and add new features.
