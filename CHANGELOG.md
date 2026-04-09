@@ -1,8 +1,12 @@
 # Changelog
 
-## [7.0.3](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.0.3) (2026-04-09)
+## [7.1.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.1.0) (2026-04-09)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.0.2...7.0.3)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.0.2...7.1.0)
+
+## 🚀 New Features
+
+- Add tfstates clusters inventories [\#214](https://github.com/plopoyop/ansible-collection-kubernetes/pull/214) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
 
