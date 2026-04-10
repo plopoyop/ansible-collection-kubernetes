@@ -1,5 +1,13 @@
 # Changelog
 
+## [7.1.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.1.1) (2026-04-10)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.1.0...7.1.1)
+
+**Merged pull requests:**
+
+- feat\(deps\): update python313packages.pytest-ansible \(26.2.0 → 26.4.0\) [\#216](https://github.com/plopoyop/ansible-collection-kubernetes/pull/216) ([plopoyop](https://github.com/plopoyop))
+
 ## [7.1.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.1.0) (2026-04-09)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.0.2...7.1.0)
