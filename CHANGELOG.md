@@ -1,11 +1,12 @@
 # Changelog
 
-## [7.1.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.1.1) (2026-04-11)
+## [7.1.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.1.1) (2026-04-12)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.1.0...7.1.1)
 
 ## ⚙️ Dependencies
 
+- feat\(ci\)!: Update softprops/action-gh-release action \(v2 → v3\) [\#217](https://github.com/plopoyop/ansible-collection-kubernetes/pull/217) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.15.9 → v0.15.10\) [\#215](https://github.com/plopoyop/ansible-collection-kubernetes/pull/215) ([plopoyop](https://github.com/plopoyop))
 
 **Merged pull requests:**
