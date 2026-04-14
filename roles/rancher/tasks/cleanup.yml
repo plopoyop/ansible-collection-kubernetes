@@ -18,3 +18,16 @@
   kubernetes.core.helm_repository:
     name: "{{ rancher_helm_repo_name }}"
     state: "absent"
+
+- name: "Download rancher cleanup job manifest"
+  ansible.builtin.uri:
+    url: "https://raw.githubusercontent.com/rancher/rancher-cleanup/refs/heads/main/deploy/rancher-cleanup.yaml"
+    return_content: true
+  register: rancher_cleanup_manifest
+  check_mode: false
+
+- name: "Apply rancher cleanup job manifest"
+  kubernetes.core.k8s:
+    state: present
+    definition: "{{ rancher_cleanup_manifest.content }}"
+  when: rancher_cleanup_manifest is succeeded
