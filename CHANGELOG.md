@@ -1,8 +1,12 @@
 # Changelog
 
-## [7.1.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.1.1) (2026-04-12)
+## [7.1.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.1.1) (2026-04-14)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.1.0...7.1.1)
+
+## 🐛 Bug Fixes
+
+- Run rancher cleanup job on remove [\#218](https://github.com/plopoyop/ansible-collection-kubernetes/pull/218) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
 
