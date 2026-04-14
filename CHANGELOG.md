@@ -6,6 +6,7 @@
 
 ## 🐛 Bug Fixes
 
+- Revert to official packages after urllib fix [\#219](https://github.com/plopoyop/ansible-collection-kubernetes/pull/219) ([plopoyop](https://github.com/plopoyop))
 - Run rancher cleanup job on remove [\#218](https://github.com/plopoyop/ansible-collection-kubernetes/pull/218) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
