@@ -1,0 +1,4 @@
+---
+crowdsec_helm_repo_name: "crowdsec"
+crowdsec_helm_repo_url: "https://crowdsecurity.github.io/helm-charts"
+crowdsec_helm_chart_ref: "{{ crowdsec_helm_repo_name }}/crowdsec"

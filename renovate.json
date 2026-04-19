@@ -91,6 +91,17 @@
       "registryUrls": [
         "https://releases.rancher.com/server-charts/stable"
       ]
+    },
+    {
+      "matchDatasources": [
+        "helm"
+      ],
+      "matchPackageNames": [
+        "crowdsec"
+      ],
+      "registryUrls": [
+        "https://crowdsecurity.github.io/helm-charts"
+      ]
     }
   ],
   "customManagers": [
@@ -268,6 +279,31 @@
       ],
       "depNameTemplate": "rancher",
       "autoReplaceStringTemplate": "Rancher         | v{{newValue}}",
+      "datasourceTemplate": "helm"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/roles/crowdsec/defaults/main.yml$/",
+        "/roles/crowdsec/README.md$/"
+      ],
+      "matchStrings": [
+        "crowdsec_helm_chart_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?"
+      ],
+      "depNameTemplate": "crowdsec",
+      "autoReplaceStringTemplate": "crowdsec_helm_chart_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
+      "datasourceTemplate": "helm"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^README.md$/"
+      ],
+      "matchStrings": [
+        "CrowdSec\\s*\\|\\s*v?(?<currentValue>[0-9\\.]+)"
+      ],
+      "depNameTemplate": "crowdsec",
+      "autoReplaceStringTemplate": "CrowdSec        | v{{newValue}}",
       "datasourceTemplate": "helm"
     }
   ]

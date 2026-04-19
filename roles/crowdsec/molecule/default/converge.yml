@@ -1,0 +1,21 @@
+---
+- name: Converge
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    crowdsec_wait_install: false
+    crowdsec_agent_additional_acquisition:
+      - source: syslog
+        listen_addr: 127.0.0.1
+        listen_port: 4242
+        labels:
+          type: syslog
+    crowdsec_secrets_username: "molecule-agent"
+    crowdsec_secrets_password: "molecule-agent-password"
+    crowdsec_lapi_cs_lapi_secret: "molecule-lapi-secret-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    crowdsec_lapi_registration_token: "molecule-registration-token-aaaaaaaaaaaaaaaaaaaa"
+  tasks:
+    - name: "Install CrowdSec"
+      ansible.builtin.import_role:
+        name: "crowdsec"

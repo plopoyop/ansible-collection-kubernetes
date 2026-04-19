@@ -1,0 +1,211 @@
+---
+# @var crowdsec_enabled
+# @var crowdsec_enabled:type: boolean
+# @var crowdsec_enabled:description: >
+# Should CrowdSec helm chart be installed
+crowdsec_enabled: true
+
+# @var crowdsec_namespace
+# @var crowdsec_namespace:type: string
+# @var crowdsec_namespace:description: >
+# K8s namespace to install the CrowdSec chart
+crowdsec_namespace: "crowdsec"
+
+# @var crowdsec_helm_chart_version
+# @var crowdsec_helm_chart_version:type: string
+# @var crowdsec_helm_chart_version:description: >
+# Helm chart version to install
+crowdsec_helm_chart_version: "0.23.0"
+
+# @var crowdsec_deployment_name
+# @var crowdsec_deployment_name:type: string
+# @var crowdsec_deployment_name:description: >
+# Deployment name for CrowdSec helm chart
+crowdsec_deployment_name: "crowdsec"
+
+# @var crowdsec_wait_install
+# @var crowdsec_wait_install:type: boolean
+# @var crowdsec_wait_install:description: >
+# Wait for helm install to finish
+crowdsec_wait_install: true
+
+# @var crowdsec_container_runtime
+# @var crowdsec_container_runtime:type: string
+# @var crowdsec_container_runtime:description: >
+# Container runtime used by the cluster for raw logs format (docker or containerd)
+crowdsec_container_runtime: "containerd"
+
+# LAPI (Local API) configuration
+# @var crowdsec_lapi_enabled
+# @var crowdsec_lapi_enabled:type: boolean
+# @var crowdsec_lapi_enabled:description: >
+# Enable the CrowdSec Local API deployment
+crowdsec_lapi_enabled: true
+
+# @var crowdsec_lapi_replicas
+# @var crowdsec_lapi_replicas:type: integer
+# @var crowdsec_lapi_replicas:description: >
+# Number of replicas for the Local API deployment
+crowdsec_lapi_replicas: 1
+
+# @var crowdsec_lapi_service_type
+# @var crowdsec_lapi_service_type:type: string
+# @var crowdsec_lapi_service_type:description: >
+# Kubernetes Service type for LAPI
+crowdsec_lapi_service_type: "ClusterIP"
+
+# @var crowdsec_lapi_persistence_data_enabled
+# @var crowdsec_lapi_persistence_data_enabled:type: boolean
+# @var crowdsec_lapi_persistence_data_enabled:description: >
+# Enable persistent volume for LAPI data folder (stores registered bouncer API keys)
+crowdsec_lapi_persistence_data_enabled: true
+
+# @var crowdsec_lapi_persistence_data_size
+# @var crowdsec_lapi_persistence_data_size:type: string
+# @var crowdsec_lapi_persistence_data_size:description: >
+# Requested size for the LAPI data PVC
+crowdsec_lapi_persistence_data_size: "1Gi"
+
+# @var crowdsec_lapi_persistence_data_storage_class
+# @var crowdsec_lapi_persistence_data_storage_class:type: string
+# @var crowdsec_lapi_persistence_data_storage_class:description: >
+# StorageClass name for the LAPI data PVC (empty uses the cluster default)
+crowdsec_lapi_persistence_data_storage_class: ""
+
+# @var crowdsec_lapi_persistence_config_enabled
+# @var crowdsec_lapi_persistence_config_enabled:type: boolean
+# @var crowdsec_lapi_persistence_config_enabled:description: >
+# Enable persistent volume for LAPI config folder (stores API credentials)
+crowdsec_lapi_persistence_config_enabled: true
+
+# @var crowdsec_lapi_persistence_config_size
+# @var crowdsec_lapi_persistence_config_size:type: string
+# @var crowdsec_lapi_persistence_config_size:description: >
+# Requested size for the LAPI config PVC
+crowdsec_lapi_persistence_config_size: "100Mi"
+
+# @var crowdsec_lapi_persistence_config_storage_class
+# @var crowdsec_lapi_persistence_config_storage_class:type: string
+# @var crowdsec_lapi_persistence_config_storage_class:description: >
+# StorageClass name for the LAPI config PVC (empty uses the cluster default)
+crowdsec_lapi_persistence_config_storage_class: ""
+
+# LAPI ingress configuration
+# @var crowdsec_lapi_ingress_enabled
+# @var crowdsec_lapi_ingress_enabled:type: boolean
+# @var crowdsec_lapi_ingress_enabled:description: >
+# Enable ingress for the LAPI service
+crowdsec_lapi_ingress_enabled: false
+
+# @var crowdsec_lapi_ingress_class_name
+# @var crowdsec_lapi_ingress_class_name:type: string
+# @var crowdsec_lapi_ingress_class_name:description: >
+# Ingress class name for the LAPI ingress
+crowdsec_lapi_ingress_class_name: ""
+
+# @var crowdsec_lapi_ingress_host
+# @var crowdsec_lapi_ingress_host:type: string
+# @var crowdsec_lapi_ingress_host:description: >
+# Hostname for the LAPI ingress
+crowdsec_lapi_ingress_host: ""
+
+# @var crowdsec_lapi_ingress_annotations
+# @var crowdsec_lapi_ingress_annotations:type: dict
+# @var crowdsec_lapi_ingress_annotations:description: >
+# Annotations for the LAPI ingress
+crowdsec_lapi_ingress_annotations: {}
+
+# Agent configuration
+# @var crowdsec_agent_enabled
+# @var crowdsec_agent_enabled:type: boolean
+# @var crowdsec_agent_enabled:description: >
+# Enable the CrowdSec agent (DaemonSet by default)
+crowdsec_agent_enabled: true
+
+# @var crowdsec_agent_is_deployment
+# @var crowdsec_agent_is_deployment:type: boolean
+# @var crowdsec_agent_is_deployment:description: >
+# Deploy agent as a Deployment instead of a DaemonSet
+crowdsec_agent_is_deployment: false
+
+# @var crowdsec_agent_host_var_log
+# @var crowdsec_agent_host_var_log:type: boolean
+# @var crowdsec_agent_host_var_log:description: >
+# Mount host /var/log into the agent pod
+crowdsec_agent_host_var_log: true
+
+# @var crowdsec_agent_acquisition
+# @var crowdsec_agent_acquisition:type: list
+# @var crowdsec_agent_acquisition:description: >
+# Pod log acquisition definitions (namespace, podName, program, etc.).
+# See https://docs.crowdsec.net/docs/next/data_sources/intro
+# @var crowdsec_agent_acquisition:example: >
+#   crowdsec_agent_acquisition:
+#     - namespace: "ingress-traefik-controller"
+#       podName: "traefik-*"
+#       program: "traefik"
+crowdsec_agent_acquisition: []
+
+# @var crowdsec_agent_additional_acquisition
+# @var crowdsec_agent_additional_acquisition:type: list
+# @var crowdsec_agent_additional_acquisition:description: >
+# Extra log acquisition sources (non-pod datasources such as syslog, kinesis, etc.)
+crowdsec_agent_additional_acquisition: []
+
+# TLS configuration
+# @var crowdsec_tls_enabled
+# @var crowdsec_tls_enabled:type: boolean
+# @var crowdsec_tls_enabled:description: >
+# Enable mTLS between agent/appsec and LAPI. Requires cert-manager when certManager integration is used.
+crowdsec_tls_enabled: false
+
+# @var crowdsec_tls_cert_manager_enabled
+# @var crowdsec_tls_cert_manager_enabled:type: boolean
+# @var crowdsec_tls_cert_manager_enabled:description: >
+# Use cluster cert-manager to issue CrowdSec TLS certificates
+crowdsec_tls_cert_manager_enabled: true
+
+# Metrics configuration
+# @var crowdsec_metrics_enabled
+# @var crowdsec_metrics_enabled:type: boolean
+# @var crowdsec_metrics_enabled:description: >
+# Expose Prometheus metrics on port 6060 for LAPI and agent
+crowdsec_metrics_enabled: true
+
+# @var crowdsec_metrics_service_monitor_enabled
+# @var crowdsec_metrics_service_monitor_enabled:type: boolean
+# @var crowdsec_metrics_service_monitor_enabled:description: >
+# Create ServiceMonitor resources for Prometheus Operator (LAPI + agent)
+crowdsec_metrics_service_monitor_enabled: false
+
+# Secrets (leave empty to let the chart generate them randomly on first install).
+# Setting stable values avoids re-generation on each helm upgrade and keeps the role idempotent.
+# @var crowdsec_secrets_username
+# @var crowdsec_secrets_username:type: string
+# @var crowdsec_secrets_username:description: >
+# Shared agent username (randomly generated if empty). Provide a stable value via Ansible Vault for idempotent upgrades.
+crowdsec_secrets_username: ""
+
+# @var crowdsec_secrets_password
+# @var crowdsec_secrets_password:type: string
+# @var crowdsec_secrets_password:description: >
+# Shared agent password (randomly generated if empty). Provide a stable value via Ansible Vault for idempotent upgrades.
+crowdsec_secrets_password: ""
+
+# @var crowdsec_lapi_cs_lapi_secret
+# @var crowdsec_lapi_cs_lapi_secret:type: string
+# @var crowdsec_lapi_cs_lapi_secret:description: >
+# Shared LAPI secret (must be >64 chars). Randomly generated if empty; provide a stable value for idempotent upgrades.
+crowdsec_lapi_cs_lapi_secret: ""
+
+# @var crowdsec_lapi_registration_token
+# @var crowdsec_lapi_registration_token:type: string
+# @var crowdsec_lapi_registration_token:description: >
+# Registration token for AppSec (must be >48 chars). Randomly generated if empty; provide a stable value for idempotent upgrades.
+crowdsec_lapi_registration_token: ""
+
+# @var crowdsec_additional_helm_values
+# @var crowdsec_additional_helm_values:type: dict
+# @var crowdsec_additional_helm_values:description: >
+# Additional helm values to merge with the rendered values (escape hatch for fine-grained tuning)
+crowdsec_additional_helm_values: {}
