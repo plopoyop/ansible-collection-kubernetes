@@ -39,6 +39,10 @@ jobs:
     uses: ./.github/workflows/test-role.yaml
     with:
       role_name: "cert_manager"
+  crowdsec:
+    uses: ./.github/workflows/test-role.yaml
+    with:
+      role_name: "crowdsec"
   mongodb:
     uses: ./.github/workflows/test-role.yaml
     with:
