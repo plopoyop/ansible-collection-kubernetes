@@ -11,6 +11,7 @@
 
 ## ⚙️ Dependencies
 
+- fix\(helm\): update chart traefik \(39.0.7 → 39.0.8\) [\#222](https://github.com/plopoyop/ansible-collection-kubernetes/pull/222) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.15.10 → v0.15.11\) [\#221](https://github.com/plopoyop/ansible-collection-kubernetes/pull/221) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.1.8 → v46.1.9\) [\#220](https://github.com/plopoyop/ansible-collection-kubernetes/pull/220) ([plopoyop](https://github.com/plopoyop))
 - feat\(ci\)!: Update softprops/action-gh-release action \(v2 → v3\) [\#217](https://github.com/plopoyop/ansible-collection-kubernetes/pull/217) ([plopoyop](https://github.com/plopoyop))
