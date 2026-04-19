@@ -1,0 +1,11 @@
+---
+- name: Converge
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    crowdsec_enabled: false
+  tasks:
+    - name: "Remove CrowdSec"
+      ansible.builtin.import_role:
+        name: "crowdsec"

@@ -1,0 +1,35 @@
+---
+- name: "Uninstall CrowdSec helm package"
+  kubernetes.core.helm:
+    name: "{{ crowdsec_deployment_name }}"
+    namespace: "{{ crowdsec_namespace }}"
+    state: "absent"
+    chart_ref: "{{ crowdsec_helm_chart_ref }}"
+    chart_version: "{{ crowdsec_helm_chart_version }}"
+    wait: true
+
+- name: "Remove CrowdSec helm repo"
+  kubernetes.core.helm_repository:
+    name: "{{ crowdsec_helm_repo_name }}"
+    repo_url: "{{ crowdsec_helm_repo_url }}"
+    state: "absent"
+
+- name: "Remove CrowdSec PersistentVolumeClaims"
+  kubernetes.core.k8s:
+    api_version: "v1"
+    kind: "PersistentVolumeClaim"
+    namespace: "{{ crowdsec_namespace }}"
+    state: "absent"
+    label_selectors:
+      - "app.kubernetes.io/instance={{ crowdsec_deployment_name }}"
+    wait: true
+    wait_timeout: 120
+
+- name: "Remove CrowdSec namespace"
+  kubernetes.core.k8s:
+    name: "{{ crowdsec_namespace }}"
+    api_version: "v1"
+    kind: "Namespace"
+    state: "absent"
+    wait: true
+    wait_timeout: 300

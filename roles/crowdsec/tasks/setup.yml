@@ -1,0 +1,23 @@
+---
+- name: "Create CrowdSec namespace"
+  kubernetes.core.k8s:
+    name: "{{ crowdsec_namespace }}"
+    api_version: "v1"
+    kind: "Namespace"
+    state: "present"
+
+- name: "Add CrowdSec helm repo"
+  kubernetes.core.helm_repository:
+    name: "{{ crowdsec_helm_repo_name }}"
+    repo_url: "{{ crowdsec_helm_repo_url }}"
+
+- name: "Install CrowdSec helm package"
+  kubernetes.core.helm:
+    name: "{{ crowdsec_deployment_name }}"
+    namespace: "{{ crowdsec_namespace }}"
+    state: "present"
+    chart_ref: "{{ crowdsec_helm_chart_ref }}"
+    chart_version: "{{ crowdsec_helm_chart_version }}"
+    update_repo_cache: true
+    values: "{{ lookup('ansible.builtin.template', 'crowdsec_helm_values.yml.j2') | from_yaml }}"
+    wait: "{{ crowdsec_wait_install }}"

@@ -1,0 +1,22 @@
+---
+- name: Verify
+  hosts: localhost
+  connection: local
+  gather_facts: true
+
+  tasks:
+    - name: "Pause for cleanup to complete."
+      ansible.builtin.pause:
+        seconds: 10
+
+    - name: "Check if 'crowdsec' namespace exists."
+      kubernetes.core.k8s_info:
+        kind: Namespace
+        name: "crowdsec"
+      register: namespace_crowdsec
+      failed_when: false
+      changed_when: false
+
+    - name: "Assert that 'crowdsec' namespace is removed"
+      ansible.builtin.assert:
+        that: namespace_crowdsec['resources'] | length == 0

@@ -1,0 +1,42 @@
+---
+- name: Verify
+  hosts: localhost
+  connection: local
+  gather_facts: true
+
+  tasks:
+    - name: "Pause for resources to be created."
+      ansible.builtin.pause:
+        seconds: 10
+
+    - name: "Get 'crowdsec' namespace info."
+      kubernetes.core.k8s_info:
+        kind: Namespace
+        name: "crowdsec"
+      register: namespace_crowdsec
+
+    - name: "Assert that 'crowdsec' namespace is active"
+      ansible.builtin.assert:
+        that: namespace_crowdsec['resources'][0]['status']['phase'] == "Active"
+
+    - name: "Get 'crowdsec' LAPI Deployment info."
+      kubernetes.core.k8s_info:
+        kind: "Deployment"
+        name: "crowdsec-lapi"
+        namespace: "crowdsec"
+      register: crowdsec_lapi_deployment
+
+    - name: "Assert that 'crowdsec' LAPI Deployment is deployed"
+      ansible.builtin.assert:
+        that: crowdsec_lapi_deployment['resources'] | length > 0
+
+    - name: "Get 'crowdsec' agent DaemonSet info."
+      kubernetes.core.k8s_info:
+        kind: "DaemonSet"
+        name: "crowdsec-agent"
+        namespace: "crowdsec"
+      register: crowdsec_agent_daemonset
+
+    - name: "Assert that 'crowdsec' agent DaemonSet is deployed"
+      ansible.builtin.assert:
+        that: crowdsec_agent_daemonset['resources'] | length > 0

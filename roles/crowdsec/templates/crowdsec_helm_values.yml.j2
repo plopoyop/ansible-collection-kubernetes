@@ -1,0 +1,77 @@
+---
+container_runtime: "{{ crowdsec_container_runtime }}"
+
+tls:
+  enabled: {{ crowdsec_tls_enabled | lower }}
+  certManager:
+    enabled: {{ crowdsec_tls_cert_manager_enabled | lower }}
+
+{% if crowdsec_secrets_username or crowdsec_secrets_password %}
+secrets:
+{% if crowdsec_secrets_username %}
+  username: "{{ crowdsec_secrets_username }}"
+{% endif %}
+{% if crowdsec_secrets_password %}
+  password: "{{ crowdsec_secrets_password }}"
+{% endif %}
+{% endif %}
+
+lapi:
+  enabled: {{ crowdsec_lapi_enabled | lower }}
+  replicas: {{ crowdsec_lapi_replicas }}
+{% if crowdsec_lapi_cs_lapi_secret or crowdsec_lapi_registration_token %}
+  secrets:
+{% if crowdsec_lapi_cs_lapi_secret %}
+    csLapiSecret: "{{ crowdsec_lapi_cs_lapi_secret }}"
+{% endif %}
+{% if crowdsec_lapi_registration_token %}
+    registrationToken: "{{ crowdsec_lapi_registration_token }}"
+{% endif %}
+{% endif %}
+  service:
+    type: "{{ crowdsec_lapi_service_type }}"
+  persistentVolume:
+    data:
+      enabled: {{ crowdsec_lapi_persistence_data_enabled | lower }}
+      size: "{{ crowdsec_lapi_persistence_data_size }}"
+{% if crowdsec_lapi_persistence_data_storage_class %}
+      storageClassName: "{{ crowdsec_lapi_persistence_data_storage_class }}"
+{% endif %}
+    config:
+      enabled: {{ crowdsec_lapi_persistence_config_enabled | lower }}
+      size: "{{ crowdsec_lapi_persistence_config_size }}"
+{% if crowdsec_lapi_persistence_config_storage_class %}
+      storageClassName: "{{ crowdsec_lapi_persistence_config_storage_class }}"
+{% endif %}
+  ingress:
+    enabled: {{ crowdsec_lapi_ingress_enabled | lower }}
+{% if crowdsec_lapi_ingress_enabled %}
+{% if crowdsec_lapi_ingress_class_name %}
+    ingressClassName: "{{ crowdsec_lapi_ingress_class_name }}"
+{% endif %}
+{% if crowdsec_lapi_ingress_host %}
+    host: "{{ crowdsec_lapi_ingress_host }}"
+{% endif %}
+{% if crowdsec_lapi_ingress_annotations %}
+    annotations: {{ crowdsec_lapi_ingress_annotations | to_json }}
+{% endif %}
+{% endif %}
+  metrics:
+    enabled: {{ crowdsec_metrics_enabled | lower }}
+    serviceMonitor:
+      enabled: {{ crowdsec_metrics_service_monitor_enabled | lower }}
+
+agent:
+  enabled: {{ crowdsec_agent_enabled | lower }}
+  isDeployment: {{ crowdsec_agent_is_deployment | lower }}
+  hostVarLog: {{ crowdsec_agent_host_var_log | lower }}
+  acquisition: {{ crowdsec_agent_acquisition | to_json }}
+  additionalAcquisition: {{ crowdsec_agent_additional_acquisition | to_json }}
+  metrics:
+    enabled: {{ crowdsec_metrics_enabled | lower }}
+    serviceMonitor:
+      enabled: {{ crowdsec_metrics_service_monitor_enabled | lower }}
+
+{% if crowdsec_additional_helm_values %}
+{{ crowdsec_additional_helm_values | to_nice_yaml | indent(0) }}
+{% endif %}
