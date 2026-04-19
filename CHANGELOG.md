@@ -1,5 +1,13 @@
 # Changelog
 
+## [7.2.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.2.0) (2026-04-19)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.1.1...7.2.0)
+
+## 🚀 New Features
+
+- Add crowdsec role [\#223](https://github.com/plopoyop/ansible-collection-kubernetes/pull/223) ([plopoyop](https://github.com/plopoyop))
+
 ## [7.1.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.1.1) (2026-04-19)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.1.0...7.1.1)
