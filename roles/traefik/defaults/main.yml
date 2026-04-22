@@ -44,12 +44,15 @@ traefik_helm_version: v39.0.8
 #        traefik_ingress_enabled: true
 #        traefik_gateway_enabled: false
 #        dashboard_enabled: false
+#        access_logs:
+#          enabled: true
+#          format: "json"
 #        additional_values:
 #          healthcheck:
 #            enabled: true
 traefik_deployments:
-  - name: traefik
-    state: present
+  - name: "traefik"
+    state: "present"
     helm_values:
       deployment_kind: "DaemonSet"
       service_type: "LoadBalancer"
@@ -65,6 +68,7 @@ traefik_deployments:
       traefik_ingress_enabled: true
       traefik_gateway_enabled: false
       dashboard_enabled: false
+      access_logs: {}
       additional_values: {}
 
 # @var traefik_middlewares

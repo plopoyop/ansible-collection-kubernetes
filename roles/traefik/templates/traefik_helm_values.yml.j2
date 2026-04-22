@@ -57,6 +57,25 @@ gateway:
       namespacePolicy: All
 {% endif %}
 
+{% if (access_logs | default({})).enabled | default(false) %}
+logs:
+  access:
+    enabled: true
+    format: "{{ access_logs.format | default('json') }}"
+{% if access_logs.filePath | default(false) %}
+    filePath: "{{ access_logs.filePath }}"
+{% endif %}
+{% if access_logs.bufferingSize | default(false) %}
+    bufferingSize: {{ access_logs.bufferingSize }}
+{% endif %}
+{% if access_logs.filters | default(false) %}
+    filters: {{ access_logs.filters | to_json }}
+{% endif %}
+{% if access_logs.fields | default(false) %}
+    fields: {{ access_logs.fields | to_json }}
+{% endif %}
+{% endif %}
+
 {% if additional_values | default({}) != {} %}
 {{ additional_values | to_nice_yaml(indent=2) }}
 {% endif %}
