@@ -44,12 +44,33 @@ traefik_helm_version: v39.0.8
 #        traefik_ingress_enabled: true
 #        traefik_gateway_enabled: false
 #        dashboard_enabled: false
+#        access_logs:
+#          enabled: true
+#          format: "json"
+#        plugins:
+#          - name: "bouncer"
+#            moduleName: "github.com/maxlerebourg/crowdsec-bouncer-traefik-plugin"
+#            version: "v1.4.3"
+#        service_annotations:
+#          service.beta.kubernetes.io/ovh-loadbalancer-proxy-protocol: "v2"
+#        service_labels: {}
+#        service_spec:
+#          externalTrafficPolicy: "Local"
+#          loadBalancerIP: "1.2.3.4"
+#        # Trust PROXY protocol v1/v2 on the web+websecure entrypoints.
+#        # Required when the upstream LB forwards the client IP via the
+#        # PROXY header. List the LB egress IPs / CIDRs.
+#        proxy_protocol_trusted_ips:
+#          - "10.20.0.0./24"
+#        # Trust forwarded HTTP headers (X-Forwarded-*) on the same
+#        # entrypoints. Useful when behind an L7 proxy or CDN.
+#        forwarded_headers_trusted_ips: []
 #        additional_values:
-#          healthcheck:
-#            enabled: true
+#          commonLabels:
+#            team: "platform"
 traefik_deployments:
-  - name: traefik
-    state: present
+  - name: "traefik"
+    state: "present"
     helm_values:
       deployment_kind: "DaemonSet"
       service_type: "LoadBalancer"
@@ -65,6 +86,13 @@ traefik_deployments:
       traefik_ingress_enabled: true
       traefik_gateway_enabled: false
       dashboard_enabled: false
+      access_logs: {}
+      plugins: []
+      service_annotations: {}
+      service_labels: {}
+      service_spec: {}
+      proxy_protocol_trusted_ips: []
+      forwarded_headers_trusted_ips: []
       additional_values: {}
 
 # @var traefik_middlewares

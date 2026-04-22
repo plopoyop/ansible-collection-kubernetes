@@ -2,6 +2,15 @@ deployment:
   kind: "{{ deployment_kind }}"
 service:
   type: "{{ service_type }}"
+{% if service_annotations | default({}) != {} %}
+  annotations: {{ service_annotations | to_json }}
+{% endif %}
+{% if service_labels | default({}) != {} %}
+  labels: {{ service_labels | to_json }}
+{% endif %}
+{% if service_spec | default({}) != {} %}
+  spec: {{ service_spec | to_json }}
+{% endif %}
 ports:
 {% if traefik_entrypoint_port is defined %}
   traefik:
@@ -15,11 +24,27 @@ ports:
     exposedPort: {{ websecure_entrypoint_exposed_port }}
     expose:
       default: {{ websecure_entrypoint_expose }}
+{% if proxy_protocol_trusted_ips | default([]) | length > 0 %}
+    proxyProtocol:
+      trustedIPs: {{ proxy_protocol_trusted_ips | to_json }}
+{% endif %}
+{% if forwarded_headers_trusted_ips | default([]) | length > 0 %}
+    forwardedHeaders:
+      trustedIPs: {{ forwarded_headers_trusted_ips | to_json }}
+{% endif %}
 {% endif %}
 {% if websecure_entrypoint_port is defined %}
   web:
     expose:
       default: {{ web_entrypoint_expose }}
+{% if proxy_protocol_trusted_ips | default([]) | length > 0 %}
+    proxyProtocol:
+      trustedIPs: {{ proxy_protocol_trusted_ips | to_json }}
+{% endif %}
+{% if forwarded_headers_trusted_ips | default([]) | length > 0 %}
+    forwardedHeaders:
+      trustedIPs: {{ forwarded_headers_trusted_ips | to_json }}
+{% endif %}
 {% endif %}
 {% for entrypoint in additional_entrypoint | default([]) %}
   {{ entrypoint.name }}:
@@ -57,6 +82,35 @@ gateway:
       namespacePolicy: All
 {% endif %}
 
+{% if (access_logs | default({})).enabled | default(false) %}
+logs:
+  access:
+    enabled: true
+    format: "{{ access_logs.format | default('json') }}"
+{% if access_logs.filePath | default(false) %}
+    filePath: "{{ access_logs.filePath }}"
+{% endif %}
+{% if access_logs.bufferingSize | default(false) %}
+    bufferingSize: {{ access_logs.bufferingSize }}
+{% endif %}
+{% if access_logs.filters | default(false) %}
+    filters: {{ access_logs.filters | to_json }}
+{% endif %}
+{% if access_logs.fields | default(false) %}
+    fields: {{ access_logs.fields | to_json }}
+{% endif %}
+{% endif %}
+
+{% if plugins | default([]) | length > 0 %}
+experimental:
+  plugins:
+{% for plugin in plugins %}
+    {{ plugin.name }}:
+      moduleName: "{{ plugin.moduleName }}"
+      version: "{{ plugin.version }}"
+{% endfor %}
+{% endif %}
+
 {% if additional_values | default({}) != {} %}
-{{ additional_values }}
+{{ additional_values | to_nice_yaml(indent=2) }}
 {% endif %}
