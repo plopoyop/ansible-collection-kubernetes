@@ -7,9 +7,6 @@ Install traefik ingress controller on kubernetes
 - [Requirements](#requirements)
 - [Default Variables](#default-variables)
   - [traefik_deployments](#traefik_deployments)
-  - [traefik_helm_chart_ref](#traefik_helm_chart_ref)
-  - [traefik_helm_repo_name](#traefik_helm_repo_name)
-  - [traefik_helm_repo_url](#traefik_helm_repo_url)
   - [traefik_helm_version](#traefik_helm_version)
   - [traefik_ingress_enabled](#traefik_ingress_enabled)
   - [traefik_middlewares](#traefik_middlewares)
@@ -54,6 +51,13 @@ traefik_deployments:
       traefik_ingress_enabled: true
       traefik_gateway_enabled: false
       dashboard_enabled: false
+      access_logs: {}
+      plugins: []
+      service_annotations: {}
+      service_labels: {}
+      service_spec: {}
+      proxy_protocol_trusted_ips: []
+      forwarded_headers_trusted_ips: []
       additional_values: {}
 ```
 
@@ -82,33 +86,30 @@ traefik_deployments:
        traefik_ingress_enabled: true
        traefik_gateway_enabled: false
        dashboard_enabled: false
+       access_logs:
+         enabled: true
+         format: "json"
+       plugins:
+         - name: "bouncer"
+           moduleName: "github.com/maxlerebourg/crowdsec-bouncer-traefik-plugin"
+           version: "v1.4.3"
+       service_annotations:
+         service.beta.kubernetes.io/ovh-loadbalancer-proxy-protocol: "v2"
+       service_labels: {}
+       service_spec:
+         externalTrafficPolicy: "Local"
+         loadBalancerIP: "1.2.3.4"
+       # Trust PROXY protocol v1/v2 on the web+websecure entrypoints.
+       # Required when the upstream LB forwards the client IP via the
+       # PROXY header. List the LB egress IPs / CIDRs.
+       proxy_protocol_trusted_ips:
+         - "10.20.0.0./24"
+       # Trust forwarded HTTP headers (X-Forwarded-*) on the same
+       # entrypoints. Useful when behind an L7 proxy or CDN.
+       forwarded_headers_trusted_ips: []
        additional_values:
-         healthcheck:
-           enabled: true
-```
-
-### traefik_helm_chart_ref
-
-#### Default value
-
-```YAML
-traefik_helm_chart_ref: traefik/traefik
-```
-
-### traefik_helm_repo_name
-
-#### Default value
-
-```YAML
-traefik_helm_repo_name: traefik
-```
-
-### traefik_helm_repo_url
-
-#### Default value
-
-```YAML
-traefik_helm_repo_url: https://traefik.github.io/charts
+         commonLabels:
+           team: "platform"
 ```
 
 ### traefik_helm_version

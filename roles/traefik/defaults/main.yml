@@ -66,8 +66,8 @@ traefik_helm_version: v39.0.8
 #        # entrypoints. Useful when behind an L7 proxy or CDN.
 #        forwarded_headers_trusted_ips: []
 #        additional_values:
-#          healthcheck:
-#            enabled: true
+#          commonLabels:
+#            team: "platform"
 traefik_deployments:
   - name: "traefik"
     state: "present"
