@@ -69,6 +69,7 @@ traefik_deployments:
       traefik_gateway_enabled: false
       dashboard_enabled: false
       access_logs: {}
+      plugins: []
       additional_values: {}
 
 # @var traefik_middlewares

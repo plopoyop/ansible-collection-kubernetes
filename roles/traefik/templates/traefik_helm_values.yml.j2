@@ -76,6 +76,16 @@ logs:
 {% endif %}
 {% endif %}
 
+{% if plugins | default([]) | length > 0 %}
+experimental:
+  plugins:
+{% for plugin in plugins %}
+    {{ plugin.name }}:
+      moduleName: "{{ plugin.moduleName }}"
+      version: "{{ plugin.version }}"
+{% endfor %}
+{% endif %}
+
 {% if additional_values | default({}) != {} %}
 {{ additional_values | to_nice_yaml(indent=2) }}
 {% endif %}
