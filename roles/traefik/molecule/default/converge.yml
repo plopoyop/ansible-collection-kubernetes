@@ -4,6 +4,34 @@
   connection: local
   gather_facts: false
   vars:
+    traefik_deployments:
+      - name: "traefik"
+        state: "present"
+        helm_values:
+          deployment_kind: "DaemonSet"
+          service_type: "LoadBalancer"
+          traefik_entrypoint_port: 9000
+          traefik_entrypoint_expose: false
+          websecure_entrypoint_port: 8443
+          websecure_entrypoint_exposed_port: 443
+          websecure_entrypoint_expose: true
+          web_entrypoint_port: 8000
+          web_entrypoint_exposed_port: 80
+          web_entrypoint_expose: true
+          traefik_ingress_enabled: true
+          traefik_gateway_enabled: false
+          dashboard_enabled: false
+          # Exercise the new first-class inputs
+          access_logs:
+            enabled: true
+            format: "json"
+          plugins:
+            - name: "bouncer"
+              moduleName: "github.com/maxlerebourg/crowdsec-bouncer-traefik-plugin"
+              version: "v1.4.3"
+          additional_values:
+            commonLabels:
+              traefik-test-propagation: "enabled"
     traefik_middlewares:
       - name: "redirect-to-https"
         spec:
@@ -12,12 +40,12 @@
             replacement: "https://$1"
             permanent: true
     traefik_middlewares_tcp:
-      - name: test-inflightconn
+      - name: "test-inflightconn"
         spec:
           inFlightConn:
             amount: 10
 
   tasks:
-    - name: Install traefik
+    - name: "Install traefik"
       ansible.builtin.import_role:
         name: "traefik"

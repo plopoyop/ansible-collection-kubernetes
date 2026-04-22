@@ -63,3 +63,20 @@
     - name: "Assert that 'test-inflightconn' TCP middleware is defined"
       ansible.builtin.assert:
         that: middleware_tcp['resources'][0] is defined
+
+    - name: "Get helm values for the traefik release"
+      kubernetes.core.helm_info:
+        name: "traefik"
+        namespace: "ingress-traefik-controller"
+      register: traefik_release
+
+    - name: "Assert that plugin + access_logs inputs propagated to helm values"
+      ansible.builtin.assert:
+        that:
+          - release_values['experimental']['plugins']['bouncer']['moduleName']
+            == 'github.com/maxlerebourg/crowdsec-bouncer-traefik-plugin'
+          - release_values['logs']['access']['enabled'] | bool
+          - release_values['logs']['access']['format'] == 'json'
+          - release_values['commonLabels']['traefik-test-propagation'] == 'enabled'
+      vars:
+        release_values: "{{ traefik_release['status']['values'] }}"
