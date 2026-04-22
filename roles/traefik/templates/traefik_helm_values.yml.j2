@@ -2,6 +2,15 @@ deployment:
   kind: "{{ deployment_kind }}"
 service:
   type: "{{ service_type }}"
+{% if service_annotations | default({}) != {} %}
+  annotations: {{ service_annotations | to_json }}
+{% endif %}
+{% if service_labels | default({}) != {} %}
+  labels: {{ service_labels | to_json }}
+{% endif %}
+{% if service_spec | default({}) != {} %}
+  spec: {{ service_spec | to_json }}
+{% endif %}
 ports:
 {% if traefik_entrypoint_port is defined %}
   traefik:
