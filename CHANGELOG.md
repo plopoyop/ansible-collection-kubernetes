@@ -1,8 +1,12 @@
 # Changelog
 
-## [7.2.2](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.2.2) (2026-04-22)
+## [7.3.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.3.0) (2026-04-22)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.2.1...7.2.2)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.2.1...7.3.0)
+
+## 🚀 New Features
+
+- Traefik add multiple config enhancements [\#227](https://github.com/plopoyop/ansible-collection-kubernetes/pull/227) ([plopoyop](https://github.com/plopoyop))
 
 **Merged pull requests:**
 
