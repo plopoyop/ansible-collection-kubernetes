@@ -1,5 +1,14 @@
 # Changelog
 
+## [7.2.2](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.2.2) (2026-04-22)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.2.1...7.2.2)
+
+**Merged pull requests:**
+
+- fix\(deps\): update python313packages.ruff \(0.15.9 → 0.15.10\) [\#226](https://github.com/plopoyop/ansible-collection-kubernetes/pull/226) ([plopoyop](https://github.com/plopoyop))
+- fix\(deps\): update prek \(0.3.8 → 0.3.9\) [\#225](https://github.com/plopoyop/ansible-collection-kubernetes/pull/225) ([plopoyop](https://github.com/plopoyop))
+
 ## [7.2.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.2.1) (2026-04-19)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.2.0...7.2.1)
