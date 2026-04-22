@@ -15,11 +15,27 @@ ports:
     exposedPort: {{ websecure_entrypoint_exposed_port }}
     expose:
       default: {{ websecure_entrypoint_expose }}
+{% if proxy_protocol_trusted_ips | default([]) | length > 0 %}
+    proxyProtocol:
+      trustedIPs: {{ proxy_protocol_trusted_ips | to_json }}
+{% endif %}
+{% if forwarded_headers_trusted_ips | default([]) | length > 0 %}
+    forwardedHeaders:
+      trustedIPs: {{ forwarded_headers_trusted_ips | to_json }}
+{% endif %}
 {% endif %}
 {% if websecure_entrypoint_port is defined %}
   web:
     expose:
       default: {{ web_entrypoint_expose }}
+{% if proxy_protocol_trusted_ips | default([]) | length > 0 %}
+    proxyProtocol:
+      trustedIPs: {{ proxy_protocol_trusted_ips | to_json }}
+{% endif %}
+{% if forwarded_headers_trusted_ips | default([]) | length > 0 %}
+    forwardedHeaders:
+      trustedIPs: {{ forwarded_headers_trusted_ips | to_json }}
+{% endif %}
 {% endif %}
 {% for entrypoint in additional_entrypoint | default([]) %}
   {{ entrypoint.name }}:

@@ -47,6 +47,18 @@ traefik_helm_version: v39.0.8
 #        access_logs:
 #          enabled: true
 #          format: "json"
+#        plugins:
+#          - name: "bouncer"
+#            moduleName: "github.com/maxlerebourg/crowdsec-bouncer-traefik-plugin"
+#            version: "v1.4.3"
+#        # Trust PROXY protocol v1/v2 on the web+websecure entrypoints.
+#        # Required when the upstream LB forwards the client IP via the
+#        # PROXY header. List the LB egress IPs / CIDRs.
+#        proxy_protocol_trusted_ips:
+#          - "10.20.0.0./24"
+#        # Trust forwarded HTTP headers (X-Forwarded-*) on the same
+#        # entrypoints. Useful when behind an L7 proxy or CDN.
+#        forwarded_headers_trusted_ips: []
 #        additional_values:
 #          healthcheck:
 #            enabled: true
@@ -70,6 +82,8 @@ traefik_deployments:
       dashboard_enabled: false
       access_logs: {}
       plugins: []
+      proxy_protocol_trusted_ips: []
+      forwarded_headers_trusted_ips: []
       additional_values: {}
 
 # @var traefik_middlewares
