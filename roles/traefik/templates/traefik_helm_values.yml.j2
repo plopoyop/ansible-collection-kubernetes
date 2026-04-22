@@ -58,5 +58,5 @@ gateway:
 {% endif %}
 
 {% if additional_values | default({}) != {} %}
-{{ additional_values }}
+{{ additional_values | to_nice_yaml(indent=2) }}
 {% endif %}
