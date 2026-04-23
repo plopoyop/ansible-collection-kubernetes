@@ -92,6 +92,35 @@ agent:
   resources: {{ crowdsec_agent_resources | ansible.builtin.to_json }}
 {% endif %}
 
+{% if crowdsec_appsec_enabled %}
+{% set _appsec_acquisitions = crowdsec_appsec_acquisitions
+    if (crowdsec_appsec_acquisitions | length > 0)
+    else crowdsec_appsec_default_acquisitions %}
+{% set _appsec_configs = crowdsec_appsec_configs
+    if (crowdsec_appsec_configs | length > 0)
+    else crowdsec_appsec_default_configs %}
+{% set _appsec_collections = crowdsec_appsec_collections
+    if (crowdsec_appsec_collections | length > 0)
+    else crowdsec_appsec_default_collections %}
+{% set _appsec_env = crowdsec_appsec_env | default([]) | list %}
+{% if _appsec_collections | length > 0 %}
+{% set _ = _appsec_env.append({'name': 'COLLECTIONS', 'value': _appsec_collections | join(' ')}) %}
+{% endif %}
+appsec:
+  enabled: true
+  replicas: {{ crowdsec_appsec_replicas }}
+  service:
+    type: "{{ crowdsec_appsec_service_type }}"
+  acquisitions: {{ _appsec_acquisitions | ansible.builtin.to_json }}
+  configs: {{ _appsec_configs | ansible.builtin.to_json }}
+{% if _appsec_env | length > 0 %}
+  env: {{ _appsec_env | ansible.builtin.to_json }}
+{% endif %}
+{% if crowdsec_appsec_resources %}
+  resources: {{ crowdsec_appsec_resources | ansible.builtin.to_json }}
+{% endif %}
+{% endif %}
+
 {% if crowdsec_additional_helm_values %}
 {{ crowdsec_additional_helm_values | ansible.builtin.to_nice_yaml | indent(0) }}
 {% endif %}

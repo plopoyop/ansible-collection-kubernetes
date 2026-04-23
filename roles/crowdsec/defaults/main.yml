@@ -274,6 +274,95 @@ crowdsec_bouncers: []
 # Bouncer env vars from crowdsec_bouncers are appended automatically.
 crowdsec_lapi_env: []
 
+# @var crowdsec_appsec_enabled
+# @var crowdsec_appsec_enabled:type: boolean
+# @var crowdsec_appsec_enabled:description: >
+# Enable the AppSec (WAF) component. Requires a registration token set
+# via `crowdsec_lapi_registration_token` so the AppSec pod can register
+# itself against LAPI.
+crowdsec_appsec_enabled: false
+
+# @var crowdsec_appsec_replicas
+# @var crowdsec_appsec_replicas:type: integer
+# @var crowdsec_appsec_replicas:description: >
+# Number of replicas for the AppSec Deployment
+crowdsec_appsec_replicas: 1
+
+# @var crowdsec_appsec_service_type
+# @var crowdsec_appsec_service_type:type: string
+# @var crowdsec_appsec_service_type:description: >
+# Kubernetes Service type for the AppSec listener
+crowdsec_appsec_service_type: "ClusterIP"
+
+# @var crowdsec_appsec_resources
+# @var crowdsec_appsec_resources:type: dict
+# @var crowdsec_appsec_resources:description: >
+# Resource requests and limits for the AppSec container. Empty dict
+# lets the chart use its own defaults (500m CPU / 250Mi RAM request,
+# which is oversized for most dev clusters).
+# @var crowdsec_appsec_resources:example: >
+#   crowdsec_appsec_resources:
+#     requests:
+#       cpu: "50m"
+#       memory: "128Mi"
+#     limits:
+#       cpu: "500m"
+#       memory: "256Mi"
+crowdsec_appsec_resources: {}
+
+# @var crowdsec_appsec_collections
+# @var crowdsec_appsec_collections:type: list
+# @var crowdsec_appsec_collections:description: >
+# CrowdSec hub collections installed in the AppSec pod via the COLLECTIONS
+# env var. Typical values are `crowdsecurity/appsec-virtual-patching` and
+# `crowdsecurity/appsec-generic-rules`.
+# @var crowdsec_appsec_collections:example: >
+#   crowdsec_appsec_collections:
+#     - "crowdsecurity/appsec-virtual-patching"
+#     - "crowdsecurity/appsec-generic-rules"
+crowdsec_appsec_collections: []
+
+# @var crowdsec_appsec_acquisitions
+# @var crowdsec_appsec_acquisitions:type: list
+# @var crowdsec_appsec_acquisitions:description: >
+# AppSec acquisitions (datasource listeners, typically on :7422).
+# When empty and AppSec is enabled, a default listener on 0.0.0.0:7422
+# referencing `crowdsecurity/appsec-default` is created.
+# @var crowdsec_appsec_acquisitions:example: >
+#   crowdsec_appsec_acquisitions:
+#     - source: "appsec"
+#       listen_addr: "0.0.0.0:7422"
+#       path: "/"
+#       appsec_config: "crowdsecurity/appsec-default"
+#       labels:
+#         type: "appsec"
+crowdsec_appsec_acquisitions: []
+
+# @var crowdsec_appsec_configs
+# @var crowdsec_appsec_configs:type: dict
+# @var crowdsec_appsec_configs:description: >
+# AppSec configuration files (key = filename, value = file content).
+# When empty and AppSec is enabled, a default `appsec-default.yaml`
+# referencing virtual-patching + generic-rules is created.
+# @var crowdsec_appsec_configs:example: >
+#   crowdsec_appsec_configs:
+#     appsec-default.yaml: |
+#       name: crowdsecurity/appsec-default
+#       default_remediation: ban
+#       inband_rules:
+#         - crowdsecurity/base-config
+#         - crowdsecurity/vpatch-*
+#         - crowdsecurity/generic-*
+crowdsec_appsec_configs: {}
+
+# @var crowdsec_appsec_env
+# @var crowdsec_appsec_env:type: list
+# @var crowdsec_appsec_env:description: >
+# Extra environment variables injected into the AppSec container.
+# The COLLECTIONS var built from crowdsec_appsec_collections is appended
+# automatically.
+crowdsec_appsec_env: []
+
 # @var crowdsec_additional_helm_values
 # @var crowdsec_additional_helm_values:type: dict
 # @var crowdsec_additional_helm_values:description: >

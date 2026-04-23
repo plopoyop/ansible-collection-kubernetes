@@ -2,3 +2,34 @@
 crowdsec_helm_repo_name: "crowdsec"
 crowdsec_helm_repo_url: "https://crowdsecurity.github.io/helm-charts"
 crowdsec_helm_chart_ref: "{{ crowdsec_helm_repo_name }}/crowdsec"
+
+# LAPI / AppSec in-cluster endpoints (hardcoded by the helm chart
+# templates in v0.23+; override only if the chart changes).
+crowdsec_lapi_service_name: "{{ crowdsec_deployment_name }}-service"
+crowdsec_lapi_service_port: 8080
+crowdsec_appsec_service_name: "{{ crowdsec_deployment_name }}-appsec-service"
+crowdsec_appsec_service_port: 7422
+
+# Defaults injected by the role when AppSec is enabled but the user did
+# not provide acquisitions / configs / collections themselves.
+crowdsec_appsec_default_acquisitions:
+  - source: "appsec"
+    listen_addr: "0.0.0.0:7422"
+    path: "/"
+    appsec_config: "crowdsecurity/appsec-default"
+    labels:
+      type: "appsec"
+
+crowdsec_appsec_default_configs:
+  appsec-default.yaml: |
+    name: crowdsecurity/appsec-default
+    default_remediation: ban
+    inband_rules:
+      - crowdsecurity/base-config
+      - crowdsecurity/vpatch-*
+      - crowdsecurity/generic-*
+    outofband_rules: []
+
+crowdsec_appsec_default_collections:
+  - "crowdsecurity/appsec-virtual-patching"
+  - "crowdsecurity/appsec-generic-rules"

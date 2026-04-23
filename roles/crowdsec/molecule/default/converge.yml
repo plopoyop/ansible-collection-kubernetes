@@ -18,6 +18,7 @@
     crowdsec_bouncers:
       - name: "traefik"
         key: "molecule-traefik-bouncer-key-aaaaaaaaaaaaaaa"
+    crowdsec_appsec_enabled: true
   tasks:
     - name: "Install CrowdSec"
       ansible.builtin.import_role:

@@ -49,3 +49,37 @@
     - name: "Assert that 'crowdsec' agent DaemonSet is deployed"
       ansible.builtin.assert:
         that: crowdsec_agent_daemonset['resources'] | length > 0
+
+    - name: "Get 'crowdsec' AppSec Deployment info."
+      kubernetes.core.k8s_info:
+        kind: "Deployment"
+        name: "crowdsec-appsec"
+        namespace: "crowdsec"
+      register: crowdsec_appsec_deployment
+
+    - name: "Assert that 'crowdsec' AppSec Deployment is deployed"
+      ansible.builtin.assert:
+        that: crowdsec_appsec_deployment['resources'] | length > 0
+
+    - name: "Assert that AppSec has COLLECTIONS env var set"
+      ansible.builtin.assert:
+        that:
+          - appsec_env | selectattr('name', 'equalto', 'COLLECTIONS') | list | length == 1
+      vars:
+        appsec_env: >-
+          {{ crowdsec_appsec_deployment['resources'][0]['spec']['template']['spec']['containers'][0]['env']
+             | default([]) }}
+
+    - name: "Get 'crowdsec-appsec-service' Service info."
+      kubernetes.core.k8s_info:
+        kind: "Service"
+        name: "crowdsec-appsec-service"
+        namespace: "crowdsec"
+      register: crowdsec_appsec_service
+
+    - name: "Assert that AppSec service exposes port 7422"
+      ansible.builtin.assert:
+        that:
+          - crowdsec_appsec_service['resources'] | length > 0
+          - 7422 in (crowdsec_appsec_service['resources'][0]['spec']['ports']
+                     | map(attribute='port') | list)
