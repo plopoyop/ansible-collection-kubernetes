@@ -26,4 +26,4 @@
   delay: 5
   loop: "{{ metallb_ip_pools }}"
   loop_control:
-    loop_var: current_ip_pool
+    loop_var: "current_ip_pool"

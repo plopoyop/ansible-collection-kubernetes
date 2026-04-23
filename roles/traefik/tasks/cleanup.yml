@@ -10,7 +10,7 @@
     wait: true
   loop: "{{ traefik_deployments }}"
   loop_control:
-    loop_var: traefik_instance_to_remove
+    loop_var: "traefik_instance_to_remove"
 
 - name: "Remove ingress traefik helm repo"
   kubernetes.core.helm_repository:

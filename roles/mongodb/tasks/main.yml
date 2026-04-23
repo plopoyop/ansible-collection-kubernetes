@@ -33,10 +33,10 @@
   when: not mongodb_instance is defined or mongodb_instance.updated
 
 - name: "Call updating mongodb instance task"
-  ansible.builtin.include_tasks: update_instance_values.yml
+  ansible.builtin.include_tasks: "update_instance_values.yml"
   loop: "{{ mongodb_instance_values_override | dict2items }}"
   loop_control:
-    loop_var: value_to_update
+    loop_var: "value_to_update"
 
 - name: "Create MongoDB instance namespace"
   kubernetes.core.k8s:

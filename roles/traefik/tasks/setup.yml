@@ -19,7 +19,7 @@
   ansible.builtin.include_tasks: "deploy_instance.yml"
   loop: "{{ traefik_deployments }}"
   loop_control:
-    loop_var: traefik_current_instance
+    loop_var: "traefik_current_instance"
 
 - name: "Create middlewares"
   kubernetes.core.k8s:
@@ -29,7 +29,7 @@
     state: "{{ current_traefik_middleware.state | default('present') }}"
   loop: "{{ traefik_middlewares }}"
   loop_control:
-    loop_var: current_traefik_middleware
+    loop_var: "current_traefik_middleware"
 
 - name: "Create TCP middlewares"
   kubernetes.core.k8s:
@@ -39,4 +39,4 @@
     state: "{{ current_traefik_middleware.state | default('present') }}"
   loop: "{{ traefik_middlewares_tcp }}"
   loop_control:
-    loop_var: current_traefik_middleware
+    loop_var: "current_traefik_middleware"
