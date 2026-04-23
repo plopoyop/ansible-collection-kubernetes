@@ -1,5 +1,17 @@
 # Changelog
 
+## [7.3.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.3.1) (2026-04-23)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.3.0...7.3.1)
+
+## ⚙️ Dependencies
+
+- fix\(ci\): update renovatebot/github-action action \(v46.1.9 → v46.1.10\) [\#228](https://github.com/plopoyop/ansible-collection-kubernetes/pull/228) ([plopoyop](https://github.com/plopoyop))
+
+**Merged pull requests:**
+
+- feat\(deps\): update kubernetes-helm \(3.19.1 → 3.20.1\) [\#229](https://github.com/plopoyop/ansible-collection-kubernetes/pull/229) ([plopoyop](https://github.com/plopoyop))
+
 ## [7.3.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.3.0) (2026-04-22)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.2.1...7.3.0)
