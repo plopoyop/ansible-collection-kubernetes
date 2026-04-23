@@ -28,6 +28,6 @@
 
 - name: "Apply rancher cleanup job manifest"
   kubernetes.core.k8s:
-    state: present
+    state: "present"
     definition: "{{ rancher_cleanup_manifest.content }}"
   when: rancher_cleanup_manifest is succeeded

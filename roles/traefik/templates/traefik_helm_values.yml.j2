@@ -3,13 +3,13 @@ deployment:
 service:
   type: "{{ service_type }}"
 {% if service_annotations | default({}) != {} %}
-  annotations: {{ service_annotations | to_json }}
+  annotations: {{ service_annotations | ansible.builtin.to_json }}
 {% endif %}
 {% if service_labels | default({}) != {} %}
-  labels: {{ service_labels | to_json }}
+  labels: {{ service_labels | ansible.builtin.to_json }}
 {% endif %}
 {% if service_spec | default({}) != {} %}
-  spec: {{ service_spec | to_json }}
+  spec: {{ service_spec | ansible.builtin.to_json }}
 {% endif %}
 ports:
 {% if traefik_entrypoint_port is defined %}
@@ -26,11 +26,11 @@ ports:
       default: {{ websecure_entrypoint_expose }}
 {% if proxy_protocol_trusted_ips | default([]) | length > 0 %}
     proxyProtocol:
-      trustedIPs: {{ proxy_protocol_trusted_ips | to_json }}
+      trustedIPs: {{ proxy_protocol_trusted_ips | ansible.builtin.to_json }}
 {% endif %}
 {% if forwarded_headers_trusted_ips | default([]) | length > 0 %}
     forwardedHeaders:
-      trustedIPs: {{ forwarded_headers_trusted_ips | to_json }}
+      trustedIPs: {{ forwarded_headers_trusted_ips | ansible.builtin.to_json }}
 {% endif %}
 {% endif %}
 {% if websecure_entrypoint_port is defined %}
@@ -39,11 +39,11 @@ ports:
       default: {{ web_entrypoint_expose }}
 {% if proxy_protocol_trusted_ips | default([]) | length > 0 %}
     proxyProtocol:
-      trustedIPs: {{ proxy_protocol_trusted_ips | to_json }}
+      trustedIPs: {{ proxy_protocol_trusted_ips | ansible.builtin.to_json }}
 {% endif %}
 {% if forwarded_headers_trusted_ips | default([]) | length > 0 %}
     forwardedHeaders:
-      trustedIPs: {{ forwarded_headers_trusted_ips | to_json }}
+      trustedIPs: {{ forwarded_headers_trusted_ips | ansible.builtin.to_json }}
 {% endif %}
 {% endif %}
 {% for entrypoint in additional_entrypoint | default([]) %}
@@ -94,10 +94,10 @@ logs:
     bufferingSize: {{ access_logs.bufferingSize }}
 {% endif %}
 {% if access_logs.filters | default(false) %}
-    filters: {{ access_logs.filters | to_json }}
+    filters: {{ access_logs.filters | ansible.builtin.to_json }}
 {% endif %}
 {% if access_logs.fields | default(false) %}
-    fields: {{ access_logs.fields | to_json }}
+    fields: {{ access_logs.fields | ansible.builtin.to_json }}
 {% endif %}
 {% endif %}
 
@@ -112,5 +112,5 @@ experimental:
 {% endif %}
 
 {% if additional_values | default({}) != {} %}
-{{ additional_values | to_nice_yaml(indent=2) }}
+{{ additional_values | ansible.builtin.to_nice_yaml(indent=2) }}
 {% endif %}

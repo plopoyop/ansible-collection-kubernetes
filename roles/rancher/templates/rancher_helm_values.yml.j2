@@ -53,5 +53,5 @@ systemDefaultRegistry: "{{ rancher_system_default_registry }}"
 {% endif %}
 
 {% if rancher_additional_helm_values | default({}) != {} %}
-{{ rancher_additional_helm_values | to_nice_yaml }}
+{{ rancher_additional_helm_values | ansible.builtin.to_nice_yaml }}
 {% endif %}

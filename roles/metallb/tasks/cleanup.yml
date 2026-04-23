@@ -3,14 +3,14 @@
   kubernetes.core.k8s:
     state: "absent"
     namespace: "{{ metallb_namespace }}"
-    template: 'config.yml.j2'
+    definition: "{{ lookup('ansible.builtin.template', 'config.yml.j2') | ansible.builtin.from_yaml_all | list }}"
   register: metallb_ip_pool_result
   until: metallb_ip_pool_result is defined
   retries: 60
   delay: 5
   loop: "{{ metallb_ip_pools }}"
   loop_control:
-    loop_var: current_ip_pool
+    loop_var: "current_ip_pool"
 
 - name: "Remove metal lb helm package"
   kubernetes.core.helm:
@@ -21,7 +21,7 @@
     wait: true
     state: "absent"
 
-- name: Remove metallb namespace
+- name: "Remove metallb namespace"
   kubernetes.core.k8s:
     name: "{{ metallb_namespace }}"
     api_version: "v1"
@@ -32,4 +32,4 @@
   kubernetes.core.helm_repository:
     name: "{{ metallb_helm_repository }}"
     repo_url: "{{ metallb_helm_repository_address }}"
-    repo_state: absent
+    repo_state: "absent"

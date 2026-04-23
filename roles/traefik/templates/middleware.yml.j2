@@ -5,5 +5,5 @@ metadata:
   name: "{{ current_traefik_middleware.name }}"
 {% if current_traefik_middleware.spec is defined %}
 spec:
-{{ current_traefik_middleware.spec | to_nice_yaml(indent=2) | indent(2, true) }}
+{{ current_traefik_middleware.spec | ansible.builtin.to_nice_yaml(indent=2) | indent(2, true) }}
 {% endif %}

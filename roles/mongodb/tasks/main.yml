@@ -18,7 +18,7 @@
     chart_ref: "{{ mongodb_operator_helm_chart_ref }}"
     chart_version: "{{ mongodb_operator_helm_version }}"
     namespace: "{{ mongodb_operator_namespace }}"
-    values: "{{ lookup('ansible.builtin.template', 'mongodb_operator_helm_values.yml.j2') | from_yaml }}"
+    values: "{{ lookup('ansible.builtin.template', 'mongodb_operator_helm_values.yml.j2') | ansible.builtin.from_yaml }}"
     state: "present"
 
 - name: "Install mongodb resources Helm Chart"
@@ -33,10 +33,10 @@
   when: not mongodb_instance is defined or mongodb_instance.updated
 
 - name: "Call updating mongodb instance task"
-  ansible.builtin.include_tasks: update_instance_values.yml
+  ansible.builtin.include_tasks: "update_instance_values.yml"
   loop: "{{ mongodb_instance_values_override | dict2items }}"
   loop_control:
-    loop_var: value_to_update
+    loop_var: "value_to_update"
 
 - name: "Create MongoDB instance namespace"
   kubernetes.core.k8s:
@@ -52,6 +52,6 @@
     chart_ref: "{{ mongodb_crd_helm_chart_ref }}"
     chart_version: "{{ mongodb_crd_helm_version }}"
     namespace: "{{ mongodb_instance_namespace }}"
-    values: "{{ lookup('ansible.builtin.template', 'mongodb_instance_helm_values.yml.j2') | from_yaml }}"
+    values: "{{ lookup('ansible.builtin.template', 'mongodb_instance_helm_values.yml.j2') | ansible.builtin.from_yaml }}"
     state: "{{ mongodb_instance_state | default('present') }}"
     force: "{{ mongodb_instance_force_install | default(false) }}"

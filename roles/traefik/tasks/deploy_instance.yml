@@ -7,7 +7,7 @@
     chart_ref: "{{ traefik_helm_chart_ref }}"
     chart_version: "{{ traefik_helm_version }}"
     update_repo_cache: true
-    values: "{{ lookup('ansible.builtin.template', 'traefik_helm_values.yml.j2', template_vars=traefik_current_instance.helm_values) | from_yaml }}"
+    values: "{{ lookup('ansible.builtin.template', 'traefik_helm_values.yml.j2', template_vars=traefik_current_instance.helm_values) | ansible.builtin.from_yaml }}"
     wait: true
 
 - name: "Wait for ingress pods to become ready"
@@ -55,14 +55,10 @@
   retries: 60
   delay: 5
 
-- name: "Create updated IP addresses list"
-  ansible.utils.update_fact:
-    updates:
-      - path: traefik_ingress_ip_addresses_list[{{ traefik_current_instance.name }}]
-        value: "{{ traefik_ingress_controller_service.resources[0].status.loadBalancer.ingress[0].ip }}"
-  register: traefik_updated_instance
-  changed_when: false
-
-- name: "Updated IP addresses list"
+- name: "Update IP addresses list with current instance"
   ansible.builtin.set_fact:
-    traefik_ingress_ip_addresses_list: "{{ traefik_updated_instance.traefik_ingress_ip_addresses_list }}"
+    traefik_ingress_ip_addresses_list: >-
+      {{ traefik_ingress_ip_addresses_list | ansible.builtin.combine({
+           traefik_current_instance.name:
+             traefik_ingress_controller_service.resources[0].status.loadBalancer.ingress[0].ip
+      }) }}
