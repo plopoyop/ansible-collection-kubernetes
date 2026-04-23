@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.3.0...7.3.1)
 
+## 🐛 Bug Fixes
+
+- Fix deprecations warning and Coding Style [\#230](https://github.com/plopoyop/ansible-collection-kubernetes/pull/230) ([plopoyop](https://github.com/plopoyop))
+
 ## ⚙️ Dependencies
 
 - fix\(ci\): update renovatebot/github-action action \(v46.1.9 → v46.1.10\) [\#228](https://github.com/plopoyop/ansible-collection-kubernetes/pull/228) ([plopoyop](https://github.com/plopoyop))
