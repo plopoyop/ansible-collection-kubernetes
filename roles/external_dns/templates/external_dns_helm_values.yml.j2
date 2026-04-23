@@ -48,5 +48,5 @@ resources: {{ external_dns_resources }}
 {% endif %}
 
 {% if external_dns_additional_helm_values %}
-{{ external_dns_additional_helm_values | to_nice_yaml | indent(0) }}
+{{ external_dns_additional_helm_values | ansible.builtin.to_nice_yaml | indent(0) }}
 {% endif %}

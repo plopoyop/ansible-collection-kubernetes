@@ -6,7 +6,7 @@
     state: "absent"
     chart_ref: "{{ traefik_helm_chart_ref }}"
     chart_version: "{{ traefik_helm_version }}"
-    values: "{{ lookup('ansible.builtin.template', 'traefik_helm_values.yml.j2', template_vars=traefik_instance_to_remove.helm_values) | from_yaml }}"
+    values: "{{ lookup('ansible.builtin.template', 'traefik_helm_values.yml.j2', template_vars=traefik_instance_to_remove.helm_values) | ansible.builtin.from_yaml }}"
     wait: true
   loop: "{{ traefik_deployments }}"
   loop_control:

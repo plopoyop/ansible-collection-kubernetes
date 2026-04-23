@@ -4,21 +4,21 @@
     namespace: "{{ cert_manager_namespace }}"
     state: "absent"
     definition: >-
-      {{ lookup('ansible.builtin.template', 'cluster-issuer.staging.yml.j2') | from_yaml }}
+      {{ lookup('ansible.builtin.template', 'cluster-issuer.staging.yml.j2') | ansible.builtin.from_yaml }}
 
 - name: "Remove prod cluster-issuer for lets encrypt"
   kubernetes.core.k8s:
     namespace: "{{ cert_manager_namespace }}"
     state: "absent"
     definition: >-
-      {{ lookup('ansible.builtin.template', 'cluster-issuer.prod.yml.j2') | from_yaml }}
+      {{ lookup('ansible.builtin.template', 'cluster-issuer.prod.yml.j2') | ansible.builtin.from_yaml }}
 
 - name: "Remove SelfSigned cluster-issuer for tests"
   kubernetes.core.k8s:
     namespace: "{{ cert_manager_namespace }}"
     state: "absent"
     definition: >-
-      {{ lookup('ansible.builtin.template', 'cluster-issuer.selfsigned.yml.j2') | from_yaml }}
+      {{ lookup('ansible.builtin.template', 'cluster-issuer.selfsigned.yml.j2') | ansible.builtin.from_yaml }}
 
 - name: "Remove trust manager helm package from namespace"
   kubernetes.core.helm:

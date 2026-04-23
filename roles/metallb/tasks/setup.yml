@@ -13,13 +13,13 @@
     create_namespace: true
     update_repo_cache: true
     wait: true
-    values: "{{ lookup('ansible.builtin.template', 'metallb_helm_values.yml.j2') | from_yaml }}"
+    values: "{{ lookup('ansible.builtin.template', 'metallb_helm_values.yml.j2') | ansible.builtin.from_yaml }}"
 
 - name: "Create IP Pool"
   kubernetes.core.k8s:
     state: "{{ current_ip_pool.state | default('present') }}"
     namespace: "{{ metallb_namespace }}"
-    definition: "{{ lookup('ansible.builtin.template', 'config.yml.j2') | from_yaml_all | list }}"
+    definition: "{{ lookup('ansible.builtin.template', 'config.yml.j2') | ansible.builtin.from_yaml_all | list }}"
   register: metallb_ip_pool_result
   until: metallb_ip_pool_result is defined
   retries: 60
