@@ -30,6 +30,15 @@
       ansible.builtin.assert:
         that: crowdsec_lapi_deployment['resources'] | length > 0
 
+    - name: "Assert that LAPI has BOUNCER_KEY_traefik env var"
+      ansible.builtin.assert:
+        that:
+          - lapi_env | selectattr('name', 'equalto', 'BOUNCER_KEY_traefik') | list | length == 1
+      vars:
+        lapi_env: >-
+          {{ crowdsec_lapi_deployment['resources'][0]['spec']['template']['spec']['containers'][0]['env']
+             | default([]) }}
+
     - name: "Get 'crowdsec' agent DaemonSet info."
       kubernetes.core.k8s_info:
         kind: "DaemonSet"
