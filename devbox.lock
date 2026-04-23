@@ -529,51 +529,51 @@
         }
       }
     },
-    "kubernetes-helm@3.19.1": {
-      "last_modified": "2025-11-12T10:38:40Z",
-      "resolved": "github:NixOS/nixpkgs/91c9a64ce2a84e648d0cf9671274bb9c2fb9ba60#kubernetes-helm",
+    "kubernetes-helm@3.20.1": {
+      "last_modified": "2026-04-16T08:46:55Z",
+      "resolved": "github:NixOS/nixpkgs/b86751bc4085f48661017fa226dee99fab6c651b#kubernetes-helm",
       "source": "devbox-search",
-      "version": "3.19.1",
+      "version": "3.20.1",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/8f0v5dmnpisnzq9n76wbnps5vf85r9sk-kubernetes-helm-3.19.1",
+              "path": "/nix/store/9z8g74z70cz08i6aidqlq02b2p59blhs-kubernetes-helm-3.20.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/8f0v5dmnpisnzq9n76wbnps5vf85r9sk-kubernetes-helm-3.19.1"
+          "store_path": "/nix/store/9z8g74z70cz08i6aidqlq02b2p59blhs-kubernetes-helm-3.20.1"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/ybvbgnswylr7799vmgxiarj1p70wfzbd-kubernetes-helm-3.19.1",
+              "path": "/nix/store/3gadj10ac3078z5klss6fdsbqr1az70h-kubernetes-helm-3.20.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/ybvbgnswylr7799vmgxiarj1p70wfzbd-kubernetes-helm-3.19.1"
+          "store_path": "/nix/store/3gadj10ac3078z5klss6fdsbqr1az70h-kubernetes-helm-3.20.1"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/64rb8xfaly932pnjwq61x8ql4kx6mfw0-kubernetes-helm-3.19.1",
+              "path": "/nix/store/5x0z637clda6vpjxijgryn3aayl0nbpa-kubernetes-helm-3.20.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/64rb8xfaly932pnjwq61x8ql4kx6mfw0-kubernetes-helm-3.19.1"
+          "store_path": "/nix/store/5x0z637clda6vpjxijgryn3aayl0nbpa-kubernetes-helm-3.20.1"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/iqnqxm017nzqcxqlwmrp9qg9gjvir264-kubernetes-helm-3.19.1",
+              "path": "/nix/store/852aq3qbnhhdz5vwmfp2p74ky2rli31j-kubernetes-helm-3.20.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/iqnqxm017nzqcxqlwmrp9qg9gjvir264-kubernetes-helm-3.19.1"
+          "store_path": "/nix/store/852aq3qbnhhdz5vwmfp2p74ky2rli31j-kubernetes-helm-3.20.1"
         }
       }
     },
