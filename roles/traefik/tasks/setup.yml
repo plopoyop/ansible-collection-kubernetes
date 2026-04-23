@@ -24,7 +24,8 @@
 - name: "Create middlewares"
   kubernetes.core.k8s:
     namespace: "{{ current_traefik_middleware.namespace | default(traefik_namespace) }}"
-    template: "middleware.yml.j2"
+    definition: >-
+      {{ lookup('ansible.builtin.template', 'middleware.yml.j2') | from_yaml }}
     state: "{{ current_traefik_middleware.state | default('present') }}"
   loop: "{{ traefik_middlewares }}"
   loop_control:
@@ -33,7 +34,8 @@
 - name: "Create TCP middlewares"
   kubernetes.core.k8s:
     namespace: "{{ current_traefik_middleware.namespace | default(traefik_namespace) }}"
-    template: "middleware_tcp.yml.j2"
+    definition: >-
+      {{ lookup('ansible.builtin.template', 'middleware_tcp.yml.j2') | from_yaml }}
     state: "{{ current_traefik_middleware.state | default('present') }}"
   loop: "{{ traefik_middlewares_tcp }}"
   loop_control:

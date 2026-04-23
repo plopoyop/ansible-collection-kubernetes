@@ -55,14 +55,10 @@
   retries: 60
   delay: 5
 
-- name: "Create updated IP addresses list"
-  ansible.utils.update_fact:
-    updates:
-      - path: traefik_ingress_ip_addresses_list[{{ traefik_current_instance.name }}]
-        value: "{{ traefik_ingress_controller_service.resources[0].status.loadBalancer.ingress[0].ip }}"
-  register: traefik_updated_instance
-  changed_when: false
-
-- name: "Updated IP addresses list"
+- name: "Update IP addresses list with current instance"
   ansible.builtin.set_fact:
-    traefik_ingress_ip_addresses_list: "{{ traefik_updated_instance.traefik_ingress_ip_addresses_list }}"
+    traefik_ingress_ip_addresses_list: >-
+      {{ traefik_ingress_ip_addresses_list | combine({
+           traefik_current_instance.name:
+             traefik_ingress_controller_service.resources[0].status.loadBalancer.ingress[0].ip
+      }) }}
