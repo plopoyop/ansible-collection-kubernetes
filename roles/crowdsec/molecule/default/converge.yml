@@ -15,6 +15,10 @@
     crowdsec_secrets_password: "molecule-agent-password"
     crowdsec_lapi_cs_lapi_secret: "molecule-lapi-secret-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
     crowdsec_lapi_registration_token: "molecule-registration-token-aaaaaaaaaaaaaaaaaaaa"
+    crowdsec_bouncers:
+      - name: "traefik"
+        key: "molecule-traefik-bouncer-key-aaaaaaaaaaaaaaa"
+    crowdsec_appsec_enabled: true
   tasks:
     - name: "Install CrowdSec"
       ansible.builtin.import_role:

@@ -28,6 +28,13 @@ lapi:
     registrationToken: "{{ crowdsec_lapi_registration_token }}"
 {% endif %}
 {% endif %}
+{% set _combined_lapi_env = crowdsec_lapi_env | default([]) | list %}
+{% for bouncer in crowdsec_bouncers | default([]) %}
+{% set _ = _combined_lapi_env.append({'name': 'BOUNCER_KEY_' ~ bouncer.name, 'value': bouncer.key}) %}
+{% endfor %}
+{% if _combined_lapi_env | length > 0 %}
+  env: {{ _combined_lapi_env | ansible.builtin.to_json }}
+{% endif %}
   service:
     type: "{{ crowdsec_lapi_service_type }}"
   persistentVolume:
@@ -53,25 +60,67 @@ lapi:
     host: "{{ crowdsec_lapi_ingress_host }}"
 {% endif %}
 {% if crowdsec_lapi_ingress_annotations %}
-    annotations: {{ crowdsec_lapi_ingress_annotations | to_json }}
+    annotations: {{ crowdsec_lapi_ingress_annotations | ansible.builtin.to_json }}
 {% endif %}
 {% endif %}
   metrics:
     enabled: {{ crowdsec_metrics_enabled | lower }}
     serviceMonitor:
       enabled: {{ crowdsec_metrics_service_monitor_enabled | lower }}
+{% if crowdsec_lapi_resources %}
+  resources: {{ crowdsec_lapi_resources | ansible.builtin.to_json }}
+{% endif %}
 
+{% set _agent_env = crowdsec_agent_env | default([]) | list %}
+{% if crowdsec_agent_collections | length > 0 %}
+{% set _ = _agent_env.append({'name': 'COLLECTIONS', 'value': crowdsec_agent_collections | join(' ')}) %}
+{% endif %}
 agent:
   enabled: {{ crowdsec_agent_enabled | lower }}
   isDeployment: {{ crowdsec_agent_is_deployment | lower }}
   hostVarLog: {{ crowdsec_agent_host_var_log | lower }}
-  acquisition: {{ crowdsec_agent_acquisition | to_json }}
-  additionalAcquisition: {{ crowdsec_agent_additional_acquisition | to_json }}
+  acquisition: {{ crowdsec_agent_acquisition | ansible.builtin.to_json }}
+  additionalAcquisition: {{ crowdsec_agent_additional_acquisition | ansible.builtin.to_json }}
   metrics:
     enabled: {{ crowdsec_metrics_enabled | lower }}
     serviceMonitor:
       enabled: {{ crowdsec_metrics_service_monitor_enabled | lower }}
+{% if _agent_env | length > 0 %}
+  env: {{ _agent_env | ansible.builtin.to_json }}
+{% endif %}
+{% if crowdsec_agent_resources %}
+  resources: {{ crowdsec_agent_resources | ansible.builtin.to_json }}
+{% endif %}
+
+{% if crowdsec_appsec_enabled %}
+{% set _appsec_acquisitions = crowdsec_appsec_acquisitions
+    if (crowdsec_appsec_acquisitions | length > 0)
+    else crowdsec_appsec_default_acquisitions %}
+{% set _appsec_configs = crowdsec_appsec_configs
+    if (crowdsec_appsec_configs | length > 0)
+    else crowdsec_appsec_default_configs %}
+{% set _appsec_collections = crowdsec_appsec_collections
+    if (crowdsec_appsec_collections | length > 0)
+    else crowdsec_appsec_default_collections %}
+{% set _appsec_env = crowdsec_appsec_env | default([]) | list %}
+{% if _appsec_collections | length > 0 %}
+{% set _ = _appsec_env.append({'name': 'COLLECTIONS', 'value': _appsec_collections | join(' ')}) %}
+{% endif %}
+appsec:
+  enabled: true
+  replicas: {{ crowdsec_appsec_replicas }}
+  service:
+    type: "{{ crowdsec_appsec_service_type }}"
+  acquisitions: {{ _appsec_acquisitions | ansible.builtin.to_json }}
+  configs: {{ _appsec_configs | ansible.builtin.to_json }}
+{% if _appsec_env | length > 0 %}
+  env: {{ _appsec_env | ansible.builtin.to_json }}
+{% endif %}
+{% if crowdsec_appsec_resources %}
+  resources: {{ crowdsec_appsec_resources | ansible.builtin.to_json }}
+{% endif %}
+{% endif %}
 
 {% if crowdsec_additional_helm_values %}
-{{ crowdsec_additional_helm_values | to_nice_yaml | indent(0) }}
+{{ crowdsec_additional_helm_values | ansible.builtin.to_nice_yaml | indent(0) }}
 {% endif %}
