@@ -1,5 +1,13 @@
 # Changelog
 
+## [7.4.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.4.1) (2026-04-26)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.4.0...7.4.1)
+
+## ⚙️ Dependencies
+
+- fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.15.11 → v0.15.12\) [\#232](https://github.com/plopoyop/ansible-collection-kubernetes/pull/232) ([plopoyop](https://github.com/plopoyop))
+
 ## [7.4.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.4.0) (2026-04-23)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.3.0...7.4.0)
