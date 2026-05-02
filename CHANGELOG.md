@@ -1,16 +1,18 @@
 # Changelog
 
-## [7.4.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.4.1) (2026-05-01)
+## [7.4.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.4.1) (2026-05-02)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.4.0...7.4.1)
 
 ## ⚙️ Dependencies
 
+- fix\(ci\): update renovatebot/github-action action \(v46.1.11 → v46.1.12\) [\#237](https://github.com/plopoyop/ansible-collection-kubernetes/pull/237) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.1.10 → v46.1.11\) [\#233](https://github.com/plopoyop/ansible-collection-kubernetes/pull/233) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.15.11 → v0.15.12\) [\#232](https://github.com/plopoyop/ansible-collection-kubernetes/pull/232) ([plopoyop](https://github.com/plopoyop))
 
 **Merged pull requests:**
 
+- fix\(deps\): update python313packages.ruff \(0.15.10 → 0.15.11\) [\#238](https://github.com/plopoyop/ansible-collection-kubernetes/pull/238) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update prek \(0.3.9 → 0.3.10\) [\#236](https://github.com/plopoyop/ansible-collection-kubernetes/pull/236) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update kubernetes-helm \(3.20.1 → 3.20.2\) [\#235](https://github.com/plopoyop/ansible-collection-kubernetes/pull/235) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update kubectl \(1.35.3 → 1.35.4\) [\#234](https://github.com/plopoyop/ansible-collection-kubernetes/pull/234) ([plopoyop](https://github.com/plopoyop))
