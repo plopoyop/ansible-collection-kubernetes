@@ -1,5 +1,13 @@
 # Changelog
 
+## [7.5.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.5.1) (2026-05-03)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.5.0...7.5.1)
+
+## 🐛 Bug Fixes
+
+- Multiple Coding Style fixes [\#243](https://github.com/plopoyop/ansible-collection-kubernetes/pull/243) ([plopoyop](https://github.com/plopoyop))
+
 ## [7.5.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.5.0) (2026-05-03)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.4.0...7.5.0)
