@@ -16,7 +16,7 @@ rancher_namespace: "cattle-system"
 # @var rancher_helm_chart_version:type: string
 # @var rancher_helm_chart_version:description: >
 # Helm chart version to install
-rancher_helm_chart_version: "2.13.3"
+rancher_helm_chart_version: 2.14.1
 
 # @var rancher_deployment_name
 # @var rancher_deployment_name:type: string

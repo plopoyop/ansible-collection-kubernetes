@@ -183,7 +183,7 @@ Helm chart version to install
 #### Default value
 
 ```YAML
-rancher_helm_chart_version: 2.13.3
+rancher_helm_chart_version: 2.14.1
 ```
 
 ### rancher_helm_repo_name
