@@ -52,7 +52,7 @@ You can call the roles from this collection in your Ansible playbooks as follows
 | cert\_manager   | v0.17.1            | [View README](roles/cert_manager/README.md) |
 | CrowdSec        | v0.23.0            | [View README](roles/crowdsec/README.md)     |
 | mongodb community operator | v0.13.0            | [View README](roles/mongodb/README.md) |
-| Rancher | v2.13.3            | [View README](roles/rancher/README.md) |
+| Rancher         | v2.14.1            | [View README](roles/rancher/README.md) |
 
 ## Customization
 
