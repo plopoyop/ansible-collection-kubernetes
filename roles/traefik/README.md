@@ -20,7 +20,7 @@ Install traefik ingress controller on kubernetes
 
 ## Requirements
 
-- Minimum Ansible version: `2.1`
+- Minimum Ansible version: `2.17`
 
 ## Default Variables
 
@@ -204,7 +204,7 @@ None.
 
 ## License
 
-MLP2
+MPL-2.0
 
 ## Author
 

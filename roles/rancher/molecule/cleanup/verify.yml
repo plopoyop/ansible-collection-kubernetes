@@ -5,16 +5,16 @@
   gather_facts: true
 
   tasks:
-    - name: "Pause for cleanup to complete."
-      ansible.builtin.pause:
-        seconds: 5
-
-    - name: "Get 'cattle-system' namespace info."
+    - name: "Wait for 'cattle-system' namespace to be removed."
       kubernetes.core.k8s_info:
         kind: Namespace
         name: "cattle-system"
       register: namespace_rancher
+      until: namespace_rancher.resources | length == 0
+      retries: 30
+      delay: 5
 
-    - name: Assert that 'cattle-system' namespace is removed
+    - name: "Assert that 'cattle-system' namespace is removed."
       ansible.builtin.assert:
-        that: namespace_rancher['resources'] == []
+        that: namespace_rancher.resources | length == 0
+        fail_msg: "Namespace 'cattle-system' is still present."

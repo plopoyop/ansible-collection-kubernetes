@@ -5,57 +5,77 @@
   gather_facts: true
 
   tasks:
-    - name: "Pause for job to complete."
-      ansible.builtin.pause:
-        seconds: 5
-
-    - name: "Get 'cert-manager' namespace info."
+    - name: "Wait for 'cert-manager' namespace to be active."
       kubernetes.core.k8s_info:
         kind: Namespace
         name: "cert-manager"
       register: namespace_cert_manager
+      until:
+        - namespace_cert_manager.resources | length > 0
+        - namespace_cert_manager.resources[0].status.phase == "Active"
+      retries: 30
+      delay: 5
 
-    - name: Assert that 'cert-manager' namespace is active
+    - name: "Assert that 'cert-manager' namespace is active."
       ansible.builtin.assert:
-        that: namespace_cert_manager['resources'][0]['status']['phase'] == "Active"
+        that:
+          - namespace_cert_manager.resources | length > 0
+          - namespace_cert_manager.resources[0].status.phase == "Active"
+        fail_msg: "Namespace 'cert-manager' is not active."
 
-    - name: Get 'selfsigned-issuer' ClusterIssuer.
+    - name: "Wait for 'selfsigned-issuer' ClusterIssuer to be defined."
       kubernetes.core.k8s_info:
         kind: ClusterIssuer
         name: "selfsigned-issuer"
       register: issuer
+      until: issuer.resources[0] is defined
+      retries: 30
+      delay: 5
 
-    - name: Assert that 'selfsigned-issuer' ClusterIssuer is defined
+    - name: "Assert that 'selfsigned-issuer' ClusterIssuer is defined."
       ansible.builtin.assert:
-        that: issuer['resources'][0] is defined
+        that: issuer.resources[0] is defined
+        fail_msg: "ClusterIssuer 'selfsigned-issuer' is not defined."
 
-    - name: Get 'letsencrypt-staging' ClusterIssuer.
+    - name: "Wait for 'letsencrypt-staging' ClusterIssuer to be defined."
       kubernetes.core.k8s_info:
         kind: ClusterIssuer
         name: "letsencrypt-staging"
       register: issuer
+      until: issuer.resources[0] is defined
+      retries: 30
+      delay: 5
 
-    - name: Assert that 'letsencrypt-staging' ClusterIssuer is defined
+    - name: "Assert that 'letsencrypt-staging' ClusterIssuer is defined."
       ansible.builtin.assert:
-        that: issuer['resources'][0] is defined
+        that: issuer.resources[0] is defined
+        fail_msg: "ClusterIssuer 'letsencrypt-staging' is not defined."
 
-    - name: Get 'letsencrypt-prod' ClusterIssuer.
+    - name: "Wait for 'letsencrypt-prod' ClusterIssuer to be undefined."
       kubernetes.core.k8s_info:
         kind: ClusterIssuer
         name: "letsencrypt-prod"
       register: issuer
+      until: issuer.resources[0] is not defined
+      retries: 30
+      delay: 5
 
-    - name: Assert that 'letsencrypt-prod' ClusterIssuer is defined
+    - name: "Assert that 'letsencrypt-prod' ClusterIssuer is undefined."
       ansible.builtin.assert:
-        that: issuer['resources'][0] is not defined
+        that: issuer.resources[0] is not defined
+        fail_msg: "ClusterIssuer 'letsencrypt-prod' is unexpectedly defined."
 
-    - name: Get 'test' Certificate.
+    - name: "Wait for 'test' Certificate to be issued."
       kubernetes.core.k8s_info:
         kind: "Certificate"
         name: "test-cert"
         namespace: default
       register: cert
+      until: cert.resources[0].status.conditions[0].status is defined
+      retries: 30
+      delay: 5
 
-    - name: Assert that 'test' Certificate is issued
+    - name: "Assert that 'test' Certificate is issued."
       ansible.builtin.assert:
-        that: cert['resources'][0].status.conditions[0].status is defined
+        that: cert.resources[0].status.conditions[0].status is defined
+        fail_msg: "Certificate 'test-cert' is not issued."

@@ -2,7 +2,7 @@
 
 Install Metal LB controller on kubernetes
 
-## Table of content
+## Table of contents
 
 - [Requirements](#requirements)
 - [Default Variables](#default-variables)
@@ -19,8 +19,7 @@ Install Metal LB controller on kubernetes
 
 ## Requirements
 
-- Minimum Ansible version: `2.1`
-
+- Minimum Ansible version: `2.17`
 
 ## Default Variables
 
@@ -46,6 +45,8 @@ metallb_create_additional_values:
 
 Should metallb helm chart be installed
 
+**_Type:_** boolean<br />
+
 #### Default value
 
 ```YAML
@@ -55,6 +56,8 @@ metallb_enabled: true
 ### metallb_helm_version
 
 Helm chart version to install
+
+**_Type:_** string<br />
 
 #### Default value
 
@@ -118,13 +121,13 @@ metallb_ip_pools: {}
 
 K8s namespace to install the metallb chart
 
+**_Type:_** string<br />
+
 #### Default value
 
 ```YAML
 metallb_namespace: metallb-system
 ```
-
-
 
 ## Dependencies
 
@@ -132,7 +135,7 @@ None.
 
 ## License
 
-MLP2
+MPL-2.0
 
 ## Author
 

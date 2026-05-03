@@ -4,9 +4,9 @@ galaxy_info:
   role_name: "crowdsec"
   author: "Clément Hubert"
 
-  license: "MLP2"
+  license: MPL-2.0
 
-  min_ansible_version: "2.1"
+  min_ansible_version: "2.17"
 
   galaxy_tags:
     - "kubernetes"

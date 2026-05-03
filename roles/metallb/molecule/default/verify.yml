@@ -23,27 +23,35 @@
           service:
             type: "LoadBalancer"
 
-    - name: Pause for job to complete.
-      ansible.builtin.pause:
-        seconds: 5
-
-    - name: Get 'metallb' namespace info.
+    - name: "Wait for 'metallb' namespace to be active."
       kubernetes.core.k8s_info:
         kind: Namespace
         name: "{{ metallb_namespace }}"
       register: namespace_metallb
+      until:
+        - namespace_metallb.resources | length > 0
+        - namespace_metallb.resources[0].status.phase == "Active"
+      retries: 30
+      delay: 5
 
-    - name: Assert that 'metallb' namespace is active
+    - name: "Assert that 'metallb' namespace is active."
       ansible.builtin.assert:
-        that: namespace_metallb['resources'][0]['status']['phase'] == "Active"
+        that:
+          - namespace_metallb.resources | length > 0
+          - namespace_metallb.resources[0].status.phase == "Active"
+        fail_msg: "Namespace '{{ metallb_namespace }}' is not active."
 
-    - name: Get 'echo-server' service info.
+    - name: "Wait for 'echo-server' service to have an ip address."
       kubernetes.core.k8s_info:
         kind: Service
         name: "echo-server"
         namespace: "echo-server"
       register: service
+      until: service.resources[0].status.loadBalancer.ingress[0].ip is defined
+      retries: 30
+      delay: 5
 
-    - name: Assert that 'echo-server' service has an ip address
+    - name: "Assert that 'echo-server' service has an ip address."
       ansible.builtin.assert:
-        that: service['resources'][0]['status']['loadBalancer']['ingress'][0]['ip'] is defined
+        that: service.resources[0].status.loadBalancer.ingress[0].ip is defined
+        fail_msg: "Service 'echo-server' has no ip address."

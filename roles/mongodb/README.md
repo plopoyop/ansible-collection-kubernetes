@@ -3,7 +3,7 @@
 Role to install mongodb on kubernetes cluster.
 It install community operator via its helm chart and deploy mongodb replicatset.
 
-## Table of content
+## Table of contents
 
 - [Requirements](#requirements)
 - [Default Variables](#default-variables)
@@ -35,14 +35,15 @@ It install community operator via its helm chart and deploy mongodb replicatset.
 
 ## Requirements
 
-- Minimum Ansible version: `2.1`
-
+- Minimum Ansible version: `2.17`
 
 ## Default Variables
 
 ### mongodb_crd_helm_version
 
 mongodb instance helm chart version
+
+**_Type:_** dict<br />
 
 #### Default value
 
@@ -54,6 +55,8 @@ mongodb_crd_helm_version: 0.1.0
 
 Overrides for default values
 
+**_Type:_** dict<br />
+
 #### Default value
 
 ```YAML
@@ -61,8 +64,7 @@ mongodb_default_instance:
   name: '{{ mongodb_instance_name }}'
   namespace: '{{ mongodb_instance_namespace }}'
   version: '{{ mongodb_instance_version }}'
-  feature_compatibility_version: "{{ (mongodb_instance_version | ansible.builtin.split('.'))[0]
-    }}.{{ (mongodb_instance_version | ansible.builtin.split('.'))[1] }}"
+  feature_compatibility_version: "{{ (mongodb_instance_version | ansible.builtin.split('.'))[0] }}.{{ (mongodb_instance_version | ansible.builtin.split('.'))[1] }}"
   members: '{{ mongodb_instance_members }}'
   persistent: true
   create_service_account: false
@@ -88,6 +90,8 @@ mongodb_default_instance:
 
 number of replicatset members
 
+**_Type:_** dict<br />
+
 #### Default value
 
 ```YAML
@@ -97,6 +101,8 @@ mongodb_instance_members: 3
 ### mongodb_instance_name
 
 mongodb instance name
+
+**_Type:_** dict<br />
 
 #### Default value
 
@@ -108,6 +114,8 @@ mongodb_instance_name: mongodb-database
 
 K8s namespace to install deploy mongodb instance
 
+**_Type:_** dict<br />
+
 #### Default value
 
 ```YAML
@@ -115,6 +123,8 @@ mongodb_instance_namespace: mongodb
 ```
 
 ### mongodb_instance_values_override
+
+**_Type:_** dict<br />
 
 #### Default value
 
@@ -139,6 +149,8 @@ mongodb_instance_values_override: {}
 
 mongodb version
 
+**_Type:_** dict<br />
+
 #### Default value
 
 ```YAML
@@ -148,6 +160,8 @@ mongodb_instance_version: 8.0.6
 ### mongodb_operator_cpu_limit
 
 CPU limit for operator pod
+
+**_Type:_** string<br />
 
 #### Default value
 
@@ -159,6 +173,8 @@ mongodb_operator_cpu_limit: 1100m
 
 CPU request for operator pod
 
+**_Type:_** string<br />
+
 #### Default value
 
 ```YAML
@@ -169,6 +185,8 @@ mongodb_operator_cpu_request: 500m
 
 Deployment name for mongodb community operator chart
 
+**_Type:_** string<br />
+
 #### Default value
 
 ```YAML
@@ -178,6 +196,8 @@ mongodb_operator_deployment_name: mongodb-operator
 ### mongodb_operator_extra_envs
 
 Additional environment variables
+
+**_Type:_** list<br />
 
 #### Default value
 
@@ -197,6 +217,8 @@ mongodb_operator_extra_envs: []
 
 Helm chart version to install
 
+**_Type:_** string<br />
+
 #### Default value
 
 ```YAML
@@ -206,6 +228,8 @@ mongodb_operator_helm_version: 0.13.0
 ### mongodb_operator_memory_limit
 
 Memory limit for operator pod
+
+**_Type:_** string<br />
 
 #### Default value
 
@@ -217,6 +241,8 @@ mongodb_operator_memory_limit: 1Gi
 
 Memory request for operator pod
 
+**_Type:_** string<br />
+
 #### Default value
 
 ```YAML
@@ -227,6 +253,8 @@ mongodb_operator_memory_request: 200Mi
 
 K8s namespace to install the mongodb community operator chart
 
+**_Type:_** string<br />
+
 #### Default value
 
 ```YAML
@@ -236,6 +264,8 @@ mongodb_operator_namespace: mongodb
 ### mongodb_operator_pod_security_context
 
 security context for operator pod
+
+**_Type:_** dict<br />
 
 #### Default value
 
@@ -250,6 +280,8 @@ mongodb_operator_pod_security_context:
 PriorityClass configuration for operator
 ref: https://kubernetes.io/docs/concepts/scheduling-eviction/pod-priority-preemption/#priorityclass
 
+**_Type:_** string<br />
+
 #### Default value
 
 ```YAML
@@ -259,6 +291,8 @@ mongodb_operator_priority_class: ''
 ### mongodb_operator_replicas
 
 Number of replicat for mongodb operator
+
+**_Type:_** int<br />
 
 #### Default value
 
@@ -270,6 +304,8 @@ mongodb_operator_replicas: 1
 
 security context for operator
 
+**_Type:_** dict<br />
+
 #### Default value
 
 ```YAML
@@ -280,11 +316,12 @@ mongodb_operator_security_context: {}
 
 To configure the Operator to watch resources in another namespace
 
+**_Type:_** string<br />
+
 #### Default value
 
 ```YAML
-mongodb_operator_watch_namespace: "{{ (mongodb_instance_namespace == mongodb_operator_namespace)
-  | ternary(mongodb_instance_namespace, '*') }}"
+mongodb_operator_watch_namespace: "{{ (mongodb_instance_namespace == mongodb_operator_namespace) | ternary(mongodb_instance_namespace, '*') }}"
 ```
 
 #### Example usage
@@ -293,15 +330,13 @@ mongodb_operator_watch_namespace: "{{ (mongodb_instance_namespace == mongodb_ope
  mongodb_operator_watch_namespace: "*"
 ```
 
-
-
 ## Dependencies
 
 None.
 
 ## License
 
-MLP2
+MPL-2.0
 
 ## Author
 

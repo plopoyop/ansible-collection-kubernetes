@@ -5,18 +5,17 @@
   gather_facts: true
 
   tasks:
-    - name: "Pause for cleanup to complete."
-      ansible.builtin.pause:
-        seconds: 10
-
-    - name: "Check if 'crowdsec' namespace exists."
+    - name: "Wait for 'crowdsec' namespace to be removed."
       kubernetes.core.k8s_info:
         kind: Namespace
         name: "crowdsec"
       register: namespace_crowdsec
-      failed_when: false
+      until: namespace_crowdsec.resources | length == 0
+      retries: 30
+      delay: 5
       changed_when: false
 
-    - name: "Assert that 'crowdsec' namespace is removed"
+    - name: "Assert that 'crowdsec' namespace is removed."
       ansible.builtin.assert:
-        that: namespace_crowdsec['resources'] | length == 0
+        that: namespace_crowdsec.resources | length == 0
+        fail_msg: "Namespace 'crowdsec' is still present."

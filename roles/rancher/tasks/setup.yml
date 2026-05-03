@@ -17,7 +17,6 @@
     namespace: "{{ rancher_namespace }}"
     chart_ref: "{{ rancher_helm_chart_ref }}"
     chart_version: "{{ rancher_helm_chart_version }}"
-    create_namespace: true
     update_repo_cache: true
     values: "{{ lookup('ansible.builtin.template', 'rancher_helm_values.yml.j2') | ansible.builtin.from_yaml }}"
     wait: true

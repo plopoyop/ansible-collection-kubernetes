@@ -5,70 +5,98 @@
   gather_facts: true
 
   tasks:
-    - name: "Pause for job to complete."
-      ansible.builtin.pause:
-        seconds: 120
-
-    - name: "Get 'mongodb' namespace info."
+    - name: "Wait for 'mongodb' namespace to be active."
       kubernetes.core.k8s_info:
         kind: Namespace
         name: "mongodb"
       register: namespace_mongodb
+      until:
+        - namespace_mongodb.resources | length > 0
+        - namespace_mongodb.resources[0].status.phase == "Active"
+      retries: 30
+      delay: 5
 
-    - name: "Assert that 'mongodb operator' namespace is active"
+    - name: "Assert that 'mongodb operator' namespace is active."
       ansible.builtin.assert:
-        that: namespace_mongodb['resources'][0]['status']['phase'] == "Active"
+        that:
+          - namespace_mongodb.resources | length > 0
+          - namespace_mongodb.resources[0].status.phase == "Active"
+        fail_msg: "Namespace 'mongodb' is not active."
 
-    - name: "Get 'mongodb-kubernetes-operator' info."
+    - name: "Wait for 'mongodb-kubernetes-operator' to be deployed."
       kubernetes.core.k8s_info:
         kind: "Deployment"
         name: "mongodb-kubernetes-operator"
         namespace: "mongodb"
       register: operator_deployment
+      until: operator_deployment.resources[0].status.availableReplicas | default(0) == 1
+      retries: 30
+      delay: 5
 
-    - name: "Assert that 'mongodb operator' is deployed"
+    - name: "Assert that 'mongodb operator' is deployed."
       ansible.builtin.assert:
-        that: operator_deployment['resources'][0]['status']['availableReplicas'] == 1
+        that: operator_deployment.resources[0].status.availableReplicas | default(0) == 1
+        fail_msg: "Deployment 'mongodb-kubernetes-operator' is not deployed."
 
-    - name: "Get 'db' namespace info."
+    - name: "Wait for 'mongodb-instance' namespace to be active."
       kubernetes.core.k8s_info:
         kind: Namespace
         name: "mongodb-instance"
       register: db_namespace
+      until:
+        - db_namespace.resources | length > 0
+        - db_namespace.resources[0].status.phase == "Active"
+      retries: 30
+      delay: 5
 
-    - name: "Assert that 'mongodb' namespace is active"
+    - name: "Assert that 'mongodb' namespace is active."
       ansible.builtin.assert:
-        that: db_namespace['resources'][0]['status']['phase'] == "Active"
+        that:
+          - db_namespace.resources | length > 0
+          - db_namespace.resources[0].status.phase == "Active"
+        fail_msg: "Namespace 'mongodb-instance' is not active."
 
-    - name: "Get 'mymongodb StatefullSet' service info."
+    - name: "Wait for 'mymongodb' StatefulSet to be deployed."
       kubernetes.core.k8s_info:
         kind: "StatefulSet"
         name: "mymongodb"
         namespace: "mongodb-instance"
       register: stateful_set
+      until: stateful_set.resources[0].status.availableReplicas | default(0) == 1
+      retries: 30
+      delay: 5
 
-    - name: "Assert that 'mymongodb' statefullset is deployed"
+    - name: "Assert that 'mymongodb' statefullset is deployed."
       ansible.builtin.assert:
-        that: stateful_set['resources'][0]['status']['availableReplicas'] == 1
+        that: stateful_set.resources[0].status.availableReplicas | default(0) == 1
+        fail_msg: "StatefulSet 'mymongodb' is not deployed."
 
-    - name: "Get 'mymongodb' connection string secret."
+    - name: "Wait for 'mymongodb' connection string secret to be created."
       kubernetes.core.k8s_info:
         kind: "Secret"
         name: "mymongodb-connection-string"
         namespace: "mongodb-instance"
       register: connection_secret
+      until: connection_secret.resources[0].data is defined
+      retries: 30
+      delay: 5
 
-    - name: "Assert that connection secret is created"
+    - name: "Assert that connection secret is created."
       ansible.builtin.assert:
-        that: connection_secret['resources'][0]['data'] is defined
+        that: connection_secret.resources[0].data is defined
+        fail_msg: "Secret 'mymongodb-connection-string' is not created."
 
-    - name: "Get 'mymongodb' metrics password secret."
+    - name: "Wait for 'mymongodb' metrics password secret to be created."
       kubernetes.core.k8s_info:
         kind: "Secret"
         name: "mymongodb-metrics-endpoint-password"
         namespace: "mongodb-instance"
       register: metrics_password_secret
+      until: metrics_password_secret.resources[0].data is defined
+      retries: 30
+      delay: 5
 
-    - name: "Assert that metrics password secret is created"
+    - name: "Assert that metrics password secret is created."
       ansible.builtin.assert:
-        that: metrics_password_secret['resources'][0]['data'] is defined
+        that: metrics_password_secret.resources[0].data is defined
+        fail_msg: "Secret 'mymongodb-metrics-endpoint-password' is not created."

@@ -5,72 +5,95 @@
   gather_facts: true
 
   tasks:
-    - name: "Pause for job to complete."
-      ansible.builtin.pause:
-        seconds: 5
-
-    - name: "Get 'traefik' namespace info."
+    - name: "Wait for 'traefik' namespace to be active."
       kubernetes.core.k8s_info:
         kind: Namespace
         name: "ingress-traefik-controller"
       register: namespace_traefik
+      until:
+        - namespace_traefik.resources | length > 0
+        - namespace_traefik.resources[0].status.phase == "Active"
+      retries: 30
+      delay: 5
 
-    - name: Assert that 'traefik' namespace is active
+    - name: "Assert that 'traefik' namespace is active."
       ansible.builtin.assert:
-        that: namespace_traefik['resources'][0]['status']['phase'] == "Active"
+        that:
+          - namespace_traefik.resources | length > 0
+          - namespace_traefik.resources[0].status.phase == "Active"
+        fail_msg: "Namespace 'ingress-traefik-controller' is not active."
 
-    - name: Get 'traefik' ingress class info.
+    - name: "Wait for 'traefik' ingress class to be defined."
       kubernetes.core.k8s_info:
         kind: IngressClass
         name: "traefik"
       register: ingressclass
+      until: ingressclass.resources[0] is defined
+      retries: 30
+      delay: 5
 
-    - name: Assert that 'traefik' ingress class is defined
+    - name: "Assert that 'traefik' ingress class is defined."
       ansible.builtin.assert:
-        that: ingressclass['resources'][0] is defined
+        that: ingressclass.resources[0] is defined
+        fail_msg: "IngressClass 'traefik' is not defined."
 
-    - name: Get 'traefik' service info.
+    - name: "Wait for 'traefik' service to be defined."
       kubernetes.core.k8s_info:
         kind: Service
         name: "traefik"
         namespace: "ingress-traefik-controller"
       register: service
+      until: service.resources[0].status.loadBalancer.ingress is defined
+      retries: 30
+      delay: 5
 
-    - name: Assert that 'traefik' service is defined
+    - name: "Assert that 'traefik' service is defined."
       ansible.builtin.assert:
-        that: service['resources'][0]['status']['loadBalancer']['ingress'] is defined
+        that: service.resources[0].status.loadBalancer.ingress is defined
+        fail_msg: "Service 'traefik' has no load balancer ingress."
 
-    - name: "Get 'redirect-to-https' middleware info."
+    - name: "Wait for 'redirect-to-https' middleware to be defined."
       kubernetes.core.k8s_info:
         api_version: "traefik.io/v1alpha1"
         kind: "Middleware"
         name: "redirect-to-https"
         namespace: "ingress-traefik-controller"
       register: middleware
+      until: middleware.resources[0] is defined
+      retries: 30
+      delay: 5
 
-    - name: "Assert that 'redirect-to-https' middleware is defined"
+    - name: "Assert that 'redirect-to-https' middleware is defined."
       ansible.builtin.assert:
-        that: middleware['resources'][0] is defined
+        that: middleware.resources[0] is defined
+        fail_msg: "Middleware 'redirect-to-https' is not defined."
 
-    - name: "Get 'test-inflightconn' TCP middleware info."
+    - name: "Wait for 'test-inflightconn' TCP middleware to be defined."
       kubernetes.core.k8s_info:
         api_version: "traefik.io/v1alpha1"
         kind: "MiddlewareTCP"
         name: "test-inflightconn"
         namespace: "ingress-traefik-controller"
       register: middleware_tcp
+      until: middleware_tcp.resources[0] is defined
+      retries: 30
+      delay: 5
 
-    - name: "Assert that 'test-inflightconn' TCP middleware is defined"
+    - name: "Assert that 'test-inflightconn' TCP middleware is defined."
       ansible.builtin.assert:
-        that: middleware_tcp['resources'][0] is defined
+        that: middleware_tcp.resources[0] is defined
+        fail_msg: "MiddlewareTCP 'test-inflightconn' is not defined."
 
-    - name: "Get helm values for the traefik release"
+    - name: "Wait for helm values for the traefik release to be available."
       kubernetes.core.helm_info:
         name: "traefik"
         namespace: "ingress-traefik-controller"
       register: traefik_release
+      until: traefik_release.status is defined
+      retries: 30
+      delay: 5
 
-    - name: "Assert that plugin + access_logs inputs propagated to helm values"
+    - name: "Assert that plugin + access_logs inputs propagated to helm values."
       ansible.builtin.assert:
         that:
           - release_values['experimental']['plugins']['bouncer']['moduleName']
@@ -78,5 +101,6 @@
           - release_values['logs']['access']['enabled'] | bool
           - release_values['logs']['access']['format'] == 'json'
           - release_values['commonLabels']['traefik-test-propagation'] == 'enabled'
+        fail_msg: "Helm values for 'traefik' release did not propagate plugin or access_logs inputs."
       vars:
         release_values: "{{ traefik_release['status']['values'] }}"

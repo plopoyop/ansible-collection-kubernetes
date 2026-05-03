@@ -5,19 +5,23 @@
   gather_facts: true
 
   tasks:
-    - name: Pause for job to complete.
-      ansible.builtin.pause:
-        seconds: 5
-
-    - name: Get 'traefik' namespace info.
+    - name: "Wait for 'traefik' namespace to be active."
       kubernetes.core.k8s_info:
         kind: Namespace
         name: "ingress-traefik-controller"
       register: namespace_traefik
+      until:
+        - namespace_traefik.resources | length > 0
+        - namespace_traefik.resources[0].status.phase == "Active"
+      retries: 30
+      delay: 5
 
-    - name: Assert that 'traefik' namespace is active
+    - name: "Assert that 'traefik' namespace is active."
       ansible.builtin.assert:
-        that: namespace_traefik['resources'][0]['status']['phase'] == "Active"
+        that:
+          - namespace_traefik.resources | length > 0
+          - namespace_traefik.resources[0].status.phase == "Active"
+        fail_msg: "Namespace 'ingress-traefik-controller' is not active."
 
     - name: Multiple checks on instances
       ansible.builtin.include_tasks: ./tasks/check_instances.yml

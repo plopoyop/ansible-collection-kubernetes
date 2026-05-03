@@ -60,5 +60,6 @@
     traefik_ingress_ip_addresses_list: >-
       {{ traefik_ingress_ip_addresses_list | ansible.builtin.combine({
            traefik_current_instance.name:
-             traefik_ingress_controller_service.resources[0].status.loadBalancer.ingress[0].ip
-      }) }}
+             traefik_ingress_controller_service.resources[0].status.loadBalancer.ingress[0].ip,
+         }) }}
+  changed_when: false

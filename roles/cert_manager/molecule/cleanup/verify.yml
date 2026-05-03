@@ -5,36 +5,44 @@
   gather_facts: true
 
   tasks:
-    - name: "Pause for job to complete."
-      ansible.builtin.pause:
-        seconds: 5
-
-    - name: Get 'selfsigned-issuer' ClusterIssuer.
+    - name: "Wait for 'selfsigned-issuer' ClusterIssuer to be removed."
       kubernetes.core.k8s_info:
         kind: ClusterIssuer
         name: "selfsigned-issuer"
       register: issuer
+      until: issuer.resources | length == 0
+      retries: 30
+      delay: 5
 
-    - name: Assert that 'selfsigned-issuer' ClusterIssuer is removed
+    - name: "Assert that 'selfsigned-issuer' ClusterIssuer is removed."
       ansible.builtin.assert:
-        that: issuer['resources'] == []
+        that: issuer.resources | length == 0
+        fail_msg: "ClusterIssuer 'selfsigned-issuer' is still present."
 
-    - name: Get 'letsencrypt-staging' ClusterIssuer.
+    - name: "Wait for 'letsencrypt-staging' ClusterIssuer to be removed."
       kubernetes.core.k8s_info:
         kind: ClusterIssuer
         name: "letsencrypt-staging"
       register: issuer
+      until: issuer.resources | length == 0
+      retries: 30
+      delay: 5
 
-    - name: Assert that 'letsencrypt-staging' ClusterIssuer is removed
+    - name: "Assert that 'letsencrypt-staging' ClusterIssuer is removed."
       ansible.builtin.assert:
-        that: issuer['resources'] == []
+        that: issuer.resources | length == 0
+        fail_msg: "ClusterIssuer 'letsencrypt-staging' is still present."
 
-    - name: "Get 'cert-manager' namespace info."
+    - name: "Wait for 'cert-manager' namespace to be removed."
       kubernetes.core.k8s_info:
         kind: Namespace
         name: "cert-manager"
       register: namespace_cert_manager
+      until: namespace_cert_manager.resources | length == 0
+      retries: 30
+      delay: 5
 
-    - name: Assert that 'cert-manager' namespace is removed
+    - name: "Assert that 'cert-manager' namespace is removed."
       ansible.builtin.assert:
-        that: namespace_cert_manager['resources'] == []
+        that: namespace_cert_manager.resources | length == 0
+        fail_msg: "Namespace 'cert-manager' is still present."

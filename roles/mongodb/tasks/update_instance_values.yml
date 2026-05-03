@@ -1,15 +1,9 @@
 ---
-- name: "Create updated value"
-  ansible.utils.update_fact:
-    updates:
-      - path: mongodb_instance["{{ value_to_update.key }}"]
-        value: "{{ value_to_update.value }}"
-      - path: mongodb_instance["updated"]
-        value: true
-  register: mongodb_updated_instance
-  changed_when: false
-
-- name: "Update instance"
+- name: "Update mongodb_instance with overridden key"
   ansible.builtin.set_fact:
-    mongodb_instance: "{{ mongodb_updated_instance.mongodb_instance }}"
+    mongodb_instance: >-
+      {{ mongodb_instance | ansible.builtin.combine({
+           value_to_update.key: value_to_update.value,
+           'updated': true,
+         }) }}
   changed_when: false

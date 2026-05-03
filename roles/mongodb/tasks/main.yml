@@ -34,7 +34,7 @@
 
 - name: "Call updating mongodb instance task"
   ansible.builtin.include_tasks: "update_instance_values.yml"
-  loop: "{{ mongodb_instance_values_override | dict2items }}"
+  loop: "{{ mongodb_instance_values_override | ansible.builtin.dict2items }}"
   loop_control:
     loop_var: "value_to_update"
 

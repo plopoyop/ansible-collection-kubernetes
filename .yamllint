@@ -2,7 +2,7 @@
 extends: default
 
 ignore:
-  - ".devenv/"
+  - ".devbox/"
   - "galaxy.yml"
 
 rules:
