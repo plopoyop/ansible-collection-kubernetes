@@ -5,31 +5,40 @@
   gather_facts: true
 
   tasks:
-    - name: "Pause for deployment to complete."
-      ansible.builtin.pause:
-        seconds: 5
-
-    - name: "Get 'cattle-system' namespace info."
+    - name: "Wait for 'cattle-system' namespace to be active."
       kubernetes.core.k8s_info:
         kind: Namespace
         name: "cattle-system"
       register: namespace_rancher
+      until:
+        - namespace_rancher.resources | length > 0
+        - namespace_rancher.resources[0].status.phase == "Active"
+      retries: 30
+      delay: 5
 
-    - name: Assert that 'cattle-system' namespace is active
+    - name: "Assert that 'cattle-system' namespace is active."
       ansible.builtin.assert:
-        that: namespace_rancher['resources'][0]['status']['phase'] == "Active"
+        that:
+          - namespace_rancher.resources | length > 0
+          - namespace_rancher.resources[0].status.phase == "Active"
+        fail_msg: "Namespace 'cattle-system' is not active."
 
-    - name: "Get 'rancher' Deployment info."
+    - name: "Wait for 'rancher' Deployment to be deployed."
       kubernetes.core.k8s_info:
         kind: "Deployment"
         name: "rancher"
         namespace: "cattle-system"
       register: rancher_deployment
+      until: rancher_deployment.resources | length > 0
+      retries: 30
+      delay: 5
 
-    - name: "Assert that 'rancher' Deployment is deployed"
+    - name: "Assert that 'rancher' Deployment is deployed."
       ansible.builtin.assert:
-        that: rancher_deployment['resources'] | length > 0
+        that: rancher_deployment.resources | length > 0
+        fail_msg: "Deployment 'rancher' is not deployed."
 
-    - name: "Assert that 'rancher' Deployment has correct replicas spec"
+    - name: "Assert that 'rancher' Deployment has correct replicas spec."
       ansible.builtin.assert:
-        that: rancher_deployment['resources'][0]['spec']['replicas'] == 1
+        that: rancher_deployment.resources[0].spec.replicas == 1
+        fail_msg: "Deployment 'rancher' does not have 1 replica configured."

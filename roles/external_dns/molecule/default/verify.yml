@@ -5,31 +5,39 @@
   gather_facts: true
 
   tasks:
-    - name: "Pause for deployment to complete."
-      ansible.builtin.pause:
-        seconds: 60
-
-    - name: "Get 'external-dns' namespace info."
+    - name: "Wait for 'external-dns' namespace to be active."
       kubernetes.core.k8s_info:
         kind: Namespace
         name: "external-dns"
       register: namespace_external_dns
+      until:
+        - namespace_external_dns.resources | length > 0
+        - namespace_external_dns.resources[0].status.phase == "Active"
+      retries: 30
+      delay: 5
 
-    - name: Assert that 'external-dns' namespace is active
+    - name: "Assert that 'external-dns' namespace is active."
       ansible.builtin.assert:
-        that: namespace_external_dns['resources'][0]['status']['phase'] == "Active"
+        that:
+          - namespace_external_dns.resources | length > 0
+          - namespace_external_dns.resources[0].status.phase == "Active"
+        fail_msg: "Namespace 'external-dns' is not active."
 
-    - name: "Get 'external-dns' Deployment info."
+    - name: "Wait for 'external-dns' Deployment to be deployed."
       kubernetes.core.k8s_info:
         kind: "Deployment"
         name: "external-dns"
         namespace: "external-dns"
       register: external_dns_deployment
+      until:
+        - external_dns_deployment.resources | length > 0
+        - external_dns_deployment.resources[0].status.readyReplicas | default(0) >= 1
+      retries: 30
+      delay: 5
 
-    - name: "Assert that 'external-dns' Deployment is deployed"
+    - name: "Assert that 'external-dns' Deployment is deployed."
       ansible.builtin.assert:
-        that: external_dns_deployment['resources'] | length > 0
-
-    - name: "Assert that 'external-dns' Deployment has ready replicas"
-      ansible.builtin.assert:
-        that: external_dns_deployment['resources'][0]['status']['readyReplicas'] | default(0) >= 1
+        that:
+          - external_dns_deployment.resources | length > 0
+          - external_dns_deployment.resources[0].status.readyReplicas | default(0) >= 1
+        fail_msg: "Deployment 'external-dns' is not deployed with ready replicas."

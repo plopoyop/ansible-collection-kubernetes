@@ -6,16 +6,16 @@
   vars_files:
     - "../vars.yml"
   tasks:
-    - name: Pause for job to complete.
-      ansible.builtin.pause:
-        seconds: 5
-
-    - name: Get 'metallb' namespace info.
+    - name: "Wait for 'metallb' namespace to be removed."
       kubernetes.core.k8s_info:
         kind: Namespace
         name: "{{ metallb_namespace }}"
       register: namespace_metallb
+      until: namespace_metallb.resources | length == 0
+      retries: 30
+      delay: 5
 
-    - name: Assert that 'metallb' namespace does not exist
+    - name: "Assert that 'metallb' namespace is removed."
       ansible.builtin.assert:
-        that: namespace_metallb['resources'] == []
+        that: namespace_metallb.resources | length == 0
+        fail_msg: "Namespace '{{ metallb_namespace }}' is still present."
