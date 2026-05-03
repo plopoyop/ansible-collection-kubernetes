@@ -7,6 +7,7 @@
 ## ⚙️ Dependencies
 
 - feat\(helm\): update chart rancher \(2.13.3 → 2.14.1\) [\#241](https://github.com/plopoyop/ansible-collection-kubernetes/pull/241) ([plopoyop](https://github.com/plopoyop))
+- feat\(helm\): update chart external-dns \(1.20.0 → 1.21.1\) [\#240](https://github.com/plopoyop/ansible-collection-kubernetes/pull/240) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.1.11 → v46.1.12\) [\#237](https://github.com/plopoyop/ansible-collection-kubernetes/pull/237) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.1.10 → v46.1.11\) [\#233](https://github.com/plopoyop/ansible-collection-kubernetes/pull/233) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.15.11 → v0.15.12\) [\#232](https://github.com/plopoyop/ansible-collection-kubernetes/pull/232) ([plopoyop](https://github.com/plopoyop))
