@@ -13,10 +13,7 @@ Install and configure External-DNS on kubernetes
   - [external_dns_env](#external_dns_env)
   - [external_dns_exclude_domains](#external_dns_exclude_domains)
   - [external_dns_extra_args](#external_dns_extra_args)
-  - [external_dns_helm_chart_ref](#external_dns_helm_chart_ref)
   - [external_dns_helm_chart_version](#external_dns_helm_chart_version)
-  - [external_dns_helm_repo_name](#external_dns_helm_repo_name)
-  - [external_dns_helm_repo_url](#external_dns_helm_repo_url)
   - [external_dns_helm_values](#external_dns_helm_values)
   - [external_dns_namespace](#external_dns_namespace)
   - [external_dns_policy](#external_dns_policy)
@@ -38,7 +35,7 @@ Install and configure External-DNS on kubernetes
 
 ## Requirements
 
-- Minimum Ansible version: `2.1`
+- Minimum Ansible version: `2.17`
 
 ## Default Variables
 
@@ -90,12 +87,12 @@ external_dns_enabled: true
 
 Environment variables for the external-dns helm chart
 
-**_Type:_** dict<br />
+**_Type:_** list<br />
 
 #### Default value
 
 ```YAML
-external_dns_env: {}
+external_dns_env: []
 ```
 
 ### external_dns_exclude_domains
@@ -122,14 +119,6 @@ Extra arguments to provide to ExternalDNS
 external_dns_extra_args: {}
 ```
 
-### external_dns_helm_chart_ref
-
-#### Default value
-
-```YAML
-external_dns_helm_chart_ref: '{{ external_dns_helm_repo_name }}/external-dns'
-```
-
 ### external_dns_helm_chart_version
 
 Helm chart version to install
@@ -140,22 +129,6 @@ Helm chart version to install
 
 ```YAML
 external_dns_helm_chart_version: 1.21.1
-```
-
-### external_dns_helm_repo_name
-
-#### Default value
-
-```YAML
-external_dns_helm_repo_name: external-dns
-```
-
-### external_dns_helm_repo_url
-
-#### Default value
-
-```YAML
-external_dns_helm_repo_url: https://kubernetes-sigs.github.io/external-dns/
 ```
 
 ### external_dns_helm_values
@@ -316,7 +289,7 @@ None.
 
 ## License
 
-MPL2
+MPL-2.0
 
 ## Author
 

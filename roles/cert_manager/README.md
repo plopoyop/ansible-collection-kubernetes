@@ -2,7 +2,7 @@
 
 Install cert-manager
 
-## Table of content
+## Table of contents
 
 - [Requirements](#requirements)
 - [Default Variables](#default-variables)
@@ -35,14 +35,15 @@ Install cert-manager
 
 ## Requirements
 
-- Minimum Ansible version: `2.1`
-
+- Minimum Ansible version: `2.17`
 
 ## Default Variables
 
 ### cert_manager_acme_production_contact_email
 
 Contact Email for ACME production account
+
+**_Type:_** string<br />
 
 #### Default value
 
@@ -62,6 +63,8 @@ cert_manager_acme_production_enabled: true
 
 Ingress Class for ACME Production HTTP solver
 
+**_Type:_** string<br />
+
 #### Default value
 
 ```YAML
@@ -72,6 +75,8 @@ cert_manager_acme_production_ingress_class: traefik
 
 Private key secret ref for ACME Production
 
+**_Type:_** string<br />
+
 #### Default value
 
 ```YAML
@@ -81,6 +86,8 @@ cert_manager_acme_production_private_key_ref: letsencrypt-prod
 ### cert_manager_acme_production_solver
 
 Solver for ACME Production
+
+**_Type:_** list<br />
 
 #### Default value
 
@@ -95,6 +102,8 @@ cert_manager_acme_production_solver:
 ### cert_manager_acme_production_url
 
 ACME Staging url
+
+**_Type:_** string<br />
 
 #### Default value
 
@@ -114,6 +123,8 @@ cert_manager_acme_staging_contact_email: ''
 
 Should ACME staging ClusterIssuer be enabled
 
+**_Type:_** boolean<br />
+
 #### Default value
 
 ```YAML
@@ -123,6 +134,8 @@ cert_manager_acme_staging_enabled: true
 ### cert_manager_acme_staging_ingress_class
 
 Ingress Class for ACME Staging HTTP solver
+
+**_Type:_** string<br />
 
 #### Default value
 
@@ -134,6 +147,8 @@ cert_manager_acme_staging_ingress_class: traefik
 
 Private key secret ref for ACME Staging
 
+**_Type:_** string<br />
+
 #### Default value
 
 ```YAML
@@ -143,6 +158,8 @@ cert_manager_acme_staging_private_key_ref: letsencrypt-staging
 ### cert_manager_acme_staging_solver
 
 Solver for ACME Staging
+
+**_Type:_** list<br />
 
 #### Default value
 
@@ -156,6 +173,8 @@ cert_manager_acme_staging_solver:
 
 ### cert_manager_acme_staging_url
 
+**_Type:_** string<br />
+
 #### Default value
 
 ```YAML
@@ -165,6 +184,8 @@ cert_manager_acme_staging_url: https://acme-staging-v02.api.letsencrypt.org/dire
 ### cert_manager_deployment_name
 
 Deployment name for cert-manager helm chart
+
+**_Type:_** string<br />
 
 #### Default value
 
@@ -176,6 +197,8 @@ cert_manager_deployment_name: cert-manager
 
 Should cert-manager helm chart be installed
 
+**_Type:_** boolean<br />
+
 #### Default value
 
 ```YAML
@@ -185,6 +208,8 @@ cert_manager_enabled: true
 ### cert_manager_helm_chart_version
 
 Helm chart version to install
+
+**_Type:_** string<br />
 
 #### Default value
 
@@ -196,6 +221,8 @@ cert_manager_helm_chart_version: 1.17.1
 
 K8s namespace to install the cert-manager chart
 
+**_Type:_** string<br />
+
 #### Default value
 
 ```YAML
@@ -205,6 +232,8 @@ cert_manager_namespace: cert-manager
 ### cert_manager_self_signed_enabled
 
 Should ACME production ClusterIssuer be enabled
+
+**_Type:_** boolean<br />
 
 #### Default value
 
@@ -216,6 +245,8 @@ cert_manager_self_signed_enabled: true
 
 Deployment name for cert-manager trust manager helm chart
 
+**_Type:_** string<br />
+
 #### Default value
 
 ```YAML
@@ -225,6 +256,8 @@ cert_manager_trust_manager_deployment_name: cert-manager-trust
 ### cert_manager_trust_manager_enabled
 
 Should cert-manager trust manager helm chart be installed
+
+**_Type:_** boolean<br />
 
 #### Default value
 
@@ -236,16 +269,17 @@ cert_manager_trust_manager_enabled: false
 
 Trust manager Helm chart version to install
 
+**_Type:_** string<br />
+
 #### Default value
 
 ```YAML
-cert_manager_trust_manager_helm_chart_ref: 0.16.0
+cert_manager_trust_manager_helm_chart_ref: jetstack/cert-manager-trust
 ```
-
 
 ## Open Tasks
 
-- (improvement): Allow multiple times deployment of the same ClusterIssuer with differents names and solvers
+- (improvement): Allow multiple times deployment of the same ClusterIssuer with different names and solvers
 
 ## Dependencies
 
@@ -253,7 +287,7 @@ None.
 
 ## License
 
-MLP2
+MPL-2.0
 
 ## Author
 

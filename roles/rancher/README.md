@@ -16,13 +16,11 @@ Install rancher
   - [rancher_debug](#rancher_debug)
   - [rancher_deployment_name](#rancher_deployment_name)
   - [rancher_enabled](#rancher_enabled)
-  - [rancher_helm_chart_ref](#rancher_helm_chart_ref)
   - [rancher_helm_chart_version](#rancher_helm_chart_version)
-  - [rancher_helm_repo_name](#rancher_helm_repo_name)
-  - [rancher_helm_repo_url](#rancher_helm_repo_url)
   - [rancher_hostname](#rancher_hostname)
   - [rancher_ingress_class_name](#rancher_ingress_class_name)
   - [rancher_ingress_enabled](#rancher_ingress_enabled)
+  - [rancher_ingress_extra_annotations](#rancher_ingress_extra_annotations)
   - [rancher_ingress_tls_source](#rancher_ingress_tls_source)
   - [rancher_lets_encrypt_email](#rancher_lets_encrypt_email)
   - [rancher_lets_encrypt_ingress_class](#rancher_lets_encrypt_ingress_class)
@@ -39,7 +37,7 @@ Install rancher
 
 ## Requirements
 
-- Minimum Ansible version: `2.1`
+- Minimum Ansible version: `2.17`
 
 ## Default Variables
 
@@ -166,14 +164,6 @@ Should rancher helm chart be installed
 rancher_enabled: true
 ```
 
-### rancher_helm_chart_ref
-
-#### Default value
-
-```YAML
-rancher_helm_chart_ref: rancher-stable/rancher
-```
-
 ### rancher_helm_chart_version
 
 Helm chart version to install
@@ -184,22 +174,6 @@ Helm chart version to install
 
 ```YAML
 rancher_helm_chart_version: 2.14.1
-```
-
-### rancher_helm_repo_name
-
-#### Default value
-
-```YAML
-rancher_helm_repo_name: rancher-stable
-```
-
-### rancher_helm_repo_url
-
-#### Default value
-
-```YAML
-rancher_helm_repo_url: https://releases.rancher.com/server-charts/stable
 ```
 
 ### rancher_hostname
@@ -242,6 +216,18 @@ Enable ingress for Rancher
 
 ```YAML
 rancher_ingress_enabled: false
+```
+
+### rancher_ingress_extra_annotations
+
+Additional annotions for ingress
+
+**_Type:_** dict<br />
+
+#### Default value
+
+```YAML
+rancher_ingress_extra_annotations: {}
 ```
 
 ### rancher_ingress_tls_source
@@ -365,7 +351,7 @@ None.
 
 ## License
 
-MLP2
+MPL-2.0
 
 ## Author
 
