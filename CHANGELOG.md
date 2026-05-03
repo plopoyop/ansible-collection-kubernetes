@@ -1,11 +1,12 @@
 # Changelog
 
-## [7.4.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.4.1) (2026-05-03)
+## [7.5.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.5.0) (2026-05-03)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.4.0...7.4.1)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.4.0...7.5.0)
 
 ## ⚙️ Dependencies
 
+- feat\(helm\): update chart rancher \(2.13.3 → 2.14.1\) [\#241](https://github.com/plopoyop/ansible-collection-kubernetes/pull/241) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.1.11 → v46.1.12\) [\#237](https://github.com/plopoyop/ansible-collection-kubernetes/pull/237) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.1.10 → v46.1.11\) [\#233](https://github.com/plopoyop/ansible-collection-kubernetes/pull/233) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.15.11 → v0.15.12\) [\#232](https://github.com/plopoyop/ansible-collection-kubernetes/pull/232) ([plopoyop](https://github.com/plopoyop))
