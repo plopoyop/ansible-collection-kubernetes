@@ -1,5 +1,13 @@
 # Changelog
 
+## [7.5.2](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.5.2) (2026-05-05)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.5.1...7.5.2)
+
+## ⚙️ Dependencies
+
+- fix\(helm\): update chart traefik \(39.0.8 → 39.0.9\) [\#244](https://github.com/plopoyop/ansible-collection-kubernetes/pull/244) ([plopoyop](https://github.com/plopoyop))
+
 ## [7.5.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.5.1) (2026-05-03)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.5.0...7.5.1)
