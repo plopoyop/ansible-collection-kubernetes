@@ -1,8 +1,12 @@
 # Changelog
 
-## [7.5.2](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.5.2) (2026-05-05)
+## [7.6.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.6.0) (2026-05-06)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.5.1...7.5.2)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.5.1...7.6.0)
+
+## 🚀 New Features
+
+- Add tags on tasks [\#245](https://github.com/plopoyop/ansible-collection-kubernetes/pull/245) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
 
