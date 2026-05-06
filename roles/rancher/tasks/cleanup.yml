@@ -6,6 +6,8 @@
     chart_ref: "{{ rancher_helm_chart_ref }}"
     state: "absent"
     wait: true
+  tags:
+    - "helm_chart"
 
 - name: "Remove rancher namespace"
   kubernetes.core.k8s:
@@ -13,11 +15,15 @@
     api_version: "v1"
     kind: "Namespace"
     state: "absent"
+  tags:
+    - "namespace"
 
 - name: "Remove rancher-stable helm repo"
   kubernetes.core.helm_repository:
     name: "{{ rancher_helm_repo_name }}"
     state: "absent"
+  tags:
+    - "helm_repository"
 
 - name: "Download rancher cleanup job manifest"
   ansible.builtin.uri:
@@ -25,9 +31,13 @@
     return_content: true
   register: rancher_cleanup_manifest
   check_mode: false
+  tags:
+    - "manifest"
 
 - name: "Apply rancher cleanup job manifest"
   kubernetes.core.k8s:
     state: "present"
     definition: "{{ rancher_cleanup_manifest.content }}"
   when: rancher_cleanup_manifest is succeeded
+  tags:
+    - "manifest"

@@ -6,11 +6,15 @@
     api_version: "v1"
     kind: "Namespace"
     state: "present"
+  tags:
+    - "namespace"
 
 - name: "Add jetstack helm repo"
   kubernetes.core.helm_repository:
     name: "{{ cert_manager_helm_repo_name }}"
     repo_url: "{{ cert_manager_helm_repo_url }}"
+  tags:
+    - "helm_repository"
 
 - name: "Install cert-manager helm package in namespace cert-manager"
   kubernetes.core.helm:
@@ -22,6 +26,8 @@
     values:
       installCRDs: true
     wait: true
+  tags:
+    - "helm_chart"
 
 - name: "Install trust manager helm package in namespace cert-manager"
   kubernetes.core.helm:
@@ -34,6 +40,8 @@
       installCRDs: true
     wait: true
   when: cert_manager_trust_manager_enabled
+  tags:
+    - "helm_chart"
 
 - name: "Create staging cluster-issuer for lets encrypt"
   kubernetes.core.k8s:
@@ -41,6 +49,8 @@
     state: "{{ cert_manager_acme_staging_enabled | ansible.builtin.ternary('present', 'absent') }}"
     definition: >-
       {{ lookup('ansible.builtin.template', 'cluster-issuer.staging.yml.j2') | ansible.builtin.from_yaml }}
+  tags:
+    - "manifest"
 
 - name: "Create prod cluster-issuer for lets encrypt"
   kubernetes.core.k8s:
@@ -48,6 +58,8 @@
     state: "{{ cert_manager_acme_production_enabled | ansible.builtin.ternary('present', 'absent') }}"
     definition: >-
       {{ lookup('ansible.builtin.template', 'cluster-issuer.prod.yml.j2') | ansible.builtin.from_yaml }}
+  tags:
+    - "manifest"
 
 - name: "Create SelfSigned cluster-issuer"
   kubernetes.core.k8s:
@@ -55,3 +67,5 @@
     state: "{{ cert_manager_self_signed_enabled | ansible.builtin.ternary('present', 'absent') }}"
     definition: >-
       {{ lookup('ansible.builtin.template', 'cluster-issuer.selfsigned.yml.j2') | ansible.builtin.from_yaml }}
+  tags:
+    - "manifest"

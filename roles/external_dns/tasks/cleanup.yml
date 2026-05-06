@@ -4,6 +4,8 @@
     name: "{{ external_dns_deployment_name }}"
     namespace: "{{ external_dns_namespace }}"
     state: "absent"
+  tags:
+    - "helm_chart"
 
 - name: "Delete external-dns namespace"
   kubernetes.core.k8s:
@@ -11,3 +13,5 @@
     api_version: "v1"
     kind: "Namespace"
     state: "absent"
+  tags:
+    - "namespace"

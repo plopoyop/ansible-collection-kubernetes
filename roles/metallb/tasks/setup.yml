@@ -3,6 +3,8 @@
   kubernetes.core.helm_repository:
     name: "{{ metallb_helm_repository }}"
     repo_url: "{{ metallb_helm_repository_address }}"
+  tags:
+    - "helm_repository"
 
 - name: "Install metal lb helm package"
   kubernetes.core.helm:
@@ -14,6 +16,8 @@
     update_repo_cache: true
     wait: true
     values: "{{ lookup('ansible.builtin.template', 'metallb_helm_values.yml.j2') | ansible.builtin.from_yaml }}"
+  tags:
+    - "helm_chart"
 
 - name: "Create IP Pool"
   kubernetes.core.k8s:
@@ -27,3 +31,5 @@
   loop: "{{ metallb_ip_pools }}"
   loop_control:
     loop_var: "current_ip_pool"
+  tags:
+    - "manifest"

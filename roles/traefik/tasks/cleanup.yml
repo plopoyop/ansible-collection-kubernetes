@@ -11,12 +11,16 @@
   loop: "{{ traefik_deployments }}"
   loop_control:
     loop_var: "traefik_instance_to_remove"
+  tags:
+    - "helm_chart"
 
 - name: "Remove ingress traefik helm repo"
   kubernetes.core.helm_repository:
     name: "{{ traefik_helm_repo_name }}"
     repo_url: "{{ traefik_helm_repo_url }}"
     state: "absent"
+  tags:
+    - "helm_repository"
 
 - name: "Remove ingress-controller namespace"
   kubernetes.core.k8s:
@@ -24,3 +28,5 @@
     api_version: "v1"
     kind: "Namespace"
     state: "absent"
+  tags:
+    - "namespace"

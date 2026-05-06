@@ -44,15 +44,83 @@ You can call the roles from this collection in your Ansible playbooks as follows
 ## Collection content
 ### List of Roles and Helm Chart Versions
 
-| Role Name       | Helm Chart Version | README Link                                 |
-| ---------       | ------------------ | ------------------------------------        |
-| ExternalDNS         | v1.21.1            | [View README](roles/external_dns/README.md)       |
-| metallb         | v0.15.3            | [View README](roles/metallb/README.md)     |
-| traefik         | v39.0.9            | [View README](roles/traefik/README.md)      |
-| cert\_manager   | v0.17.1            | [View README](roles/cert_manager/README.md) |
-| CrowdSec        | v0.23.0            | [View README](roles/crowdsec/README.md)     |
-| mongodb community operator | v0.13.0            | [View README](roles/mongodb/README.md) |
-| Rancher         | v2.14.1            | [View README](roles/rancher/README.md) |
+| Role Name       | Helm Chart Version | Role Tag       | README Link                                 |
+| ---------       | ------------------ | -------------- | ------------------------------------        |
+| ExternalDNS         | v1.21.1            | `external_dns` | [View README](roles/external_dns/README.md)       |
+| metallb         | v0.15.3            | `metallb`      | [View README](roles/metallb/README.md)     |
+| traefik         | v39.0.9            | `traefik`      | [View README](roles/traefik/README.md)      |
+| cert\_manager   | v0.17.1            | `cert_manager` | [View README](roles/cert_manager/README.md) |
+| CrowdSec        | v0.23.0            | `crowdsec`     | [View README](roles/crowdsec/README.md)     |
+| mongodb community operator | v0.13.0            | `mongodb`      | [View README](roles/mongodb/README.md) |
+| Rancher         | v2.14.1            | `rancher`      | [View README](roles/rancher/README.md) |
+
+### Tags
+
+Every role in this collection ships tagged tasks so you can selectively run only what you need with `ansible-playbook --tags` or skip parts with `--skip-tags`.
+
+Three kinds of tags are exposed:
+
+- **Role tag** — named after the role itself (e.g. `traefik`, `cert_manager`, `crowdsec`, `external_dns`, `metallb`, `mongodb`, `rancher`). Use it to scope a run to a single tool.
+- **Action tag** — `install` or `uninstall`. The role's `*_enabled` variable controls which one runs:
+  - When `<role>_enabled: true`, the setup tasks (tagged `install`) are executed.
+  - When `<role>_enabled: false`, the cleanup tasks (tagged `uninstall`) are executed.
+- **Task-type tag** — applied per task to scope a run to a specific phase (e.g. only create the namespace, only refresh helm repos):
+
+  | Tag               | Applied to                                                                                                  |
+  | ----------------- | ----------------------------------------------------------------------------------------------------------- |
+  | `namespace`       | Namespace creation/deletion                                                                                 |
+  | `helm_repository` | Adding/removing helm repositories                                                                           |
+  | `helm_chart`      | Helm chart install/upgrade/uninstall (and related `helm_info` / pod-readiness checks)                       |
+  | `crds`            | CRD-specific tasks (direct manifest application or CRD-only helm charts)                                    |
+  | `manifest`        | Other Kubernetes resources (ClusterIssuers, IPPools, middlewares, custom resources, PVCs cleanup, etc.)     |
+
+  Pure helper tasks (`set_fact`, `assert`, `pause`, `uri` validations, `debug`) carry only the role + action tags so they run alongside any phase that needs them.
+
+> **Note:** the `mongodb` role only exposes the `install` action tag (no cleanup flow is provided).
+
+#### Examples
+
+Install only Traefik:
+
+```sh
+ansible-playbook playbook.yml --tags "traefik,install"
+```
+
+Run install actions for every role:
+
+```sh
+ansible-playbook playbook.yml --tags "install"
+```
+
+Uninstall only CrowdSec (requires `crowdsec_enabled: false`):
+
+```sh
+ansible-playbook playbook.yml --tags "crowdsec,uninstall"
+```
+
+Run everything except MetalLB:
+
+```sh
+ansible-playbook playbook.yml --skip-tags "metallb"
+```
+
+Prepare prerequisites only (create namespace + add helm repo) without installing the chart, e.g. for Traefik:
+
+```sh
+ansible-playbook playbook.yml --tags "traefik,namespace,helm_repository"
+```
+
+Uninstall CrowdSec but keep its namespace:
+
+```sh
+ansible-playbook playbook.yml --tags "crowdsec,uninstall" --skip-tags "namespace"
+```
+
+Refresh just the helm chart for cert-manager (skip namespace + repo + manifests):
+
+```sh
+ansible-playbook playbook.yml --tags "cert_manager,helm_chart"
+```
 
 ## Customization
 
