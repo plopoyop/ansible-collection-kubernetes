@@ -5,11 +5,15 @@
     api_version: "v1"
     kind: "Namespace"
     state: "present"
+  tags:
+    - "namespace"
 
 - name: "Add ingress traefik helm repo"
   kubernetes.core.helm_repository:
     name: "{{ traefik_helm_repo_name }}"
     repo_url: "{{ traefik_helm_repo_url }}"
+  tags:
+    - "helm_repository"
 
 - name: "Instanciate ip addresses list"
   ansible.builtin.set_fact:
@@ -20,6 +24,8 @@
   loop: "{{ traefik_deployments }}"
   loop_control:
     loop_var: "traefik_current_instance"
+  tags:
+    - "helm_chart"
 
 - name: "Create middlewares"
   kubernetes.core.k8s:
@@ -30,6 +36,8 @@
   loop: "{{ traefik_middlewares }}"
   loop_control:
     loop_var: "current_traefik_middleware"
+  tags:
+    - "manifest"
 
 - name: "Create TCP middlewares"
   kubernetes.core.k8s:
@@ -40,3 +48,5 @@
   loop: "{{ traefik_middlewares_tcp }}"
   loop_control:
     loop_var: "current_traefik_middleware"
+  tags:
+    - "manifest"

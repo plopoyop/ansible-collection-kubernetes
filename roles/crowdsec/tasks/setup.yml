@@ -5,11 +5,15 @@
     api_version: "v1"
     kind: "Namespace"
     state: "present"
+  tags:
+    - "namespace"
 
 - name: "Add CrowdSec helm repo"
   kubernetes.core.helm_repository:
     name: "{{ crowdsec_helm_repo_name }}"
     repo_url: "{{ crowdsec_helm_repo_url }}"
+  tags:
+    - "helm_repository"
 
 - name: "Install CrowdSec helm package"
   kubernetes.core.helm:
@@ -21,3 +25,5 @@
     update_repo_cache: true
     values: "{{ lookup('ansible.builtin.template', 'crowdsec_helm_values.yml.j2') | ansible.builtin.from_yaml }}"
     wait: "{{ crowdsec_wait_install }}"
+  tags:
+    - "helm_chart"

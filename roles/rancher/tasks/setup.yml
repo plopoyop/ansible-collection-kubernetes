@@ -5,11 +5,15 @@
     api_version: "v1"
     kind: "Namespace"
     state: "present"
+  tags:
+    - "namespace"
 
 - name: "Add rancher-stable helm repo"
   kubernetes.core.helm_repository:
     name: "{{ rancher_helm_repo_name }}"
     repo_url: "{{ rancher_helm_repo_url }}"
+  tags:
+    - "helm_repository"
 
 - name: "Install rancher helm package"
   kubernetes.core.helm:
@@ -20,3 +24,5 @@
     update_repo_cache: true
     values: "{{ lookup('ansible.builtin.template', 'rancher_helm_values.yml.j2') | ansible.builtin.from_yaml }}"
     wait: true
+  tags:
+    - "helm_chart"
