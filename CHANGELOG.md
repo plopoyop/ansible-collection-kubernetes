@@ -1,6 +1,6 @@
 # Changelog
 
-## [7.6.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.6.0) (2026-05-06)
+## [7.6.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.6.0) (2026-05-07)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.5.1...7.6.0)
 
@@ -10,6 +10,7 @@
 
 ## ⚙️ Dependencies
 
+- fix\(ci\): update renovatebot/github-action action \(v46.1.12 → v46.1.13\) [\#246](https://github.com/plopoyop/ansible-collection-kubernetes/pull/246) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart traefik \(39.0.8 → 39.0.9\) [\#244](https://github.com/plopoyop/ansible-collection-kubernetes/pull/244) ([plopoyop](https://github.com/plopoyop))
 
 ## [7.5.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/7.5.1) (2026-05-03)
