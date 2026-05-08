@@ -8,11 +8,14 @@
 
 - Add tags on tasks [\#245](https://github.com/plopoyop/ansible-collection-kubernetes/pull/245) ([plopoyop](https://github.com/plopoyop))
 
-## ⚙️ Dependencies
+## ⛵ Helm Charts
 
 - feat\(helm\)!: Update chart traefik \(39.0.9 → 40.0.0\) [\#247](https://github.com/plopoyop/ansible-collection-kubernetes/pull/247) ([plopoyop](https://github.com/plopoyop))
-- fix\(ci\): update renovatebot/github-action action \(v46.1.12 → v46.1.13\) [\#246](https://github.com/plopoyop/ansible-collection-kubernetes/pull/246) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart traefik \(39.0.8 → 39.0.9\) [\#244](https://github.com/plopoyop/ansible-collection-kubernetes/pull/244) ([plopoyop](https://github.com/plopoyop))
+
+## ⚙️ Dependencies
+
+- fix\(ci\): update renovatebot/github-action action \(v46.1.12 → v46.1.13\) [\#246](https://github.com/plopoyop/ansible-collection-kubernetes/pull/246) ([plopoyop](https://github.com/plopoyop))
 
 **Merged pull requests:**
 
@@ -30,10 +33,13 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.4.0...7.5.0)
 
-## ⚙️ Dependencies
+## ⛵ Helm Charts
 
 - feat\(helm\): update chart rancher \(2.13.3 → 2.14.1\) [\#241](https://github.com/plopoyop/ansible-collection-kubernetes/pull/241) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart external-dns \(1.20.0 → 1.21.1\) [\#240](https://github.com/plopoyop/ansible-collection-kubernetes/pull/240) ([plopoyop](https://github.com/plopoyop))
+
+## ⚙️ Dependencies
+
 - fix\(ci\): update renovatebot/github-action action \(v46.1.11 → v46.1.12\) [\#237](https://github.com/plopoyop/ansible-collection-kubernetes/pull/237) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.1.10 → v46.1.11\) [\#233](https://github.com/plopoyop/ansible-collection-kubernetes/pull/233) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.15.11 → v0.15.12\) [\#232](https://github.com/plopoyop/ansible-collection-kubernetes/pull/232) ([plopoyop](https://github.com/plopoyop))
@@ -105,9 +111,12 @@
 - Revert to official packages after urllib fix [\#219](https://github.com/plopoyop/ansible-collection-kubernetes/pull/219) ([plopoyop](https://github.com/plopoyop))
 - Run rancher cleanup job on remove [\#218](https://github.com/plopoyop/ansible-collection-kubernetes/pull/218) ([plopoyop](https://github.com/plopoyop))
 
-## ⚙️ Dependencies
+## ⛵ Helm Charts
 
 - fix\(helm\): update chart traefik \(39.0.7 → 39.0.8\) [\#222](https://github.com/plopoyop/ansible-collection-kubernetes/pull/222) ([plopoyop](https://github.com/plopoyop))
+
+## ⚙️ Dependencies
+
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.15.10 → v0.15.11\) [\#221](https://github.com/plopoyop/ansible-collection-kubernetes/pull/221) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.1.8 → v46.1.9\) [\#220](https://github.com/plopoyop/ansible-collection-kubernetes/pull/220) ([plopoyop](https://github.com/plopoyop))
 - feat\(ci\)!: Update softprops/action-gh-release action \(v2 → v3\) [\#217](https://github.com/plopoyop/ansible-collection-kubernetes/pull/217) ([plopoyop](https://github.com/plopoyop))
@@ -146,14 +155,17 @@
 - Add Rancher ingress annotations [\#198](https://github.com/plopoyop/ansible-collection-kubernetes/pull/198) ([plopoyop](https://github.com/plopoyop))
 - Fix/rancher renovate [\#192](https://github.com/plopoyop/ansible-collection-kubernetes/pull/192) ([plopoyop](https://github.com/plopoyop))
 
-## ⚙️ Dependencies
+## ⛵ Helm Charts
 
 - fix\(helm\): update chart traefik \(39.0.6 → 39.0.7\) [\#207](https://github.com/plopoyop/ansible-collection-kubernetes/pull/207) ([plopoyop](https://github.com/plopoyop))
+- fix\(helm\): update chart traefik \(39.0.5 → 39.0.6\) [\#200](https://github.com/plopoyop/ansible-collection-kubernetes/pull/200) ([plopoyop](https://github.com/plopoyop))
+
+## ⚙️ Dependencies
+
 - feat\(ci\)!: Update hugo19941994/delete-draft-releases action \(v2.0.0 → v3.0.0\) [\#206](https://github.com/plopoyop/ansible-collection-kubernetes/pull/206) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.15.7 → v0.15.8\) [\#205](https://github.com/plopoyop/ansible-collection-kubernetes/pull/205) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.1.5 → v46.1.6\) [\#203](https://github.com/plopoyop/ansible-collection-kubernetes/pull/203) ([plopoyop](https://github.com/plopoyop))
 - feat\(ci\): update jetify-com/devbox-install-action action \(v0.14.0 → v0.15.0\) [\#201](https://github.com/plopoyop/ansible-collection-kubernetes/pull/201) ([plopoyop](https://github.com/plopoyop))
-- fix\(helm\): update chart traefik \(39.0.5 → 39.0.6\) [\#200](https://github.com/plopoyop/ansible-collection-kubernetes/pull/200) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.15.6 → v0.15.7\) [\#199](https://github.com/plopoyop/ansible-collection-kubernetes/pull/199) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.1.4 → v46.1.5\) [\#197](https://github.com/plopoyop/ansible-collection-kubernetes/pull/197) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.15.5 → v0.15.6\) [\#194](https://github.com/plopoyop/ansible-collection-kubernetes/pull/194) ([plopoyop](https://github.com/plopoyop))
@@ -172,10 +184,13 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.0.0...7.0.1)
 
+## ⛵ Helm Charts
+
+- fix\(helm\): update chart traefik \(39.0.2 → 39.0.5\) [\#186](https://github.com/plopoyop/ansible-collection-kubernetes/pull/186) ([plopoyop](https://github.com/plopoyop))
+
 ## ⚙️ Dependencies
 
 - feat\(deps\): update pre-commit hook ansible/ansible-lint \(v26.1.1 → v26.3.0\) [\#188](https://github.com/plopoyop/ansible-collection-kubernetes/pull/188) ([plopoyop](https://github.com/plopoyop))
-- fix\(helm\): update chart traefik \(39.0.2 → 39.0.5\) [\#186](https://github.com/plopoyop/ansible-collection-kubernetes/pull/186) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.15.4 → v0.15.5\) [\#184](https://github.com/plopoyop/ansible-collection-kubernetes/pull/184) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.1.2 → v46.1.3\) [\#183](https://github.com/plopoyop/ansible-collection-kubernetes/pull/183) ([plopoyop](https://github.com/plopoyop))
 
@@ -207,17 +222,20 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/5.0.2...6.0.0)
 
+## ⛵ Helm Charts
+
+- fix\(helm\): update chart traefik \(39.0.1 → 39.0.2\) [\#173](https://github.com/plopoyop/ansible-collection-kubernetes/pull/173) ([plopoyop](https://github.com/plopoyop))
+- fix\(helm\): update chart traefik \(39.0.0 → 39.0.1\) [\#170](https://github.com/plopoyop/ansible-collection-kubernetes/pull/170) ([plopoyop](https://github.com/plopoyop))
+- feat\(helm\)!: Update chart traefik \(38.0.2 → 39.0.0\) [\#165](https://github.com/plopoyop/ansible-collection-kubernetes/pull/165) ([plopoyop](https://github.com/plopoyop))
+
 ## ⚙️ Dependencies
 
 - feat\(ci\): update renovatebot/github-action action \(v46.0.2 → v46.1.1\) [\#174](https://github.com/plopoyop/ansible-collection-kubernetes/pull/174) ([plopoyop](https://github.com/plopoyop))
-- fix\(helm\): update chart traefik \(39.0.1 → 39.0.2\) [\#173](https://github.com/plopoyop/ansible-collection-kubernetes/pull/173) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.15.1 → v0.15.2\) [\#172](https://github.com/plopoyop/ansible-collection-kubernetes/pull/172) ([plopoyop](https://github.com/plopoyop))
-- fix\(helm\): update chart traefik \(39.0.0 → 39.0.1\) [\#170](https://github.com/plopoyop/ansible-collection-kubernetes/pull/170) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.15.0 → v0.15.1\) [\#169](https://github.com/plopoyop/ansible-collection-kubernetes/pull/169) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.0.1 → v46.0.2\) [\#168](https://github.com/plopoyop/ansible-collection-kubernetes/pull/168) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.0.0 → v46.0.1\) [\#167](https://github.com/plopoyop/ansible-collection-kubernetes/pull/167) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.14.14 → v0.15.0\) [\#166](https://github.com/plopoyop/ansible-collection-kubernetes/pull/166) ([plopoyop](https://github.com/plopoyop))
-- feat\(helm\)!: Update chart traefik \(38.0.2 → 39.0.0\) [\#165](https://github.com/plopoyop/ansible-collection-kubernetes/pull/165) ([plopoyop](https://github.com/plopoyop))
 - feat\(ci\)!: Update renovatebot/github-action action \(v44.2.6 → v46.0.0\) [\#164](https://github.com/plopoyop/ansible-collection-kubernetes/pull/164) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit hook adrienverge/yamllint \(v1.37.1 → v1.38.0\) [\#163](https://github.com/plopoyop/ansible-collection-kubernetes/pull/163) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.14.13 → v0.14.14\) [\#160](https://github.com/plopoyop/ansible-collection-kubernetes/pull/160) ([plopoyop](https://github.com/plopoyop))
@@ -256,9 +274,12 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/5.0.0...5.0.1)
 
-## ⚙️ Dependencies
+## ⛵ Helm Charts
 
 - fix\(helm\): update chart traefik \(38.0.1 → 38.0.2\) [\#148](https://github.com/plopoyop/ansible-collection-kubernetes/pull/148) ([plopoyop](https://github.com/plopoyop))
+
+## ⚙️ Dependencies
+
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.14.10 → v0.14.11\) [\#147](https://github.com/plopoyop/ansible-collection-kubernetes/pull/147) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v44.2.2 → v44.2.3\) [\#146](https://github.com/plopoyop/ansible-collection-kubernetes/pull/146) ([plopoyop](https://github.com/plopoyop))
 
@@ -274,10 +295,13 @@
 
 - move external dns from kubernetes\_apps collection [\#141](https://github.com/plopoyop/ansible-collection-kubernetes/pull/141) ([plopoyop](https://github.com/plopoyop))
 
-## ⚙️ Dependencies
+## ⛵ Helm Charts
 
 - feat\(helm\)!: Update chart traefik \(37.4.0 → 38.0.1\) [\#145](https://github.com/plopoyop/ansible-collection-kubernetes/pull/145) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart external-dns \(1.19.0 → 1.20.0\) [\#144](https://github.com/plopoyop/ansible-collection-kubernetes/pull/144) ([plopoyop](https://github.com/plopoyop))
+
+## ⚙️ Dependencies
+
 - fix\(deps\): update pre-commit hook ansible/ansible-lint \(v25.12.1 → v25.12.2\) [\#143](https://github.com/plopoyop/ansible-collection-kubernetes/pull/143) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.14.9 → v0.14.10\) [\#142](https://github.com/plopoyop/ansible-collection-kubernetes/pull/142) ([plopoyop](https://github.com/plopoyop))
 
@@ -295,6 +319,10 @@
 
 - error in variable name [\#135](https://github.com/plopoyop/ansible-collection-kubernetes/pull/135) ([plopoyop](https://github.com/plopoyop))
 
+## ⛵ Helm Charts
+
+- fix\(helm\): update chart metallb \(0.15.2 → 0.15.3\) [\#129](https://github.com/plopoyop/ansible-collection-kubernetes/pull/129) ([plopoyop](https://github.com/plopoyop))
+
 ## ⚙️ Dependencies
 
 - feat\(ci\): update renovatebot/github-action action \(v44.0.5 → v44.1.0\) [\#139](https://github.com/plopoyop/ansible-collection-kubernetes/pull/139) ([plopoyop](https://github.com/plopoyop))
@@ -305,7 +333,6 @@
 - feat\(deps\): update python313packages.molecule \(25.11.0 → 25.12.0\) [\#132](https://github.com/plopoyop/ansible-collection-kubernetes/pull/132) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit hook ansible/ansible-lint \(v25.11.1 → v25.12.0\) [\#131](https://github.com/plopoyop/ansible-collection-kubernetes/pull/131) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit \(4.3.0 → 4.5.0\) [\#130](https://github.com/plopoyop/ansible-collection-kubernetes/pull/130) ([plopoyop](https://github.com/plopoyop))
-- fix\(helm\): update chart metallb \(0.15.2 → 0.15.3\) [\#129](https://github.com/plopoyop/ansible-collection-kubernetes/pull/129) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update python313packages.ruff \(0.14.5 → 0.14.7\) [\#128](https://github.com/plopoyop/ansible-collection-kubernetes/pull/128) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.14.7 → v0.14.8\) [\#127](https://github.com/plopoyop/ansible-collection-kubernetes/pull/127) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update ansible-doctor \(8.0.0 → 8.0.1\) [\#126](https://github.com/plopoyop/ansible-collection-kubernetes/pull/126) ([plopoyop](https://github.com/plopoyop))
@@ -320,10 +347,13 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/3.1.0...3.2.0)
 
+## ⛵ Helm Charts
+
+- feat\(helm\): update chart traefik \(37.3.0 → 37.4.0\) [\#117](https://github.com/plopoyop/ansible-collection-kubernetes/pull/117) ([plopoyop](https://github.com/plopoyop))
+
 ## ⚙️ Dependencies
 
 - feat\(ci\)!: Update actions/checkout action \(v5 → v6\) [\#118](https://github.com/plopoyop/ansible-collection-kubernetes/pull/118) ([plopoyop](https://github.com/plopoyop))
-- feat\(helm\): update chart traefik \(37.3.0 → 37.4.0\) [\#117](https://github.com/plopoyop/ansible-collection-kubernetes/pull/117) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update python313packages.ruff \(0.14.3 → 0.14.4\) [\#116](https://github.com/plopoyop/ansible-collection-kubernetes/pull/116) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.14.5 → v0.14.6\) [\#115](https://github.com/plopoyop/ansible-collection-kubernetes/pull/115) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update go-task \(3.45.4 → 3.45.5\) [\#114](https://github.com/plopoyop/ansible-collection-kubernetes/pull/114) ([plopoyop](https://github.com/plopoyop))
@@ -334,10 +364,13 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/3.0.0...3.1.0)
 
+## ⛵ Helm Charts
+
+- feat\(helm\): update chart traefik \(37.1.2 → 37.3.0\) [\#110](https://github.com/plopoyop/ansible-collection-kubernetes/pull/110) ([plopoyop](https://github.com/plopoyop))
+
 ## ⚙️ Dependencies
 
 - feat\(deps\)!: Update ansible-doctor \(7.2.1 → 8.0.0\) [\#111](https://github.com/plopoyop/ansible-collection-kubernetes/pull/111) ([plopoyop](https://github.com/plopoyop))
-- feat\(helm\): update chart traefik \(37.1.2 → 37.3.0\) [\#110](https://github.com/plopoyop/ansible-collection-kubernetes/pull/110) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update python313packages.molecule \(25.9.0 → 25.11.0\) [\#109](https://github.com/plopoyop/ansible-collection-kubernetes/pull/109) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update python313packages.ansible \(12.1.0 → 12.2.0\) [\#108](https://github.com/plopoyop/ansible-collection-kubernetes/pull/108) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.13.3 → v0.14.5\) [\#107](https://github.com/plopoyop/ansible-collection-kubernetes/pull/107) ([plopoyop](https://github.com/plopoyop))
@@ -361,11 +394,14 @@
 - fix Certmanager verify condition [\#99](https://github.com/plopoyop/ansible-collection-kubernetes/pull/99) ([plopoyop](https://github.com/plopoyop))
 - Error in read local state plugin [\#98](https://github.com/plopoyop/ansible-collection-kubernetes/pull/98) ([plopoyop](https://github.com/plopoyop))
 
+## ⛵ Helm Charts
+
+- fix\(helm\): update chart traefik \(37.1.1 → 37.1.2\) [\#94](https://github.com/plopoyop/ansible-collection-kubernetes/pull/94) ([plopoyop](https://github.com/plopoyop))
+
 ## ⚙️ Dependencies
 
 - feat\(ci\)!: Update renovatebot/github-action action \(v43.0.12 → v44.0.0\) [\#96](https://github.com/plopoyop/ansible-collection-kubernetes/pull/96) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook ansible/ansible-lint \(v25.9.1 → v25.9.2\) [\#95](https://github.com/plopoyop/ansible-collection-kubernetes/pull/95) ([plopoyop](https://github.com/plopoyop))
-- fix\(helm\): update chart traefik \(37.1.1 → 37.1.2\) [\#94](https://github.com/plopoyop/ansible-collection-kubernetes/pull/94) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.13.2 → v0.13.3\) [\#93](https://github.com/plopoyop/ansible-collection-kubernetes/pull/93) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook ansible/ansible-lint \(v25.9.0 → v25.9.1\) [\#92](https://github.com/plopoyop/ansible-collection-kubernetes/pull/92) ([plopoyop](https://github.com/plopoyop))
 - update devenv to 1.9.1 [\#90](https://github.com/plopoyop/ansible-collection-kubernetes/pull/90) ([plopoyop](https://github.com/plopoyop))
@@ -378,10 +414,13 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/2.0.0...2.1.0)
 
+## ⛵ Helm Charts
+
+- fix\(helm\): update chart traefik \(37.1.0 → 37.1.1\) [\#84](https://github.com/plopoyop/ansible-collection-kubernetes/pull/84) ([plopoyop](https://github.com/plopoyop))
+
 ## ⚙️ Dependencies
 
 - feat\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.12.8 → v0.13.0\) [\#85](https://github.com/plopoyop/ansible-collection-kubernetes/pull/85) ([plopoyop](https://github.com/plopoyop))
-- fix\(helm\): update chart traefik \(37.1.0 → 37.1.1\) [\#84](https://github.com/plopoyop/ansible-collection-kubernetes/pull/84) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook ansible/ansible-lint \(v25.8.1 → v25.8.2\) [\#83](https://github.com/plopoyop/ansible-collection-kubernetes/pull/83) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v43.0.6 → v43.0.11\) [\#82](https://github.com/plopoyop/ansible-collection-kubernetes/pull/82) ([plopoyop](https://github.com/plopoyop))
 
@@ -393,9 +432,13 @@
 
 - Traefik middleware [\#74](https://github.com/plopoyop/ansible-collection-kubernetes/pull/74) ([plopoyop](https://github.com/plopoyop))
 
-## ⚙️ Dependencies
+## ⛵ Helm Charts
 
 - feat\(helm\): update chart traefik \(37.0.0 → 37.1.0\) [\#81](https://github.com/plopoyop/ansible-collection-kubernetes/pull/81) ([plopoyop](https://github.com/plopoyop))
+- feat\(helm\)!: Update chart traefik \(36.3.0 → 37.0.0\) [\#71](https://github.com/plopoyop/ansible-collection-kubernetes/pull/71) ([plopoyop](https://github.com/plopoyop))
+
+## ⚙️ Dependencies
+
 - feat\(ci\)!: Update actions/checkout action \(v4 → v5\) [\#80](https://github.com/plopoyop/ansible-collection-kubernetes/pull/80) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit hook ansible/ansible-lint \(v25.7.0 → v25.8.1\) [\#79](https://github.com/plopoyop/ansible-collection-kubernetes/pull/79) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\)!: Update pre-commit hook pre-commit/pre-commit-hooks \(v5.0.0 → v6.0.0\) [\#78](https://github.com/plopoyop/ansible-collection-kubernetes/pull/78) ([plopoyop](https://github.com/plopoyop))
@@ -403,7 +446,6 @@
 - fix\(ci\): update renovatebot/github-action action \(v43.0.5 → v43.0.6\) [\#76](https://github.com/plopoyop/ansible-collection-kubernetes/pull/76) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v43.0.3 → v43.0.5\) [\#75](https://github.com/plopoyop/ansible-collection-kubernetes/pull/75) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.12.3 → v0.12.7\) [\#73](https://github.com/plopoyop/ansible-collection-kubernetes/pull/73) ([plopoyop](https://github.com/plopoyop))
-- feat\(helm\)!: Update chart traefik \(36.3.0 → 37.0.0\) [\#71](https://github.com/plopoyop/ansible-collection-kubernetes/pull/71) ([plopoyop](https://github.com/plopoyop))
 - feat\(ci\)!: Update hugo19941994/delete-draft-releases action \(v1.0.1 → v2.0.0\) [\#70](https://github.com/plopoyop/ansible-collection-kubernetes/pull/70) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit hook ansible/ansible-lint \(v25.6.1 → v25.7.0\) [\#69](https://github.com/plopoyop/ansible-collection-kubernetes/pull/69) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v43.0.2 → v43.0.3\) [\#65](https://github.com/plopoyop/ansible-collection-kubernetes/pull/65) ([plopoyop](https://github.com/plopoyop))
@@ -435,14 +477,17 @@
 - Update Renovate config [\#57](https://github.com/plopoyop/ansible-collection-kubernetes/pull/57) ([plopoyop](https://github.com/plopoyop))
 - change generate changelog action [\#56](https://github.com/plopoyop/ansible-collection-kubernetes/pull/56) ([plopoyop](https://github.com/plopoyop))
 
+## ⛵ Helm Charts
+
+- chore\(deps\): update helm release traefik to v36 [\#54](https://github.com/plopoyop/ansible-collection-kubernetes/pull/54) ([plopoyop](https://github.com/plopoyop))
+- chore\(deps\): update helm release metallb to v0.15.0 [\#53](https://github.com/plopoyop/ansible-collection-kubernetes/pull/53) ([plopoyop](https://github.com/plopoyop))
+
 ## ⚙️ Dependencies
 
 - feat\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.11.2 → v0.12.2\) [\#60](https://github.com/plopoyop/ansible-collection-kubernetes/pull/60) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit hook ansible/ansible-lint \(v25.1.3 → v25.6.1\) [\#59](https://github.com/plopoyop/ansible-collection-kubernetes/pull/59) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update pre-commit hook adrienverge/yamllint \(v1.35.1 → v1.37.1\) [\#58](https://github.com/plopoyop/ansible-collection-kubernetes/pull/58) ([plopoyop](https://github.com/plopoyop))
 - chore\(deps\): update renovatebot/github-action action to v43 [\#55](https://github.com/plopoyop/ansible-collection-kubernetes/pull/55) ([plopoyop](https://github.com/plopoyop))
-- chore\(deps\): update helm release traefik to v36 [\#54](https://github.com/plopoyop/ansible-collection-kubernetes/pull/54) ([plopoyop](https://github.com/plopoyop))
-- chore\(deps\): update helm release metallb to v0.15.0 [\#53](https://github.com/plopoyop/ansible-collection-kubernetes/pull/53) ([plopoyop](https://github.com/plopoyop))
 
 ## [1.1.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/1.1.1) (2025-05-23)
 
