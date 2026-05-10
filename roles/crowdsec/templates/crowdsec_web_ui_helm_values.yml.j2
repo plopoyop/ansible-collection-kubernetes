@@ -1,0 +1,56 @@
+controller:
+  replicas: {{ crowdsec_web_ui_replicas }}
+  strategy: "Recreate"
+
+{% if crowdsec_web_ui_image_tag | length > 0 %}
+image:
+  tag: "{{ crowdsec_web_ui_image_tag }}"
+{% endif %}
+
+env:
+  CROWDSEC_URL: "{{ crowdsec_web_ui_lapi_url if (crowdsec_web_ui_lapi_url | length > 0) else 'http://' + crowdsec_lapi_service_name + '.' + crowdsec_namespace + '.svc.cluster.local:' + (crowdsec_lapi_service_port | string) }}"
+  CROWDSEC_USER: "{{ crowdsec_web_ui_lapi_username }}"
+  CROWDSEC_PASSWORD: "{{ crowdsec_web_ui_lapi_password }}"
+  CROWDSEC_LOOKBACK_PERIOD: "{{ crowdsec_web_ui_lookback_period }}"
+{% for k, v in (crowdsec_web_ui_extra_env | default({})).items() %}
+  {{ k }}: "{{ v }}"
+{% endfor %}
+
+persistence:
+  data:
+    enabled: {{ crowdsec_web_ui_persistence_enabled | ansible.builtin.to_json }}
+    size: "{{ crowdsec_web_ui_persistence_size }}"
+{% if crowdsec_web_ui_persistence_storage_class | length > 0 %}
+    storageClass: "{{ crowdsec_web_ui_persistence_storage_class }}"
+{% endif %}
+
+service:
+  main:
+    ports:
+      http:
+        port: {{ crowdsec_web_ui_service_port }}
+
+{% if crowdsec_web_ui_ingress_enabled %}
+ingress:
+  main:
+    enabled: true
+{% if crowdsec_web_ui_ingress_class_name | length > 0 %}
+    className: "{{ crowdsec_web_ui_ingress_class_name }}"
+{% endif %}
+    hosts:
+      - host: "{{ crowdsec_web_ui_ingress_host }}"
+        paths:
+          - path: "/"
+            pathType: "Prefix"
+{% if crowdsec_web_ui_ingress_tls_enabled %}
+    tls:
+      - secretName: "{{ crowdsec_web_ui_ingress_tls_secret_name }}"
+        hosts:
+          - "{{ crowdsec_web_ui_ingress_host }}"
+{% endif %}
+{% if crowdsec_web_ui_ingress_annotations | length > 0 %}
+    annotations: {{ crowdsec_web_ui_ingress_annotations | ansible.builtin.to_json }}
+{% endif %}
+{% endif %}
+
+resources: {{ crowdsec_web_ui_resources | ansible.builtin.to_json }}

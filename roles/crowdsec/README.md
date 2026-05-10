@@ -53,6 +53,28 @@ Install CrowdSec on kubernetes
   - [crowdsec_tls_cert_manager_enabled](#crowdsec_tls_cert_manager_enabled)
   - [crowdsec_tls_enabled](#crowdsec_tls_enabled)
   - [crowdsec_wait_install](#crowdsec_wait_install)
+  - [crowdsec_web_ui_deployment_name](#crowdsec_web_ui_deployment_name)
+  - [crowdsec_web_ui_enabled](#crowdsec_web_ui_enabled)
+  - [crowdsec_web_ui_extra_env](#crowdsec_web_ui_extra_env)
+  - [crowdsec_web_ui_helm_chart_version](#crowdsec_web_ui_helm_chart_version)
+  - [crowdsec_web_ui_image_tag](#crowdsec_web_ui_image_tag)
+  - [crowdsec_web_ui_ingress_annotations](#crowdsec_web_ui_ingress_annotations)
+  - [crowdsec_web_ui_ingress_class_name](#crowdsec_web_ui_ingress_class_name)
+  - [crowdsec_web_ui_ingress_enabled](#crowdsec_web_ui_ingress_enabled)
+  - [crowdsec_web_ui_ingress_host](#crowdsec_web_ui_ingress_host)
+  - [crowdsec_web_ui_ingress_tls_enabled](#crowdsec_web_ui_ingress_tls_enabled)
+  - [crowdsec_web_ui_ingress_tls_secret_name](#crowdsec_web_ui_ingress_tls_secret_name)
+  - [crowdsec_web_ui_lapi_password](#crowdsec_web_ui_lapi_password)
+  - [crowdsec_web_ui_lapi_url](#crowdsec_web_ui_lapi_url)
+  - [crowdsec_web_ui_lapi_username](#crowdsec_web_ui_lapi_username)
+  - [crowdsec_web_ui_lookback_period](#crowdsec_web_ui_lookback_period)
+  - [crowdsec_web_ui_persistence_enabled](#crowdsec_web_ui_persistence_enabled)
+  - [crowdsec_web_ui_persistence_size](#crowdsec_web_ui_persistence_size)
+  - [crowdsec_web_ui_persistence_storage_class](#crowdsec_web_ui_persistence_storage_class)
+  - [crowdsec_web_ui_replicas](#crowdsec_web_ui_replicas)
+  - [crowdsec_web_ui_resources](#crowdsec_web_ui_resources)
+  - [crowdsec_web_ui_service_port](#crowdsec_web_ui_service_port)
+- [Discovered Tags](#discovered-tags)
 - [Dependencies](#dependencies)
 - [License](#license)
 - [Author](#author)
@@ -745,6 +767,284 @@ Wait for helm install to finish
 ```YAML
 crowdsec_wait_install: true
 ```
+
+### crowdsec_web_ui_deployment_name
+
+CrowdSec Web UI helm release name
+
+**_Type:_** string<br />
+
+#### Default value
+
+```YAML
+crowdsec_web_ui_deployment_name: crowdsec-web-ui
+```
+
+### crowdsec_web_ui_enabled
+
+Install the third-party CrowdSec Web UI helm chart alongside CrowdSec
+
+**_Type:_** boolean<br />
+
+#### Default value
+
+```YAML
+crowdsec_web_ui_enabled: false
+```
+
+### crowdsec_web_ui_extra_env
+
+Additional environment variables passed to the Web UI container
+
+**_Type:_** dict<br />
+
+#### Default value
+
+```YAML
+crowdsec_web_ui_extra_env: {}
+```
+
+#### Example usage
+
+```YAML
+crowdsec_web_ui_extra_env:
+  CROWDSEC_REFRESH_INTERVAL: "30s"
+  CROWDSEC_SIMULATIONS_ENABLED: "false"
+```
+
+### crowdsec_web_ui_helm_chart_version
+
+CrowdSec Web UI helm chart version
+
+**_Type:_** string<br />
+
+#### Default value
+
+```YAML
+crowdsec_web_ui_helm_chart_version: 0.17.0
+```
+
+### crowdsec_web_ui_image_tag
+
+Override the Web UI image tag (empty uses the chart default)
+
+**_Type:_** string<br />
+
+#### Default value
+
+```YAML
+crowdsec_web_ui_image_tag: ''
+```
+
+### crowdsec_web_ui_ingress_annotations
+
+Annotations applied to the Web UI ingress
+
+**_Type:_** dict<br />
+
+#### Default value
+
+```YAML
+crowdsec_web_ui_ingress_annotations: {}
+```
+
+### crowdsec_web_ui_ingress_class_name
+
+Ingress class name for the Web UI
+
+**_Type:_** string<br />
+
+### crowdsec_web_ui_ingress_enabled
+
+Enable ingress for the Web UI
+
+**_Type:_** boolean<br />
+
+#### Default value
+
+```YAML
+crowdsec_web_ui_ingress_enabled: false
+```
+
+### crowdsec_web_ui_ingress_host
+
+Hostname for the Web UI ingress
+
+**_Type:_** string<br />
+
+### crowdsec_web_ui_ingress_tls_enabled
+
+Enable TLS for the Web UI ingress
+
+**_Type:_** boolean<br />
+
+#### Default value
+
+```YAML
+crowdsec_web_ui_ingress_tls_enabled: false
+```
+
+### crowdsec_web_ui_ingress_tls_secret_name
+
+Secret name for the Web UI TLS certificate
+
+**_Type:_** string<br />
+
+### crowdsec_web_ui_lapi_password
+
+Watcher (machine) password used by the Web UI to authenticate against LAPI.
+Required when `crowdsec_web_ui_enabled` is true; the role registers (or
+overwrites with `--force`) the machine with this password before installing
+the UI chart.
+
+**_Type:_** string<br />
+
+#### Default value
+
+```YAML
+crowdsec_web_ui_lapi_password: ''
+```
+
+### crowdsec_web_ui_lapi_url
+
+LAPI URL the Web UI talks to. When empty, the in-cluster LAPI service
+deployed by this role is used.
+
+**_Type:_** string<br />
+
+#### Default value
+
+```YAML
+crowdsec_web_ui_lapi_url: ''
+```
+
+### crowdsec_web_ui_lapi_username
+
+Watcher (machine) username used by the Web UI to authenticate against LAPI.
+A dedicated machine is registered with this name on first install via
+`cscli machines add`. Do NOT reuse the agent credentials — agents register
+themselves under their pod name, not under `crowdsec_secrets_username`.
+
+**_Type:_** string<br />
+
+#### Default value
+
+```YAML
+crowdsec_web_ui_lapi_username: crowdsec-web-ui
+```
+
+### crowdsec_web_ui_lookback_period
+
+Time window (Go duration format) for the Web UI to look back when fetching
+alerts and decisions
+
+**_Type:_** string<br />
+
+#### Default value
+
+```YAML
+crowdsec_web_ui_lookback_period: 168h
+```
+
+### crowdsec_web_ui_persistence_enabled
+
+Enable persistent volume for the Web UI's SQLite database
+
+**_Type:_** boolean<br />
+
+#### Default value
+
+```YAML
+crowdsec_web_ui_persistence_enabled: true
+```
+
+### crowdsec_web_ui_persistence_size
+
+Requested size for the Web UI persistent volume
+
+**_Type:_** string<br />
+
+#### Default value
+
+```YAML
+crowdsec_web_ui_persistence_size: 350Mi
+```
+
+### crowdsec_web_ui_persistence_storage_class
+
+StorageClass name for the Web UI persistent volume (empty uses the cluster default)
+
+**_Type:_** string<br />
+
+#### Default value
+
+```YAML
+crowdsec_web_ui_persistence_storage_class: ''
+```
+
+### crowdsec_web_ui_replicas
+
+Number of replicas for the Web UI deployment
+
+**_Type:_** int<br />
+
+#### Default value
+
+```YAML
+crowdsec_web_ui_replicas: 1
+```
+
+### crowdsec_web_ui_resources
+
+Resource requests and limits for the Web UI container
+
+**_Type:_** dict<br />
+
+#### Default value
+
+```YAML
+crowdsec_web_ui_resources: {}
+```
+
+#### Example usage
+
+```YAML
+crowdsec_web_ui_resources:
+  requests:
+    cpu: "10m"
+    memory: "32Mi"
+  limits:
+    cpu: "200m"
+    memory: "256Mi"
+```
+
+### crowdsec_web_ui_service_port
+
+Service port for the Web UI service
+
+**_Type:_** int<br />
+
+#### Default value
+
+```YAML
+crowdsec_web_ui_service_port: 3000
+```
+
+## Discovered Tags
+
+**_crowdsec_**
+
+**_helm_chart_**
+
+**_helm_repository_**
+
+**_install_**
+
+**_manifest_**
+
+**_namespace_**
+
+**_uninstall_**
 
 ## Dependencies
 

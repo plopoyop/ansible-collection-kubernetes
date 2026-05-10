@@ -1,0 +1,19 @@
+---
+- name: "Uninstall CrowdSec Web UI helm package"
+  kubernetes.core.helm:
+    name: "{{ crowdsec_web_ui_deployment_name }}"
+    namespace: "{{ crowdsec_namespace }}"
+    state: "absent"
+    chart_ref: "{{ crowdsec_web_ui_helm_chart_ref }}"
+    chart_version: "{{ crowdsec_web_ui_helm_chart_version }}"
+    wait: true
+  tags:
+    - "helm_chart"
+
+- name: "Remove zekker6 helm repo"
+  kubernetes.core.helm_repository:
+    name: "{{ crowdsec_web_ui_helm_repo_name }}"
+    repo_url: "{{ crowdsec_web_ui_helm_repo_url }}"
+    state: "absent"
+  tags:
+    - "helm_repository"

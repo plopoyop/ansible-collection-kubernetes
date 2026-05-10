@@ -106,3 +106,33 @@
           - crowdsec_appsec_service.resources | length > 0
           - 7422 in (crowdsec_appsec_service.resources[0].spec.ports | map(attribute='port') | list)
         fail_msg: "Service 'crowdsec-appsec-service' does not expose port 7422."
+
+    - name: "Wait for CrowdSec Web UI Deployment to be available."
+      kubernetes.core.k8s_info:
+        kind: "Deployment"
+        namespace: "crowdsec"
+        label_selectors:
+          - "app.kubernetes.io/instance=crowdsec-web-ui"
+      register: crowdsec_web_ui_deployment
+      until:
+        - crowdsec_web_ui_deployment.resources | length > 0
+        - crowdsec_web_ui_deployment.resources[0].status.availableReplicas | default(0) >= 1
+      retries: 30
+      delay: 5
+
+    - name: "Assert that CrowdSec Web UI Deployment is available."
+      ansible.builtin.assert:
+        that:
+          - crowdsec_web_ui_deployment.resources | length > 0
+          - crowdsec_web_ui_deployment.resources[0].status.availableReplicas | default(0) >= 1
+        fail_msg: "CrowdSec Web UI Deployment is not available."
+
+    - name: "Assert that Web UI container has CROWDSEC_URL env var set."
+      ansible.builtin.assert:
+        that:
+          - web_ui_env | selectattr('name', 'equalto', 'CROWDSEC_URL') | list | length == 1
+        fail_msg: "CrowdSec Web UI is missing CROWDSEC_URL env var."
+      vars:
+        web_ui_env: >-
+          {{ crowdsec_web_ui_deployment['resources'][0]['spec']['template']['spec']['containers'][0]['env']
+             | default([]) }}

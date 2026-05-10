@@ -102,6 +102,17 @@
       "registryUrls": [
         "https://crowdsecurity.github.io/helm-charts"
       ]
+    },
+    {
+      "matchDatasources": [
+        "helm"
+      ],
+      "matchPackageNames": [
+        "crowdsec-web-ui"
+      ],
+      "registryUrls": [
+        "https://zekker6.github.io/helm-charts/"
+      ]
     }
   ],
   "customManagers": [
@@ -304,6 +315,19 @@
       ],
       "depNameTemplate": "crowdsec",
       "autoReplaceStringTemplate": "CrowdSec        | v{{newValue}}",
+      "datasourceTemplate": "helm"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/roles/crowdsec/defaults/main.yml$/",
+        "/roles/crowdsec/README.md$/"
+      ],
+      "matchStrings": [
+        "crowdsec_web_ui_helm_chart_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?"
+      ],
+      "depNameTemplate": "crowdsec-web-ui",
+      "autoReplaceStringTemplate": "crowdsec_web_ui_helm_chart_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
       "datasourceTemplate": "helm"
     }
   ]
