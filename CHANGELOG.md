@@ -1,5 +1,13 @@
 # Changelog
 
+## [8.0.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/8.0.1) (2026-05-10)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/8.0.0...8.0.1)
+
+**Merged pull requests:**
+
+- fix\(deps\): update prek \(0.3.10 → 0.3.11\) [\#249](https://github.com/plopoyop/ansible-collection-kubernetes/pull/249) ([plopoyop](https://github.com/plopoyop))
+
 ## [8.0.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/8.0.0) (2026-05-08)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/7.5.1...8.0.0)
