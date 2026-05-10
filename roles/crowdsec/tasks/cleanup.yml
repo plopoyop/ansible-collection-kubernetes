@@ -1,4 +1,7 @@
 ---
+- name: "Include CrowdSec Web UI cleanup"
+  ansible.builtin.include_tasks: "cleanup_web_ui.yml"
+
 - name: "Uninstall CrowdSec helm package"
   kubernetes.core.helm:
     name: "{{ crowdsec_deployment_name }}"

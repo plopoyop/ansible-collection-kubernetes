@@ -27,3 +27,7 @@
     wait: "{{ crowdsec_wait_install }}"
   tags:
     - "helm_chart"
+
+- name: "Include CrowdSec Web UI install when enabled"
+  ansible.builtin.include_tasks: "setup_web_ui.yml"
+  when: crowdsec_web_ui_enabled

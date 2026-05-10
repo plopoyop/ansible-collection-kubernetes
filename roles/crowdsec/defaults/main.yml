@@ -368,3 +368,151 @@ crowdsec_appsec_env: []
 # @var crowdsec_additional_helm_values:description: >
 # Additional helm values to merge with the rendered values (escape hatch for fine-grained tuning)
 crowdsec_additional_helm_values: {}
+
+# CrowdSec Web UI configuration (zekker6/helm-charts)
+# https://github.com/zekker6/helm-charts/tree/main/charts/apps/crowdsec-web-ui
+# This third-party UI talks to the LAPI HTTP API only (no Docker socket
+# required) and uses watcher (machine) credentials for authentication.
+
+# @var crowdsec_web_ui_enabled
+# @var crowdsec_web_ui_enabled:type: boolean
+# @var crowdsec_web_ui_enabled:description: >
+# Install the third-party CrowdSec Web UI helm chart alongside CrowdSec
+crowdsec_web_ui_enabled: false
+
+# @var crowdsec_web_ui_helm_chart_version
+# @var crowdsec_web_ui_helm_chart_version:type: string
+# @var crowdsec_web_ui_helm_chart_version:description: >
+# CrowdSec Web UI helm chart version
+crowdsec_web_ui_helm_chart_version: "0.17.0"
+
+# @var crowdsec_web_ui_image_tag
+# @var crowdsec_web_ui_image_tag:type: string
+# @var crowdsec_web_ui_image_tag:description: >
+# Override the Web UI image tag (empty uses the chart default)
+crowdsec_web_ui_image_tag: ""
+
+# @var crowdsec_web_ui_deployment_name
+# @var crowdsec_web_ui_deployment_name:type: string
+# @var crowdsec_web_ui_deployment_name:description: >
+# CrowdSec Web UI helm release name
+crowdsec_web_ui_deployment_name: "crowdsec-web-ui"
+
+# @var crowdsec_web_ui_replicas
+# @var crowdsec_web_ui_replicas:type: int
+# @var crowdsec_web_ui_replicas:description: >
+# Number of replicas for the Web UI deployment
+crowdsec_web_ui_replicas: 1
+
+# @var crowdsec_web_ui_resources
+# @var crowdsec_web_ui_resources:type: dict
+# @var crowdsec_web_ui_resources:description: >
+# Resource requests and limits for the Web UI container
+# @var crowdsec_web_ui_resources:example: >
+# crowdsec_web_ui_resources:
+#   requests:
+#     cpu: "10m"
+#     memory: "32Mi"
+#   limits:
+#     cpu: "200m"
+#     memory: "256Mi"
+crowdsec_web_ui_resources: {}
+
+# @var crowdsec_web_ui_lapi_url
+# @var crowdsec_web_ui_lapi_url:type: string
+# @var crowdsec_web_ui_lapi_url:description: >
+# LAPI URL the Web UI talks to. When empty, the in-cluster LAPI service
+# deployed by this role is used.
+crowdsec_web_ui_lapi_url: ""
+
+# @var crowdsec_web_ui_lapi_username
+# @var crowdsec_web_ui_lapi_username:type: string
+# @var crowdsec_web_ui_lapi_username:description: >
+# Watcher (machine) username used by the Web UI to authenticate against LAPI.
+# A dedicated machine is registered with this name on first install via
+# `cscli machines add`. Do NOT reuse the agent credentials — agents register
+# themselves under their pod name, not under `crowdsec_secrets_username`.
+crowdsec_web_ui_lapi_username: "crowdsec-web-ui"
+
+# @var crowdsec_web_ui_lapi_password
+# @var crowdsec_web_ui_lapi_password:type: string
+# @var crowdsec_web_ui_lapi_password:description: >
+# Watcher (machine) password used by the Web UI to authenticate against LAPI.
+# Required when `crowdsec_web_ui_enabled` is true; the role registers (or
+# overwrites with `--force`) the machine with this password before installing
+# the UI chart.
+crowdsec_web_ui_lapi_password: ""
+
+# @var crowdsec_web_ui_lookback_period
+# @var crowdsec_web_ui_lookback_period:type: string
+# @var crowdsec_web_ui_lookback_period:description: >
+# Time window (Go duration format) for the Web UI to look back when fetching
+# alerts and decisions
+crowdsec_web_ui_lookback_period: "168h"
+
+# @var crowdsec_web_ui_persistence_enabled
+# @var crowdsec_web_ui_persistence_enabled:type: boolean
+# @var crowdsec_web_ui_persistence_enabled:description: >
+# Enable persistent volume for the Web UI's SQLite database
+crowdsec_web_ui_persistence_enabled: true
+
+# @var crowdsec_web_ui_persistence_size
+# @var crowdsec_web_ui_persistence_size:type: string
+# @var crowdsec_web_ui_persistence_size:description: >
+# Requested size for the Web UI persistent volume
+crowdsec_web_ui_persistence_size: "350Mi"
+
+# @var crowdsec_web_ui_persistence_storage_class
+# @var crowdsec_web_ui_persistence_storage_class:type: string
+# @var crowdsec_web_ui_persistence_storage_class:description: >
+# StorageClass name for the Web UI persistent volume (empty uses the cluster default)
+crowdsec_web_ui_persistence_storage_class: ""
+
+# @var crowdsec_web_ui_service_port
+# @var crowdsec_web_ui_service_port:type: int
+# @var crowdsec_web_ui_service_port:description: >
+# Service port for the Web UI service
+crowdsec_web_ui_service_port: 3000
+
+# @var crowdsec_web_ui_ingress_enabled
+# @var crowdsec_web_ui_ingress_enabled:type: boolean
+# @var crowdsec_web_ui_ingress_enabled:description: >
+# Enable ingress for the Web UI
+crowdsec_web_ui_ingress_enabled: false
+
+# @var crowdsec_web_ui_ingress_class_name
+# @var crowdsec_web_ui_ingress_class_name:type: string
+# @var crowdsec_web_ui_ingress_class_name:description: >
+# Ingress class name for the Web UI
+
+# @var crowdsec_web_ui_ingress_host
+# @var crowdsec_web_ui_ingress_host:type: string
+# @var crowdsec_web_ui_ingress_host:description: >
+# Hostname for the Web UI ingress
+
+# @var crowdsec_web_ui_ingress_annotations
+# @var crowdsec_web_ui_ingress_annotations:type: dict
+# @var crowdsec_web_ui_ingress_annotations:description: >
+# Annotations applied to the Web UI ingress
+crowdsec_web_ui_ingress_annotations: {}
+
+# @var crowdsec_web_ui_ingress_tls_enabled
+# @var crowdsec_web_ui_ingress_tls_enabled:type: boolean
+# @var crowdsec_web_ui_ingress_tls_enabled:description: >
+# Enable TLS for the Web UI ingress
+crowdsec_web_ui_ingress_tls_enabled: false
+
+# @var crowdsec_web_ui_ingress_tls_secret_name
+# @var crowdsec_web_ui_ingress_tls_secret_name:type: string
+# @var crowdsec_web_ui_ingress_tls_secret_name:description: >
+# Secret name for the Web UI TLS certificate
+
+# @var crowdsec_web_ui_extra_env
+# @var crowdsec_web_ui_extra_env:type: dict
+# @var crowdsec_web_ui_extra_env:description: >
+# Additional environment variables passed to the Web UI container
+# @var crowdsec_web_ui_extra_env:example: >
+# crowdsec_web_ui_extra_env:
+#   CROWDSEC_REFRESH_INTERVAL: "30s"
+#   CROWDSEC_SIMULATIONS_ENABLED: "false"
+crowdsec_web_ui_extra_env: {}

@@ -33,3 +33,8 @@ crowdsec_appsec_default_configs:
 crowdsec_appsec_default_collections:
   - "crowdsecurity/appsec-virtual-patching"
   - "crowdsecurity/appsec-generic-rules"
+
+# CrowdSec Web UI helm chart (zekker6/helm-charts)
+crowdsec_web_ui_helm_repo_name: "zekker6"
+crowdsec_web_ui_helm_repo_url: "https://zekker6.github.io/helm-charts/"
+crowdsec_web_ui_helm_chart_ref: "{{ crowdsec_web_ui_helm_repo_name }}/crowdsec-web-ui"

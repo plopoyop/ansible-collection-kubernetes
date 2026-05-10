@@ -1,0 +1,49 @@
+---
+- name: "Wait for CrowdSec LAPI pod to be running"
+  kubernetes.core.k8s_info:
+    kind: "Pod"
+    namespace: "{{ crowdsec_namespace }}"
+    label_selectors:
+      - "k8s-app=crowdsec"
+      - "type=lapi"
+  register: crowdsec_lapi_pod_lookup
+  retries: 60
+  delay: 5
+  until:
+    - crowdsec_lapi_pod_lookup.resources is defined
+    - crowdsec_lapi_pod_lookup.resources | length > 0
+    - crowdsec_lapi_pod_lookup.resources[0].status.phase | default('') == 'Running'
+  tags:
+    - "helm_chart"
+
+- name: "Register CrowdSec Web UI machine in LAPI"
+  kubernetes.core.k8s_exec:
+    namespace: "{{ crowdsec_namespace }}"
+    pod: "{{ crowdsec_lapi_pod_lookup.resources[0].metadata.name }}"
+    command: >-
+      cscli machines add {{ crowdsec_web_ui_lapi_username }}
+      --password {{ crowdsec_web_ui_lapi_password }}
+      --force
+  changed_when: false
+  tags:
+    - "helm_chart"
+
+- name: "Add zekker6 helm repo for CrowdSec Web UI"
+  kubernetes.core.helm_repository:
+    name: "{{ crowdsec_web_ui_helm_repo_name }}"
+    repo_url: "{{ crowdsec_web_ui_helm_repo_url }}"
+  tags:
+    - "helm_repository"
+
+- name: "Install CrowdSec Web UI helm package"
+  kubernetes.core.helm:
+    name: "{{ crowdsec_web_ui_deployment_name }}"
+    namespace: "{{ crowdsec_namespace }}"
+    state: "present"
+    chart_ref: "{{ crowdsec_web_ui_helm_chart_ref }}"
+    chart_version: "{{ crowdsec_web_ui_helm_chart_version }}"
+    update_repo_cache: true
+    values: "{{ lookup('ansible.builtin.template', 'crowdsec_web_ui_helm_values.yml.j2') | ansible.builtin.from_yaml }}"
+    wait: "{{ crowdsec_wait_install }}"
+  tags:
+    - "helm_chart"
