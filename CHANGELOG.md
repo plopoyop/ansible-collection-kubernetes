@@ -1,8 +1,12 @@
 # Changelog
 
-## [8.0.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/8.0.1) (2026-05-10)
+## [8.1.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/8.1.0) (2026-05-10)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/8.0.0...8.0.1)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/8.0.0...8.1.0)
+
+## 🚀 New Features
+
+- Add Crowdsec Web UI installation [\#250](https://github.com/plopoyop/ansible-collection-kubernetes/pull/250) ([plopoyop](https://github.com/plopoyop))
 
 **Merged pull requests:**
 
