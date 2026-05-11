@@ -23,6 +23,7 @@
     command: >-
       cscli machines add {{ crowdsec_web_ui_lapi_username }}
       --password {{ crowdsec_web_ui_lapi_password }}
+      --file /dev/null
       --force
   changed_when: false
   tags:
