@@ -17,6 +17,17 @@ traefik_namespace: "ingress-traefik-controller"
 # Helm chart version to install
 traefik_helm_version: v40.0.0
 
+# @var traefik_crds_upgrade_enabled
+# @var traefik_crds_upgrade_enabled:type: boolean
+# @var traefik_crds_upgrade_enabled:description: >
+# Apply Traefik CRDs (server-side, force conflicts) before helm upgrade.
+# Helm does not update CRDs automatically (HIP-0011), so we render the
+# target chart with `helm_template --include-crds` and apply only the
+# CustomResourceDefinition resources. Skipped on first install since
+# `helm install` already applies CRDs from the chart's `crds/` directory,
+# and skipped when the installed chart version already matches the target.
+traefik_crds_upgrade_enabled: true
+
 # @var traefik_deployments
 # @var traefik_deployments:type: list of dict
 # @var traefik_deployments:description: >
