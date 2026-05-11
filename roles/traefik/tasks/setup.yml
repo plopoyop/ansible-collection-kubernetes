@@ -15,6 +15,26 @@
   tags:
     - "helm_repository"
 
+- name: "Get currently installed Traefik releases"
+  kubernetes.core.helm_info:
+    name: "{{ item.name }}"
+    release_namespace: "{{ traefik_namespace }}"
+  register: "traefik_current_releases"
+  loop: "{{ traefik_deployments }}"
+  loop_control:
+    label: "{{ item.name }}"
+
+- name: "Upgrade CRDs for existing releases before helm upgrade"
+  ansible.builtin.include_tasks: "upgrade_crds.yml"
+  loop: "{{ traefik_current_releases.results }}"
+  loop_control:
+    loop_var: "traefik_current_release"
+    label: "{{ traefik_current_release.item.name }}"
+  when:
+    - "traefik_crds_upgrade_enabled"
+    - "traefik_current_release.status.chart is defined"
+    - "traefik_current_release.item.state | default('present') == 'present'"
+
 - name: "Instanciate ip addresses list"
   ansible.builtin.set_fact:
     traefik_ingress_ip_addresses_list: {}

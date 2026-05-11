@@ -1,0 +1,34 @@
+---
+- name: "Render Traefik chart with CRDs"
+  kubernetes.core.helm_template:
+    chart_ref: "{{ traefik_helm_chart_ref }}"
+    chart_version: "{{ traefik_helm_version }}"
+    release_name: "{{ traefik_current_release.item.name }}"
+    release_namespace: "{{ traefik_namespace }}"
+    include_crds: true
+    update_repo_cache: true
+  register: "traefik_chart_render"
+  check_mode: false
+  changed_when: false
+  when: >-
+    traefik_current_release.status.chart
+    != (traefik_helm_chart_ref | ansible.builtin.basename
+        ~ '-' ~ (traefik_helm_version | ansible.builtin.regex_replace('^v', '')))
+
+- name: "Apply Traefik CRDs (server-side, force conflicts)"
+  kubernetes.core.k8s:
+    state: "present"
+    apply: true
+    server_side_apply:
+      field_manager: "ansible-traefik-crds"
+      force_conflicts: true
+    definition: "{{ item }}"
+  loop: >-
+    {{ (traefik_chart_render.stdout | default(''))
+       | ansible.builtin.from_yaml_all
+       | select
+       | selectattr('kind', 'equalto', 'CustomResourceDefinition')
+       | list }}
+  loop_control:
+    label: "{{ item.metadata.name }}"
+  when: "traefik_chart_render is not skipped"

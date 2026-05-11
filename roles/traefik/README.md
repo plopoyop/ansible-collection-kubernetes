@@ -6,6 +6,7 @@ Install traefik ingress controller on kubernetes
 
 - [Requirements](#requirements)
 - [Default Variables](#default-variables)
+  - [traefik_crds_upgrade_enabled](#traefik_crds_upgrade_enabled)
   - [traefik_deployments](#traefik_deployments)
   - [traefik_helm_version](#traefik_helm_version)
   - [traefik_ingress_enabled](#traefik_ingress_enabled)
@@ -23,6 +24,23 @@ Install traefik ingress controller on kubernetes
 - Minimum Ansible version: `2.17`
 
 ## Default Variables
+
+### traefik_crds_upgrade_enabled
+
+Apply Traefik CRDs (server-side, force conflicts) before helm upgrade.
+Helm does not update CRDs automatically (HIP-0011), so we render the
+target chart with `helm_template --include-crds` and apply only the
+CustomResourceDefinition resources. Skipped on first install since
+`helm install` already applies CRDs from the chart's `crds/` directory,
+and skipped when the installed chart version already matches the target.
+
+**_Type:_** boolean<br />
+
+#### Default value
+
+```YAML
+traefik_crds_upgrade_enabled: true
+```
 
 ### traefik_deployments
 
