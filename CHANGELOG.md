@@ -1,5 +1,17 @@
 # Changelog
 
+## [8.2.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/8.2.0) (2026-05-11)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/8.1.0...8.2.0)
+
+## 🚀 New Features
+
+- Upgrade Traefik CRDs when necessary [\#252](https://github.com/plopoyop/ansible-collection-kubernetes/pull/252) ([plopoyop](https://github.com/plopoyop))
+
+## 🐛 Bug Fixes
+
+- Fix Crowdsec lapi mtls authentication [\#251](https://github.com/plopoyop/ansible-collection-kubernetes/pull/251) ([plopoyop](https://github.com/plopoyop))
+
 ## [8.1.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/8.1.0) (2026-05-10)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/8.0.0...8.1.0)
