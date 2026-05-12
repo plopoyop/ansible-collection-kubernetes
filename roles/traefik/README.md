@@ -139,7 +139,7 @@ Helm chart version to install
 #### Default value
 
 ```YAML
-traefik_helm_version: v40.0.0
+traefik_helm_version: v40.0.1
 ```
 
 ### traefik_ingress_enabled
