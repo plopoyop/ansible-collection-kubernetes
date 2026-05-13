@@ -15,7 +15,7 @@ crowdsec_namespace: "crowdsec"
 # @var crowdsec_helm_chart_version:type: string
 # @var crowdsec_helm_chart_version:description: >
 # Helm chart version to install
-crowdsec_helm_chart_version: "0.23.0"
+crowdsec_helm_chart_version: 0.24.0
 
 # @var crowdsec_deployment_name
 # @var crowdsec_deployment_name:type: string
