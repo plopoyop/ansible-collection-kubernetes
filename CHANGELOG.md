@@ -1,5 +1,13 @@
 # Changelog
 
+## [8.2.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/8.2.1) (2026-05-14)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/8.2.0...8.2.1)
+
+## ⚙️ Dependencies
+
+- fix\(ci\): update renovatebot/github-action action \(v46.1.13 → v46.1.14\) [\#255](https://github.com/plopoyop/ansible-collection-kubernetes/pull/255) ([plopoyop](https://github.com/plopoyop))
+
 ## [8.2.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/8.2.0) (2026-05-11)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/8.1.0...8.2.0)
