@@ -1,8 +1,12 @@
 # Changelog
 
-## [8.2.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/8.2.1) (2026-05-14)
+## [8.2.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/8.2.1) (2026-05-15)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/8.2.0...8.2.1)
+
+## ⛵ Helm Charts
+
+- fix\(helm\): update chart traefik \(40.0.0 → 40.0.1\) [\#253](https://github.com/plopoyop/ansible-collection-kubernetes/pull/253) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
 
