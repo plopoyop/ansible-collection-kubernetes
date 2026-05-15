@@ -16,6 +16,16 @@
   tags:
     - "helm_chart"
 
+- name: "List CrowdSec LAPI machines"
+  kubernetes.core.k8s_exec:
+    namespace: "{{ crowdsec_namespace }}"
+    pod: "{{ crowdsec_lapi_pod_lookup.resources[0].metadata.name }}"
+    command: "cscli machines list -o json"
+  register: "crowdsec_machines_list"
+  changed_when: false
+  tags:
+    - "helm_chart"
+
 - name: "Register CrowdSec Web UI machine in LAPI"
   kubernetes.core.k8s_exec:
     namespace: "{{ crowdsec_namespace }}"
@@ -25,7 +35,13 @@
       --password {{ crowdsec_web_ui_lapi_password }}
       --file /dev/null
       --force
-  changed_when: false
+  changed_when: true
+  when:
+    - "not ansible_check_mode"
+    - >-
+      (crowdsec_machines_list.stdout | ansible.builtin.from_json
+       | selectattr('machineId', 'equalto', crowdsec_web_ui_lapi_username)
+       | list | length) == 0
   tags:
     - "helm_chart"
 
