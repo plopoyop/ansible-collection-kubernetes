@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/8.2.0...8.3.0)
 
+## 🐛 Bug Fixes
+
+- Verify if Crowdsec ui is already registered before a new registration [\#257](https://github.com/plopoyop/ansible-collection-kubernetes/pull/257) ([plopoyop](https://github.com/plopoyop))
+
 ## ⛵ Helm Charts
 
 - feat\(helm\): update chart crowdsec \(0.23.0 → 0.24.0\) [\#254](https://github.com/plopoyop/ansible-collection-kubernetes/pull/254) ([plopoyop](https://github.com/plopoyop))
