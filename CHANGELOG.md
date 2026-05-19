@@ -1,11 +1,12 @@
 # Changelog
 
-## [8.3.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/8.3.1) (2026-05-18)
+## [8.3.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/8.3.1) (2026-05-19)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/8.3.0...8.3.1)
 
 **Merged pull requests:**
 
+- fix\(deps\): update python313packages.ruff \(0.15.12 → 0.15.13\) [\#261](https://github.com/plopoyop/ansible-collection-kubernetes/pull/261) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update kubectl \(1.36.0 → 1.36.1\) [\#260](https://github.com/plopoyop/ansible-collection-kubernetes/pull/260) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update ansible-doctor \(8.3.0 → 8.3.1\) [\#259](https://github.com/plopoyop/ansible-collection-kubernetes/pull/259) ([plopoyop](https://github.com/plopoyop))
 
