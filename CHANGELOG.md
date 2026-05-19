@@ -1,8 +1,12 @@
 # Changelog
 
-## [8.3.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/8.3.1) (2026-05-19)
+## [8.4.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/8.4.0) (2026-05-19)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/8.3.0...8.3.1)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/8.3.0...8.4.0)
+
+## ⛵ Helm Charts
+
+- feat\(helm\): update chart crowdsec-web-ui \(0.17.0 → 0.18.0\) [\#262](https://github.com/plopoyop/ansible-collection-kubernetes/pull/262) ([plopoyop](https://github.com/plopoyop))
 
 **Merged pull requests:**
 
