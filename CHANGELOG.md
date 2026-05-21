@@ -10,6 +10,7 @@
 
 ## ⛵ Helm Charts
 
+- feat\(helm\): update chart metallb \(0.15.3 → 0.16.0\) [\#263](https://github.com/plopoyop/ansible-collection-kubernetes/pull/263) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart crowdsec-web-ui \(0.17.0 → 0.18.0\) [\#262](https://github.com/plopoyop/ansible-collection-kubernetes/pull/262) ([plopoyop](https://github.com/plopoyop))
 
 **Merged pull requests:**
