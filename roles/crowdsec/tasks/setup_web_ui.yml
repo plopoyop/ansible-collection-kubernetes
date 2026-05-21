@@ -26,6 +26,38 @@
   tags:
     - "helm_chart"
 
+- name: "Read Web UI password rotation marker"
+  kubernetes.core.k8s_info:
+    api_version: "v1"
+    kind: "ConfigMap"
+    name: "{{ crowdsec_web_ui_deployment_name }}-password-state"
+    namespace: "{{ crowdsec_namespace }}"
+  register: "crowdsec_web_ui_password_marker"
+  tags:
+    - "helm_chart"
+
+- name: "Compute current Web UI password hash"
+  ansible.builtin.set_fact:
+    crowdsec_web_ui_password_current_hash: >-
+      {{ crowdsec_web_ui_lapi_password | ansible.builtin.hash('sha256') }}
+  no_log: true
+  tags:
+    - "helm_chart"
+
+- name: "Detect Web UI password change"
+  ansible.builtin.set_fact:
+    crowdsec_web_ui_password_changed: >-
+      {{ (crowdsec_web_ui_password_marker.resources | length == 0)
+         or ((crowdsec_web_ui_password_marker.resources[0].data
+              | default({})).password_hash | default(''))
+            != crowdsec_web_ui_password_current_hash }}
+    crowdsec_web_ui_machine_missing: >-
+      {{ (crowdsec_machines_list.stdout | ansible.builtin.from_json
+          | selectattr('machineId', 'equalto', crowdsec_web_ui_lapi_username)
+          | list | length) == 0 }}
+  tags:
+    - "helm_chart"
+
 - name: "Register CrowdSec Web UI machine in LAPI"
   kubernetes.core.k8s_exec:
     namespace: "{{ crowdsec_namespace }}"
@@ -35,13 +67,29 @@
       --password {{ crowdsec_web_ui_lapi_password }}
       --file /dev/null
       --force
+  register: "crowdsec_web_ui_register_result"
   changed_when: true
   when:
     - "not ansible_check_mode"
-    - >-
-      (crowdsec_machines_list.stdout | ansible.builtin.from_json
-       | selectattr('machineId', 'equalto', crowdsec_web_ui_lapi_username)
-       | list | length) == 0
+    - "crowdsec_web_ui_machine_missing or crowdsec_web_ui_password_changed"
+  tags:
+    - "helm_chart"
+
+- name: "Store Web UI password rotation marker"
+  kubernetes.core.k8s:
+    state: "present"
+    definition:
+      apiVersion: "v1"
+      kind: "ConfigMap"
+      metadata:
+        name: "{{ crowdsec_web_ui_deployment_name }}-password-state"
+        namespace: "{{ crowdsec_namespace }}"
+      data:
+        password_hash: "{{ crowdsec_web_ui_password_current_hash }}"
+  when:
+    - "not ansible_check_mode"
+    - "crowdsec_web_ui_register_result is succeeded"
+    - "crowdsec_web_ui_register_result is not skipped"
   tags:
     - "helm_chart"
 
