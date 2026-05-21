@@ -1,8 +1,12 @@
 # Changelog
 
-## [8.4.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/8.4.0) (2026-05-19)
+## [8.4.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/8.4.0) (2026-05-21)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/8.3.0...8.4.0)
+
+## 🐛 Bug Fixes
+
+- Store Crowdsec WebUI password hash to detect change [\#264](https://github.com/plopoyop/ansible-collection-kubernetes/pull/264) ([plopoyop](https://github.com/plopoyop))
 
 ## ⛵ Helm Charts
 
