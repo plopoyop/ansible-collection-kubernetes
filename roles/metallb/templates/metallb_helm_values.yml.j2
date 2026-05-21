@@ -1,6 +1,16 @@
+---
 rbac:
-  create: {{ metallb_create_rbac | default("true") }}
+  create: {{ metallb_create_rbac | default(true) | lower }}
 
-{% if not metallb_create_additional_values == {} %}
-{{ metallb_create_additional_values }}
+prometheus:
+  serviceMonitor:
+    enabled: {{ metallb_prometheus_service_monitor_enabled | lower }}
+
+frr-k8s:
+  prometheus:
+    serviceMonitor:
+      enabled: {{ metallb_prometheus_service_monitor_enabled | lower }}
+
+{% if metallb_create_additional_values | default({}) != {} %}
+{{ metallb_create_additional_values | ansible.builtin.to_nice_yaml | indent(0) }}
 {% endif %}

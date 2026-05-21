@@ -11,6 +11,8 @@ Install Metal LB controller on kubernetes
   - [metallb_helm_version](#metallb_helm_version)
   - [metallb_ip_pools](#metallb_ip_pools)
   - [metallb_namespace](#metallb_namespace)
+  - [metallb_prometheus_service_monitor_enabled](#metallb_prometheus_service_monitor_enabled)
+- [Discovered Tags](#discovered-tags)
 - [Dependencies](#dependencies)
 - [License](#license)
 - [Author](#author)
@@ -128,6 +130,38 @@ K8s namespace to install the metallb chart
 ```YAML
 metallb_namespace: metallb-system
 ```
+
+### metallb_prometheus_service_monitor_enabled
+
+Enable Prometheus Operator ServiceMonitor for both the MetalLB main
+chart and the frr-k8s sub-chart. Must be set explicitly because the
+frr-k8s sub-chart in chart >=0.16.0 references
+`.Values.prometheus.serviceMonitor.enabled` without a default, which
+crashes Helm at install time when the key is missing.
+
+**_Type:_** boolean<br />
+
+#### Default value
+
+```YAML
+metallb_prometheus_service_monitor_enabled: false
+```
+
+## Discovered Tags
+
+**_helm_chart_**
+
+**_helm_repository_**
+
+**_install_**
+
+**_manifest_**
+
+**_metallb_**
+
+**_namespace_**
+
+**_uninstall_**
 
 ## Dependencies
 
