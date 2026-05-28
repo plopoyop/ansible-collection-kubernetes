@@ -64,7 +64,7 @@ Helm chart version to install
 #### Default value
 
 ```YAML
-metallb_helm_version: 0.16.0
+metallb_helm_version: 0.16.1
 ```
 
 ### metallb_ip_pools

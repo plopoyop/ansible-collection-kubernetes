@@ -15,7 +15,7 @@ metallb_namespace: "metallb-system"
 # @var metallb_helm_version:type: string
 # @var metallb_helm_version:description: >
 # Helm chart version to install
-metallb_helm_version: 0.16.0
+metallb_helm_version: 0.16.1
 
 # @var metallb_prometheus_service_monitor_enabled
 # @var metallb_prometheus_service_monitor_enabled:type: boolean
