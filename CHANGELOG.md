@@ -1,5 +1,13 @@
 # Changelog
 
+## [8.5.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/8.5.1) (2026-05-28)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/8.5.0...8.5.1)
+
+## ⛵ Helm Charts
+
+- fix\(helm\): update chart metallb \(0.16.0 → 0.16.1\) [\#267](https://github.com/plopoyop/ansible-collection-kubernetes/pull/267) ([plopoyop](https://github.com/plopoyop))
+
 ## [8.5.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/8.5.0) (2026-05-26)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/8.4.0...8.5.0)
