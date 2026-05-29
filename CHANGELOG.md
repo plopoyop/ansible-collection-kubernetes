@@ -6,6 +6,7 @@
 
 ## ⛵ Helm Charts
 
+- fix\(helm\): update chart rancher \(2.14.1 → 2.14.2\) [\#269](https://github.com/plopoyop/ansible-collection-kubernetes/pull/269) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart metallb \(0.16.0 → 0.16.1\) [\#267](https://github.com/plopoyop/ansible-collection-kubernetes/pull/267) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
