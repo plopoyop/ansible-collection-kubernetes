@@ -1,6 +1,6 @@
 # Changelog
 
-## [8.5.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/8.5.1) (2026-05-29)
+## [8.5.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/8.5.1) (2026-05-30)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/8.5.0...8.5.1)
 
@@ -12,6 +12,11 @@
 ## ⚙️ Dependencies
 
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.15.14 → v0.15.15\) [\#268](https://github.com/plopoyop/ansible-collection-kubernetes/pull/268) ([plopoyop](https://github.com/plopoyop))
+
+**Merged pull requests:**
+
+- feat\(deps\): update git \(2.53.0 → 2.54.0\) [\#271](https://github.com/plopoyop/ansible-collection-kubernetes/pull/271) ([plopoyop](https://github.com/plopoyop))
+- fix\(deps\): update python313packages.ruff \(0.15.13 → 0.15.14\) [\#270](https://github.com/plopoyop/ansible-collection-kubernetes/pull/270) ([plopoyop](https://github.com/plopoyop))
 
 ## [8.5.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/8.5.0) (2026-05-26)
 
