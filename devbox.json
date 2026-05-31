@@ -11,7 +11,7 @@
       "kubectl@1.36.1",
       "kubernetes-helm@3.20.2",
       "prek@0.3.11",
-      "python313Packages.ansible@13.5.0",
+      "python313Packages.ansible@13.6.0",
       "python313Packages.boto3@1.42.31",
       "python313Packages.kubernetes@35.0.0",
       "python313Packages.molecule@26.4.0",
