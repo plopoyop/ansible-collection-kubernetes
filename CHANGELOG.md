@@ -1,11 +1,12 @@
 # Changelog
 
-## [8.5.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/8.5.1) (2026-06-04)
+## [8.6.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/8.6.0) (2026-06-08)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/8.5.0...8.5.1)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/8.5.0...8.6.0)
 
 ## ⛵ Helm Charts
 
+- feat\(helm\): update chart crowdsec-web-ui \(0.19.0 → 0.20.0\) [\#275](https://github.com/plopoyop/ansible-collection-kubernetes/pull/275) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart rancher \(2.14.1 → 2.14.2\) [\#269](https://github.com/plopoyop/ansible-collection-kubernetes/pull/269) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart metallb \(0.16.0 → 0.16.1\) [\#267](https://github.com/plopoyop/ansible-collection-kubernetes/pull/267) ([plopoyop](https://github.com/plopoyop))
 
