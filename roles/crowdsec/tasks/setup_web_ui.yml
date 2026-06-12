@@ -69,6 +69,7 @@
       --force
   register: "crowdsec_web_ui_register_result"
   changed_when: true
+  no_log: true
   when:
     - "not ansible_check_mode"
     - "crowdsec_web_ui_machine_missing or crowdsec_web_ui_password_changed"
