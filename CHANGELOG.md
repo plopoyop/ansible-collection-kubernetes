@@ -6,6 +6,7 @@
 
 ## ⚙️ Dependencies
 
+- fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.15.16 → v0.15.17\) [\#279](https://github.com/plopoyop/ansible-collection-kubernetes/pull/279) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.1.14 → v46.1.15\) [\#278](https://github.com/plopoyop/ansible-collection-kubernetes/pull/278) ([plopoyop](https://github.com/plopoyop))
 
 **Merged pull requests:**
