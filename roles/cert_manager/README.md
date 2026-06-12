@@ -25,7 +25,8 @@ Install cert-manager
   - [cert_manager_self_signed_enabled](#cert_manager_self_signed_enabled)
   - [cert_manager_trust_manager_deployment_name](#cert_manager_trust_manager_deployment_name)
   - [cert_manager_trust_manager_enabled](#cert_manager_trust_manager_enabled)
-  - [cert_manager_trust_manager_helm_chart_ref](#cert_manager_trust_manager_helm_chart_ref)
+  - [cert_manager_trust_manager_helm_chart_version](#cert_manager_trust_manager_helm_chart_version)
+- [Discovered Tags](#discovered-tags)
 - [Open Tasks](#open-tasks)
 - [Dependencies](#dependencies)
 - [License](#license)
@@ -265,7 +266,7 @@ Should cert-manager trust manager helm chart be installed
 cert_manager_trust_manager_enabled: false
 ```
 
-### cert_manager_trust_manager_helm_chart_ref
+### cert_manager_trust_manager_helm_chart_version
 
 Trust manager Helm chart version to install
 
@@ -274,8 +275,24 @@ Trust manager Helm chart version to install
 #### Default value
 
 ```YAML
-cert_manager_trust_manager_helm_chart_ref: jetstack/cert-manager-trust
+cert_manager_trust_manager_helm_chart_version: 0.16.0
 ```
+
+## Discovered Tags
+
+**_cert_manager_**
+
+**_helm_chart_**
+
+**_helm_repository_**
+
+**_install_**
+
+**_manifest_**
+
+**_namespace_**
+
+**_uninstall_**
 
 ## Open Tasks
 
