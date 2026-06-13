@@ -1,8 +1,12 @@
 # Changelog
 
-## [8.8.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/8.8.1) (2026-06-12)
+## [8.8.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/8.8.1) (2026-06-13)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/8.8.0...8.8.1)
+
+## 🐛 Bug Fixes
+
+- Hide LAPI password from logs in web UI machine registr… [\#282](https://github.com/plopoyop/ansible-collection-kubernetes/pull/282) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
 
