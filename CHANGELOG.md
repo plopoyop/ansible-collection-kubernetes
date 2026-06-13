@@ -7,6 +7,7 @@
 ## 🐛 Bug Fixes
 
 - Hide LAPI password from logs in web UI machine registr… [\#282](https://github.com/plopoyop/ansible-collection-kubernetes/pull/282) ([plopoyop](https://github.com/plopoyop))
+- Rename trust manager helm chart ref var to version [\#281](https://github.com/plopoyop/ansible-collection-kubernetes/pull/281) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
 
