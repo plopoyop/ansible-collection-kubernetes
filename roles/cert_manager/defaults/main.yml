@@ -29,11 +29,11 @@ cert_manager_deployment_name: "cert-manager"
 # Should cert-manager trust manager helm chart be installed
 cert_manager_trust_manager_enabled: false
 
-# @var cert_manager_trust_manager_helm_chart_ref
-# @var cert_manager_trust_manager_helm_chart_ref:type: string
-# @var cert_manager_trust_manager_helm_chart_ref:description: >
+# @var cert_manager_trust_manager_helm_chart_version
+# @var cert_manager_trust_manager_helm_chart_version:type: string
+# @var cert_manager_trust_manager_helm_chart_version:description: >
 # Trust manager Helm chart version to install
-cert_manager_trust_manager_helm_chart_ref: "0.16.0"
+cert_manager_trust_manager_helm_chart_version: "0.16.0"
 
 # @var cert_manager_trust_manager_deployment_name
 # @var cert_manager_trust_manager_deployment_name:type: string
