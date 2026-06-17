@@ -16,6 +16,7 @@ tasks:
       - task: pre-commit
       - mkdir -p ${ANSIBLE_GALAXY_ROLES_PATH}
       - mkdir -p ${ANSIBLE_GALAXY_COLLECTIONS_PATH}
+      - mkdir -p ${HELM_REPOSITORY_CACHE}
       - task: install-collections
       - ${DEVBOX_CONFIG_DIR}/install-kind-cloud.sh
     generates:
