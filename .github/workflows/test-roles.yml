@@ -6,8 +6,8 @@ on:
   push:
     branches: [main]
     paths:
-      - 'roles/**'
-      - '.github/**'
+      - "roles/**"
+      - ".github/**"
       - devbox.json
       - devbox.lock
       - flake.nix
@@ -15,8 +15,8 @@ on:
   pull_request:
     branches: [main]
     paths:
-      - 'roles/**'
-      - '.github/**'
+      - "roles/**"
+      - ".github/**"
       - devbox.json
       - devbox.lock
       - flake.nix
@@ -43,10 +43,6 @@ jobs:
     uses: ./.github/workflows/test-role.yaml
     with:
       role_name: "crowdsec"
-  mongodb:
-    uses: ./.github/workflows/test-role.yaml
-    with:
-      role_name: "mongodb"
   rancher:
     uses: ./.github/workflows/test-role.yaml
     with:

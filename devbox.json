@@ -9,7 +9,7 @@
       "jq@1.8.1",
       "kind@0.31.0",
       "kubectl@1.36.1",
-      "kubernetes-helm@3.20.2",
+      "kubernetes-helm@4.2.0",
       "prek@0.3.11",
       "python313Packages.ansible@13.7.0",
       "python313Packages.boto3@1.42.31",
@@ -32,6 +32,8 @@
         "export ANSIBLE_COLLECTION_ROLES_PATH=${DEVBOX_PROJECT_ROOT}/roles;",
         "export ANSIBLE_ROLES_PATH=${ANSIBLE_GALAXY_ROLES_PATH}:${ANSIBLE_COLLECTION_ROLES_PATH};",
         "export ANSIBLE_COLLECTIONS_PATH=${ANSIBLE_GALAXY_COLLECTIONS_PATH};",
+        "export HELM_REPOSITORY_CONFIG=${DEVBOX_VIRTUAL_ENV}/helm/repositories.yaml;",
+        "export HELM_REPOSITORY_CACHE=${DEVBOX_VIRTUAL_ENV}/helm/cache;",
         "task prepare"
       ]
     }
