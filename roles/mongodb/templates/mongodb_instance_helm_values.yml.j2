@@ -11,8 +11,6 @@ featureCompatibilityVersion: "{{ mongodb_instance.feature_compatibility_version 
 
 members: {{ mongodb_instance.members }}
 
-persistent: {{ mongodb_instance.persistent }}
-
 {% if not mongodb_instance.create_service_account %}
 serviceAccount:
     create: false
