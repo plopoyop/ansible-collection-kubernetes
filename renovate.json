@@ -7,112 +7,39 @@
   ],
   "packageRules": [
     {
-      "matchDatasources": [
-        "helm"
-      ],
-      "matchPackageNames": [
-        "traefik"
-      ],
-      "registryUrls": [
-        "https://traefik.github.io/charts"
-      ]
+      "matchDatasources": ["helm"],
+      "matchPackageNames": ["traefik"],
+      "registryUrls": ["https://traefik.github.io/charts"]
     },
     {
-      "matchDatasources": [
-        "helm"
-      ],
-      "matchPackageNames": [
-        "external-dns"
-      ],
-      "registryUrls": [
-        "https://kubernetes-sigs.github.io/external-dns"
-      ]
+      "matchDatasources": ["helm"],
+      "matchPackageNames": ["external-dns"],
+      "registryUrls": ["https://kubernetes-sigs.github.io/external-dns"]
     },
     {
-      "matchDatasources": [
-        "helm"
-      ],
-      "matchPackageNames": [
-        "metallb"
-      ],
-      "registryUrls": [
-        "https://metallb.github.io/metallb"
-      ]
+      "matchDatasources": ["helm"],
+      "matchPackageNames": ["metallb"],
+      "registryUrls": ["https://metallb.github.io/metallb"]
     },
     {
-      "matchDatasources": [
-        "helm"
-      ],
-      "matchPackageNames": [
-        "cert-manager"
-      ],
-      "registryUrls": [
-        "https://charts.jetstack.io"
-      ]
+      "matchDatasources": ["helm"],
+      "matchPackageNames": ["cert-manager"],
+      "registryUrls": ["https://charts.jetstack.io"]
     },
     {
-      "matchDatasources": [
-        "helm"
-      ],
-      "matchPackageNames": [
-        "community-operator"
-      ],
-      "registryUrls": [
-        "https://mongodb.github.io/helm-charts"
-      ]
+      "matchDatasources": ["helm"],
+      "matchPackageNames": ["rancher"],
+      "registryUrls": ["https://releases.rancher.com/server-charts/stable"]
     },
     {
-      "matchDatasources": [
-        "helm"
-      ],
-      "matchPackageNames": [
-        "mongodb"
-      ],
-      "registryUrls": [
-        "https://plopoyop.github.io/charts"
-      ]
+      "matchDatasources": ["helm"],
+      "matchPackageNames": ["crowdsec"],
+      "registryUrls": ["https://crowdsecurity.github.io/helm-charts"]
     },
     {
-      "matchDatasources": [
-        "docker"
-      ],
-      "matchPackageNames": [
-        "mongodb/mongodb-community-server"
-      ],
-      "versioning": "semver"
-    },
-    {
-      "matchDatasources": [
-        "helm"
-      ],
-      "matchPackageNames": [
-        "rancher"
-      ],
-      "registryUrls": [
-        "https://releases.rancher.com/server-charts/stable"
-      ]
-    },
-    {
-      "matchDatasources": [
-        "helm"
-      ],
-      "matchPackageNames": [
-        "crowdsec"
-      ],
-      "registryUrls": [
-        "https://crowdsecurity.github.io/helm-charts"
-      ]
-    },
-    {
-      "matchDatasources": [
-        "helm"
-      ],
-      "matchPackageNames": [
-        "crowdsec-web-ui"
-      ],
-      "registryUrls": [
-        "https://zekker6.github.io/helm-charts/"
-      ]
+      "matchDatasources": ["helm"],
+      "matchPackageNames": ["crowdsec-web-ui"],
+      "registryUrls": ["https://zekker6.github.io/helm-charts/"]
     }
   ],
   "customManagers": [
@@ -131,24 +58,16 @@
     },
     {
       "customType": "regex",
-      "managerFilePatterns": [
-        "/^README.md$/"
-      ],
-      "matchStrings": [
-        "ExternalDNS\\s*\\|\\s*v?(?<currentValue>[0-9\\.]+)"
-      ],
+      "managerFilePatterns": ["/^README.md$/"],
+      "matchStrings": ["ExternalDNS\\s*\\|\\s*v?(?<currentValue>[0-9\\.]+)"],
       "depNameTemplate": "external-dns",
       "autoReplaceStringTemplate": "ExternalDNS         | v{{newValue}}",
       "datasourceTemplate": "helm"
     },
     {
       "customType": "regex",
-      "managerFilePatterns": [
-        "/^README.md$/"
-      ],
-      "matchStrings": [
-        "traefik\\s*\\|\\s*v?(?<currentValue>[0-9\\.]+)"
-      ],
+      "managerFilePatterns": ["/^README.md$/"],
+      "matchStrings": ["traefik\\s*\\|\\s*v?(?<currentValue>[0-9\\.]+)"],
       "depNameTemplate": "traefik",
       "autoReplaceStringTemplate": "traefik         | v{{newValue}}",
       "datasourceTemplate": "helm"
@@ -168,12 +87,8 @@
     },
     {
       "customType": "regex",
-      "managerFilePatterns": [
-        "/^README.md$/"
-      ],
-      "matchStrings": [
-        "metallb\\s*\\|\\s*v?(?<currentValue>[0-9\\.]+)"
-      ],
+      "managerFilePatterns": ["/^README.md$/"],
+      "matchStrings": ["metallb\\s*\\|\\s*v?(?<currentValue>[0-9\\.]+)"],
       "depNameTemplate": "metallb",
       "autoReplaceStringTemplate": "metallb         | v{{newValue}}",
       "datasourceTemplate": "helm"
@@ -193,9 +108,7 @@
     },
     {
       "customType": "regex",
-      "managerFilePatterns": [
-        "/^README.md$/"
-      ],
+      "managerFilePatterns": ["/^README.md$/"],
       "matchStrings": [
         "cert\\\\_manager\\s*\\|\\s*v?(?<currentValue>[0-9\\.]+)"
       ],
@@ -219,57 +132,6 @@
     {
       "customType": "regex",
       "managerFilePatterns": [
-        "/^README.md$/"
-      ],
-      "matchStrings": [
-        "mongodb\\scommunity\\soperator\\s*\\|\\s*(?<quote>\")?v?(?<currentValue>[0-9\\.]+)?\"?"
-      ],
-      "depNameTemplate": "community-operator",
-      "autoReplaceStringTemplate": "mongodb community operator | v{{newValue}}",
-      "datasourceTemplate": "helm"
-    },
-    {
-      "customType": "regex",
-      "managerFilePatterns": [
-        "/roles/mongodb/defaults/main.yml$/",
-        "/roles/mongodb/README.md$/"
-      ],
-      "matchStrings": [
-        "mongodb_operator_helm_version:\\s*(?<quote>\")?v?(?<currentValue>[0-9\\.]+)?\"?"
-      ],
-      "depNameTemplate": "community-operator",
-      "autoReplaceStringTemplate": "mongodb_operator_helm_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
-      "datasourceTemplate": "helm"
-    },
-    {
-      "customType": "regex",
-      "managerFilePatterns": [
-        "/roles/mongodb/defaults/main.yml$/",
-        "/roles/mongodb/README.md$/"
-      ],
-      "matchStrings": [
-        "mongodb_crd_helm_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?"
-      ],
-      "depNameTemplate": "mongodb",
-      "autoReplaceStringTemplate": "mongodb_operator_helm_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
-      "datasourceTemplate": "helm"
-    },
-    {
-      "customType": "regex",
-      "managerFilePatterns": [
-        "/roles/mongodb/defaults/main.yml$/",
-        "/roles/mongodb/README.md$/"
-      ],
-      "matchStrings": [
-        "mongodb_instance_version:\\s*(?<quote>\")?(?<currentValue>[0-9\\.]+)\"?"
-      ],
-      "depNameTemplate": "mongodb/mongodb-community-server",
-      "autoReplaceStringTemplate": "mongodb_instance_version: {{#if quote}}\"{{newValue}}\"{{else}}{{newValue}}{{/if}}",
-      "datasourceTemplate": "docker"
-    },
-    {
-      "customType": "regex",
-      "managerFilePatterns": [
         "/roles/rancher/defaults/main.yml$/",
         "/roles/rancher/README.md$/"
       ],
@@ -282,12 +144,8 @@
     },
     {
       "customType": "regex",
-      "managerFilePatterns": [
-        "/^README.md$/"
-      ],
-      "matchStrings": [
-        "Rancher\\s*\\|\\s*v?(?<currentValue>[0-9\\.]+)"
-      ],
+      "managerFilePatterns": ["/^README.md$/"],
+      "matchStrings": ["Rancher\\s*\\|\\s*v?(?<currentValue>[0-9\\.]+)"],
       "depNameTemplate": "rancher",
       "autoReplaceStringTemplate": "Rancher         | v{{newValue}}",
       "datasourceTemplate": "helm"
@@ -307,12 +165,8 @@
     },
     {
       "customType": "regex",
-      "managerFilePatterns": [
-        "/^README.md$/"
-      ],
-      "matchStrings": [
-        "CrowdSec\\s*\\|\\s*v?(?<currentValue>[0-9\\.]+)"
-      ],
+      "managerFilePatterns": ["/^README.md$/"],
+      "matchStrings": ["CrowdSec\\s*\\|\\s*v?(?<currentValue>[0-9\\.]+)"],
       "depNameTemplate": "crowdsec",
       "autoReplaceStringTemplate": "CrowdSec        | v{{newValue}}",
       "datasourceTemplate": "helm"
