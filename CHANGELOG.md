@@ -1,8 +1,16 @@
 # Changelog
 
-## [8.8.2](https://github.com/plopoyop/ansible-collection-kubernetes/tree/8.8.2) (2026-06-17)
+## [9.0.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/9.0.0) (2026-06-17)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/8.8.1...8.8.2)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/8.8.1...9.0.0)
+
+## 🐛 Bug Fixes
+
+- Chore: remove mongodb tooling [\#287](https://github.com/plopoyop/ansible-collection-kubernetes/pull/287) ([plopoyop](https://github.com/plopoyop))
+
+## ⛵ Helm Charts
+
+- feat\(helm\)!: Update chart traefik \(40.3.0 → 41.0.0\) [\#286](https://github.com/plopoyop/ansible-collection-kubernetes/pull/286) ([plopoyop](https://github.com/plopoyop))
 
 **Merged pull requests:**
 
