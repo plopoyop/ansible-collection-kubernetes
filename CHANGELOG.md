@@ -15,6 +15,7 @@
 **Merged pull requests:**
 
 - feat\(deps\)!: Update python313Packages.molecule-plugins \(23.5.3 → 25.8.12\) [\#285](https://github.com/plopoyop/ansible-collection-kubernetes/pull/285) ([plopoyop](https://github.com/plopoyop))
+- feat\(deps\)!: Update kubernetes-helm \(3.20.2 → 4.2.0\) [\#284](https://github.com/plopoyop/ansible-collection-kubernetes/pull/284) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update python313packages.ruff \(0.15.15 → 0.15.16\) [\#283](https://github.com/plopoyop/ansible-collection-kubernetes/pull/283) ([plopoyop](https://github.com/plopoyop))
 
 ## [8.8.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/8.8.1) (2026-06-13)
