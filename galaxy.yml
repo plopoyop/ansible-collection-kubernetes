@@ -12,7 +12,7 @@ tags:
   - cluster
   - infrastructure
 dependencies:
-  kubernetes.core: '>=5.1.0'
-repository: 'https://github.com/plopoyop/ansible-collection-kubernetes'
-issues: 'https://github.com/plopoyop/ansible-collection-kubernetes/issues'
+  kubernetes.core: ">=6.4.0"
+repository: "https://github.com/plopoyop/ansible-collection-kubernetes"
+issues: "https://github.com/plopoyop/ansible-collection-kubernetes/issues"
 build_ignore: []

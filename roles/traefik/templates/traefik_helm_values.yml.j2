@@ -83,21 +83,20 @@ gateway:
 {% endif %}
 
 {% if (access_logs | default({})).enabled | default(false) %}
-logs:
-  access:
-    enabled: true
-    format: "{{ access_logs.format | default('json') }}"
+accessLog:
+  enabled: true
+  format: "{{ access_logs.format | default('json') }}"
 {% if access_logs.filePath | default(false) %}
-    filePath: "{{ access_logs.filePath }}"
+  filePath: "{{ access_logs.filePath }}"
 {% endif %}
 {% if access_logs.bufferingSize | default(false) %}
-    bufferingSize: {{ access_logs.bufferingSize }}
+  bufferingSize: {{ access_logs.bufferingSize }}
 {% endif %}
 {% if access_logs.filters | default(false) %}
-    filters: {{ access_logs.filters | ansible.builtin.to_json }}
+  filters: {{ access_logs.filters | ansible.builtin.to_json }}
 {% endif %}
 {% if access_logs.fields | default(false) %}
-    fields: {{ access_logs.fields | ansible.builtin.to_json }}
+  fields: {{ access_logs.fields | ansible.builtin.to_json }}
 {% endif %}
 {% endif %}
 

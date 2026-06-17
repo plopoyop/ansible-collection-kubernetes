@@ -98,8 +98,8 @@
         that:
           - release_values['experimental']['plugins']['bouncer']['moduleName']
             == 'github.com/maxlerebourg/crowdsec-bouncer-traefik-plugin'
-          - release_values['logs']['access']['enabled'] | bool
-          - release_values['logs']['access']['format'] == 'json'
+          - release_values['accessLog']['enabled'] | bool
+          - release_values['accessLog']['format'] == 'json'
           - release_values['commonLabels']['traefik-test-propagation'] == 'enabled'
         fail_msg: "Helm values for 'traefik' release did not propagate plugin or access_logs inputs."
       vars:
