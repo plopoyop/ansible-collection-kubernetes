@@ -16,9 +16,18 @@ tasks:
       - task: pre-commit
       - mkdir -p ${ANSIBLE_GALAXY_ROLES_PATH}
       - mkdir -p ${ANSIBLE_GALAXY_COLLECTIONS_PATH}
+      - task: install-collections
       - ${DEVBOX_CONFIG_DIR}/install-kind-cloud.sh
     generates:
       - ${DEVBOX_PROJECT_ROOT}/.devbox/bin/cloud-provider-kind
+
+  install-collections:
+    desc: "Install required Ansible collections into the workspace collections path"
+    cmds:
+      - ansible-galaxy collection install -r requirements.yml -p ${ANSIBLE_GALAXY_COLLECTIONS_PATH} --force
+    sources:
+      - requirements.yml
+    method: checksum
 
   pre-commit:
     desc: "Install pre-commit hooks"
