@@ -1,0 +1,24 @@
+---
+- name: "Download Kubernetes Gateway API CRDs manifest"
+  ansible.builtin.uri:
+    url: "{{ traefik_gateway_api_crds_url }}"
+    return_content: true
+  register: "traefik_gateway_api_crds_manifest"
+  check_mode: false
+  changed_when: false
+
+- name: "Apply Kubernetes Gateway API CRDs (server-side, force conflicts)"
+  kubernetes.core.k8s:
+    state: "present"
+    apply: true
+    server_side_apply:
+      field_manager: "ansible-traefik-gateway-api-crds"
+      force_conflicts: true
+    definition: "{{ item }}"
+  loop: >-
+    {{ (traefik_gateway_api_crds_manifest.content | ansible.builtin.from_yaml_all)
+       | select
+       | selectattr('kind', 'equalto', 'CustomResourceDefinition')
+       | list }}
+  loop_control:
+    label: "{{ item.metadata.name }}"

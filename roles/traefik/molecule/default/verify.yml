@@ -84,6 +84,42 @@
         that: middleware_tcp.resources[0] is defined
         fail_msg: "MiddlewareTCP 'test-inflightconn' is not defined."
 
+    - name: "Wait for 'traefik' GatewayClass to be defined."
+      kubernetes.core.k8s_info:
+        api_version: "gateway.networking.k8s.io/v1"
+        kind: "GatewayClass"
+        name: "traefik"
+      register: gatewayclass
+      until: gatewayclass.resources[0] is defined
+      retries: 30
+      delay: 5
+
+    - name: "Assert that 'traefik' GatewayClass is defined."
+      ansible.builtin.assert:
+        that:
+          - gatewayclass.resources[0] is defined
+          - gatewayclass.resources[0].spec.controllerName == 'traefik.io/gateway-controller'
+        fail_msg: "GatewayClass 'traefik' is not defined."
+
+    - name: "Wait for 'traefik-gateway' Gateway to be defined."
+      kubernetes.core.k8s_info:
+        api_version: "gateway.networking.k8s.io/v1"
+        kind: "Gateway"
+        name: "traefik-gateway"
+        namespace: "ingress-traefik-controller"
+      register: gateway
+      until: gateway.resources[0] is defined
+      retries: 30
+      delay: 5
+
+    - name: "Assert that 'traefik-gateway' Gateway is defined."
+      ansible.builtin.assert:
+        that:
+          - gateway.resources[0] is defined
+          - gateway.resources[0].spec.gatewayClassName == 'traefik'
+          - gateway.resources[0].spec.listeners | selectattr('name', 'equalto', 'web') | list | length > 0
+        fail_msg: "Gateway 'traefik-gateway' is not defined."
+
     - name: "Wait for helm values for the traefik release to be available."
       kubernetes.core.helm_info:
         name: "traefik"
@@ -101,6 +137,7 @@
           - release_values['accessLog']['enabled'] | bool
           - release_values['accessLog']['format'] == 'json'
           - release_values['commonLabels']['traefik-test-propagation'] == 'enabled'
-        fail_msg: "Helm values for 'traefik' release did not propagate plugin or access_logs inputs."
+          - release_values['providers']['kubernetesGateway']['enabled'] | bool
+        fail_msg: "Helm values for 'traefik' release did not propagate plugin, access_logs or gateway inputs."
       vars:
         release_values: "{{ traefik_release['status']['values'] }}"

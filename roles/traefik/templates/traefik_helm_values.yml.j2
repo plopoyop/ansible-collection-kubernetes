@@ -69,17 +69,53 @@ providers:
   # Disable the Ingress provider (optional)
   kubernetesIngress:
     enabled: {{ traefik_ingress_enabled }}
-  # Enable the GatewayAPI provider
+  # Enable the Gateway API provider
   kubernetesGateway:
-    enabled: {{ traefik_gateway_enabled }}
+    enabled: {{ traefik_gateway_enabled | default(false) }}
+{% if traefik_gateway_enabled | default(false) %}
+    experimentalChannel: {{ gateway_experimental_channel | default(false) }}
+{% if gateway_namespaces | default([]) | length > 0 %}
+    namespaces: {{ gateway_namespaces | ansible.builtin.to_json }}
+{% endif %}
+{% if gateway_cross_provider_namespaces | default([]) | length > 0 %}
+    crossProviderNamespaces: {{ gateway_cross_provider_namespaces | ansible.builtin.to_json }}
+{% endif %}
+{% if gateway_label_selector | default('') | length > 0 %}
+    labelSelector: "{{ gateway_label_selector }}"
+{% endif %}
+{% endif %}
 
-# Allow the Gateway to expose HTTPRoute from all namespaces
-{% if traefik_gateway_enabled %}
+{% if traefik_gateway_enabled | default(false) %}
+# Default Gateway exposed by the chart. When no `gateway.listeners` are
+# provided, a single `web` HTTP listener accepting routes from all
+# namespaces is created so HTTPRoutes work out of the box.
 gateway:
-  namespacePolicy: All
-  listeners:
-    web:
-      namespacePolicy: All
+  enabled: {{ (gateway | default({})).enabled | default(true) }}
+{% if (gateway | default({})).name | default('') | length > 0 %}
+  name: "{{ gateway.name }}"
+{% endif %}
+{% if (gateway | default({})).namespace | default('') | length > 0 %}
+  namespace: "{{ gateway.namespace }}"
+{% endif %}
+{% if (gateway | default({})).annotations | default({}) != {} %}
+  annotations: {{ gateway.annotations | ansible.builtin.to_json }}
+{% endif %}
+{% if (gateway | default({})).infrastructure | default({}) != {} %}
+  infrastructure: {{ gateway.infrastructure | ansible.builtin.to_json }}
+{% endif %}
+{% if (gateway | default({})).defaultScope | default('') | length > 0 %}
+  defaultScope: "{{ gateway.defaultScope }}"
+{% endif %}
+  listeners: {{ (gateway | default({})).listeners | default({"web": {"port": 8000, "protocol": "HTTP", "namespacePolicy": {"from": "All"}}}) | ansible.builtin.to_json }}
+
+gatewayClass:
+  enabled: {{ (gateway_class | default({})).enabled | default(true) }}
+{% if (gateway_class | default({})).name | default('') | length > 0 %}
+  name: "{{ gateway_class.name }}"
+{% endif %}
+{% if (gateway_class | default({})).labels | default({}) != {} %}
+  labels: {{ gateway_class.labels | ansible.builtin.to_json }}
+{% endif %}
 {% endif %}
 
 {% if (access_logs | default({})).enabled | default(false) %}
