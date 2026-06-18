@@ -4,6 +4,8 @@
   connection: local
   gather_facts: false
   vars:
+    # Install the upstream Gateway API CRDs so the Gateway provider can run.
+    traefik_gateway_api_crds_install: true
     traefik_deployments:
       - name: "traefik"
         state: "present"
@@ -19,7 +21,17 @@
           web_entrypoint_exposed_port: 80
           web_entrypoint_expose: true
           traefik_ingress_enabled: true
-          traefik_gateway_enabled: false
+          traefik_gateway_enabled: true
+          gateway:
+            name: "traefik-gateway"
+            listeners:
+              web:
+                port: 8000
+                protocol: "HTTP"
+                namespacePolicy:
+                  from: "All"
+          gateway_class:
+            name: "traefik"
           dashboard_enabled: false
           # Exercise the new first-class inputs
           access_logs:

@@ -8,11 +8,15 @@ Install traefik ingress controller on kubernetes
 - [Default Variables](#default-variables)
   - [traefik_crds_upgrade_enabled](#traefik_crds_upgrade_enabled)
   - [traefik_deployments](#traefik_deployments)
+  - [traefik_gateway_api_channel](#traefik_gateway_api_channel)
+  - [traefik_gateway_api_crds_install](#traefik_gateway_api_crds_install)
+  - [traefik_gateway_api_version](#traefik_gateway_api_version)
   - [traefik_helm_version](#traefik_helm_version)
   - [traefik_ingress_enabled](#traefik_ingress_enabled)
   - [traefik_middlewares](#traefik_middlewares)
   - [traefik_middlewares_tcp](#traefik_middlewares_tcp)
   - [traefik_namespace](#traefik_namespace)
+- [Discovered Tags](#discovered-tags)
 - [Dependencies](#dependencies)
 - [License](#license)
 - [Author](#author)
@@ -68,6 +72,12 @@ traefik_deployments:
       traefik_additional_entrypoint: []
       traefik_ingress_enabled: true
       traefik_gateway_enabled: false
+      gateway_experimental_channel: false
+      gateway_namespaces: []
+      gateway_cross_provider_namespaces: []
+      gateway_label_selector: ''
+      gateway: {}
+      gateway_class: {}
       dashboard_enabled: false
       access_logs: {}
       plugins: []
@@ -102,7 +112,28 @@ traefik_deployments:
            exposed_port: 81
            expose: true
        traefik_ingress_enabled: true
-       traefik_gateway_enabled: false
+       traefik_gateway_enabled: true
+       gateway_experimental_channel: false
+       gateway_namespaces: []
+       gateway_cross_provider_namespaces: []
+       gateway_label_selector: ""
+       gateway:
+         enabled: true
+         name: "traefik-gateway"
+         namespace: ""
+         annotations: {}
+         infrastructure: {}
+         defaultScope: ""
+         listeners:
+           web:
+             port: 8000
+             protocol: "HTTP"
+             namespacePolicy:
+               from: "All"
+       gateway_class:
+         enabled: true
+         name: "traefik"
+         labels: {}
        dashboard_enabled: false
        access_logs:
          enabled: true
@@ -128,6 +159,50 @@ traefik_deployments:
        additional_values:
          commonLabels:
            team: "platform"
+```
+
+### traefik_gateway_api_channel
+
+Release channel of the Gateway API CRDs to install: `standard` (GA
+resources only) or `experimental` (adds `TCPRoute`/`TLSRoute`, required
+when a deployment sets `gateway_experimental_channel: true`).
+
+**_Type:_** string<br />
+
+#### Default value
+
+```YAML
+traefik_gateway_api_channel: standard
+```
+
+### traefik_gateway_api_crds_install
+
+Install the upstream Kubernetes Gateway API CRDs (`gateway.networking.k8s.io`)
+before deploying Traefik. The Traefik helm chart deploys the `Gateway` and
+`GatewayClass` resources but does NOT bundle the Gateway API CRDs themselves,
+so they must already exist in the cluster when `providers.kubernetesGateway`
+is enabled on a deployment. Leave this disabled when the CRDs are managed
+elsewhere (another controller, a GitOps pipeline, etc.).
+
+**_Type:_** boolean<br />
+
+#### Default value
+
+```YAML
+traefik_gateway_api_crds_install: false
+```
+
+### traefik_gateway_api_version
+
+Version (git tag) of the Kubernetes Gateway API CRDs to install when
+`traefik_gateway_api_crds_install` is enabled.
+
+**_Type:_** string<br />
+
+#### Default value
+
+```YAML
+traefik_gateway_api_version: v1.5.1
 ```
 
 ### traefik_helm_version
@@ -215,6 +290,24 @@ K8s namespace to install the traefik ingress chart
 ```YAML
 traefik_namespace: ingress-traefik-controller
 ```
+
+## Discovered Tags
+
+**_crds_**
+
+**_helm_chart_**
+
+**_helm_repository_**
+
+**_install_**
+
+**_manifest_**
+
+**_namespace_**
+
+**_traefik_**
+
+**_uninstall_**
 
 ## Dependencies
 

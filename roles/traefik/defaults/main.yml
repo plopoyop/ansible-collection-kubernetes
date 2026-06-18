@@ -28,6 +28,32 @@ traefik_helm_version: v41.0.0
 # and skipped when the installed chart version already matches the target.
 traefik_crds_upgrade_enabled: true
 
+# @var traefik_gateway_api_crds_install
+# @var traefik_gateway_api_crds_install:type: boolean
+# @var traefik_gateway_api_crds_install:description: >
+# Install the upstream Kubernetes Gateway API CRDs (`gateway.networking.k8s.io`)
+# before deploying Traefik. The Traefik helm chart deploys the `Gateway` and
+# `GatewayClass` resources but does NOT bundle the Gateway API CRDs themselves,
+# so they must already exist in the cluster when `providers.kubernetesGateway`
+# is enabled on a deployment. Leave this disabled when the CRDs are managed
+# elsewhere (another controller, a GitOps pipeline, etc.).
+traefik_gateway_api_crds_install: false
+
+# @var traefik_gateway_api_version
+# @var traefik_gateway_api_version:type: string
+# @var traefik_gateway_api_version:description: >
+# Version (git tag) of the Kubernetes Gateway API CRDs to install when
+# `traefik_gateway_api_crds_install` is enabled.
+traefik_gateway_api_version: v1.5.1
+
+# @var traefik_gateway_api_channel
+# @var traefik_gateway_api_channel:type: string
+# @var traefik_gateway_api_channel:description: >
+# Release channel of the Gateway API CRDs to install: `standard` (GA
+# resources only) or `experimental` (adds `TCPRoute`/`TLSRoute`, required
+# when a deployment sets `gateway_experimental_channel: true`).
+traefik_gateway_api_channel: "standard"
+
 # @var traefik_deployments
 # @var traefik_deployments:type: list of dict
 # @var traefik_deployments:description: >
@@ -53,7 +79,28 @@ traefik_crds_upgrade_enabled: true
 #            exposed_port: 81
 #            expose: true
 #        traefik_ingress_enabled: true
-#        traefik_gateway_enabled: false
+#        traefik_gateway_enabled: true
+#        gateway_experimental_channel: false
+#        gateway_namespaces: []
+#        gateway_cross_provider_namespaces: []
+#        gateway_label_selector: ""
+#        gateway:
+#          enabled: true
+#          name: "traefik-gateway"
+#          namespace: ""
+#          annotations: {}
+#          infrastructure: {}
+#          defaultScope: ""
+#          listeners:
+#            web:
+#              port: 8000
+#              protocol: "HTTP"
+#              namespacePolicy:
+#                from: "All"
+#        gateway_class:
+#          enabled: true
+#          name: "traefik"
+#          labels: {}
 #        dashboard_enabled: false
 #        access_logs:
 #          enabled: true
@@ -96,6 +143,12 @@ traefik_deployments:
       traefik_additional_entrypoint: []
       traefik_ingress_enabled: true
       traefik_gateway_enabled: false
+      gateway_experimental_channel: false
+      gateway_namespaces: []
+      gateway_cross_provider_namespaces: []
+      gateway_label_selector: ""
+      gateway: {}
+      gateway_class: {}
       dashboard_enabled: false
       access_logs: {}
       plugins: []

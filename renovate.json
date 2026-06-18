@@ -87,6 +87,19 @@
     },
     {
       "customType": "regex",
+      "managerFilePatterns": [
+        "/roles/traefik/defaults/main.yml$/",
+        "/roles/traefik/README.md$/"
+      ],
+      "matchStrings": [
+        "traefik_gateway_api_version:\\s*(?<quote>\")?v?(?<currentValue>[0-9\\.]+)?\"?"
+      ],
+      "depNameTemplate": "kubernetes-sigs/gateway-api",
+      "autoReplaceStringTemplate": "traefik_gateway_api_version: {{#if quote}}\"v{{newValue}}\"{{else}}v{{newValue}}{{/if}}",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "customType": "regex",
       "managerFilePatterns": ["/^README.md$/"],
       "matchStrings": ["metallb\\s*\\|\\s*v?(?<currentValue>[0-9\\.]+)"],
       "depNameTemplate": "metallb",

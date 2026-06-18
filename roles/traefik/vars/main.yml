@@ -2,3 +2,4 @@
 traefik_helm_repo_name: "traefik"
 traefik_helm_chart_ref: "traefik/traefik"
 traefik_helm_repo_url: "https://traefik.github.io/charts"
+traefik_gateway_api_crds_url: "https://github.com/kubernetes-sigs/gateway-api/releases/download/{{ traefik_gateway_api_version }}/{{ traefik_gateway_api_channel }}-install.yaml"
