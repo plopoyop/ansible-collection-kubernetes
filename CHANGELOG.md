@@ -1,5 +1,13 @@
 # Changelog
 
+## [9.1.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/9.1.0) (2026-06-18)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/9.0.0...9.1.0)
+
+## 🚀 New Features
+
+- Enable Gateway API installation in traefik [\#288](https://github.com/plopoyop/ansible-collection-kubernetes/pull/288) ([plopoyop](https://github.com/plopoyop))
+
 ## [9.0.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/9.0.0) (2026-06-17)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/8.8.1...9.0.0)
