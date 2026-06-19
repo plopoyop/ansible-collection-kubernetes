@@ -1,5 +1,17 @@
 # Changelog
 
+## [9.1.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/9.1.1) (2026-06-19)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/9.1.0...9.1.1)
+
+## 🐛 Bug Fixes
+
+- Fix kind install script [\#291](https://github.com/plopoyop/ansible-collection-kubernetes/pull/291) ([plopoyop](https://github.com/plopoyop))
+
+## ⚙️ Dependencies
+
+- feat\(ci\)!: Update actions/checkout action \(v6.0.3 → v7.0.0\) [\#290](https://github.com/plopoyop/ansible-collection-kubernetes/pull/290) ([plopoyop](https://github.com/plopoyop))
+
 ## [9.1.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/9.1.0) (2026-06-18)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/9.0.0...9.1.0)
