@@ -18,8 +18,37 @@ case "${CPUTYPE}" in
     echo '??' ;;
 esac
 
-KIND_CLOUD_SRC=$(curl -s https://api.github.com/repos/kubernetes-sigs/cloud-provider-kind/releases/latest  |  jq -r '.assets[] | select(.name | contains ("'${OSTYPE}'")) | select(.name | contains ("'${GH_CPUTYPE}'"))  | .browser_download_url')
-echo ${KIND_CLOUD_SRC}
+API_URL="https://api.github.com/repos/kubernetes-sigs/cloud-provider-kind/releases/latest"
 
-mkdir -p ${BIN_DEST}
-curl -L ${KIND_CLOUD_SRC} | tar -xz -C ${BIN_DEST} ${BIN_NAME}
+# Authentification optionnelle pour éviter le rate-limit de l'API GitHub
+# (60 req/h en anonyme, 5000 req/h avec un token).
+CURL_AUTH=()
+if [[ -n "${GITHUB_TOKEN:-}" ]]; then
+    CURL_AUTH=(-H "Authorization: Bearer ${GITHUB_TOKEN}")
+fi
+
+RELEASE_JSON="$(curl -fsSL "${CURL_AUTH[@]}" "${API_URL}")"
+if [[ $? -ne 0 || -z "${RELEASE_JSON}" ]]; then
+    echo "Erreur: impossible de récupérer la release depuis l'API GitHub (réseau ou rate-limit ?)." >&2
+    exit 1
+fi
+
+# Vérifie que la réponse est bien du JSON exploitable avant de l'utiliser.
+if ! echo "${RELEASE_JSON}" | jq -e '.assets' >/dev/null 2>&1; then
+    MSG="$(echo "${RELEASE_JSON}" | jq -r '.message // empty' 2>/dev/null)"
+    echo "Erreur: réponse inattendue de l'API GitHub${MSG:+ : ${MSG}}." >&2
+    echo "Astuce: définissez GITHUB_TOKEN pour augmenter la limite de requêtes." >&2
+    exit 1
+fi
+
+KIND_CLOUD_SRC="$(echo "${RELEASE_JSON}" | jq -r --arg os "${OSTYPE}" --arg cpu "${GH_CPUTYPE}" \
+    '.assets[] | select(.name | contains($os)) | select(.name | contains($cpu)) | .browser_download_url')"
+
+if [[ -z "${KIND_CLOUD_SRC}" ]]; then
+    echo "Erreur: aucun asset trouvé pour ${OSTYPE}/${GH_CPUTYPE}." >&2
+    exit 1
+fi
+echo "${KIND_CLOUD_SRC}"
+
+mkdir -p "${BIN_DEST}"
+curl -fsSL "${KIND_CLOUD_SRC}" | tar -xz -C "${BIN_DEST}" "${BIN_NAME}"
