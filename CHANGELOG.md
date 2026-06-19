@@ -11,6 +11,7 @@
 ## ⚙️ Dependencies
 
 - feat\(ci\)!: Update actions/checkout action \(v6.0.3 → v7.0.0\) [\#290](https://github.com/plopoyop/ansible-collection-kubernetes/pull/290) ([plopoyop](https://github.com/plopoyop))
+- fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.15.17 → v0.15.18\) [\#289](https://github.com/plopoyop/ansible-collection-kubernetes/pull/289) ([plopoyop](https://github.com/plopoyop))
 
 ## [9.1.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/9.1.0) (2026-06-18)
 
