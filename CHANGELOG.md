@@ -1,12 +1,16 @@
 # Changelog
 
-## [9.1.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/9.1.1) (2026-06-22)
+## [9.2.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/9.2.0) (2026-06-22)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/9.1.0...9.1.1)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/9.1.0...9.2.0)
 
 ## 🐛 Bug Fixes
 
 - Fix kind install script [\#291](https://github.com/plopoyop/ansible-collection-kubernetes/pull/291) ([plopoyop](https://github.com/plopoyop))
+
+## ⛵ Helm Charts
+
+- feat\(helm\): update chart crowdsec-web-ui \(0.21.0 → 0.22.0\) [\#293](https://github.com/plopoyop/ansible-collection-kubernetes/pull/293) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
 
