@@ -384,7 +384,7 @@ crowdsec_web_ui_enabled: false
 # @var crowdsec_web_ui_helm_chart_version:type: string
 # @var crowdsec_web_ui_helm_chart_version:description: >
 # CrowdSec Web UI helm chart version
-crowdsec_web_ui_helm_chart_version: 0.22.0
+crowdsec_web_ui_helm_chart_version: 0.23.0
 
 # @var crowdsec_web_ui_image_tag
 # @var crowdsec_web_ui_image_tag:type: string
