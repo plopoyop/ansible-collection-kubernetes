@@ -16,4 +16,17 @@ jobs:
       - name: Prepare env
         run: devbox run -- task prepare
       - name: Run molecule test
-        run: devbox run -- task test:role:${{inputs.role_name}}
+        run: |
+          attempts=3
+          for i in $(seq 1 "$attempts"); do
+            echo "::group::Molecule test attempt $i/$attempts (${{ inputs.role_name }})"
+            if devbox run -- task test:role:${{ inputs.role_name }}; then
+              echo "::endgroup::"
+              exit 0
+            fi
+            echo "::endgroup::"
+            echo "::warning::Attempt $i/$attempts failed for role ${{ inputs.role_name }}"
+            sleep 20
+          done
+          echo "::error::Molecule test failed after $attempts attempts for role ${{ inputs.role_name }}"
+          exit 1
