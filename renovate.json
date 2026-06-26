@@ -3,7 +3,8 @@
   "extends": [
     "github>plopoyop/renovate-config",
     "github>plopoyop/renovate-config:kubernetes-ansible-collection",
-    "github>plopoyop/renovate-config:automerge-devbox"
+    "github>plopoyop/renovate-config:automerge-devbox",
+    "github>plopoyop/renovate-config:automerge-helm"
   ],
   "packageRules": [
     {
