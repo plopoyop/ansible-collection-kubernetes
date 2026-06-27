@@ -10,6 +10,7 @@
 
 ## ⛵ Helm Charts
 
+- feat\(helm\): update chart crowdsec-web-ui \(0.23.0 → 0.24.0\) [\#297](https://github.com/plopoyop/ansible-collection-kubernetes/pull/297) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart crowdsec-web-ui \(0.22.0 → 0.23.0\) [\#295](https://github.com/plopoyop/ansible-collection-kubernetes/pull/295) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart crowdsec-web-ui \(0.21.0 → 0.22.0\) [\#293](https://github.com/plopoyop/ansible-collection-kubernetes/pull/293) ([plopoyop](https://github.com/plopoyop))
 
