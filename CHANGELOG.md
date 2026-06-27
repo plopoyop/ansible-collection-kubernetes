@@ -1,5 +1,13 @@
 # Changelog
 
+## [9.2.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/9.2.1) (2026-06-27)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/9.2.0...9.2.1)
+
+## 🐛 Bug Fixes
+
+- fix\(devbox\): Downgrade helm package [\#302](https://github.com/plopoyop/ansible-collection-kubernetes/pull/302) ([plopoyop](https://github.com/plopoyop))
+
 ## [9.2.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/9.2.0) (2026-06-27)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/9.1.0...9.2.0)
