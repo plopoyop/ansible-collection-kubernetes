@@ -8,6 +8,12 @@
   ],
   "packageRules": [
     {
+      "description": "Block Helm 4.2.1 — hook Jobs not created, release stuck in pending-install (helm/helm#32224). Allow 4.2.0 and any future fix (4.2.2+).",
+      "matchManagers": ["devbox"],
+      "matchPackageNames": ["kubernetes-helm"],
+      "allowedVersions": "!/^4\\.2\\.1$/"
+    },
+    {
       "matchDatasources": ["helm"],
       "matchPackageNames": ["traefik"],
       "registryUrls": ["https://traefik.github.io/charts"]
