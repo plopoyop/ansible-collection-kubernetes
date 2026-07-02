@@ -1,6 +1,6 @@
 # Changelog
 
-## [9.2.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/9.2.1) (2026-07-01)
+## [9.2.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/9.2.1) (2026-07-02)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/9.2.0...9.2.1)
 
@@ -8,8 +8,13 @@
 
 - fix\(devbox\): Downgrade helm package [\#302](https://github.com/plopoyop/ansible-collection-kubernetes/pull/302) ([plopoyop](https://github.com/plopoyop))
 
+## ⚙️ Dependencies
+
+- fix\(ci\): update renovatebot/github-action action \(v46.1.16 → v46.1.17\) [\#306](https://github.com/plopoyop/ansible-collection-kubernetes/pull/306) ([plopoyop](https://github.com/plopoyop))
+
 **Merged pull requests:**
 
+- fix\(deps\): update python313packages.ruff \(0.15.17 → 0.15.20\) [\#307](https://github.com/plopoyop/ansible-collection-kubernetes/pull/307) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update kubernetes-helm \(4.2.0 → 4.2.2\) [\#305](https://github.com/plopoyop/ansible-collection-kubernetes/pull/305) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update ansible-doctor \(8.3.2 → 8.3.3\) [\#304](https://github.com/plopoyop/ansible-collection-kubernetes/pull/304) ([plopoyop](https://github.com/plopoyop))
 
