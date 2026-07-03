@@ -1,6 +1,6 @@
 # Changelog
 
-## [9.2.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/9.2.1) (2026-07-02)
+## [9.2.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/9.2.1) (2026-07-03)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/9.2.0...9.2.1)
 
@@ -11,6 +11,7 @@
 ## ⚙️ Dependencies
 
 - fix\(ci\): update renovatebot/github-action action \(v46.1.16 → v46.1.17\) [\#306](https://github.com/plopoyop/ansible-collection-kubernetes/pull/306) ([plopoyop](https://github.com/plopoyop))
+- feat\(deps\): update kubernetes-sigs/gateway-api \(v1.5.1 → v1.6.0\) [\#303](https://github.com/plopoyop/ansible-collection-kubernetes/pull/303) ([plopoyop](https://github.com/plopoyop))
 
 **Merged pull requests:**
 
