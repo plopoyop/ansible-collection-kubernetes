@@ -1,12 +1,16 @@
 # Changelog
 
-## [9.2.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/9.2.1) (2026-07-03)
+## [9.3.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/9.3.0) (2026-07-03)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/9.2.0...9.2.1)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/9.2.0...9.3.0)
 
 ## 🐛 Bug Fixes
 
 - fix\(devbox\): Downgrade helm package [\#302](https://github.com/plopoyop/ansible-collection-kubernetes/pull/302) ([plopoyop](https://github.com/plopoyop))
+
+## ⛵ Helm Charts
+
+- feat\(helm\): update chart crowdsec-web-ui \(0.24.0 → 0.28.0\) [\#310](https://github.com/plopoyop/ansible-collection-kubernetes/pull/310) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
 
@@ -15,6 +19,7 @@
 
 **Merged pull requests:**
 
+- feat\(deps\)!: Update python313Packages.ansible \(13.7.0 → 14.0.0\) [\#311](https://github.com/plopoyop/ansible-collection-kubernetes/pull/311) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update python313packages.ruff \(0.15.17 → 0.15.20\) [\#307](https://github.com/plopoyop/ansible-collection-kubernetes/pull/307) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update kubernetes-helm \(4.2.0 → 4.2.2\) [\#305](https://github.com/plopoyop/ansible-collection-kubernetes/pull/305) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update ansible-doctor \(8.3.2 → 8.3.3\) [\#304](https://github.com/plopoyop/ansible-collection-kubernetes/pull/304) ([plopoyop](https://github.com/plopoyop))
