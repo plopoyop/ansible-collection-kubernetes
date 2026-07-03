@@ -51,7 +51,7 @@ You can call the roles from this collection in your Ansible playbooks as follows
 | traefik         | v41.0.1            | `traefik`      | [View README](roles/traefik/README.md)      |
 | cert\_manager   | v0.17.1            | `cert_manager` | [View README](roles/cert_manager/README.md) |
 | CrowdSec        | v0.24.0            | `crowdsec`     | [View README](roles/crowdsec/README.md)     |
-| Rancher         | v2.14.2            | `rancher`      | [View README](roles/rancher/README.md) |
+| Rancher         | v2.14.3            | `rancher`      | [View README](roles/rancher/README.md) |
 
 ### Tags
 
