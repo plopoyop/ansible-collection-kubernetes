@@ -1,6 +1,6 @@
 # Changelog
 
-## [9.3.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/9.3.0) (2026-07-03)
+## [9.3.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/9.3.0) (2026-07-04)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/9.2.0...9.3.0)
 
@@ -10,6 +10,7 @@
 
 ## ⛵ Helm Charts
 
+- feat\(helm\): update chart crowdsec-web-ui \(0.28.0 → 0.29.0\) [\#312](https://github.com/plopoyop/ansible-collection-kubernetes/pull/312) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart crowdsec-web-ui \(0.24.0 → 0.28.0\) [\#310](https://github.com/plopoyop/ansible-collection-kubernetes/pull/310) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart traefik \(41.0.0 → 41.0.1\) [\#309](https://github.com/plopoyop/ansible-collection-kubernetes/pull/309) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart rancher \(2.14.2 → 2.14.3\) [\#308](https://github.com/plopoyop/ansible-collection-kubernetes/pull/308) ([plopoyop](https://github.com/plopoyop))
