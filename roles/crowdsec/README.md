@@ -821,7 +821,7 @@ CrowdSec Web UI helm chart version
 #### Default value
 
 ```YAML
-crowdsec_web_ui_helm_chart_version: 0.28.0
+crowdsec_web_ui_helm_chart_version: 0.29.0
 ```
 
 ### crowdsec_web_ui_image_tag
