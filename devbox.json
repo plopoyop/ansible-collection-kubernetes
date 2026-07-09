@@ -14,7 +14,7 @@
       "python313Packages.ansible@14.0.0",
       "python313Packages.boto3@1.42.31",
       "python313Packages.kubernetes@35.0.0",
-      "python313Packages.molecule@26.4.0",
+      "python313Packages.molecule@26.6.0",
       "python313Packages.molecule-plugins@25.8.12",
       "python313Packages.moto@5.1.20",
       "python313Packages.pytest@9.0.3",
