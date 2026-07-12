@@ -31,7 +31,8 @@
     {
       "matchDatasources": ["helm"],
       "matchPackageNames": ["cert-manager"],
-      "registryUrls": ["https://charts.jetstack.io"]
+      "registryUrls": ["https://charts.jetstack.io"],
+      "extractVersion": "^v(?<version>.+)$"
     },
     {
       "matchDatasources": ["helm"],
