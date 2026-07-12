@@ -12,9 +12,11 @@
 
 - feat\(helm\): update chart cert-manager to v1.21.0 [\#319](https://github.com/plopoyop/ansible-collection-kubernetes/pull/319) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart traefik \(41.0.1 → 41.0.2\) [\#314](https://github.com/plopoyop/ansible-collection-kubernetes/pull/314) ([plopoyop](https://github.com/plopoyop))
+- feat\(helm\): update chart crowdsec-web-ui \(0.29.0 → 0.34.0\) [\#313](https://github.com/plopoyop/ansible-collection-kubernetes/pull/313) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
 
+- fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.15.20 → v0.15.21\) [\#317](https://github.com/plopoyop/ansible-collection-kubernetes/pull/317) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.1.17 → v46.1.18\) [\#315](https://github.com/plopoyop/ansible-collection-kubernetes/pull/315) ([plopoyop](https://github.com/plopoyop))
 
 **Merged pull requests:**
