@@ -15,7 +15,7 @@ cert_manager_namespace: "cert-manager"
 # @var cert_manager_helm_chart_version:type: string
 # @var cert_manager_helm_chart_version:description: >
 # Helm chart version to install
-cert_manager_helm_chart_version: "1.17.1"
+cert_manager_helm_chart_version: 1.21.0
 
 # @var cert_manager_deployment_name
 # @var cert_manager_deployment_name:type: string
