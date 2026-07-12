@@ -4,6 +4,14 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/9.3.0...9.3.1)
 
+## 🐛 Bug Fixes
+
+- fix\(renovate\): Certmanager version regex [\#318](https://github.com/plopoyop/ansible-collection-kubernetes/pull/318) ([plopoyop](https://github.com/plopoyop))
+
+## ⛵ Helm Charts
+
+- fix\(helm\): update chart traefik \(41.0.1 → 41.0.2\) [\#314](https://github.com/plopoyop/ansible-collection-kubernetes/pull/314) ([plopoyop](https://github.com/plopoyop))
+
 ## ⚙️ Dependencies
 
 - fix\(ci\): update renovatebot/github-action action \(v46.1.17 → v46.1.18\) [\#315](https://github.com/plopoyop/ansible-collection-kubernetes/pull/315) ([plopoyop](https://github.com/plopoyop))
