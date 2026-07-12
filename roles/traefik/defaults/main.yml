@@ -15,7 +15,7 @@ traefik_namespace: "ingress-traefik-controller"
 # @var traefik_helm_version:type: string
 # @var traefik_helm_version:description: >
 # Helm chart version to install
-traefik_helm_version: v41.0.1
+traefik_helm_version: v41.0.2
 
 # @var traefik_crds_upgrade_enabled
 # @var traefik_crds_upgrade_enabled:type: boolean
