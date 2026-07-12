@@ -1,6 +1,6 @@
 # Changelog
 
-## [9.3.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/9.3.1) (2026-07-09)
+## [9.3.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/9.3.1) (2026-07-12)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/9.3.0...9.3.1)
 
