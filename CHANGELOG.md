@@ -10,6 +10,7 @@
 
 ## ⛵ Helm Charts
 
+- feat\(helm\): update chart crowdsec-web-ui \(0.34.0 → 0.36.0\) [\#320](https://github.com/plopoyop/ansible-collection-kubernetes/pull/320) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart cert-manager to v1.21.0 [\#319](https://github.com/plopoyop/ansible-collection-kubernetes/pull/319) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart traefik \(41.0.1 → 41.0.2\) [\#314](https://github.com/plopoyop/ansible-collection-kubernetes/pull/314) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart crowdsec-web-ui \(0.29.0 → 0.34.0\) [\#313](https://github.com/plopoyop/ansible-collection-kubernetes/pull/313) ([plopoyop](https://github.com/plopoyop))
