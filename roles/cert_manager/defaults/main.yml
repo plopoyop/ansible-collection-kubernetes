@@ -17,6 +17,14 @@ cert_manager_namespace: "cert-manager"
 # Helm chart version to install
 cert_manager_helm_chart_version: 1.21.0
 
+# @var cert_manager_crds_keep
+# @var cert_manager_crds_keep:type: boolean
+# @var cert_manager_crds_keep:description: >
+# Keep the cert-manager CRDs when the chart is uninstalled (prevents accidental
+# deletion of Certificate/Issuer custom resources). Applies to both the
+# cert-manager and trust-manager charts.
+cert_manager_crds_keep: true
+
 # @var cert_manager_deployment_name
 # @var cert_manager_deployment_name:type: string
 # @var cert_manager_deployment_name:description: >

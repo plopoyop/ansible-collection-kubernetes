@@ -18,6 +18,7 @@ Install cert-manager
   - [cert_manager_acme_staging_private_key_ref](#cert_manager_acme_staging_private_key_ref)
   - [cert_manager_acme_staging_solver](#cert_manager_acme_staging_solver)
   - [cert_manager_acme_staging_url](#cert_manager_acme_staging_url)
+  - [cert_manager_crds_keep](#cert_manager_crds_keep)
   - [cert_manager_deployment_name](#cert_manager_deployment_name)
   - [cert_manager_enabled](#cert_manager_enabled)
   - [cert_manager_helm_chart_version](#cert_manager_helm_chart_version)
@@ -180,6 +181,20 @@ cert_manager_acme_staging_solver:
 
 ```YAML
 cert_manager_acme_staging_url: https://acme-staging-v02.api.letsencrypt.org/directory
+```
+
+### cert_manager_crds_keep
+
+Keep the cert-manager CRDs when the chart is uninstalled (prevents accidental
+deletion of Certificate/Issuer custom resources). Applies to both the
+cert-manager and trust-manager charts.
+
+**_Type:_** boolean<br />
+
+#### Default value
+
+```YAML
+cert_manager_crds_keep: true
 ```
 
 ### cert_manager_deployment_name

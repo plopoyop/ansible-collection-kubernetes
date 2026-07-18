@@ -24,7 +24,9 @@
     chart_version: "{{ cert_manager_helm_chart_version }}"
     update_repo_cache: true
     values:
-      installCRDs: true
+      crds:
+        enabled: true
+        keep: "{{ cert_manager_crds_keep | bool }}"
     wait: true
   tags:
     - "helm_chart"
@@ -37,7 +39,9 @@
     chart_version: "{{ cert_manager_trust_manager_helm_chart_version }}"
     update_repo_cache: true
     values:
-      installCRDs: true
+      crds:
+        enabled: true
+        keep: "{{ cert_manager_crds_keep | bool }}"
     wait: true
   when: cert_manager_trust_manager_enabled
   tags:
