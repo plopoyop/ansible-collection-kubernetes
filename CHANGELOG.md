@@ -6,6 +6,7 @@
 
 ## 🐛 Bug Fixes
 
+- Fix tag propagation to imported tasks [\#326](https://github.com/plopoyop/ansible-collection-kubernetes/pull/326) ([plopoyop](https://github.com/plopoyop))
 - fix\(renovate\): Certmanager version regex [\#318](https://github.com/plopoyop/ansible-collection-kubernetes/pull/318) ([plopoyop](https://github.com/plopoyop))
 
 ## ⛵ Helm Charts
