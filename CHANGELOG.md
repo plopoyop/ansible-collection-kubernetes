@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/9.3.0...10.0.0)
 
+## 🚀 New Features
+
+- Add crds\_keep option and migrate to crds.enabled [\#327](https://github.com/plopoyop/ansible-collection-kubernetes/pull/327) ([plopoyop](https://github.com/plopoyop))
+
 ## 🐛 Bug Fixes
 
 - Fix tag propagation to imported tasks [\#326](https://github.com/plopoyop/ansible-collection-kubernetes/pull/326) ([plopoyop](https://github.com/plopoyop))
