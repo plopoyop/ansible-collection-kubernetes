@@ -44,7 +44,7 @@ traefik_gateway_api_crds_install: false
 # @var traefik_gateway_api_version:description: >
 # Version (git tag) of the Kubernetes Gateway API CRDs to install when
 # `traefik_gateway_api_crds_install` is enabled.
-traefik_gateway_api_version: v1.6.0
+traefik_gateway_api_version: v1.6.1
 
 # @var traefik_gateway_api_channel
 # @var traefik_gateway_api_channel:type: string

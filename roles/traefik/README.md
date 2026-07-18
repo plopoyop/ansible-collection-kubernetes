@@ -202,7 +202,7 @@ Version (git tag) of the Kubernetes Gateway API CRDs to install when
 #### Default value
 
 ```YAML
-traefik_gateway_api_version: v1.6.0
+traefik_gateway_api_version: v1.6.1
 ```
 
 ### traefik_helm_version
