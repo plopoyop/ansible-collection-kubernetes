@@ -9,7 +9,7 @@
       "jq@1.8.1",
       "kind@0.31.0",
       "kubectl@1.36.2",
-      "kubernetes-helm@4.2.2",
+      "kubernetes-helm@4.2.3",
       "prek@0.3.11",
       "python313Packages.ansible@14.0.0",
       "python313Packages.boto3@1.42.31",
