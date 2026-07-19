@@ -1,6 +1,6 @@
 # Changelog
 
-## [10.0.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.0.0) (2026-07-18)
+## [10.0.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.0.0) (2026-07-19)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/9.3.0...10.0.0)
 
@@ -30,6 +30,8 @@
 
 **Merged pull requests:**
 
+- feat\(deps\): update python313packages.pytest-ansible \(26.4.0 → 26.6.0\) [\#329](https://github.com/plopoyop/ansible-collection-kubernetes/pull/329) ([plopoyop](https://github.com/plopoyop))
+- feat\(deps\): update python313packages.ansible \(14.0.0 → 14.1.0\) [\#328](https://github.com/plopoyop/ansible-collection-kubernetes/pull/328) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update prek \(0.3.11 → 0.4.4\) [\#325](https://github.com/plopoyop/ansible-collection-kubernetes/pull/325) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update kubernetes-helm \(4.2.2 → 4.2.3\) [\#324](https://github.com/plopoyop/ansible-collection-kubernetes/pull/324) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update python313packages.molecule \(26.4.0 → 26.6.0\) [\#316](https://github.com/plopoyop/ansible-collection-kubernetes/pull/316) ([plopoyop](https://github.com/plopoyop))
