@@ -1,5 +1,13 @@
 # Changelog
 
+## [10.0.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.0.1) (2026-07-20)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/10.0.0...10.0.1)
+
+## 🐛 Bug Fixes
+
+- Fix tags propagation on include\_tasks [\#331](https://github.com/plopoyop/ansible-collection-kubernetes/pull/331) ([plopoyop](https://github.com/plopoyop))
+
 ## [10.0.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.0.0) (2026-07-19)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/9.3.0...10.0.0)
