@@ -81,6 +81,7 @@ traefik_deployments:
       dashboard_enabled: false
       access_logs: {}
       plugins: []
+      plugins_abort_on_failure: false
       service_annotations: {}
       service_labels: {}
       service_spec: {}
@@ -142,6 +143,7 @@ traefik_deployments:
          - name: "bouncer"
            moduleName: "github.com/maxlerebourg/crowdsec-bouncer-traefik-plugin"
            version: "v1.4.3"
+       plugins_abort_on_failure: true
        service_annotations:
          service.beta.kubernetes.io/ovh-loadbalancer-proxy-protocol: "v2"
        service_labels: {}

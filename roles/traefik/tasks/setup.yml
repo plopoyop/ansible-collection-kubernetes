@@ -34,12 +34,12 @@
     - "traefik_crds_upgrade_enabled"
     - "traefik_current_release.status.chart is defined"
     - "traefik_current_release.item.state | default('present') == 'present'"
-  tags: ["always"]
 
 - name: "Install Kubernetes Gateway API CRDs"
   ansible.builtin.include_tasks: "install_gateway_api_crds.yml"
   when: "traefik_gateway_api_crds_install"
-  tags: ["always"]
+  tags:
+    - "crds"
 
 - name: "Instanciate ip addresses list"
   ansible.builtin.set_fact:
@@ -50,7 +50,8 @@
   loop: "{{ traefik_deployments }}"
   loop_control:
     loop_var: "traefik_current_instance"
-  tags: ["always"]
+  tags:
+    - "helm_chart"
 
 - name: "Create middlewares"
   kubernetes.core.k8s:

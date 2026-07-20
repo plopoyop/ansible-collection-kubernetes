@@ -41,6 +41,7 @@
             - name: "bouncer"
               moduleName: "github.com/maxlerebourg/crowdsec-bouncer-traefik-plugin"
               version: "v1.4.3"
+          plugins_abort_on_failure: true
           additional_values:
             commonLabels:
               traefik-test-propagation: "enabled"
