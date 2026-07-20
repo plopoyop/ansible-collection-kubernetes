@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/10.0.0...10.1.0)
 
+## 🚀 New Features
+
+- feature\(traefik\): Add plugins abort on failure [\#332](https://github.com/plopoyop/ansible-collection-kubernetes/pull/332) ([plopoyop](https://github.com/plopoyop))
+
 ## 🐛 Bug Fixes
 
 - Fix tags propagation on include\_tasks [\#331](https://github.com/plopoyop/ansible-collection-kubernetes/pull/331) ([plopoyop](https://github.com/plopoyop))
