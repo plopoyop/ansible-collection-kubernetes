@@ -50,16 +50,10 @@
 - name: "Call updating mongodb instance task"
   ansible.builtin.include_tasks:
     file: "update_instance_values.yml"
-    apply:
-      tags:
-        - "mongodb"
-        - "install"
   loop: "{{ mongodb_instance_values_override | ansible.builtin.dict2items }}"
   loop_control:
     loop_var: "value_to_update"
-  tags:
-    - "mongodb"
-    - "install"
+  tags: ["always"]
 
 - name: "Create MongoDB instance namespace"
   kubernetes.core.k8s:
