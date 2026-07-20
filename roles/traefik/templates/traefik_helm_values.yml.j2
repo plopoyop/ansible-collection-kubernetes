@@ -136,14 +136,17 @@ accessLog:
 {% endif %}
 {% endif %}
 
-{% if plugins | default([]) | length > 0 %}
+{% if (plugins | default([]) | length > 0) or (plugins_abort_on_failure | default(false)) %}
 experimental:
+  abortOnPluginFailure: {{ plugins_abort_on_failure | default(false) }}
+{% if plugins | default([]) | length > 0 %}
   plugins:
 {% for plugin in plugins %}
     {{ plugin.name }}:
       moduleName: "{{ plugin.moduleName }}"
       version: "{{ plugin.version }}"
 {% endfor %}
+{% endif %}
 {% endif %}
 
 {% if additional_values | default({}) != {} %}

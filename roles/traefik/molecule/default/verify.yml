@@ -134,6 +134,7 @@
         that:
           - release_values['experimental']['plugins']['bouncer']['moduleName']
             == 'github.com/maxlerebourg/crowdsec-bouncer-traefik-plugin'
+          - release_values['experimental']['abortOnPluginFailure'] | bool
           - release_values['accessLog']['enabled'] | bool
           - release_values['accessLog']['format'] == 'json'
           - release_values['commonLabels']['traefik-test-propagation'] == 'enabled'
