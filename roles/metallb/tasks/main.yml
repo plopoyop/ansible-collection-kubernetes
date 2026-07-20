@@ -2,23 +2,11 @@
 - name: "Include setup when enabled"
   ansible.builtin.include_tasks:
     file: "setup.yml"
-    apply:
-      tags:
-        - "metallb"
-        - "install"
   when: metallb_enabled
-  tags:
-    - "metallb"
-    - "install"
+  tags: ["always"]
 
 - name: "Include cleanup when disabled"
   ansible.builtin.include_tasks:
     file: "cleanup.yml"
-    apply:
-      tags:
-        - "metallb"
-        - "uninstall"
   when: not metallb_enabled
-  tags:
-    - "metallb"
-    - "uninstall"
+  tags: ["always"]
