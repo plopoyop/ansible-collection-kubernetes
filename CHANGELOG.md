@@ -1,5 +1,13 @@
 # Changelog
 
+## [10.1.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.1.1) (2026-07-21)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/10.1.0...10.1.1)
+
+**Merged pull requests:**
+
+- fix\(deps\): update jq \(1.8.1 → 1.8.2\) [\#333](https://github.com/plopoyop/ansible-collection-kubernetes/pull/333) ([plopoyop](https://github.com/plopoyop))
+
 ## [10.1.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.1.0) (2026-07-20)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/10.0.0...10.1.0)
