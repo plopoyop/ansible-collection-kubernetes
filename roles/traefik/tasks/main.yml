@@ -7,9 +7,7 @@
         - "traefik"
         - "install"
   when: traefik_ingress_enabled
-  tags:
-    - "traefik"
-    - "install"
+  tags: ["always"]
 
 - name: "Include cleanup when disabled"
   ansible.builtin.include_tasks:
@@ -19,6 +17,4 @@
         - "traefik"
         - "uninstall"
   when: not traefik_ingress_enabled
-  tags:
-    - "traefik"
-    - "uninstall"
+  tags: ["always"]
