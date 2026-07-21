@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/10.1.0...10.2.0)
 
+## 🐛 Bug Fixes
+
+- Propagate role/phase tags through dynamic include\_tasks [\#335](https://github.com/plopoyop/ansible-collection-kubernetes/pull/335) ([plopoyop](https://github.com/plopoyop))
+
 ## ⛵ Helm Charts
 
 - feat\(helm\): update chart crowdsec-web-ui \(0.38.0 → 0.40.0\) [\#334](https://github.com/plopoyop/ansible-collection-kubernetes/pull/334) ([plopoyop](https://github.com/plopoyop))
