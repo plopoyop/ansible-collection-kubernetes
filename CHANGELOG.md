@@ -1,5 +1,14 @@
 # Changelog
 
+## [10.3.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.3.1) (2026-07-27)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/10.3.0...10.3.1)
+
+**Merged pull requests:**
+
+- feat\(deps\): update python313packages.moto \(5.1.20 → 5.2.2\) [\#342](https://github.com/plopoyop/ansible-collection-kubernetes/pull/342) ([plopoyop](https://github.com/plopoyop))
+- feat\(deps\): update kind \(0.31.0 → 0.32.0\) [\#341](https://github.com/plopoyop/ansible-collection-kubernetes/pull/341) ([plopoyop](https://github.com/plopoyop))
+
 ## [10.3.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.3.0) (2026-07-26)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/10.2.0...10.3.0)
