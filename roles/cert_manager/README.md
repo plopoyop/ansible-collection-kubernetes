@@ -230,7 +230,7 @@ Helm chart version to install
 #### Default value
 
 ```YAML
-cert_manager_helm_chart_version: 1.21.0
+cert_manager_helm_chart_version: 1.21.1
 ```
 
 ### cert_manager_namespace
