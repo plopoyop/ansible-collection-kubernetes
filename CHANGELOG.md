@@ -1,5 +1,14 @@
 # Changelog
 
+## [10.4.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.4.1) (2026-08-05)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/10.4.0...10.4.1)
+
+**Merged pull requests:**
+
+- fix\(deps\): update prek \(0.4.4 → 0.4.10\) [\#352](https://github.com/plopoyop/ansible-collection-kubernetes/pull/352) ([plopoyop](https://github.com/plopoyop))
+- fix\(deps\): update kubectl \(1.36.2 → 1.36.3\) [\#351](https://github.com/plopoyop/ansible-collection-kubernetes/pull/351) ([plopoyop](https://github.com/plopoyop))
+
 ## [10.4.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.4.0) (2026-08-02)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/10.3.0...10.4.0)
