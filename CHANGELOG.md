@@ -1,8 +1,12 @@
 # Changelog
 
-## [10.4.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.4.1) (2026-08-06)
+## [10.4.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.4.1) (2026-08-07)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/10.4.0...10.4.1)
+
+## ⛵ Helm Charts
+
+- fix\(helm\): update chart traefik \(41.1.0 → 41.1.1\) [\#354](https://github.com/plopoyop/ansible-collection-kubernetes/pull/354) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
 
@@ -10,6 +14,7 @@
 
 **Merged pull requests:**
 
+- feat\(deps\): update python313packages.ruff \(0.15.22 → 0.16.1\) [\#356](https://github.com/plopoyop/ansible-collection-kubernetes/pull/356) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update python313packages.ansible \(14.1.0 → 14.2.0\) [\#355](https://github.com/plopoyop/ansible-collection-kubernetes/pull/355) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update prek \(0.4.4 → 0.4.10\) [\#352](https://github.com/plopoyop/ansible-collection-kubernetes/pull/352) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update kubectl \(1.36.2 → 1.36.3\) [\#351](https://github.com/plopoyop/ansible-collection-kubernetes/pull/351) ([plopoyop](https://github.com/plopoyop))
