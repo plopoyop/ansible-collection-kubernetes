@@ -1,8 +1,12 @@
 # Changelog
 
-## [10.4.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.4.1) (2026-08-07)
+## [10.5.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.5.0) (2026-08-09)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/10.4.0...10.4.1)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/10.4.0...10.5.0)
+
+## 🚀 New Features
+
+- chore\(lint\): Add missing ruff config [\#360](https://github.com/plopoyop/ansible-collection-kubernetes/pull/360) ([plopoyop](https://github.com/plopoyop))
 
 ## ⛵ Helm Charts
 
