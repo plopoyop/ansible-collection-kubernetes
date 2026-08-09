@@ -10,6 +10,7 @@
 
 ## ⛵ Helm Charts
 
+- feat\(helm\): update chart traefik \(41.1.1 → 41.2.0\) [\#359](https://github.com/plopoyop/ansible-collection-kubernetes/pull/359) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart traefik \(41.1.0 → 41.1.1\) [\#354](https://github.com/plopoyop/ansible-collection-kubernetes/pull/354) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
