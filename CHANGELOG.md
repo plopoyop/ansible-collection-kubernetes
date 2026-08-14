@@ -1,6 +1,6 @@
 # Changelog
 
-## [10.5.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.5.1) (2026-08-13)
+## [10.5.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.5.1) (2026-08-14)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/10.5.0...10.5.1)
 
@@ -10,6 +10,7 @@
 
 **Merged pull requests:**
 
+- fix\(deps\): update python313packages.ruff \(0.16.1 → 0.16.2\) [\#364](https://github.com/plopoyop/ansible-collection-kubernetes/pull/364) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update prek \(0.4.10 → 0.4.12\) [\#361](https://github.com/plopoyop/ansible-collection-kubernetes/pull/361) ([plopoyop](https://github.com/plopoyop))
 
 ## [10.5.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.5.0) (2026-08-09)
