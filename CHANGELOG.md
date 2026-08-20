@@ -1,6 +1,6 @@
 # Changelog
 
-## [10.5.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.5.1) (2026-08-19)
+## [10.5.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.5.1) (2026-08-20)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/10.5.0...10.5.1)
 
@@ -10,6 +10,8 @@
 
 **Merged pull requests:**
 
+- feat\(deps\): update ansible-doctor \(8.3.3 → 8.4.0\) [\#367](https://github.com/plopoyop/ansible-collection-kubernetes/pull/367) ([plopoyop](https://github.com/plopoyop))
+- fix\(deps\): update prek \(0.4.12 → 0.4.13\) [\#366](https://github.com/plopoyop/ansible-collection-kubernetes/pull/366) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update kubernetes-helm \(4.2.3 → 4.2.4\) [\#365](https://github.com/plopoyop/ansible-collection-kubernetes/pull/365) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update python313packages.ruff \(0.16.1 → 0.16.2\) [\#364](https://github.com/plopoyop/ansible-collection-kubernetes/pull/364) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update prek \(0.4.10 → 0.4.12\) [\#361](https://github.com/plopoyop/ansible-collection-kubernetes/pull/361) ([plopoyop](https://github.com/plopoyop))
