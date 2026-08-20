@@ -10,7 +10,7 @@
       "kind@0.32.0",
       "kubectl@1.36.3",
       "kubernetes-helm@4.2.4",
-      "prek@0.4.12",
+      "prek@0.4.13",
       "python313Packages.ansible@14.2.0",
       "python313Packages.boto3@1.42.31",
       "python313Packages.kubernetes@35.0.0",
