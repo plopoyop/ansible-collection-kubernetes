@@ -5,7 +5,7 @@
       "ansible-lint@25.8.2",
       "git@2.55.0",
       "glibcLocales@2.40-66",
-      "go-task@3.48.0",
+      "go-task@3.52.0",
       "jq@1.8.2",
       "kind@0.32.0",
       "kubectl@1.36.3",
