@@ -1,6 +1,6 @@
 # Changelog
 
-## [10.6.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.6.0) (2026-08-24)
+## [10.6.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.6.0) (2026-08-25)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/10.5.0...10.6.0)
 
@@ -10,6 +10,7 @@
 
 ## ⚙️ Dependencies
 
+- fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.16.2 → v0.16.4\) [\#363](https://github.com/plopoyop/ansible-collection-kubernetes/pull/363) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.2.1 → v46.2.2\) [\#362](https://github.com/plopoyop/ansible-collection-kubernetes/pull/362) ([plopoyop](https://github.com/plopoyop))
 
 **Merged pull requests:**
