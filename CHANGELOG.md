@@ -1,6 +1,6 @@
 # Changelog
 
-## [10.6.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.6.0) (2026-08-25)
+## [10.6.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.6.0) (2026-08-27)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/10.5.0...10.6.0)
 
@@ -10,11 +10,13 @@
 
 ## ⚙️ Dependencies
 
+- fix\(ci\): update renovatebot/github-action action \(v46.2.2 → v46.2.4\) [\#370](https://github.com/plopoyop/ansible-collection-kubernetes/pull/370) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.16.2 → v0.16.4\) [\#363](https://github.com/plopoyop/ansible-collection-kubernetes/pull/363) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.2.1 → v46.2.2\) [\#362](https://github.com/plopoyop/ansible-collection-kubernetes/pull/362) ([plopoyop](https://github.com/plopoyop))
 
 **Merged pull requests:**
 
+- fix\(deps\): update prek \(0.4.13 → 0.4.14\) [\#371](https://github.com/plopoyop/ansible-collection-kubernetes/pull/371) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update go-task \(3.48.0 → 3.52.0\) [\#368](https://github.com/plopoyop/ansible-collection-kubernetes/pull/368) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update ansible-doctor \(8.3.3 → 8.4.0\) [\#367](https://github.com/plopoyop/ansible-collection-kubernetes/pull/367) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update prek \(0.4.12 → 0.4.13\) [\#366](https://github.com/plopoyop/ansible-collection-kubernetes/pull/366) ([plopoyop](https://github.com/plopoyop))
