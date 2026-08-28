@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/10.6.0...10.6.1)
 
+## ⚙️ Dependencies
+
+- fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.16.4 → v0.16.5\) [\#372](https://github.com/plopoyop/ansible-collection-kubernetes/pull/372) ([plopoyop](https://github.com/plopoyop))
+
 **Merged pull requests:**
 
 - feat\(deps\): update go-task \(3.52.0 → 3.53.1\) [\#374](https://github.com/plopoyop/ansible-collection-kubernetes/pull/374) ([plopoyop](https://github.com/plopoyop))
