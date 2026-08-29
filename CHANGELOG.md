@@ -1,6 +1,6 @@
 # Changelog
 
-## [10.6.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.6.1) (2026-08-28)
+## [10.6.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.6.1) (2026-08-29)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/10.6.0...10.6.1)
 
@@ -10,6 +10,7 @@
 
 **Merged pull requests:**
 
+- feat\(deps\): update python313packages.ansible \(14.2.0 → 14.3.1\) [\#375](https://github.com/plopoyop/ansible-collection-kubernetes/pull/375) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update go-task \(3.52.0 → 3.53.1\) [\#374](https://github.com/plopoyop/ansible-collection-kubernetes/pull/374) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update python313packages.ruff \(0.16.2 → 0.16.4\) [\#373](https://github.com/plopoyop/ansible-collection-kubernetes/pull/373) ([plopoyop](https://github.com/plopoyop))
 
