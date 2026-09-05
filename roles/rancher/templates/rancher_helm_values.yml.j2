@@ -48,6 +48,9 @@ auditLog:
   destination: "{{ rancher_audit_log_destination }}"
 {% endif %}
 
+postDelete:
+  ignoreTimeoutError: {{ rancher_post_delete_ignore_errors | lower }}
+
 {% if rancher_system_default_registry | length > 0 %}
 systemDefaultRegistry: "{{ rancher_system_default_registry }}"
 {% endif %}

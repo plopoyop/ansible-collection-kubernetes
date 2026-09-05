@@ -16,7 +16,7 @@ rancher_namespace: "cattle-system"
 # @var rancher_helm_chart_version:type: string
 # @var rancher_helm_chart_version:description: >
 # Helm chart version to install
-rancher_helm_chart_version: 2.14.3
+rancher_helm_chart_version: 2.15.1
 
 # @var rancher_deployment_name
 # @var rancher_deployment_name:type: string
@@ -149,6 +149,15 @@ rancher_audit_log_destination: "sidecar"
 # Private registry for air-gapped installations.
 # All system images will be pulled from this registry.
 rancher_system_default_registry: ""
+
+# @var rancher_post_delete_ignore_errors
+# @var rancher_post_delete_ignore_errors:type: boolean
+# @var rancher_post_delete_ignore_errors:description: >
+# Do not fail the chart post-delete hook when an app cannot be uninstalled.
+# Since chart 2.15 the hook runs helm 4, whose "helm list" also returns the
+# release currently being uninstalled: the hook always tries to uninstall
+# rancher itself and fails, which breaks "helm uninstall rancher".
+rancher_post_delete_ignore_errors: true
 
 # @var rancher_additional_helm_values
 # @var rancher_additional_helm_values:type: dict

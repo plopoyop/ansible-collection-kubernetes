@@ -25,10 +25,12 @@ Install rancher
   - [rancher_lets_encrypt_email](#rancher_lets_encrypt_email)
   - [rancher_lets_encrypt_ingress_class](#rancher_lets_encrypt_ingress_class)
   - [rancher_namespace](#rancher_namespace)
+  - [rancher_post_delete_ignore_errors](#rancher_post_delete_ignore_errors)
   - [rancher_private_ca](#rancher_private_ca)
   - [rancher_replicas](#rancher_replicas)
   - [rancher_resources](#rancher_resources)
   - [rancher_system_default_registry](#rancher_system_default_registry)
+- [Discovered Tags](#discovered-tags)
 - [Dependencies](#dependencies)
 - [License](#license)
 - [Author](#author)
@@ -173,7 +175,7 @@ Helm chart version to install
 #### Default value
 
 ```YAML
-rancher_helm_chart_version: 2.14.3
+rancher_helm_chart_version: 2.15.1
 ```
 
 ### rancher_hostname
@@ -283,6 +285,21 @@ Rancher requires cattle-system namespace.
 rancher_namespace: cattle-system
 ```
 
+### rancher_post_delete_ignore_errors
+
+Do not fail the chart post-delete hook when an app cannot be uninstalled.
+Since chart 2.15 the hook runs helm 4, whose "helm list" also returns the
+release currently being uninstalled: the hook always tries to uninstall
+rancher itself and fails, which breaks "helm uninstall rancher".
+
+**_Type:_** boolean<br />
+
+#### Default value
+
+```YAML
+rancher_post_delete_ignore_errors: true
+```
+
 ### rancher_private_ca
 
 Set to true if using certificates signed by a private CA.
@@ -344,6 +361,18 @@ All system images will be pulled from this registry.
 ```YAML
 rancher_system_default_registry: ''
 ```
+
+## Discovered Tags
+
+**_always_**
+
+**_helm_chart_**
+
+**_helm_repository_**
+
+**_manifest_**
+
+**_namespace_**
 
 ## Dependencies
 
