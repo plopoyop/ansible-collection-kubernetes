@@ -50,7 +50,7 @@ You can call the roles from this collection in your Ansible playbooks as follows
 | metallb         | v0.16.1            | `metallb`      | [View README](roles/metallb/README.md)     |
 | traefik         | v41.4.0            | `traefik`      | [View README](roles/traefik/README.md)      |
 | cert\_manager   | v1.21.1            | `cert_manager` | [View README](roles/cert_manager/README.md) |
-| CrowdSec        | v0.24.0            | `crowdsec`     | [View README](roles/crowdsec/README.md)     |
+| CrowdSec        | v0.24.2            | `crowdsec`     | [View README](roles/crowdsec/README.md)     |
 | Rancher         | v2.15.1            | `rancher`      | [View README](roles/rancher/README.md) |
 
 ### Tags
