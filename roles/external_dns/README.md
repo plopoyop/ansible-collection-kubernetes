@@ -128,7 +128,7 @@ Helm chart version to install
 #### Default value
 
 ```YAML
-external_dns_helm_chart_version: 1.21.1
+external_dns_helm_chart_version: 1.22.0
 ```
 
 ### external_dns_helm_values

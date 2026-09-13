@@ -46,7 +46,7 @@ You can call the roles from this collection in your Ansible playbooks as follows
 
 | Role Name       | Helm Chart Version | Role Tag       | README Link                                 |
 | ---------       | ------------------ | -------------- | ------------------------------------        |
-| ExternalDNS         | v1.21.1            | `external_dns` | [View README](roles/external_dns/README.md)       |
+| ExternalDNS         | v1.22.0            | `external_dns` | [View README](roles/external_dns/README.md)       |
 | metallb         | v0.16.1            | `metallb`      | [View README](roles/metallb/README.md)     |
 | traefik         | v41.5.0            | `traefik`      | [View README](roles/traefik/README.md)      |
 | cert\_manager   | v1.21.1            | `cert_manager` | [View README](roles/cert_manager/README.md) |
