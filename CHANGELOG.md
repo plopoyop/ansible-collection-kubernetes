@@ -1,8 +1,12 @@
 # Changelog
 
-## [10.8.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.8.1) (2026-09-10)
+## [10.8.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.8.1) (2026-09-13)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/10.8.0...10.8.1)
+
+## ⛵ Helm Charts
+
+- fix\(helm\): update chart cert-manager \(1.21.1 → 1.21.2\) [\#387](https://github.com/plopoyop/ansible-collection-kubernetes/pull/387) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
 
