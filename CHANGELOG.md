@@ -10,6 +10,7 @@
 
 ## ⚙️ Dependencies
 
+- feat\(ci\)!: Update ubuntu \(24.04 → 26.04\) [\#393](https://github.com/plopoyop/ansible-collection-kubernetes/pull/393) ([plopoyop](https://github.com/plopoyop))
 - fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.16.7 → v0.16.8\) [\#391](https://github.com/plopoyop/ansible-collection-kubernetes/pull/391) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.3.0 → v46.3.1\) [\#390](https://github.com/plopoyop/ansible-collection-kubernetes/pull/390) ([plopoyop](https://github.com/plopoyop))
 - feat\(ci\): update renovatebot/github-action action \(v46.2.6 → v46.3.0\) [\#389](https://github.com/plopoyop/ansible-collection-kubernetes/pull/389) ([plopoyop](https://github.com/plopoyop))
