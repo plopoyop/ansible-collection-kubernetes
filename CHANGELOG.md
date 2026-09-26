@@ -1,8 +1,12 @@
 # Changelog
 
-## [10.10.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.10.1) (2026-09-25)
+## [10.10.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.10.1) (2026-09-26)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/10.10.0...10.10.1)
+
+## ⛵ Helm Charts
+
+- fix\(helm\): update chart rancher \(2.15.1 → 2.15.2\) [\#397](https://github.com/plopoyop/ansible-collection-kubernetes/pull/397) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
 
