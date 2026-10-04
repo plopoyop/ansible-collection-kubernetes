@@ -1,11 +1,12 @@
 # Changelog
 
-## [10.12.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.12.1) (2026-10-03)
+## [10.13.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.13.0) (2026-10-04)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/10.12.0...10.12.1)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/10.12.0...10.13.0)
 
 ## ⛵ Helm Charts
 
+- feat\(helm\): update chart external-dns \(1.22.0 → 1.23.0\) [\#404](https://github.com/plopoyop/ansible-collection-kubernetes/pull/404) ([plopoyop](https://github.com/plopoyop))
 - fix\(helm\): update chart traefik \(41.6.0 → 41.6.1\) [\#403](https://github.com/plopoyop/ansible-collection-kubernetes/pull/403) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
