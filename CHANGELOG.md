@@ -1,5 +1,13 @@
 # Changelog
 
+## [10.14.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.14.1) (2026-10-07)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/10.14.0...10.14.1)
+
+## ⚙️ Dependencies
+
+- fix\(deps\): update kubernetes-sigs/gateway-api \(v1.6.2 → v1.6.3\) [\#407](https://github.com/plopoyop/ansible-collection-kubernetes/pull/407) ([plopoyop](https://github.com/plopoyop))
+
 ## [10.14.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.14.0) (2026-10-06)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/10.13.0...10.14.0)
