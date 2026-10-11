@@ -1,5 +1,13 @@
 # Changelog
 
+## [10.15.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.15.1) (2026-10-11)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/10.15.0...10.15.1)
+
+## ⛵ Helm Charts
+
+- fix\(helm\): update chart traefik \(41.7.0 → 41.7.1\) [\#412](https://github.com/plopoyop/ansible-collection-kubernetes/pull/412) ([plopoyop](https://github.com/plopoyop))
+
 ## [10.15.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.15.0) (2026-10-11)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/10.14.1...10.15.0)
