@@ -1,5 +1,17 @@
 # Changelog
 
+## [10.15.2](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.15.2) (2026-10-16)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/10.15.1...10.15.2)
+
+## ⚙️ Dependencies
+
+- fix\(ci\): update renovatebot/github-action action \(v46.3.7 → v46.3.8\) [\#417](https://github.com/plopoyop/ansible-collection-kubernetes/pull/417) ([plopoyop](https://github.com/plopoyop))
+
+**Merged pull requests:**
+
+- fix\(deps\): update ansible-doctor \(8.4.2 → 8.4.3\) [\#418](https://github.com/plopoyop/ansible-collection-kubernetes/pull/418) ([plopoyop](https://github.com/plopoyop))
+
 ## [10.15.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/10.15.1) (2026-10-14)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/10.15.0...10.15.1)
