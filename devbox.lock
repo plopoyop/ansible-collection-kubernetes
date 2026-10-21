@@ -817,53 +817,53 @@
         }
       }
     },
-    "python313Packages.moto@5.2.2": {
-      "last_modified": "2026-07-23T05:10:05Z",
-      "resolved": "github:NixOS/nixpkgs/7525d999cd850b9a488817abc89c75dc733acf17#python313Packages.moto",
+    "python313Packages.moto@5.2.3": {
+      "last_modified": "2026-10-19T15:20:57Z",
+      "resolved": "github:NixOS/nixpkgs/682ba80136e2c8dacd6b8900f578a72329458901#python313Packages.moto",
       "source": "devbox-search",
-      "version": "5.2.2",
+      "version": "5.2.3",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/zids4kij1kz9cz50qacdybych2gz69b1-python3.13-moto-5.2.2",
+              "path": "/nix/store/70i7ndlxzil0hj5q8c0ijx7km90ijsp8-python3.13-moto-5.2.3",
               "default": true
             },
             {
               "name": "dist",
-              "path": "/nix/store/677xxzxq6403z2jcv04l1hadbxcnfxim-python3.13-moto-5.2.2-dist"
+              "path": "/nix/store/p8n09mzcvy8six7mb9a7cnb0p562nlp3-python3.13-moto-5.2.3-dist"
             }
           ],
-          "store_path": "/nix/store/zids4kij1kz9cz50qacdybych2gz69b1-python3.13-moto-5.2.2"
+          "store_path": "/nix/store/70i7ndlxzil0hj5q8c0ijx7km90ijsp8-python3.13-moto-5.2.3"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/kjh802mp0632pwzs84wbqi9gssbrfqll-python3.13-moto-5.2.2",
+              "path": "/nix/store/g13lsca8sq1xdjipb63v1c3a06sjvqj3-python3.13-moto-5.2.3",
               "default": true
             },
             {
               "name": "dist",
-              "path": "/nix/store/zmjkc8qlnrca5yvmbc19kr0man6hz550-python3.13-moto-5.2.2-dist"
+              "path": "/nix/store/8irrvdhy5il2rjkmhz7fqfw30hhm7czg-python3.13-moto-5.2.3-dist"
             }
           ],
-          "store_path": "/nix/store/kjh802mp0632pwzs84wbqi9gssbrfqll-python3.13-moto-5.2.2"
+          "store_path": "/nix/store/g13lsca8sq1xdjipb63v1c3a06sjvqj3-python3.13-moto-5.2.3"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/vba0rsyfwyv3jxm3a50zchrjv30j81vq-python3.13-moto-5.2.2",
+              "path": "/nix/store/ncqsv796014r7m3zcgisbzjvkwdam2ln-python3.13-moto-5.2.3",
               "default": true
             },
             {
               "name": "dist",
-              "path": "/nix/store/0isj4vlf2mp6nj2bik1877vaipf4zc35-python3.13-moto-5.2.2-dist"
+              "path": "/nix/store/xg8w03ikfmi5faacd7gz3773jqy5rknd-python3.13-moto-5.2.3-dist"
             }
           ],
-          "store_path": "/nix/store/vba0rsyfwyv3jxm3a50zchrjv30j81vq-python3.13-moto-5.2.2"
+          "store_path": "/nix/store/ncqsv796014r7m3zcgisbzjvkwdam2ln-python3.13-moto-5.2.3"
         }
       }
     },
