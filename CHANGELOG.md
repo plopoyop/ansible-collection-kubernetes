@@ -11,6 +11,7 @@
 
 **Merged pull requests:**
 
+- feat\(deps\): update python313packages.ruff \(0.16.10 → 0.17.1\) [\#432](https://github.com/plopoyop/ansible-collection-kubernetes/pull/432) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update python313packages.molecule \(26.6.0 → 26.8.0\) [\#431](https://github.com/plopoyop/ansible-collection-kubernetes/pull/431) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update kind \(0.32.0 → 0.33.0\) [\#430](https://github.com/plopoyop/ansible-collection-kubernetes/pull/430) ([plopoyop](https://github.com/plopoyop))
 - feat\(deps\): update python313packages.boto3 \(1.42.31 → 1.43.79\) [\#428](https://github.com/plopoyop/ansible-collection-kubernetes/pull/428) ([plopoyop](https://github.com/plopoyop))
