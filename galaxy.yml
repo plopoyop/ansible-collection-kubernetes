@@ -1,6 +1,6 @@
 namespace: plopoyop
 name: kubernetes
-version: 11.0.0
+version: 11.1.0
 readme: README.md
 authors:
   - Clément Hubert <clement@plopoyop.me>
