@@ -1,11 +1,12 @@
 # Changelog
 
-## [11.1.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/11.1.0) (2026-10-24)
+## [11.1.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/11.1.0) (2026-10-25)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/11.0.0...11.1.0)
 
 ## ⛵ Helm Charts
 
+- fix\(helm\): update chart cert-manager \(1.21.2 → 1.21.3\) [\#435](https://github.com/plopoyop/ansible-collection-kubernetes/pull/435) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart traefik \(42.0.0 → 42.1.3\) [\#434](https://github.com/plopoyop/ansible-collection-kubernetes/pull/434) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
