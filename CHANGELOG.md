@@ -1,5 +1,13 @@
 # Changelog
 
+## [11.1.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/11.1.1) (2026-10-27)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/11.1.0...11.1.1)
+
+**Merged pull requests:**
+
+- fix\(deps\): update python313packages.ruff \(0.17.1 → 0.17.2\) [\#437](https://github.com/plopoyop/ansible-collection-kubernetes/pull/437) ([plopoyop](https://github.com/plopoyop))
+
 ## [11.1.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/11.1.0) (2026-10-25)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/11.0.0...11.1.0)
