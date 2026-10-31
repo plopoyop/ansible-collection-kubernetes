@@ -175,7 +175,7 @@ Helm chart version to install
 #### Default value
 
 ```YAML
-rancher_helm_chart_version: 2.15.2
+rancher_helm_chart_version: 2.15.3
 ```
 
 ### rancher_hostname
