@@ -6,6 +6,7 @@
 
 ## ⛵ Helm Charts
 
+- fix\(helm\): update chart rancher \(2.15.2 → 2.15.3\) [\#441](https://github.com/plopoyop/ansible-collection-kubernetes/pull/441) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart crowdsec-web-ui \(0.59.0 → 0.60.0\) [\#440](https://github.com/plopoyop/ansible-collection-kubernetes/pull/440) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
