@@ -1,6 +1,6 @@
 # Changelog
 
-## [11.3.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/11.3.0) (2026-11-04)
+## [11.3.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/11.3.0) (2026-11-05)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/11.2.0...11.3.0)
 
@@ -10,6 +10,7 @@
 
 ## ⚙️ Dependencies
 
+- fix\(ci\): update renovatebot/github-action action \(v46.3.11 → v46.3.12\) [\#449](https://github.com/plopoyop/ansible-collection-kubernetes/pull/449) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.3.10 → v46.3.11\) [\#445](https://github.com/plopoyop/ansible-collection-kubernetes/pull/445) ([plopoyop](https://github.com/plopoyop))
 
 **Merged pull requests:**
