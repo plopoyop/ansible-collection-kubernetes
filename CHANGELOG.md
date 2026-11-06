@@ -6,11 +6,13 @@
 
 ## ⛵ Helm Charts
 
+- fix\(helm\): update chart metallb \(0.16.1 → 0.16.2\) [\#452](https://github.com/plopoyop/ansible-collection-kubernetes/pull/452) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart crowdsec-web-ui \(0.62.0 → 0.64.0\) [\#450](https://github.com/plopoyop/ansible-collection-kubernetes/pull/450) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart traefik \(42.2.0 → 42.3.0\) [\#448](https://github.com/plopoyop/ansible-collection-kubernetes/pull/448) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
 
+- fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.17.3 → v0.17.4\) [\#451](https://github.com/plopoyop/ansible-collection-kubernetes/pull/451) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.3.11 → v46.3.12\) [\#449](https://github.com/plopoyop/ansible-collection-kubernetes/pull/449) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.3.10 → v46.3.11\) [\#445](https://github.com/plopoyop/ansible-collection-kubernetes/pull/445) ([plopoyop](https://github.com/plopoyop))
 
