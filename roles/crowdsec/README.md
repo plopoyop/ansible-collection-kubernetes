@@ -451,7 +451,7 @@ Helm chart version to install
 #### Default value
 
 ```YAML
-crowdsec_helm_chart_version: 0.24.2
+crowdsec_helm_chart_version: 0.24.3
 ```
 
 ### crowdsec_lapi_cs_lapi_secret
