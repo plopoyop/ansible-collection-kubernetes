@@ -48,7 +48,7 @@ You can call the roles from this collection in your Ansible playbooks as follows
 | ---------       | ------------------ | -------------- | ------------------------------------        |
 | ExternalDNS         | v1.23.0            | `external_dns` | [View README](roles/external_dns/README.md)       |
 | metallb         | v0.16.2            | `metallb`      | [View README](roles/metallb/README.md)     |
-| traefik         | v42.3.0            | `traefik`      | [View README](roles/traefik/README.md)      |
+| traefik         | v42.3.1            | `traefik`      | [View README](roles/traefik/README.md)      |
 | cert\_manager   | v1.21.3            | `cert_manager` | [View README](roles/cert_manager/README.md) |
 | CrowdSec        | v0.24.3            | `crowdsec`     | [View README](roles/crowdsec/README.md)     |
 | Rancher         | v2.15.3            | `rancher`      | [View README](roles/rancher/README.md) |
