@@ -1,15 +1,15 @@
 deployment:
   kind: "{{ deployment_kind }}"
 service:
-  type: "{{ service_type }}"
 {% if service_annotations | default({}) != {} %}
   annotations: {{ service_annotations | ansible.builtin.to_json }}
 {% endif %}
 {% if service_labels | default({}) != {} %}
   labels: {{ service_labels | ansible.builtin.to_json }}
 {% endif %}
-{% if service_spec | default({}) != {} %}
-  spec: {{ service_spec | ansible.builtin.to_json }}
+{% set traefik_service_spec = ({'type': service_type} if service_type is defined else {}) | ansible.builtin.combine(service_spec | default({})) %}
+{% if traefik_service_spec != {} %}
+  spec: {{ traefik_service_spec | ansible.builtin.to_json }}
 {% endif %}
 ports:
 {% if traefik_entrypoint_port is defined %}
