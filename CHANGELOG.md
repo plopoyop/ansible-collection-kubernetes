@@ -1,6 +1,6 @@
 # Changelog
 
-## [11.4.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/11.4.0) (2026-11-10)
+## [11.4.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/11.4.0) (2026-11-12)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/11.3.0...11.4.0)
 
@@ -8,6 +8,11 @@
 
 - feat\(helm\): update chart crowdsec-web-ui \(0.66.0 → 0.67.0\) [\#456](https://github.com/plopoyop/ansible-collection-kubernetes/pull/456) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart crowdsec-web-ui \(0.64.0 → 0.66.0\) [\#455](https://github.com/plopoyop/ansible-collection-kubernetes/pull/455) ([plopoyop](https://github.com/plopoyop))
+
+## ⚙️ Dependencies
+
+- feat\(ci\): update jetify-com/devbox-install-action action \(v0.15.0 → v0.16.0\) [\#459](https://github.com/plopoyop/ansible-collection-kubernetes/pull/459) ([plopoyop](https://github.com/plopoyop))
+- fix\(ci\): update renovatebot/github-action action \(v46.3.12 → v46.3.13\) [\#458](https://github.com/plopoyop/ansible-collection-kubernetes/pull/458) ([plopoyop](https://github.com/plopoyop))
 
 ## [11.3.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/11.3.0) (2026-11-08)
 
