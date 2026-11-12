@@ -6,6 +6,7 @@
 
 ## ⛵ Helm Charts
 
+- fix\(helm\): update chart traefik \(42.3.1 → 42.3.2\) [\#457](https://github.com/plopoyop/ansible-collection-kubernetes/pull/457) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart crowdsec-web-ui \(0.66.0 → 0.67.0\) [\#456](https://github.com/plopoyop/ansible-collection-kubernetes/pull/456) ([plopoyop](https://github.com/plopoyop))
 - feat\(helm\): update chart crowdsec-web-ui \(0.64.0 → 0.66.0\) [\#455](https://github.com/plopoyop/ansible-collection-kubernetes/pull/455) ([plopoyop](https://github.com/plopoyop))
 
