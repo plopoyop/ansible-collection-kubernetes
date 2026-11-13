@@ -1,6 +1,6 @@
 # Changelog
 
-## [11.4.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/11.4.0) (2026-11-12)
+## [11.4.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/11.4.0) (2026-11-13)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/11.3.0...11.4.0)
 
@@ -14,6 +14,11 @@
 
 - feat\(ci\): update jetify-com/devbox-install-action action \(v0.15.0 → v0.16.0\) [\#459](https://github.com/plopoyop/ansible-collection-kubernetes/pull/459) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.3.12 → v46.3.13\) [\#458](https://github.com/plopoyop/ansible-collection-kubernetes/pull/458) ([plopoyop](https://github.com/plopoyop))
+
+**Merged pull requests:**
+
+- feat\(deps\): update python313packages.ansible \(14.4.0 → 14.6.0\) [\#462](https://github.com/plopoyop/ansible-collection-kubernetes/pull/462) ([plopoyop](https://github.com/plopoyop))
+- fix\(deps\): update python313packages.ruff \(0.17.3 → 0.17.4\) [\#461](https://github.com/plopoyop/ansible-collection-kubernetes/pull/461) ([plopoyop](https://github.com/plopoyop))
 
 ## [11.3.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/11.3.0) (2026-11-08)
 
