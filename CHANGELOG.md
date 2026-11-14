@@ -1,6 +1,6 @@
 # Changelog
 
-## [11.4.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/11.4.0) (2026-11-13)
+## [11.4.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/11.4.0) (2026-11-14)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/11.3.0...11.4.0)
 
@@ -12,6 +12,7 @@
 
 ## ⚙️ Dependencies
 
+- fix\(deps\): update pre-commit hook astral-sh/ruff-pre-commit \(v0.17.4 → v0.17.5\) [\#460](https://github.com/plopoyop/ansible-collection-kubernetes/pull/460) ([plopoyop](https://github.com/plopoyop))
 - feat\(ci\): update jetify-com/devbox-install-action action \(v0.15.0 → v0.16.0\) [\#459](https://github.com/plopoyop/ansible-collection-kubernetes/pull/459) ([plopoyop](https://github.com/plopoyop))
 - fix\(ci\): update renovatebot/github-action action \(v46.3.12 → v46.3.13\) [\#458](https://github.com/plopoyop/ansible-collection-kubernetes/pull/458) ([plopoyop](https://github.com/plopoyop))
 
