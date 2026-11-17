@@ -1,5 +1,13 @@
 # Changelog
 
+## [11.4.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/11.4.1) (2026-11-17)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/11.4.0...11.4.1)
+
+**Merged pull requests:**
+
+- fix\(deps\): update ansible-doctor \(8.4.3 → 8.4.4\) [\#466](https://github.com/plopoyop/ansible-collection-kubernetes/pull/466) ([plopoyop](https://github.com/plopoyop))
+
 ## [11.4.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/11.4.0) (2026-11-15)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/11.3.0...11.4.0)
