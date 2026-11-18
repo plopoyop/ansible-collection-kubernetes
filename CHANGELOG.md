@@ -1,5 +1,13 @@
 # Changelog
 
+## [11.5.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/11.5.1) (2026-11-18)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/11.5.0...11.5.1)
+
+**Merged pull requests:**
+
+- fix\(deps\): update kubernetes-helm \(4.3.1 → 4.3.2\) [\#468](https://github.com/plopoyop/ansible-collection-kubernetes/pull/468) ([plopoyop](https://github.com/plopoyop))
+
 ## [11.5.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/11.5.0) (2026-11-17)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/11.4.0...11.5.0)
