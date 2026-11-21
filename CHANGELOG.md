@@ -1,8 +1,12 @@
 # Changelog
 
-## [11.6.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/11.6.1) (2026-11-20)
+## [11.7.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/11.7.0) (2026-11-21)
 
-[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/11.6.0...11.6.1)
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/11.6.0...11.7.0)
+
+## ⛵ Helm Charts
+
+- feat\(helm\): update chart external-dns \(1.23.0 → 1.24.0\) [\#473](https://github.com/plopoyop/ansible-collection-kubernetes/pull/473) ([plopoyop](https://github.com/plopoyop))
 
 ## ⚙️ Dependencies
 
