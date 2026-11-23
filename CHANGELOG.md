@@ -1,5 +1,13 @@
 # Changelog
 
+## [11.7.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/11.7.1) (2026-11-23)
+
+[Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/11.7.0...11.7.1)
+
+**Merged pull requests:**
+
+- feat\(deps\): update yamllint \(1.37.1 → 1.38.0\) [\#474](https://github.com/plopoyop/ansible-collection-kubernetes/pull/474) ([plopoyop](https://github.com/plopoyop))
+
 ## [11.7.0](https://github.com/plopoyop/ansible-collection-kubernetes/tree/11.7.0) (2026-11-21)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/11.6.0...11.7.0)
