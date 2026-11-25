@@ -1,49 +1,74 @@
 ---
-name: Test roles
+name: "Test roles"
 
 on:
   workflow_dispatch:
   push:
-    branches: [main]
+    branches: ["main"]
     paths:
       - "roles/**"
-      - ".github/**"
-      - devbox.json
-      - devbox.lock
-      - flake.nix
-      - flake.lock
+      - ".github/workflows/test-roles.yml"
+      - ".github/workflows/test-role.yaml"
+      - ".github/scripts/changed-roles.sh"
+      - "devbox.json"
+      - "devbox.lock"
+      - "devbox.d/**"
+      - "flake.nix"
+      - "flake.lock"
+      - "Taskfile.yml"
+      - "requirements.yml"
+      - ".pre-commit-config.yaml"
+  # No paths filter: roles-ok must report on every pull request.
   pull_request:
-    branches: [main]
-    paths:
-      - "roles/**"
-      - ".github/**"
-      - devbox.json
-      - devbox.lock
-      - flake.nix
-      - flake.lock
+    branches: ["main"]
+
+permissions:
+  contents: "read"
+
+concurrency:
+  group: "${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}"
+  cancel-in-progress: true
 
 jobs:
-  metallb:
-    uses: ./.github/workflows/test-role.yaml
+  changes:
+    runs-on: "ubuntu-latest"
+    outputs:
+      roles: "${{ steps.roles.outputs.roles }}"
+    steps:
+      - uses: "actions/checkout@v7"
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: "List the roles to test"
+        id: "roles"
+        env:
+          # On a pull request HEAD is the merge commit: its first parent is the base.
+          BASE: "${{ github.event_name == 'pull_request' && 'HEAD^1' || github.event_name == 'push' && github.event.before || '' }}"
+        run: |
+          roles=$(.github/scripts/changed-roles.sh "$BASE")
+          echo "Roles to test: $roles"
+          echo "roles=$roles" >> "$GITHUB_OUTPUT"
+
+  test:
+    needs: "changes"
+    if: "needs.changes.outputs.roles != '[]'"
+    strategy:
+      fail-fast: false
+      matrix:
+        role: "${{ fromJSON(needs.changes.outputs.roles) }}"
+    uses: "./.github/workflows/test-role.yaml"
     with:
-      role_name: "metallb"
-  external_dns:
-    uses: ./.github/workflows/test-role.yaml
-    with:
-      role_name: "external_dns"
-  traefik:
-    uses: ./.github/workflows/test-role.yaml
-    with:
-      role_name: "traefik"
-  cert-manager:
-    uses: ./.github/workflows/test-role.yaml
-    with:
-      role_name: "cert_manager"
-  crowdsec:
-    uses: ./.github/workflows/test-role.yaml
-    with:
-      role_name: "crowdsec"
-  rancher:
-    uses: ./.github/workflows/test-role.yaml
-    with:
-      role_name: "rancher"
+      role_name: "${{ matrix.role }}"
+
+  roles-ok:
+    needs: ["changes", "test"]
+    if: "always()"
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: "Check the role tests"
+        env:
+          CHANGES: "${{ needs.changes.result }}"
+          TEST: "${{ needs.test.result }}"
+        run: |
+          echo "changes=$CHANGES test=$TEST"
+          [ "$CHANGES" = "success" ] && { [ "$TEST" = "success" ] || [ "$TEST" = "skipped" ]; }
