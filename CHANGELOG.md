@@ -8,6 +8,10 @@
 
 - fix\(ci\): only run molecule for the roles a change touches [\#477](https://github.com/plopoyop/ansible-collection-kubernetes/pull/477) ([plopoyop](https://github.com/plopoyop))
 
+## ⛵ Helm Charts
+
+- fix\(helm\): update chart traefik \(42.4.1 → 42.4.3\) [\#475](https://github.com/plopoyop/ansible-collection-kubernetes/pull/475) ([plopoyop](https://github.com/plopoyop))
+
 **Merged pull requests:**
 
 - fix\(deps\): update prek \(0.5.10 → 0.5.11\) [\#478](https://github.com/plopoyop/ansible-collection-kubernetes/pull/478) ([plopoyop](https://github.com/plopoyop))
