@@ -1,8 +1,12 @@
 # Changelog
 
-## [11.7.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/11.7.1) (2026-11-23)
+## [11.7.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/11.7.1) (2026-11-25)
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/11.7.0...11.7.1)
+
+## 🐛 Bug Fixes
+
+- fix\(ci\): only run molecule for the roles a change touches [\#477](https://github.com/plopoyop/ansible-collection-kubernetes/pull/477) ([plopoyop](https://github.com/plopoyop))
 
 **Merged pull requests:**
 
