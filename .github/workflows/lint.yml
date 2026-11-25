@@ -1,32 +1,32 @@
 ---
-name: Lint
+name: "Lint"
 
 on:
   push:
-    branches: [main]
+    branches: ["main"]
     paths:
-      - 'roles/**'
-      - 'plugins/**'
-      - 'tests/**'
-      - '.github/workflows/lint.yml'
-      - '.ansible-lint.yml'
-      - '.yamllint.yml'
+      - "roles/**"
+      - "plugins/**"
+      - "tests/**"
+      - ".github/workflows/lint.yml"
+      - ".ansible-lint"
+      - ".yamllint"
   pull_request:
-    branches: [main]
+    branches: ["main"]
     paths:
-      - 'roles/**'
-      - 'plugins/**'
-      - 'tests/**'
-      - '.github/workflows/lint.yml'
-      - '.ansible-lint.yml'
-      - '.yamllint.yml'
+      - "roles/**"
+      - "plugins/**"
+      - "tests/**"
+      - ".github/workflows/lint.yml"
+      - ".ansible-lint"
+      - ".yamllint"
 
 jobs:
   lint:
-    runs-on: ubuntu-latest
+    runs-on: "ubuntu-latest"
     steps:
-      - uses: actions/checkout@v7
-      - name: Install devbox
-        uses: jetify-com/devbox-install-action@v0.16.0
-      - name: Run Linter
-        run: devbox run -- task lint
+      - uses: "actions/checkout@v7"
+      - name: "Install devbox"
+        uses: "jetify-com/devbox-install-action@v0.16.0"
+      - name: "Run Linter"
+        run: "devbox run -- task lint"

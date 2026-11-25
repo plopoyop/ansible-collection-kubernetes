@@ -1,5 +1,5 @@
 ---
-name: test role
+name: "test role"
 on:
   workflow_call:
     inputs:
@@ -8,25 +8,27 @@ on:
         type: string
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: "ubuntu-latest"
     steps:
-      - uses: actions/checkout@v7
-      - name: Install devbox
-        uses: jetify-com/devbox-install-action@v0.16.0
-      - name: Prepare env
-        run: devbox run -- task prepare
-      - name: Run molecule test
+      - uses: "actions/checkout@v7"
+      - name: "Install devbox"
+        uses: "jetify-com/devbox-install-action@v0.16.0"
+      - name: "Prepare env"
+        run: "devbox run -- task prepare"
+      - name: "Run molecule test"
+        env:
+          ROLE: "${{ inputs.role_name }}"
         run: |
           attempts=3
           for i in $(seq 1 "$attempts"); do
-            echo "::group::Molecule test attempt $i/$attempts (${{ inputs.role_name }})"
-            if devbox run -- task test:role:${{ inputs.role_name }}; then
+            echo "::group::Molecule test attempt $i/$attempts ($ROLE)"
+            if devbox run -- task "test:role:$ROLE"; then
               echo "::endgroup::"
               exit 0
             fi
             echo "::endgroup::"
-            echo "::warning::Attempt $i/$attempts failed for role ${{ inputs.role_name }}"
+            echo "::warning::Attempt $i/$attempts failed for role $ROLE"
             sleep 20
           done
-          echo "::error::Molecule test failed after $attempts attempts for role ${{ inputs.role_name }}"
+          echo "::error::Molecule test failed after $attempts attempts for role $ROLE"
           exit 1
