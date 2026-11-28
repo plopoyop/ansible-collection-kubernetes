@@ -2,7 +2,8 @@
 version: '3'
 
 vars:
-  ROLES_LIST: ["metallb", "external_dns", "traefik", "cert_manager", "crowdsec", "rancher"]
+  ROLES_LIST:
+    sh: "find roles -mindepth 2 -maxdepth 2 -name molecule -type d | cut -d/ -f2 | sort"
 
 tasks:
   default:
