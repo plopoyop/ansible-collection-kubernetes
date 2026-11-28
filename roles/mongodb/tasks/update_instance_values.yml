@@ -1,9 +1,0 @@
----
-- name: "Update mongodb_instance with overridden key"
-  ansible.builtin.set_fact:
-    mongodb_instance: >-
-      {{ mongodb_instance | ansible.builtin.combine({
-           value_to_update.key: value_to_update.value,
-           'updated': true,
-         }) }}
-  changed_when: false
