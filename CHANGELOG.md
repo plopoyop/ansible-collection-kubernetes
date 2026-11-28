@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/11.7.1...12.0.0)
 
+## ⛵ Helm Charts
+
+- feat\(helm\)!: Update chart traefik \(42.4.3 → 43.0.0\) [\#476](https://github.com/plopoyop/ansible-collection-kubernetes/pull/476) ([plopoyop](https://github.com/plopoyop))
+
 ## ⚙️ Dependencies
 
 - feat\(ci\)!: Update renovatebot/github-action action \(v46.3.14 → v48.0.0\) [\#480](https://github.com/plopoyop/ansible-collection-kubernetes/pull/480) ([plopoyop](https://github.com/plopoyop))
