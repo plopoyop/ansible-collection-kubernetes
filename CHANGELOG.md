@@ -14,6 +14,7 @@
 
 **Merged pull requests:**
 
+- chore\(tooling\): compute the roles list from the roles directory [\#482](https://github.com/plopoyop/ansible-collection-kubernetes/pull/482) ([plopoyop](https://github.com/plopoyop))
 - feat!: remove the deprecated mongodb role [\#481](https://github.com/plopoyop/ansible-collection-kubernetes/pull/481) ([plopoyop](https://github.com/plopoyop))
 
 ## [11.7.1](https://github.com/plopoyop/ansible-collection-kubernetes/tree/11.7.1) (2026-11-25)
