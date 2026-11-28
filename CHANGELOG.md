@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/plopoyop/ansible-collection-kubernetes/compare/11.7.1...12.0.0)
 
+## ⚙️ Dependencies
+
+- feat\(ci\)!: Update renovatebot/github-action action \(v46.3.14 → v48.0.0\) [\#480](https://github.com/plopoyop/ansible-collection-kubernetes/pull/480) ([plopoyop](https://github.com/plopoyop))
+
 **Merged pull requests:**
 
 - feat!: remove the deprecated mongodb role [\#481](https://github.com/plopoyop/ansible-collection-kubernetes/pull/481) ([plopoyop](https://github.com/plopoyop))
