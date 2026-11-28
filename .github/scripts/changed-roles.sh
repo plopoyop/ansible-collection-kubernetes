@@ -5,17 +5,11 @@ set -euo pipefail
 shared='^(\.github/(workflows/test-roles?\.ya?ml|scripts/changed-roles\.sh)|devbox\.(json|lock)|devbox\.d/.+|flake\.(nix|lock)|Taskfile\.yml|requirements\.yml|\.pre-commit-config\.yaml)$'
 
 base="${1:-}"
-all_roles=$(sed -n 's/^  ROLES_LIST: *//p' Taskfile.yml | jq -r '.[]' 2>/dev/null | sort || true)
+all_roles=$(find roles -mindepth 2 -maxdepth 2 -name molecule -type d | cut -d/ -f2 | sort)
 if [ -z "$all_roles" ]; then
-  echo "::error::No role found in the ROLES_LIST of Taskfile.yml" >&2
+  echo "::error::No role with a molecule directory found" >&2
   exit 1
 fi
-for role in $all_roles; do
-  if [ ! -d "roles/$role/molecule" ]; then
-    echo "::error::Role $role of ROLES_LIST has no molecule directory" >&2
-    exit 1
-  fi
-done
 
 if [ -z "$base" ] || [ "$base" = "0000000000000000000000000000000000000000" ] \
   || ! git cat-file -e "${base}^{commit}" 2>/dev/null; then
