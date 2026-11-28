@@ -59,7 +59,7 @@ Every role in this collection ships tagged tasks so you can selectively run only
 
 Three kinds of tags are exposed:
 
-- **Role tag** — named after the role itself (e.g. `traefik`, `cert_manager`, `crowdsec`, `external_dns`, `metallb`, `mongodb`, `rancher`). Use it to scope a run to a single tool.
+- **Role tag** — named after the role itself (e.g. `traefik`, `cert_manager`, `crowdsec`, `external_dns`, `metallb`, `rancher`). Use it to scope a run to a single tool.
 - **Action tag** — `install` or `uninstall`. The role's `*_enabled` variable controls which one runs:
   - When `<role>_enabled: true`, the setup tasks (tagged `install`) are executed.
   - When `<role>_enabled: false`, the cleanup tasks (tagged `uninstall`) are executed.
@@ -74,8 +74,6 @@ Three kinds of tags are exposed:
   | `manifest`        | Other Kubernetes resources (ClusterIssuers, IPPools, middlewares, custom resources, PVCs cleanup, etc.)     |
 
   Pure helper tasks (`set_fact`, `assert`, `pause`, `uri` validations, `debug`) carry only the role + action tags so they run alongside any phase that needs them.
-
-> **Note:** the `mongodb` role only exposes the `install` action tag (no cleanup flow is provided).
 
 #### Examples
 
